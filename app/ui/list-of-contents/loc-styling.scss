@@ -1,0 +1,48 @@
+@use "./../../utils/colors/colors";
+@use "./../../utils/mixins-other/screen-widths" as s-w;
+@use "./../../utils/size-spacing/nums-size-space" as n-s-s;
+@use "./../../utils/size-spacing/row-column-gaps" as r-c-g;
+@use "./../../utils/variables/variables-global" as v-g;
+
+// main > section.bodyContent > aside {
+//     @include s-w.mediaQuery-maxOnly(v-g.$bp-dt) {
+
+//     }
+//     @include s-w.mediaQuery-minMax(v-g.$bp-dt, v-g.$bp-dt-xl) {
+//         max-width: 250px;
+//     }
+//     @include s-w.mediaQuery-minOnly(v-g.$bp-dt-xl) {
+//         max-width: 350px;
+//     }
+// }
+
+aside {
+    &.sticky-active {
+        // max-height: 85vh;
+        // overflow-x: hidden;
+        overflow-y: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        &:-webkit-scrollbar {
+            display: none;
+        }
+        @include s-w.mediaQuery-minOnly(v-g.$bp-dt) {
+            position: sticky;
+            top: 86px;
+            order: 1;
+        }
+    }
+    @include s-w.mediaQuery-maxOnly(v-g.$bp-dt) {
+        & > nav.tocNavLinks {
+            display: none;
+            margin-bottom: map-get(n-s-s.$size-space, "m");
+            padding: map-get(n-s-s.$size-space, "sm");
+            border: map-get(n-s-s.$size-space, "xxxs") solid colors.color('p', 30);
+            border-radius: map-get(n-s-s.$size-space, "sm");
+            background-color: colors.color('n', 90);
+        }
+    }
+    @include s-w.mediaQuery-minOnly(v-g.$bp-dt) {
+        @include r-c-g.rowColumnGaps("m", 0);
+    }
+}

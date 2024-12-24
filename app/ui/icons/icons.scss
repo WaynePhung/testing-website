@@ -1,0 +1,30 @@
+@use "./../../utils/mixins-other/display-flex";
+@use "./../../utils/mixins-other/screen-widths" as s-w;
+@use "./../../utils/size-spacing/nums-size-space" as n-s-s;
+/*
+    Placeholder selector for the class which will set the 
+    object, width, and height properties for containers of 
+    small icon images associated with each ToC Section.
+
+    No right border is to prevent a miscellaneous line 
+    to the right of the image from appearing.
+*/
+%icon {
+    @extend %flex-row-wrap-center;
+    position: relative;
+    object-fit: contain;
+    line-height: 0;
+    border-right: none !important;
+    @include s-w.mediaQuery-maxOnly(1920) {
+        width: map-get(n-s-s.$size-space, "l");
+        height: map-get(n-s-s.$size-space, "l");
+    }
+    @include s-w.mediaQuery-minOnly(1920) {
+        width: map-get(n-s-s.$size-space, "xl");
+        height: map-get(n-s-s.$size-space, "xl");
+    }
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}

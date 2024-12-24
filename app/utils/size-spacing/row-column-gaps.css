@@ -1,0 +1,30 @@
+/*
+    Key naming scheme is analogous to T-Shirt sizing:
+        2xs = xxs = extra extra small
+        xs = extra small
+        s = small
+        sm = small medium
+        m = medium
+        ml = medium large
+        l = large
+        xl = extra large
+        2xl = extra extra large
+        [n]xl = [number of xs] extra large
+*/
+/* Inset applies to the padding of an element. */
+/* Stack applies to bottom vertical space (mainly between elements or establishing negative space). */
+/* Inline applies to right horizontal space (mainly between elements or establishing negative space). */
+/* Default inset spacing for different types of buttons.*/
+/*
+    UPDATE COMMENT
+    Mixin to define the space between each children element in a 
+    container with flex display. For grid display, this defines the 
+    space between each grid cell. Varaible arguments are defined below.
+        - "$rowGap" is the horizontal spacing between elements in a 
+          flexbox container or grid cells.
+        - "$columnGap" is the horizontal spacing between elements in a 
+          flexbox container or grid cells.
+        - By default, each argument has a default value of zero (no space), 
+          even if the argument is empty. However, the value of either or both 
+          arguments can be non-zero if specified.
+*/

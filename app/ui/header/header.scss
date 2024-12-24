@@ -1,0 +1,138 @@
+@use "./../buttons/buttons";
+@use "./../../utils/colors/colors";
+@use "./../../utils/mixins-other/display-flex";
+@use "./../../utils/mixins-other/screen-widths" as s-w;
+@use "./../../utils/mixins-other/show-hide-toggle" as s-h-t;
+@use "./../../utils/size-spacing/nums-size-space" as n-s-s;
+@use "./../../utils/size-spacing/row-column-gaps" as r-c-g;
+@use "./../../utils/text-styling/link-styling";
+@use "./../../utils/variables/variables-global" as v-g;
+
+header {
+    @extend %flex-row-wrap-default;
+    // padding: map-get(n-s-s.$size-space-inset, "m");
+    align-items: center;
+    background-color: colors.color('n', 90, 90);
+    backdrop-filter: blur(map-get(n-s-s.$size-space, "s"));
+    @include s-w.mediaQuery-maxOnly(v-g.$bp-mb-s) {
+        position: relative;
+    }
+    @include s-w.mediaQuery-minOnly(v-g.$bp-mb-s) {
+        position: sticky;
+    }
+    @include s-w.mediaQuery-minMax(v-g.$bp-mb-s, v-g.$bp-mb-l) {
+        min-height: #{map-get(n-s-s.$size-space, "5xl-num")}px;
+    }
+    @include s-w.mediaQuery-minMax(v-g.$bp-mb-s, v-g.$bp-dt) {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+    }
+    @include s-w.mediaQuery-maxOnly(v-g.$bp-dt) {
+        width: 100%;
+    }
+    @include s-w.mediaQuery-minOnly(v-g.$bp-dt) {
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: auto;
+        min-height: #{map-get(n-s-s.$size-space, "3xl-num")}px;
+    }
+    
+    & > nav.navigationBar {
+        position: relative;
+        @extend %flex-row-wrap-center;
+        justify-content: space-between;
+        order: 0;
+        height: 100%;
+        @include s-w.mediaQuery-maxOnly(250) {
+            // padding: map-get(n-s-s.$size-space, "s") 0;
+        }
+        @include s-w.mediaQuery-minOnly(250) {
+            width: 100%;
+            // padding: 0;
+        }
+        @include s-w.mediaQuery-maxOnly(725) {
+            justify-content: center;
+        }
+        @include s-w.mediaQuery-minMax(725, v-g.$bp-dt) {
+            justify-content: space-between;
+        }
+        @include s-w.mediaQuery-maxOnly(v-g.$bp-dt) {
+            order: 2;
+        }
+
+        & > a:first-of-type {
+            @include s-w.mediaQuery-minOnly(v-g.$bp-dt) {
+                padding-left: 0;
+            }
+        }
+
+        & > nav {
+            @extend %flex-row-wrap-center;
+            @include s-w.mediaQuery-maxOnly(375) {
+                width: 100%;
+            }
+            @include s-w.mediaQuery-minMax(375, 715) {
+                justify-content: space-between;
+                min-width: 350px;
+                & > a:first-of-type {
+                    padding-left: 0;
+                }
+                & > a:last-of-type {
+                    padding-right: 0;
+                }
+            }
+            @include s-w.mediaQuery-maxOnly(715) {
+                // padding: map-get(n-s-s.$size-space-stack, "m");
+                padding: map-get(n-s-s.$size-space-stack, "s");
+            }
+            @include s-w.mediaQuery-minMax(715, v-g.$bp-dt) {
+                padding: map-get(n-s-s.$size-space-inline, "m");
+            }
+            @include s-w.mediaQuery-minOnly(v-g.$bp-dt) {
+                padding: 0;
+            }
+        }
+
+        & > .contactButtons {
+            @extend %flex-row-wrap-center;
+            justify-content: flex-start;
+            @include r-c-g.rowColumnGaps("s", "m");
+            @include s-h-t.sHT-mQ-dhds(350);
+            @include s-w.mediaQuery-maxOnly(715) {
+                justify-content: space-between;
+                // width: 100%;
+                & > button {
+                    width: calc(50% - map-get(n-s-s.$size-space, "sm"));
+                }
+            }
+            & > button {
+                @extend %button-primary;
+                & > a {
+                    @extend %link;
+                }
+            }
+        }
+    
+    }
+
+    & > .progressContainer {
+        left: 0;
+        max-width: 100%;
+        width: 100%;
+        height: map-get(n-s-s.$size-space, "xs");
+        scroll-padding: 0;
+
+        & > .progressBar {
+            width: 0%;
+            height: map-get(n-s-s.$size-space, "xs");
+            // background-color: colors.color('p', 30);
+            background-image: linear-gradient(to right, colors.color('n', 90, 90), colors.color('p', 30, 65));
+            color: colors.color('n', 30);
+            border-radius: map-get(n-s-s.$size-space, "2xs");
+            scroll-padding: 0;
+            transition: 0s ease-in-out;
+        }
+    }
+}

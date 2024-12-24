@@ -1,0 +1,53 @@
+@use "./../header/header";
+@use "./../buttons/buttons";
+@use "./../../utils/colors/colors";
+@use "./../../utils/grids/grid-variables" as g-v;
+@use "./../../utils/mixins-other/display-flex";
+@use "./../../utils/mixins-other/screen-widths" as s-w;
+@use "./../../utils/mixins-other/show-hide-toggle" as s-h-t;
+@use "./../../utils/size-spacing/nums-size-space" as n-s-s;
+@use "./../../utils/size-spacing/row-column-gaps" as r-c-g;
+@use "./../../utils/text-styling/link-styling";
+@use "./../../utils/text-styling/text-styling" as t-s;
+@use "./../../utils/variables/variables-global" as v-g;
+
+footer {
+    @extend %flex-row-wrap-default;
+    background-color: colors.color('p', 90);
+    @include r-c-g.rowColumnGaps("xl", "3xl");
+    article {
+        &#endMessage {
+            max-width: 650px;
+            & > p {
+                &.subtitle {
+                    padding-bottom: map-get(n-s-s.$size-space, "m");
+                    @include s-w.mediaQuery-maxOnly(v-g.$bp-dt) {
+                        max-width: 500px;
+                    }
+                }
+                &#conversation {
+                    padding-bottom: map-get(n-s-s.$size-space, "s");
+                }
+                & > span.noWidow {
+                    @include t-s.noWidow(375, 600);
+                }
+            }
+            & > .contactButtons {
+                @extend %flex-row-wrap-center;
+                justify-content: flex-start;
+                @include r-c-g.rowColumnGaps("s", "m");
+                & > button {
+                    // For some unknown reason, this @extend below forces a compilation error even though the file imports are defined...
+                    // @extend %button-primary;
+                    & > a {
+                        @extend %link;
+                    }
+                }
+            }
+        }
+        &#endNavLinks > nav {
+            @include g-v.gridClass(320, '', 2, 1fr);
+            @include r-c-g.rowColumnGaps("s", "l");
+        }
+    }
+}

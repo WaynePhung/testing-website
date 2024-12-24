@@ -1,0 +1,12 @@
+@use "./../../utils/mixins-other/display-flex";
+@use "./../../utils/mixins-other/screen-widths" as s-w;
+@use "./../../utils/grids/grid-variables" as g-v;
+@use "./../../utils/size-spacing/row-column-gaps" as r-c-g;
+@use "./../../utils/variables/variables-global" as v-g;
+
+article#other-case-studies > article.grid-case-study-preview > article {
+    @extend %flex-row-wrap-default;
+    @include s-w.mediaQuery-minOnly(v-g.$bp-dt) {
+        @include r-c-g.rowColumnGaps("m", 0);
+    }
+}

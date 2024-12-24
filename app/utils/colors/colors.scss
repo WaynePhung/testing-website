@@ -1,0 +1,114 @@
+/* 
+    UPDATE COMMENT
+    
+    This Sass variable creates a map key value pairs, where each pair consists of the following:
+    - the expression on the left represents a key
+    - the expression on the right is value associated with that key
+    
+    In this case, the values on the right represent the corresponding values for hue, saturation, and lightness 
+    of the color names on the left, which are the exact colors intended for usage in the visual 
+    appearance of text, buttons, and other visual elements.
+    For example "darkBlue" is a key that is a color name, and "hsl(" is a hexcode value that is 
+    associated with "darkBlue".
+
+    The map below is used for a simple, but reproducible function called "color($colorName)" that 
+    can be used to clearly communicate which color is being to for one or more selected elements.
+
+    This map can be expanded to include more colors other than the ones already listed, and the 
+    hexcode values can be conveniently changed so that all elements that uses the same color will 
+    have their colors updated to reflect this change.
+
+    For more information on maps and key-value pairs, copy and paste this URL on an article about 
+    maps from the Sass official website: https://sass-lang.com/documentation/values/maps/
+*/
+$colors: (
+    p-0: hsl(230, 45%, 23%),
+    p-10: hsl(225, 50%, 30%),
+    p-20: hsl(220, 55%, 37%),
+    p-30: hsl(215, 60%, 44%),
+    p-30-alpha65: hsla(215, 60%, 44%, 65%),
+    p-40: hsl(210, 65%, 51%),
+    p-50: hsl(205, 70%, 58%),
+    p-60: hsl(200, 75%, 65%),
+    p-70: hsl(195, 80%, 72%),
+    p-80: hsl(190, 85%, 79%),
+    p-90: hsl(185, 90%, 86%),
+    p-100: hsl(190, 95%, 93%),
+    p-100-alpha90: hsl(190, 95%, 93%, 90%),
+    s-0: hsl(11, 45%, 23%),
+    s-10: hsl(16, 50%, 30%),
+    s-20: hsl(21, 55%, 37%),
+    s-30: hsl(26, 60%, 44%),
+    s-40: hsl(31, 65%, 51%),
+    s-50: hsl(36, 70%, 58%),
+    s-60: hsl(41, 75%, 65%),
+    s-70: hsl(46, 80%, 72%),
+    s-80: hsl(51, 85%, 79%),
+    s-90: hsl(56, 90%, 86%),
+    s-100: hsl(61, 95%, 93%),
+    a1-0: hsl(105, 45%, 23%),
+    a1-10: hsl(110, 50%, 30%),
+    a1-20: hsl(115, 55%, 37%),
+    a1-30: hsl(120, 60%, 44%),
+    a1-40: hsl(125, 65%, 51%),
+    a1-50: hsl(130, 70%, 58%),
+    a1-60: hsl(135, 75%, 65%),
+    a1-70: hsl(140, 80%, 72%),
+    a1-80: hsl(145, 85%, 79%),
+    a1-90: hsl(150, 90%, 86%),
+    a1-100: hsl(155, 95%, 93%),
+    a2-0: hsl(320, 45%, 23%),
+    a2-10: hsl(325, 50%, 30%),
+    a2-20: hsl(330, 55%, 37%),
+    a2-30: hsl(335, 60%, 44%),
+    a2-40: hsl(340, 65%, 51%),
+    a2-50: hsl(345, 70%, 58%),
+    a2-60: hsl(350, 75%, 65%),
+    a2-70: hsl(355, 80%, 72%),
+    a2-80: hsl(360, 85%, 79%),
+    a2-90: hsl(4, 90%, 86%),
+    a2-100: hsl(9, 95%, 93%),
+    n-0: hsl(0, 0%, 0%),
+    n-10: hsl(0, 0%, 10%),
+    n-20: hsl(0, 0%, 20%),
+    n-30: hsl(0, 0%, 30%),
+    n-30-alpha65: hsla(0, 0%, 30%, 65%),
+    n-40: hsl(0, 0%, 40%),
+    n-50: hsl(0, 0%, 50%),
+    n-60: hsl(0, 0%, 60%),
+    n-70: hsl(0, 0%, 70%),
+    n-80: hsl(0, 0%, 80%),
+    n-90: hsl(0, 0%, 90%),
+    n-90-alpha90: hsla(0, 0%, 90%, 90%),
+    n-100: hsl(0, 0%, 100%),
+    n-100-alpha90: hsla(0, 0%, 100%, 90%)
+);
+
+/*
+    UPDATE COMMENT
+    This function uses the map from the "$colors" variable to return the desired color included from 
+    the map.
+
+    The mapping of color names is necessary to avoid confusion from using color hexcodes on which 
+    colors each element is using and to make the code usage of the CSS color property reproducible, 
+    more understandable, and with less repetitive code.
+*/
+@function color($colorType, $percentage, $opacity: '') {
+    @if ($opacity != '') {
+        @return map-get((
+            'p': map-get($colors, 'p-' + #{$percentage} + '-alpha' + #{$opacity}),
+            's': map-get($colors, 's-' + #{$percentage} + '-alpha' + #{$opacity}),
+            'a1': map-get($colors, 'a1-' + #{$percentage} + '-alpha' + #{$opacity}),
+            'a2': map-get($colors, 'a2-' + #{$percentage} + '-alpha' + #{$opacity}),
+            'n': map-get($colors, 'n-' + #{$percentage} + '-alpha' + #{$opacity})
+        ), $colorType);
+    } @else {
+        @return map-get((
+            'p': map-get($colors, 'p-' + #{$percentage}),
+            's': map-get($colors, 's-' + #{$percentage}),
+            'a1': map-get($colors, 'a1-' + #{$percentage}),
+            'a2': map-get($colors, 'a2-' + #{$percentage}),
+            'n': map-get($colors, 'n-' + #{$percentage})
+        ), $colorType);
+    }
+}

@@ -1,0 +1,324 @@
+/* 
+    UPDATE COMMENT
+
+    This Sass variable creates a map key value pairs, where each pair consists of the following:
+    - the expression on the left represents a key
+    - the expression on the right is value associated with that key
+
+    In this case, the values on the right represent the corresponding values for hue, saturation, and lightness 
+    of the color names on the left, which are the exact colors intended for usage in the visual 
+    appearance of text, buttons, and other visual elements.
+    For example "darkBlue" is a key that is a color name, and "hsl(" is a hexcode value that is 
+    associated with "darkBlue".
+
+    The map below is used for a simple, but reproducible function called "color($colorName)" that 
+    can be used to clearly communicate which color is being to for one or more selected elements.
+
+    This map can be expanded to include more colors other than the ones already listed, and the 
+    hexcode values can be conveniently changed so that all elements that uses the same color will 
+    have their colors updated to reflect this change.
+
+    For more information on maps and key-value pairs, copy and paste this URL on an article about 
+    maps from the Sass official website: https://sass-lang.com/documentation/values/maps/
+*/
+/*
+    UPDATE COMMENT
+    This function uses the map from the "$colors" variable to return the desired color included from 
+    the map.
+
+    The mapping of color names is necessary to avoid confusion from using color hexcodes on which 
+    colors each element is using and to make the code usage of the CSS color property reproducible, 
+    more understandable, and with less repetitive code.
+*/
+/*
+    This mixin is used to position and wrap children elements relative to the parent container element. It takes the following arguments to define flexbox properties for container elements:
+        1. Sets the display to flex (essential for any of the other flex properties to function as intended).
+        2. Enables/disables the wrapping of the children elements based on the "$flexWrap" variable argument.
+            - "wrap" to have the children elements populate within the space 
+              of the container
+            - "nowrap" to have the children elements instead populate within 
+              the same row/column
+        3. Sets the orientation of the wrapping, whether in a row or column. This is based on the "$flexDirection" variable argument.
+        4. Sets the starting position of each children element relative to the container element. This is based on the "$alignItems" variable argument:
+            - "flex-start" to start from the beginning portion of the container
+            - "center" to start from the middle portion
+            - "flex-end" to start from the bottom portion
+            - "stretch" to take up the available space of the container
+        - Sets the positioning of all children elements relative to the container element. This is based on the "$alignContent" variable argument:
+            - "flex-start" to orient all the children elements from the 
+              beginning portion of the container
+            - "center" to orient all the children elements from the middle portion
+            - "flex-end" to orient all the children elements from the bottom portion
+            - "stretch" to take up the available space of the container
+        - Sets the alignment of all children elements when they don't take up all of the available space in the container. This is based on the "$justifyContent" variable argument.
+
+*/
+/*
+  Placeholder selectors for the flex display of a container:
+    - column flex direction, wrapping along the column for
+      children elements, top-left starting point and alignment
+      of children elements and text
+*/
+/*
+        - same as previous, except no wrapping of children elements
+*/
+footer article#endNavLinks > nav > a {
+  display: flex;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: flex-start;
+}
+
+/*
+        - column flex direction, wrapping, center starting point
+          and alignment of children elements and text
+*/
+/*
+        - same as previous, except no wrapping of children elements
+*/
+/*
+        - row flex direction, wrapping, top-left starting point 
+          and alignment of children elements and text
+*/
+/*
+        - same as previous, except no wrapping of children elements
+*/
+/*
+        - row flex direction, wrapping, center starting point
+          and alignment of children elements and text
+*/
+header > nav.navigationBar > a, header > nav.navigationBar > nav > a, footer article#endNavLinks > nav > a {
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+/*
+    These three mixins makes a container of code reusable for specifying the minimum 
+    and/or maximum width condition(s) to apply the CSS properties and values.
+        - "mediaQuery-minOnly" sets up a media query for only the minimum width used in the media query's condition.
+          - "mediaQuery-maxOnly" sets up a media query for only the maximum width used in the media query's condition.
+          - "mediaQuery-minMax" sets up a media query for a range between the minimum and maximum widths used in the media query's condition.
+
+    These mixins uses two or three of the following:
+        - "$min" is a variable used as this mixin's argument to specify the number value for the minimum width used in the media query's condition.
+        - "$max" is a variable used as this mixin's argument to specify the number value for the maximum width used in the media query's condition.
+        - "@content" is a Sass directive that allows flexibile input of different CSS properties and values, whether to apply the same properties for multiple elements or tailor different properties to specific elements.
+*/
+/*
+    Key naming scheme is analogous to T-Shirt sizing:
+        2xs = xxs = extra extra small
+        xs = extra small
+        s = small
+        sm = small medium
+        m = medium
+        ml = medium large
+        l = large
+        xl = extra large
+        2xl = extra extra large
+        [n]xl = [number of xs] extra large
+*/
+/* Inset applies to the padding of an element. */
+/* Stack applies to bottom vertical space (mainly between elements or establishing negative space). */
+/* Inline applies to right horizontal space (mainly between elements or establishing negative space). */
+/* Default inset spacing for different types of buttons.*/
+/* 
+    Values for different screen width breakpoints.
+    bp = breakpoint, mb = mobile, dt = desktop, s = small, l = large
+*/
+/*
+    Placeholder selector used for the html element to set the default transition time to 0.25 seconds
+    with an ease-in and ease-out transition smoothness.
+*/
+/*
+    Placeholder selector to set the default background color of the entire page (html element) and 
+    the navigation header to light blue using the color function.
+*/
+main, footer {
+  z-index: 3;
+}
+
+header {
+  z-index: 4;
+}
+
+/*
+    This mixin uses two different variables to toggle the display of an element.
+
+    If value of the "$state" variable is "show", the element would appear 
+    with either of these display properties.
+        - If the element is a ToC container, the default display would be in flex to 
+          display the children elements as a horizontal row.
+        - Otherwise, set the display of that element to what it originally had, as 
+          defined within this CSS file.
+
+    If the value of the "$state" variable is "hide", that element would not appear 
+    at all. The space that it took up would also not appear.
+
+    This mixin doesn't do anything if the value of the "$state" variable is neither 
+    "show" or "hide".
+*/
+/*
+    sHT = showHideToggle, mQ = mediaQuery, dhds = "default", "hide", "default", "show"
+*/
+/*
+    sHT = showHideToggle, mQ = mediaQuery, dsdh = "default", "show", "default", "hide"
+*/
+/*
+    UPDATE COMMENT
+    Mixin to define the space between each children element in a 
+    container with flex display. For grid display, this defines the 
+    space between each grid cell. Varaible arguments are defined below.
+        - "$rowGap" is the horizontal spacing between elements in a 
+          flexbox container or grid cells.
+        - "$columnGap" is the horizontal spacing between elements in a 
+          flexbox container or grid cells.
+        - By default, each argument has a default value of zero (no space), 
+          even if the argument is empty. However, the value of either or both 
+          arguments can be non-zero if specified.
+*/
+/*
+    The name "%link" defines a placeholder selector.
+    Placeholder selectors have the percent (%) character before the selector name, and they have a use case of templatizing repetitive lines of code that need to define reusable CSS properties and values for multiple elements.
+
+    The reusable aspect of placeholder selectors is that the CSS properties and values defined won't be constantly reproduced in the outputed CSS file, reducing repetitive code and the 
+    size of the CSS file. Instead, they are used in "@extend" directives where elements that mention these directives would inherit the CSS elements, properties, and values defined in the corresponding placeholder selector.
+
+    For example, the "%hover" placeholder selector below mentions elements that are also not the ficaption element to have the mouse cursor set to the pointer appearance and to have the text of children paragraph (p) elements to be underlined. 
+    An element that has the class name ".class" may use the extend directive to inherit the elements, cursor property, and the text-decoration property from "%hover".
+
+    .class {
+        @extend hover;
+    }
+
+    Resulting CSS output would be...
+
+    .class {
+        &:not(figcaption) {
+            cursor: pointer;
+        }
+        p {
+            text-decoration: underline;
+        }
+    }
+*/
+footer article#endNavLinks > nav > a, header > nav.navigationBar > a, header > nav.navigationBar > nav > a {
+  gap: 16px 16px;
+  position: relative;
+  cursor: default;
+  text-decoration: none;
+}
+footer article#endNavLinks > nav > a span:after, header > nav.navigationBar > a span:after, header > nav.navigationBar > nav > a span:after {
+  display: block;
+  position: relative;
+  left: 50%;
+  bottom: 0;
+  content: "";
+  height: 2px;
+  transform: translateY(2px);
+  transition: width 0.1s linear 0s, left 0.1s linear 0s;
+  width: 0%;
+  height: 2px;
+}
+footer article#endNavLinks > nav > a:hover, header > nav.navigationBar > a:hover, header > nav.navigationBar > nav > a:hover {
+  cursor: pointer;
+}
+footer article#endNavLinks > nav > a:hover span:after, header > nav.navigationBar > a:hover span:after, header > nav.navigationBar > nav > a:hover span:after {
+  left: 0;
+  width: 100%;
+}
+
+footer article#endNavLinks > nav > a, header > nav.navigationBar > a, header > nav.navigationBar > nav > a {
+  background-image: radial-gradient(transparent);
+  animation-name: noBackground;
+}
+@keyframes noBackground {
+  from {
+    background-image: radial-gradient(hsl(185, 90%, 86%) 0%, transparent 75%);
+  }
+  to {
+    background-image: radial-gradient(transparent);
+  }
+}
+
+footer article#endNavLinks > nav > a:hover, header > nav.navigationBar > a:hover, header > nav.navigationBar > nav > a:hover {
+  background-image: radial-gradient(hsl(185, 90%, 86%) 0%, transparent 75%);
+  animation-name: activeBackground;
+}
+@keyframes activeBackground {
+  from {
+    background-image: radial-gradient(transparent);
+  }
+  to {
+    background-image: radial-gradient(hsl(185, 90%, 86%) 0%, transparent 75%);
+  }
+}
+
+footer article#endNavLinks > nav > a:hover, footer article#endNavLinks > nav > a, header > nav.navigationBar > a:hover, header > nav.navigationBar > nav > a:hover, header > nav.navigationBar > a, header > nav.navigationBar > nav > a {
+  animation-duration: 300ms;
+  animation-timing-function: ease-in-out;
+}
+
+header > nav.navigationBar > a span:after, header > nav.navigationBar > nav > a span:after {
+  background-color: hsl(0, 0%, 50%);
+}
+@media only screen and (min-width: 1024px) {
+  header > nav.navigationBar > a, header > nav.navigationBar > nav > a {
+    padding: 0 16px 0 16px;
+  }
+}
+header > nav.navigationBar > a {
+  color: hsl(0, 0%, 30%);
+}
+@media only screen and (max-width: 1024px) {
+  header > nav.navigationBar > a {
+    display: none !important;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  header > nav.navigationBar > a {
+    display: inherit;
+  }
+}
+header > nav.navigationBar > nav > a {
+  color: hsl(0, 0%, 30%);
+}
+@media only screen and (max-width: 200px) {
+  header > nav.navigationBar > nav > a {
+    padding: 8px 8px 8px 8px;
+  }
+}
+@media only screen and (min-width: 200px) {
+  header > nav.navigationBar > nav > a {
+    padding: 8px 16px 8px 16px;
+  }
+}
+@media only screen and (max-width: 275px) {
+  header > nav.navigationBar > nav > a {
+    width: calc(100% - 16px);
+  }
+}
+@media only screen and (min-width: 275px) and (max-width: 375px) {
+  header > nav.navigationBar > nav > a {
+    width: calc(50% - 16px);
+  }
+}
+@media only screen and (max-width: 375px) {
+  header > nav.navigationBar > nav > a {
+    padding: 8px 8px 8px 8px;
+  }
+}
+
+footer article#endNavLinks > nav > a span {
+  color: hsl(0, 0%, 30%);
+}
+footer article#endNavLinks > nav > a span:after {
+  background-color: hsl(0, 0%, 50%);
+}

@@ -1,0 +1,73 @@
+@use "./../../utils/colors/colors";
+@use "./../../utils/size-spacing/nums-size-space" as n-s-s;
+
+
+/* 
+    Values for different screen width breakpoints.
+    bp = breakpoint, mb = mobile, dt = desktop, s = small, l = large
+*/
+$bp-mb-s: 320;
+$bp-mb-l: 510;
+$bp-dt: 1024;
+$bp-dt-l: 1400;
+$bp-dt-xl: 1920;
+
+/*
+    Placeholder selector used for the html element to set the default transition time to 0.25 seconds
+    with an ease-in and ease-out transition smoothness.
+*/
+%default-transition {
+    transition: 0.25s ease-in-out;
+}
+
+/*
+    Placeholder selector to set the default background color of the entire page (html element) and 
+    the navigation header to light blue using the color function.
+*/
+%default-backgroundColor {
+    background-color: colors.color('n', 90);
+}
+
+%button-global-zIndexes {
+    &:before {
+        z-index: 0;
+    }
+    &:after {
+        z-index: 1;
+    }
+    a {
+        z-index: 2;
+        p, picture.icon {
+            z-index: 2;
+        }
+    }
+    p, picture.icon {
+        z-index: 2;
+    }
+}
+
+main, footer, article.h2-wrapper {
+    z-index: 3;
+}
+
+aside[role="navigation"], aside[role="navigation"] > button, .h2-wrapper, h2.sticky {
+    z-index: 4; 
+}
+
+header, header * {
+    z-index: 5;
+}
+
+.buffer-page, .loading-page {
+    z-index: 999;
+}
+
+// main {
+//     & h2 {
+//         z-index: 3;
+//     }
+// }
+
+// .h2-wrapper, h2.sticky {
+//     z-index: 5;
+// }

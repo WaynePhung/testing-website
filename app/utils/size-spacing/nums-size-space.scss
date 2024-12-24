@@ -1,0 +1,111 @@
+/*
+    Key naming scheme is analogous to T-Shirt sizing:
+        2xs = xxs = extra extra small
+        xs = extra small
+        s = small
+        sm = small medium
+        m = medium
+        ml = medium large
+        l = large
+        xl = extra large
+        2xl = extra extra large
+        [n]xl = [number of xs] extra large
+*/
+$size-space: (
+    "default": 16px, 
+    "2xs": 2px, 
+    "xs": 4px, 
+    "s": 8px, 
+    "sm": 12px, 
+    "m": 16px, 
+    "ml": 20px, 
+    "l": 24px, 
+    "xl": 32px, 
+    "2xl": 48px, 
+    "3xl": 64px, 
+    "4xl": 96px, 
+    "5xl": 128px,
+    "6xl": 256px,
+    "default-num": 16, 
+    "2xs-num": 2, 
+    "xs-num": 4, 
+    "s-num": 8, 
+    "sm-num": 12, 
+    "m-num": 16, 
+    "ml-num": 20, 
+    "l-num": 24, 
+    "xl-num": 32, 
+    "2xl-num": 48, 
+    "3xl-num": 64, 
+    "4xl-num": 96, 
+    "5xl-num": 128,
+    "6xl-num": 256
+);
+
+/* Inset applies to the padding of an element. */
+$size-space-inset: (
+    "default": map-get($size-space, "default") map-get($size-space, "default") map-get($size-space, "default") map-get($size-space, "default"), //16px
+    "2xs": map-get($size-space, "2xs") map-get($size-space, "2xs") map-get($size-space, "2xs") map-get($size-space, "2xs"), //2px
+    "xs": map-get($size-space, "xs") map-get($size-space, "xs") map-get($size-space, "xs") map-get($size-space, "xs"), //4px
+    "s": map-get($size-space, "s") map-get($size-space, "s") map-get($size-space, "s") map-get($size-space, "s"), //8px
+    "sm": map-get($size-space, "sm") map-get($size-space, "sm") map-get($size-space, "sm") map-get($size-space, "sm"), //12px
+    "m": map-get($size-space, "m") map-get($size-space, "m") map-get($size-space, "m") map-get($size-space, "m"), //16px
+    "ml": map-get($size-space, "ml") map-get($size-space, "ml") map-get($size-space, "ml") map-get($size-space, "ml"), //20px
+    "l": map-get($size-space, "l") map-get($size-space, "l") map-get($size-space, "l") map-get($size-space, "l"), //24px
+    "xl": map-get($size-space, "xl") map-get($size-space, "xl") map-get($size-space, "xl") map-get($size-space, "xl"), //32px
+    "2xl": map-get($size-space, "2xl") map-get($size-space, "2xl") map-get($size-space, "2xl") map-get($size-space, "2xl"), //48px
+    "3xl": map-get($size-space, "3xl") map-get($size-space, "3xl") map-get($size-space, "3xl") map-get($size-space, "3xl"), //64px
+    "4xl": map-get($size-space, "4xl") map-get($size-space, "4xl") map-get($size-space, "4xl") map-get($size-space, "4xl"), //96px
+    "5xl": map-get($size-space, "5xl") map-get($size-space, "5xl") map-get($size-space, "5xl") map-get($size-space, "5xl"), //128px
+    "6xl": map-get($size-space, "6xl") map-get($size-space, "6xl") map-get($size-space, "6xl") map-get($size-space, "6xl")//256px
+);
+
+/* Stack applies to bottom vertical space (mainly between elements or establishing negative space). */
+$size-space-stack: (
+    "default": 0 0 map-get($size-space, "default") 0, //16px
+    "2xs": 0 0 map-get($size-space, "2xs") 0, //2px
+    "xs": 0 0 map-get($size-space, "xs") 0, //4px
+    "s": 0 0 map-get($size-space, "s") 0, //8px
+    "sm": 0 0 map-get($size-space, "sm") 0, //12px
+    "m": 0 0 map-get($size-space, "m") 0, //16px
+    "ml": 0 0 map-get($size-space, "ml") 0, //20px
+    "l": 0 0 map-get($size-space, "l") 0, //24px
+    "xl": 0 0 map-get($size-space, "xl") 0, //32px
+    "2xl": 0 0 map-get($size-space, "2xl") 0, //48px
+    "3xl": 0 0 map-get($size-space, "3xl") 0, //64px
+    "4xl": 0 0 map-get($size-space, "4xl") 0, //96px
+    "5xl": 0 0 map-get($size-space, "5xl") 0, //128px
+    "6xl": 0 0 map-get($size-space, "6xl") 0 //256px
+);
+
+/* Inline applies to right horizontal space (mainly between elements or establishing negative space). */
+$size-space-inline: (
+    "default": 0 map-get($size-space, "default") 0 0, //16px
+    "2xs": 0 map-get($size-space, "2xs") 0 0, //2px
+    "xs": 0 map-get($size-space, "xs") 0 0, //4px
+    "s": 0 map-get($size-space, "s") 0 0, //8px
+    "sm": 0 map-get($size-space, "sm") 0 0, //12px
+    "m": 0 map-get($size-space, "m") 0 0, //16px
+    "ml": 0 map-get($size-space, "ml") 0 0, //20px
+    "l": 0 map-get($size-space, "l") 0 0, //24px
+    "xl": 0 map-get($size-space, "xl") 0 0, //32px
+    "2xl": 0 map-get($size-space, "2xl") 0 0, //48px
+    "3xl": 0 map-get($size-space, "3xl") 0 0, //64px
+    "4xl": 0 map-get($size-space, "4xl") 0 0, //96px
+    "5xl": 0 map-get($size-space, "5xl" 0) 0 0, //128px
+    "6xl": 0 map-get($size-space, "6xl" 0) 0 0 //256px
+);
+
+/* Default inset spacing for different types of buttons.*/
+$button-inset: (
+    //primary padding: 12px 24px 12px 24px
+    //secondary padding: 8px 16px 8px 16px
+    //navigationLink-mobile padding: 8px 16px 8px 16px
+    //navigationLink-desktop padding: 0px 24px 0px 24px
+    //ToC-section padding: 8px 16px 8px 16px
+    primary: map-get($size-space, "sm") map-get($size-space, "l") map-get($size-space, "sm") map-get($size-space, "l"), 
+    secondary: map-get($size-space, "sm") map-get($size-space, "m") map-get($size-space, "sm") map-get($size-space, "m"),
+    navigationLink-mobile: map-get($size-space, "s") map-get($size-space, "m") map-get($size-space, "s") map-get($size-space, "m"),
+    navigationLink-desktop: 0 map-get($size-space, "l") 0 map-get($size-space, "l"),
+    ToC-section: map-get($size-space, "s") map-get($size-space, s"m") map-get($size-space, "s") map-get($size-space, "sm")
+);

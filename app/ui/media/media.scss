@@ -1,0 +1,87 @@
+/*
+    Default properties for any figure container across web pages; these containers are used for grouping images and image captions.
+
+    Inherits all properties of the both the default figure and grid placeholder selectors.
+    
+    There is one class to place the children element to the left portion within the figure container.
+
+    There are specific class and id names to specify exact max widths for images that need specific sizes.
+
+    For the few audio players, specific justify-content and max-width properties are set.
+*/
+@use "./../../utils/colors/colors";
+@use "./../../utils/mixins-other/display-flex";
+@use "./../../utils/mixins-other/screen-widths" as s-w;
+@use "./../../utils/size-spacing/nums-size-space" as n-s-s;
+@use "./../../utils/size-spacing/row-column-gaps" as r-c-g;
+@use "./../../utils/variables/variables-global" as v-g;
+
+figure {
+    @extend %flex-column-nowrap-center;
+    @include r-c-g.rowColumnGaps("xl", "3xl");
+    position: relative;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    .shadow {
+        box-shadow: 0 map-get(n-s-s.$size-space, "xs") map-get(n-s-s.$size-space, "s") map-get(n-s-s.$size-space, "2xs") colors.color('n', 50);
+        overflow: hidden;
+        width: 100%;
+        height: auto;
+        // height: 100%;
+        // width: calc(100% - (2 * map-get(n-s-s.$size-space, "xs")));
+        // height: calc(100% - (2 * map-get(n-s-s.$size-space, "xs")));
+    }
+    audio {
+        max-width: 100%;
+        justify-self: flex-start;
+        justify-content: space-between;
+        @include s-w.mediaQuery-minOnly(v-g.$bp-dt) {
+            max-width: 650px;
+        }
+    }
+    picture, picture > img {
+        @extend %flex-row-wrap-center;
+        object-position: center;
+        object-fit: contain;
+        position: relative;
+        margin: 0 auto;
+        width: 100%;
+        height: auto;
+        background-repeat: no-repeat;
+        touch-action: pan-x pan-y pinch-zoom;
+    }
+    picture {
+        @include s-w.mediaQuery-minOnly(v-g.$bp-dt) {
+            align-items: flex-start;
+            align-content: flex-start;
+            justify-content: flex-start;
+        }
+    }
+    video {
+        position: relative;
+        object-fit: contain;
+        align-self: flex-start;
+        width: 100%;
+        height: auto;
+    }
+    iframe {
+        width: 100%;
+        border: none;
+    }
+    a {
+        border: none;
+        object-fit: contain;
+        object-position: center;
+        padding: 0;
+        width: 100%;
+        height: auto;
+    }
+    figcaption {
+        display: inline-block;
+    }
+    &#e-stride * {
+        max-height: 450px;
+        object-fit: cover;
+    }
+}

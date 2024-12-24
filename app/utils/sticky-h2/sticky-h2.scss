@@ -1,0 +1,30 @@
+@use "./../../utils/colors/colors";
+// @use "./../../utils/text-styling/text-styling.scss";
+@use "./../../utils/mixins-other/screen-widths" as s-w;
+@use "./../../utils/size-spacing/nums-size-space" as n-s-s;
+@use "./../../utils/variables/variables-global" as v-g;
+
+h2 {
+    @include s-w.mediaQuery-maxOnly(v-g.$bp-dt) {
+        height: map-get(n-s-s.$size-space, "3xl");
+    }
+    @include s-w.mediaQuery-minOnly(v-g.$bp-dt) {
+        height: 80px;
+    }
+    &.h2-sticky, &.sticky {
+        position: fixed;
+        // top: 0;
+        left: 0;
+        // @extend %left-right-outer-padding;
+        background-color: colors.color('n', 90, 90);
+        @include s-w.mediaQuery-maxOnly(v-g.$bp-dt) {
+            padding: map-get(n-s-s.$size-space, "s") 0;
+            overflow-wrap: anywhere;
+            hyphens: auto;
+        }
+        @include s-w.mediaQuery-minOnly(v-g.$bp-dt) {
+            padding: map-get(n-s-s.$size-space, "xl") 0;
+            height: 64px;
+        }
+    }
+}

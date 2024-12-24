@@ -1,0 +1,626 @@
+/*
+    This mixin is used to position and wrap children elements relative to the parent container element. It takes the following arguments to define flexbox properties for container elements:
+        1. Sets the display to flex (essential for any of the other flex properties to function as intended).
+        2. Enables/disables the wrapping of the children elements based on the "$flexWrap" variable argument.
+            - "wrap" to have the children elements populate within the space 
+              of the container
+            - "nowrap" to have the children elements instead populate within 
+              the same row/column
+        3. Sets the orientation of the wrapping, whether in a row or column. This is based on the "$flexDirection" variable argument.
+        4. Sets the starting position of each children element relative to the container element. This is based on the "$alignItems" variable argument:
+            - "flex-start" to start from the beginning portion of the container
+            - "center" to start from the middle portion
+            - "flex-end" to start from the bottom portion
+            - "stretch" to take up the available space of the container
+        - Sets the positioning of all children elements relative to the container element. This is based on the "$alignContent" variable argument:
+            - "flex-start" to orient all the children elements from the 
+              beginning portion of the container
+            - "center" to orient all the children elements from the middle portion
+            - "flex-end" to orient all the children elements from the bottom portion
+            - "stretch" to take up the available space of the container
+        - Sets the alignment of all children elements when they don't take up all of the available space in the container. This is based on the "$justifyContent" variable argument.
+
+*/
+/*
+  Placeholder selectors for the flex display of a container:
+    - column flex direction, wrapping along the column for
+      children elements, top-left starting point and alignment
+      of children elements and text
+*/
+/*
+        - same as previous, except no wrapping of children elements
+*/
+/*
+        - column flex direction, wrapping, center starting point
+          and alignment of children elements and text
+*/
+/*
+        - same as previous, except no wrapping of children elements
+*/
+/*
+        - row flex direction, wrapping, top-left starting point 
+          and alignment of children elements and text
+*/
+header {
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: flex-start;
+}
+
+/*
+        - same as previous, except no wrapping of children elements
+*/
+/*
+        - row flex direction, wrapping, center starting point
+          and alignment of children elements and text
+*/
+header nav.navigationBar, header nav.navigationBar nav, header nav.navigationBar .contactButtons, header > nav.navigationBar > button, button, button.secondaryButton, button.videoButton, button#toTopPageFixed320px, header nav.navigationBar .contactButtons > button, header > nav.navigationBar > a, header > nav.navigationBar > nav > a, header > nav.navigationBar > button a, button a, button.secondaryButton a, button.videoButton a, button#toTopPageFixed320px a, header nav.navigationBar .contactButtons > button a, header > nav.navigationBar > button a picture.icon, button a picture.icon, button.secondaryButton a picture.icon, button.videoButton a picture.icon, button#toTopPageFixed320px a picture.icon, header nav.navigationBar .contactButtons > button a picture.icon {
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+/*
+    These three mixins makes a container of code reusable for specifying the minimum 
+    and/or maximum width condition(s) to apply the CSS properties and values.
+        - "mediaQuery-minOnly" sets up a media query for only the minimum width used in 
+          the media query's condition.
+          - "mediaQuery-maxOnly" sets up a media query for only the maximum width used in 
+          the media query's condition.
+          - "mediaQuery-minMax" sets up a media query for a range between the minimum and 
+          maximum widths used in the media query's condition.
+
+    These mixins uses two or three of the following:
+        - "$min" is a variable used as this mixin's argument to specify the number value 
+          for the minimum width used in the media query's condition.
+        - "$max" is a variable used as this mixin's argument to specify the number value 
+          for the maximum width used in the media query's condition.
+        - "@content" is a Sass directive that allows flexibile input of different CSS 
+          properties and values, whether to apply the same properties for multiple elements 
+          or tailor different properties to specific elements.
+*/
+/*
+    Key naming scheme is analogous to T-Shirt sizing:
+        2xs = xxs = extra extra small
+        xs = extra small
+        s = small
+        sm = small medium
+        m = medium
+        ml = medium large
+        l = large
+        xl = extra large
+        2xl = extra extra large
+        [n]xl = [number of xs] extra large
+*/
+/* Inset applies to the padding of an element. */
+/* Stack applies to bottom vertical space (mainly between elements or establishing negative space). */
+/* Inline applies to right horizontal space (mainly between elements or establishing negative space). */
+/* Default inset spacing for different types of buttons.*/
+/*
+    Placeholder selector for the class which will set the 
+    object, width, and height properties for containers of 
+    small icon images associated with each ToC Section.
+
+    No right border is to prevent a miscellaneous line 
+    to the right of the image from appearing.
+*/
+header > nav.navigationBar > button a picture.icon, button a picture.icon, button.secondaryButton a picture.icon, button.videoButton a picture.icon, button#toTopPageFixed320px a picture.icon, header nav.navigationBar .contactButtons > button a picture.icon {
+  position: relative;
+  object-fit: contain;
+  line-height: 0;
+  border-right: none !important;
+}
+@media only screen and (max-width: 1920px) {
+  header > nav.navigationBar > button a picture.icon, button a picture.icon, button.secondaryButton a picture.icon, button.videoButton a picture.icon, button#toTopPageFixed320px a picture.icon, header nav.navigationBar .contactButtons > button a picture.icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+@media only screen and (min-width: 1920px) {
+  header > nav.navigationBar > button a picture.icon, button a picture.icon, button.secondaryButton a picture.icon, button.videoButton a picture.icon, button#toTopPageFixed320px a picture.icon, header nav.navigationBar .contactButtons > button a picture.icon {
+    width: 32px;
+    height: 32px;
+  }
+}
+header > nav.navigationBar > button a picture.icon img, button a picture.icon img, button.secondaryButton a picture.icon img, button.videoButton a picture.icon img, button#toTopPageFixed320px a picture.icon img, header nav.navigationBar .contactButtons > button a picture.icon img {
+  width: 100%;
+  height: 100%;
+}
+
+/* 
+    UPDATE COMMENT
+
+    This Sass variable creates a map key value pairs, where each pair consists of the following:
+    - the expression on the left represents a key
+    - the expression on the right is value associated with that key
+
+    In this case, the values on the right represent the corresponding values for hue, saturation, and lightness 
+    of the color names on the left, which are the exact colors intended for usage in the visual 
+    appearance of text, buttons, and other visual elements.
+    For example "darkBlue" is a key that is a color name, and "hsl(" is a hexcode value that is 
+    associated with "darkBlue".
+
+    The map below is used for a simple, but reproducible function called "color($colorName)" that 
+    can be used to clearly communicate which color is being to for one or more selected elements.
+
+    This map can be expanded to include more colors other than the ones already listed, and the 
+    hexcode values can be conveniently changed so that all elements that uses the same color will 
+    have their colors updated to reflect this change.
+
+    For more information on maps and key-value pairs, copy and paste this URL on an article about 
+    maps from the Sass official website: https://sass-lang.com/documentation/values/maps/
+*/
+/*
+    UPDATE COMMENT
+    This function uses the map from the "$colors" variable to return the desired color included from 
+    the map.
+
+    The mapping of color names is necessary to avoid confusion from using color hexcodes on which 
+    colors each element is using and to make the code usage of the CSS color property reproducible, 
+    more understandable, and with less repetitive code.
+*/
+/* 
+    Values for different screen width breakpoints.
+    bp = breakpoint, mb = mobile, dt = desktop 
+*/
+/*
+    Placeholder selector used for the html element to set the default transition time to 0.25 seconds
+    with an ease-in and ease-out transition smoothness.
+*/
+/*
+    Placeholder selector to set the default background color of the entire page (html element) and 
+    the navigation header to light blue using the color function.
+*/
+header > nav.navigationBar > button:before, button:before, button.secondaryButton:before, button.videoButton:before, button#toTopPageFixed320px:before, header nav.navigationBar .contactButtons > button:before {
+  z-index: 0;
+}
+header > nav.navigationBar > button:after, button:after, button.secondaryButton:after, button.videoButton:after, button#toTopPageFixed320px:after, header nav.navigationBar .contactButtons > button:after {
+  z-index: 1;
+}
+header > nav.navigationBar > button a, button a, button.secondaryButton a, button.videoButton a, button#toTopPageFixed320px a, header nav.navigationBar .contactButtons > button a {
+  z-index: 2;
+}
+header > nav.navigationBar > button a p, button a p, button.secondaryButton a p, button.videoButton a p, button#toTopPageFixed320px a p, header nav.navigationBar .contactButtons > button a p, button a picture.icon, button#toTopPageFixed320px a picture.icon, header nav.navigationBar .contactButtons > button a picture.icon {
+  z-index: 2;
+}
+header > nav.navigationBar > button p, button p, button.secondaryButton p, button.videoButton p, button#toTopPageFixed320px p, header nav.navigationBar .contactButtons > button p, header > nav.navigationBar > button picture.icon, button picture.icon, button#toTopPageFixed320px picture.icon, header nav.navigationBar .contactButtons > button picture.icon {
+  z-index: 2;
+}
+
+/*
+    This mixin uses two different variables to toggle the display of an element.
+
+    If value of the "$state" variable is "show", the element would appear 
+    with either of these display properties.
+        - If the element is a ToC container, the default display would be in flex to 
+          display the children elements as a horizontal row.
+        - Otherwise, set the display of that element to what it originally had, as 
+          defined within this CSS file.
+
+    If the value of the "$state" variable is "hide", that element would not appear 
+    at all. The space that it took up would also not appear.
+
+    This mixin doesn't do anything if the value of the "$state" variable is neither 
+    "show" or "hide".
+*/
+/*
+    sHT = showHideToggle, mQ = mediaQuery, dhds = "default", "hide", "default", "show"
+*/
+/*
+    sHT = showHideToggle, mQ = mediaQuery, dsdh = "default", "show", "default", "hide"
+*/
+/*
+    UPDATE COMMENT
+    Mixin to define the space between each children element in a 
+    container with flex display. For grid display, this defines the 
+    space between each grid cell. Varaible arguments are defined below.
+        - "$rowGap" is the horizontal spacing between elements in a 
+          flexbox container or grid cells.
+        - "$columnGap" is the horizontal spacing between elements in a 
+          flexbox container or grid cells.
+        - By default, each argument has a default value of zero (no space), 
+          even if the argument is empty. However, the value of either or both 
+          arguments can be non-zero if specified.
+*/
+header > nav.navigationBar > button:hover, button:hover, button.secondaryButton:hover, button.videoButton:hover, button#toTopPageFixed320px:hover, header nav.navigationBar .contactButtons > button:hover {
+  cursor: pointer;
+}
+header > nav.navigationBar > button:hover span:after, button:hover span:after, button.secondaryButton:hover span:after, button.videoButton:hover span:after, button#toTopPageFixed320px:hover span:after, header nav.navigationBar .contactButtons > button:hover span:after {
+  left: 0;
+  width: 100%;
+}
+
+/*
+    The name "%link" defines a placeholder selector.
+    Placeholder selectors have the percent (%) character before the selector name, and they have a use case of templatizing repetitive lines of code that need to define reusable CSS properties and values for multiple elements.
+
+    The reusable aspect of placeholder selectors is that the CSS properties and values defined won't be constantly reproduced in the outputed CSS file, reducing repetitive code and the 
+    size of the CSS file. Instead, they are used in "@extend" directives where elements that mention these directives would inherit the CSS elements, properties, and values defined in the corresponding placeholder selector.
+
+    For example, the "%hover" placeholder selector below mentions elements that are also not the ficaption element to have the mouse cursor set to the pointer appearance and to have the text of children paragraph (p) elements to be underlined. 
+    An element that has the class name ".class" may use the extend directive to inherit the elements, cursor property, and the text-decoration property from "%hover".
+
+    .class {
+        @extend hover;
+    }
+
+    Resulting CSS output would be...
+
+    .class {
+        &:not(figcaption) {
+            cursor: pointer;
+        }
+        p {
+            text-decoration: underline;
+        }
+    }
+*/
+header > nav.navigationBar > button a, button a, button.secondaryButton a, button.videoButton a, button#toTopPageFixed320px a, header nav.navigationBar .contactButtons > button a, header > nav.navigationBar > a, header > nav.navigationBar > nav > a {
+  gap: 16px 16px;
+  position: relative;
+  cursor: default;
+  text-decoration: none;
+}
+header > nav.navigationBar > button a span:after, button a span:after, button.secondaryButton a span:after, button.videoButton a span:after, button#toTopPageFixed320px a span:after, header nav.navigationBar .contactButtons > button a span:after, header > nav.navigationBar > a span:after, header > nav.navigationBar > nav > a span:after {
+  display: block;
+  position: relative;
+  left: 50%;
+  bottom: 0;
+  content: "";
+  height: 2px;
+  transform: translateY(2px);
+  transition: width 0.1s linear 0s, left 0.1s linear 0s;
+  width: 0%;
+  height: 2px;
+}
+header > nav.navigationBar > button a:hover, button a:hover, button#toTopPageFixed320px a:hover, header nav.navigationBar .contactButtons > button a:hover, header > nav.navigationBar > a:hover, header > nav.navigationBar > nav > a:hover {
+  cursor: pointer;
+}
+button a:hover span:after, button#toTopPageFixed320px a:hover span:after, header nav.navigationBar .contactButtons > button a:hover span:after, header > nav.navigationBar > a:hover span:after, header > nav.navigationBar > nav > a:hover span:after {
+  left: 0;
+  width: 100%;
+}
+
+header > nav.navigationBar > a span, header > nav.navigationBar > nav > a span {
+  background-image: radial-gradient(transparent);
+  animation-name: noBackground;
+}
+@keyframes noBackground {
+  from {
+    background-image: radial-gradient(hsl(185, 90%, 86%) 0%, transparent 75%);
+  }
+  to {
+    background-image: radial-gradient(transparent);
+  }
+}
+
+header > nav.navigationBar > a:hover span, header > nav.navigationBar > nav > a:hover span {
+  background-image: radial-gradient(hsl(185, 90%, 86%) 0%, transparent 75%);
+  animation-name: activeBackground;
+}
+@keyframes activeBackground {
+  from {
+    background-image: radial-gradient(transparent);
+  }
+  to {
+    background-image: radial-gradient(hsl(185, 90%, 86%) 0%, transparent 75%);
+  }
+}
+
+header > nav.navigationBar > a:hover span, header > nav.navigationBar > nav > a:hover span, header > nav.navigationBar > a span, header > nav.navigationBar > nav > a span {
+  animation-duration: 300ms;
+  animation-timing-function: ease-in-out;
+}
+
+header > nav.navigationBar > a span:after, header > nav.navigationBar > nav > a span:after {
+  background-color: hsl(0, 0%, 50%);
+}
+@media only screen and (min-width: 1024px) {
+  header > nav.navigationBar > a, header > nav.navigationBar > nav > a {
+    padding: 0 16px 0 16px;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  header > nav.navigationBar > a {
+    display: none !important;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  header > nav.navigationBar > a {
+    display: inherit;
+  }
+}
+@media only screen and (max-width: 200px) {
+  header > nav.navigationBar > nav > a {
+    padding: 8px 8px 8px 8px;
+  }
+}
+@media only screen and (min-width: 200px) {
+  header > nav.navigationBar > nav > a {
+    padding: 8px 16px 8px 16px;
+  }
+}
+@media only screen and (max-width: 275px) {
+  header > nav.navigationBar > nav > a {
+    width: calc(100% - 16px);
+  }
+}
+@media only screen and (min-width: 275px) and (max-width: 375px) {
+  header > nav.navigationBar > nav > a {
+    width: calc(50% - 16px);
+  }
+}
+@media only screen and (max-width: 375px) {
+  header > nav.navigationBar > nav > a {
+    padding: 8px 8px 8px 8px;
+  }
+}
+
+/*
+    Placeholder selector to set default text properties, 
+    rounded corners, and underlined text styling upon 
+    cursor hovering on any button. Mainly used for other 
+    placeholder selectors for primary and secondary button 
+    styling.
+*/
+button.secondaryButton, button.videoButton, button#toTopPageFixed320px, header nav.navigationBar .contactButtons > button, button, header > nav.navigationBar > button {
+  gap: 16px 16px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  cursor: default;
+  transition: background-image 0.3 ease-out;
+  padding: 0;
+}
+button.secondaryButton:before, button.videoButton:before, button#toTopPageFixed320px:before, header nav.navigationBar .contactButtons > button:before, button:before, header > nav.navigationBar > button:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 12px;
+  transform: translate(-50%, -50%);
+  width: 141.421356237%;
+  padding-bottom: 141.421356237%;
+  opacity: 0;
+  transition: animation-play-state 0.3s linear;
+  animation: spin 1.2s cubic-bezier(0.4, 0.53, 0.67, 0.8) infinite;
+  animation-play-state: paused;
+}
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+button.secondaryButton:after, button.videoButton:after, button#toTopPageFixed320px:after, header nav.navigationBar .contactButtons > button:after, button:after, header > nav.navigationBar > button:after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: 8px;
+}
+button.secondaryButton:hover:before, button.videoButton:hover:before, button#toTopPageFixed320px:hover:before, header nav.navigationBar .contactButtons > button:hover:before, button:hover:before, header > nav.navigationBar > button:hover:before {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+/*
+    Applies a dark blue background color and light blue text color 
+    to a primary button (any button that emphasizes a key action, 
+    such as reading more about a case study or finding methods to 
+    contact).
+*/
+header nav.navigationBar .contactButtons > button, button, header > nav.navigationBar > button {
+  background-color: hsl(215, 60%, 44%);
+}
+header nav.navigationBar .contactButtons > button a, button a, header > nav.navigationBar > button a {
+  padding: 12px 24px 12px 24px;
+  width: 100%;
+}
+header nav.navigationBar .contactButtons > button a span, button a span, header > nav.navigationBar > button a span {
+  color: hsl(190, 95%, 93%);
+}
+header nav.navigationBar .contactButtons > button a span:after, button a span:after, header > nav.navigationBar > button a span:after {
+  background-color: hsl(190, 95%, 93%);
+}
+header nav.navigationBar .contactButtons > button a picture.icon img, button a picture.icon img {
+  filter: invert(95%) sepia(10%) saturate(1177%) hue-rotate(170deg) brightness(103%) contrast(99%);
+}
+header nav.navigationBar .contactButtons > button picture.icon img, button picture.icon img {
+  filter: invert(95%) sepia(10%) saturate(1177%) hue-rotate(170deg) brightness(103%) contrast(99%);
+}
+header nav.navigationBar .contactButtons > button:before, button:before, header > nav.navigationBar > button:before, header nav.navigationBar .contactButtons > button:after, button:after, header > nav.navigationBar > button:after {
+  background-color: hsl(215, 60%, 44%);
+}
+header nav.navigationBar .contactButtons > button:hover, button:hover, header > nav.navigationBar > button:hover {
+  background-image: linear-gradient(to right bottom, hsla(215, 60%, 44%, 0.65), hsl(215, 60%, 44%));
+}
+header nav.navigationBar .contactButtons > button:hover:before, button:hover:before, header > nav.navigationBar > button:hover:before {
+  background: conic-gradient(hsl(215, 60%, 44%), hsl(190, 95%, 93%));
+}
+
+/*
+    Applies a transparent background color and dark blue text color 
+    to a second button (any button that provides an action that 
+    doesn't need to be emphasized as much, such as visiting 
+    an external website related to a case study).
+*/
+button.secondaryButton, button.videoButton, button#toTopPageFixed320px {
+  border: solid hsl(215, 60%, 44%);
+}
+button.secondaryButton a, button.videoButton a, button#toTopPageFixed320px a {
+  padding: 8px 16px 8px 16px;
+  width: 100%;
+}
+button.secondaryButton a span, button.videoButton a span, button#toTopPageFixed320px a span {
+  color: hsl(215, 60%, 44%);
+}
+button.secondaryButton a span:after, button.videoButton a span:after, button#toTopPageFixed320px a span:after {
+  background-color: hsl(215, 60%, 44%);
+}
+button.secondaryButton a picture.icon img, button.videoButton a picture.icon img, button#toTopPageFixed320px a picture.icon img {
+  filter: invert(32%) sepia(87%) saturate(828%) hue-rotate(186deg) brightness(75%) contrast(88%);
+}
+button.secondaryButton span, button.videoButton span, button#toTopPageFixed320px span {
+  color: hsl(215, 60%, 44%);
+}
+button.secondaryButton span:after, button.videoButton span:after, button#toTopPageFixed320px span:after {
+  background-color: hsl(215, 60%, 44%);
+}
+button.secondaryButton picture.icon img, button.videoButton picture.icon img, button#toTopPageFixed320px picture.icon img {
+  filter: invert(32%) sepia(87%) saturate(828%) hue-rotate(186deg) brightness(75%) contrast(88%);
+}
+button.secondaryButton:before, button.videoButton:before, button#toTopPageFixed320px:before, button.secondaryButton:after, button.videoButton:after, button#toTopPageFixed320px:after {
+  background-color: hsl(0, 0%, 100%);
+}
+button.secondaryButton:after, button.videoButton:after, button#toTopPageFixed320px:after {
+  border-radius: 4px;
+}
+button.secondaryButton:hover:before, button.videoButton:hover:before, button#toTopPageFixed320px:hover:before {
+  background: conic-gradient(hsl(215, 60%, 44%) 0deg, hsl(0, 0%, 100%) 25deg);
+}
+
+header > nav.navigationBar > button#contactButton {
+  margin: 4px 0;
+}
+@media only screen and (max-width: 350px) {
+  header > nav.navigationBar > button#contactButton {
+    display: inherit;
+  }
+}
+@media only screen and (min-width: 350px) {
+  header > nav.navigationBar > button#contactButton {
+    display: none !important;
+  }
+}
+@media only screen and (max-width: 350px) {
+  header > nav.navigationBar > .contactButtons {
+    display: none !important;
+  }
+}
+@media only screen and (min-width: 350px) {
+  header > nav.navigationBar > .contactButtons {
+    display: inherit;
+  }
+}
+
+header {
+  align-items: center;
+  background-color: hsla(0, 0%, 100%, 0.9);
+  backdrop-filter: blur(8px);
+}
+@media only screen and (max-width: 320px) {
+  header {
+    position: relative;
+  }
+}
+@media only screen and (min-width: 320px) {
+  header {
+    position: sticky;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 510px) {
+  header {
+    min-height: 128px;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 1024px) {
+  header {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  header {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: auto;
+    min-height: 64px;
+  }
+}
+header nav.navigationBar {
+  position: relative;
+  justify-content: space-between;
+  order: 0;
+  width: 100%;
+  height: 100%;
+}
+@media only screen and (max-width: 250px) {
+  header nav.navigationBar {
+    padding: 8px 0;
+  }
+}
+@media only screen and (min-width: 250px) {
+  header nav.navigationBar {
+    padding: 8px 0;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  header nav.navigationBar {
+    order: 2;
+    justify-content: center;
+    max-width: 100%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  header nav.navigationBar > a:first-of-type {
+    padding-left: 0;
+  }
+}
+@media only screen and (max-width: 375px) {
+  header nav.navigationBar nav {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 650px) {
+  header nav.navigationBar nav {
+    padding: 0 0 16px 0;
+  }
+}
+@media only screen and (min-width: 650px) and (max-width: 1024px) {
+  header nav.navigationBar nav {
+    padding: 0 16px 0 0;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  header nav.navigationBar nav {
+    padding: 0;
+  }
+}
+header nav.navigationBar .contactButtons {
+  justify-content: flex-start;
+  gap: 8px 16px;
+}
+header .progressContainer {
+  left: 0;
+  max-width: 100%;
+  width: 100%;
+  height: 4px;
+  scroll-padding: 0;
+}
+header .progressContainer .progressBar {
+  width: 0%;
+  height: 4px;
+  background-color: hsl(215, 60%, 44%);
+  color: hsl(0, 0%, 30%);
+  scroll-padding: 0;
+  transition: 0s ease-in-out;
+}

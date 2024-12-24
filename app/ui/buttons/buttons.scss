@@ -1,0 +1,224 @@
+@use "./../icons/icons";
+@use "./../../utils/colors/colors";
+@use "./../../utils/mixins-other/display-flex";
+@use "./../../utils/mixins-other/screen-widths" as s-w;
+@use "./../../utils/mixins-other/show-hide-toggle" as s-h-t;
+@use "./../../utils/size-spacing/nums-size-space" as n-s-s;
+@use "./../../utils/size-spacing/row-column-gaps" as r-c-g;
+@use "./../../utils/text-styling/link-styling";
+@use "./../../utils/variables/variables-global" as v-g;
+
+/*
+    Placeholder selector to set default text properties, 
+    rounded corners, and underlined text styling upon 
+    cursor hovering on any button. Mainly used for other 
+    placeholder selectors for primary and secondary button 
+    styling.
+*/
+%button-global {
+    @extend %flex-row-wrap-center;
+    @extend %button-global-zIndexes;
+    @include r-c-g.rowColumnGaps("m", "m");
+    position: relative;
+    overflow: hidden;
+    border: map-get(n-s-s.$size-space, "2xs") solid transparent;
+    border-radius: map-get(n-s-s.$size-space, "sm");
+    cursor: default;
+    transition: background-image 0.3 ease-out;
+    padding: 0;
+    width: auto;
+    a {
+        @extend %link;
+        picture {
+            @extend %icon;
+        }
+    }
+    &:before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        // left: 50%;
+        // top: 50%;
+        border-radius: map-get(n-s-s.$size-space, "sm");
+        transform: translate(-50%, -50%);
+        width: calc(100% * 1.41421356237);
+        padding-bottom: calc(100% * 1.41421356237);
+        opacity: 0;
+        transition: animation-play-state 0.3s linear;
+        animation: spin 1.2s cubic-bezier(0.4, 0.53, 0.67, 0.8) infinite;
+        animation-play-state: paused;
+        @keyframes spin {
+            from {transform: translate(-50%, -50%) rotate(0);}
+            to   {transform: translate(-50%, -50%) rotate(360deg);}
+        }
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        inset: map-get(n-s-s.$size-space, "2xs");
+        border-radius: map-get(n-s-s.$size-space, "s");
+    }
+    &:hover {
+        @extend %link-hover;
+        &:before {
+            opacity: 1;
+            animation-play-state: running;
+        }
+    }
+}
+
+%button-placeholder {
+    @extend %flex-row-wrap-center;
+    @extend %button-global-zIndexes;
+    @include r-c-g.rowColumnGaps("m", "m");
+    position: relative;
+    overflow: hidden;
+    border: map-get(n-s-s.$size-space, "2xs") solid transparent;
+    border-radius: map-get(n-s-s.$size-space, "sm");
+    cursor: default;
+    transition: background-image 0.3 ease-out;
+    padding: 0;
+    width: auto;
+    a {
+        @extend %link;
+        picture {
+            @extend %icon;
+        }
+    }
+}
+
+/*
+    Applies a dark blue background color and light blue text color 
+    to a primary button (any button that emphasizes a key action, 
+    such as reading more about a case study or finding methods to 
+    contact).
+*/
+%button-primary {
+    @extend %button-global;
+    background-color: colors.color('p', 30);
+    a {
+        padding: map-get(n-s-s.$button-inset, primary);
+        @include s-w.mediaQuery-maxOnly(375) {
+            padding: map-get(n-s-s.$size-space, "sm") map-get(n-s-s.$size-space, "m") map-get(n-s-s.$size-space, "sm") map-get(n-s-s.$size-space, "m");
+        }
+        width: 100%;
+        span {
+            color: colors.color('p', 100);
+            &:after {
+                background-color: colors.color('p', 100);
+            }
+        }
+        picture > img {
+            filter: invert(95%) sepia(10%) saturate(1177%) hue-rotate(170deg) brightness(103%) contrast(99%); //from black to light blue (p-100).
+        }
+    }
+    picture > img {
+        filter: invert(95%) sepia(10%) saturate(1177%) hue-rotate(170deg) brightness(103%) contrast(99%); //from black to light blue (p-100).
+    }
+    &:before, &:after {
+        background-color: colors.color('p', 30);
+    }
+    &:hover {
+        background-image: linear-gradient(to right bottom, colors.color('p', 30, 65), colors.color('p', 30));
+        &:before {
+            background: conic-gradient(colors.color('p', 30), colors.color('p', 100));
+        }
+    }
+}
+
+/*
+    Applies a transparent background color and dark blue text color 
+    to a second button (any button that provides an action that 
+    doesn't need to be emphasized as much, such as visiting 
+    an external website related to a case study).
+*/
+%button-secondary {
+    @extend %button-global;
+    // background-color: colors.color('p', 100);
+    border: map-get(n-s-s.$size-space, "xxxs") solid colors.color('p', 30);
+    a {
+        padding: map-get(n-s-s.$button-inset, secondary);
+        width: 100%;
+        span {
+            color: colors.color('p', 30);
+            &:after {
+                background-color: colors.color('p', 30);
+            }
+        }
+        picture > img {
+            filter: invert(32%) sepia(87%) saturate(828%) hue-rotate(186deg) brightness(75%) contrast(88%); //from black to dark blue (p-30).
+        }
+    }
+    span {
+        color: colors.color('p', 30);
+        &:after {
+            background-color: colors.color('p', 30);
+        }
+    }
+    picture > img {
+        filter: invert(32%) sepia(87%) saturate(828%) hue-rotate(186deg) brightness(75%) contrast(88%); //from black to dark blue (p-30).
+    }
+    &:before, &:after {
+        background-color: colors.color('n', 90);
+    }
+    &:after {
+    //     inset: 2px;
+        border-radius: map-get(n-s-s.$size-space, "xs");
+    }
+    &:hover {
+        &:before {
+            background: conic-gradient(colors.color('p', 30) 0deg, colors.color('n', 90) 25deg);
+        }
+    }
+}
+
+header > nav.navigationBar {
+    & > button {
+        @extend %button-primary;
+        &#contactButton {
+            @include s-h-t.sHT-mQ-dsdh(350);
+            // margin: map-get(n-s-s.$size-space, "xs") 0;
+        }
+        // @include s-w.mediaQuery-maxOnly(v-g.$bp-dt) {
+        //     width: 100%;
+        // }
+        @include s-w.mediaQuery-minOnly(v-g.$bp-dt) {
+            display: none;
+        }
+    }
+    & > .contactButtons > button {
+        @extend %button-primary;
+        // @include s-w.mediaQuery-maxOnly(375) {
+        //     width: calc(50% - map-get(n-s-s.$size-space, "s"));
+        // }
+    }
+}
+
+main {
+    button {
+        @extend %button-secondary;
+        picture > img {
+            filter: invert(95%) sepia(10%) saturate(1177%) hue-rotate(170deg) brightness(103%) contrast(99%); //from black to light blue (p-100).
+        }
+        &.toc-mobileButton {
+            @include s-h-t.sHT-mQ-dsdh(v-g.$bp-dt);
+        }
+    }
+}
+
+footer > article#endMessage > .contactButtons > button {
+    @extend %button-primary;
+    @include s-w.mediaQuery-maxOnly(250) {
+        width: 100%;
+    }
+    @include s-w.mediaQuery-minMax(250, 375) {
+        width: 75%;
+    }
+}
+
+// button {
+//     @extend %button-primary;
+//     &.secondaryButton, &.videoButton, &#toTopPageFixed320px {
+//         @extend %button-secondary;
+//     }
+// }

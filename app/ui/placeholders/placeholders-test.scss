@@ -1,0 +1,52 @@
+// styles/placeholder.scss
+
+@use "./../../utils/colors/colors";
+@use "./../../utils/size-spacing/nums-size-space" as n-s-s;
+@use "./../../utils/mixins-other/screen-widths" as s-w;
+
+$textType: "default";
+
+@function defineWidth($textType, $charWidthCoefficient) {
+  $width: calc(100% * $charWidthCoefficient);
+  @if ($textType != "default" and $textType == "span") {
+    $width: auto;
+  }
+  @return $width;
+}
+
+@mixin placeholder-styles($fontSize, $charWidthCoefficient, $lineHeight, $paddingBottom, $textType: "default") {
+    .placeholder-line {
+      height: $fontSize * $lineHeight;
+      margin-bottom: $paddingBottom;
+      // width: defineWidth($textType, $charWidthCoefficient);
+      // background-color: #e0e0e0;
+      background-color: colors.color('n', 70);
+      animation: pulse 1.5s infinite;
+    }
+  }
+  
+  @keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+  }
+  
+  .placeholder {
+    &.h1, &.h2 {
+      width: 100%;
+    }
+    
+    &.p, &.subtitle, &.h1, &.h2, &.h3, &.h4, &.figcaption {
+      @media (max-width: 1023px) {
+        @include placeholder-styles(18px, 0.55, 1.6, 6.3px);
+      }
+      @media (min-width: 1024px) {
+        @include placeholder-styles(20px, 0.55, 1.6, 7px);
+      }
+    }
+    
+    &.span {
+      @include placeholder-styles(16px, 0.55, 1.5, 1px, "span");
+    }
+  }
+  

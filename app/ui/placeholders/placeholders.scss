@@ -1,0 +1,132 @@
+@use "./../../utils/colors/colors";
+@use "./../../utils/size-spacing/nums-size-space" as n-s-s;
+@use "./../../utils/mixins-other/screen-widths" as s-w;
+
+%placeholder-base {
+  background-color: colors.color('n', 70);
+  animation: pulse 1.5s infinite;
+}
+
+.text-container {
+  width: 100%;
+  // margin-bottom: 0.5em;
+}
+
+.placeholder {
+  // width: 100%;
+  
+  .placeholder-line {
+    @extend %placeholder-base;
+    border-radius: 8px;
+    // width: 100%;
+  }
+  
+  // Specific styles for p tag placeholders
+  .p-placeholder-line {
+    @extend .placeholder-line;
+  }
+
+  // Specific styles for subtitle tag placeholders
+  .subtitle-placeholder-line {
+    @extend .placeholder-line;
+  }
+
+  // Specific styles for h1 tag placeholders
+  .h1-placeholder-line {
+    @extend .placeholder-line;
+  }
+
+  // Specific styles for h2 tag placeholders
+  .h2-placeholder-line {
+    @extend .placeholder-line;
+  }
+
+  // Specific styles for h3 tag placeholders
+  .h3-placeholder-line {
+    @extend .placeholder-line;
+  }
+
+  // Specific styles for h4 tag placeholders
+  .h4-placeholder-line {
+    @extend .placeholder-line;
+  }
+
+  // Specific styles for h4 tag placeholders
+  .figcaption-placeholder-line {
+    @extend .placeholder-line;
+  }
+
+  // Add more placeholder styles for other heading tags as needed
+
+  @for $i from 0 through 20 {
+    &.lines-#{$i} {
+      .placeholder-line, .p-placeholder-line, .h1-placeholder-line, .h2-placeholder-line, .h3-placeholder-line, .h4-placeholder-line, .figcaption-placeholder-line {
+        &:nth-child(n) {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &.span {
+    width: 100px;
+    height: 42px;
+  }
+}
+
+// Specific styles for link span tag placeholders
+.link-span-placeholder-line {
+  @extend %placeholder-base;
+  max-width: 100px;
+  width: 100%;
+  height: 32px;
+  border-radius: 8px;
+  // max-height: 42px;
+}
+
+// .image-placeholder, .video-placeholder {
+//   @extend %placeholder-base;
+//   width: 100%;
+//   height: 100%;
+// }
+
+// .button-placeholder {
+//   @extend %placeholder-base;
+//   width: 100px;
+//   height: 40px;
+//   border-radius: 4px;
+// }
+
+.figure-placeholder {
+  @extend %placeholder-base;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+.button-placeholder {
+  @extend %placeholder-base;
+  position: relative;
+  overflow: hidden;
+  // width: 100%;
+  height: auto;
+  border-radius: map-get(n-s-s.$size-space, "sm");
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.hidden {
+  display: none;
+}

@@ -1,0 +1,13 @@
+@use "./../../utils/mixins-other/display-flex";
+@use "./../../utils/size-spacing/row-column-gaps" as r-c-g;
+
+main > section.bodyContent article#other-case-studies {
+    @extend %flex-row-wrap-default;
+    @include r-c-g.rowColumnGaps("3xl", "xl");
+    & > article[class*="grid"], & > article[class*="grid"] article {
+        width: 100%;
+    }
+    // & > article:not(:last-child) {
+        //     padding-bottom: map-get(n-s-s.$size-space, "3xl");
+        // }
+}

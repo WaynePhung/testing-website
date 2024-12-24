@@ -1,0 +1,58 @@
+@use "./../../utils/mixins-other/screen-widths" as s-w;
+@use "./../../utils/variables/variables-global" as v-g;
+
+/*
+    This mixin uses two different variables to toggle the display of an element.
+    
+    If value of the "$state" variable is "show", the element would appear 
+    with either of these display properties.
+        - If the element is a ToC container, the default display would be in flex to 
+          display the children elements as a horizontal row.
+        - Otherwise, set the display of that element to what it originally had, as 
+          defined within this CSS file.
+    
+    If the value of the "$state" variable is "hide", that element would not appear 
+    at all. The space that it took up would also not appear.
+
+    This mixin doesn't do anything if the value of the "$state" variable is neither 
+    "show" or "hide".
+*/
+@mixin showHideToggle($element, $state) {
+    @if ($state == "show") {
+        @if $element=="default" {
+            display: inherit;
+        } @else if $element==".navSideBar" {
+            @include displayFlex(row, wrap, center, flex-start, flex-end);
+        } @else {
+            display: inherit;
+        }
+    } @else if ($state == "hide") {
+        display: none !important;
+    } @else {
+        // Do nothing.
+    }
+}
+
+/*
+    sHT = showHideToggle, mQ = mediaQuery, dhds = "default", "hide", "default", "show"
+*/
+@mixin sHT-mQ-dhds($breakpoint) {
+    @include s-w.mediaQuery-maxOnly($breakpoint) {
+        @include showHideToggle("default", "hide");
+    }
+    @include s-w.mediaQuery-minOnly($breakpoint) {
+        @include showHideToggle("default", "show");
+    }
+}
+
+/*
+    sHT = showHideToggle, mQ = mediaQuery, dsdh = "default", "show", "default", "hide"
+*/
+@mixin sHT-mQ-dsdh($breakpoint) {
+    @include s-w.mediaQuery-maxOnly($breakpoint) {
+        @include showHideToggle("default", "show");
+    }
+    @include s-w.mediaQuery-minOnly($breakpoint) {
+        @include showHideToggle("default", "hide");
+    }
+}

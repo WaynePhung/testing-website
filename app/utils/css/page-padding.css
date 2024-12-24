@@ -1,0 +1,72 @@
+/*
+    These three mixins makes a container of code reusable for specifying the minimum 
+    and/or maximum width condition(s) to apply the CSS properties and values.
+        - "mediaQuery-minOnly" sets up a media query for only the minimum width used in the media query's condition.
+          - "mediaQuery-maxOnly" sets up a media query for only the maximum width used in the media query's condition.
+          - "mediaQuery-minMax" sets up a media query for a range between the minimum and maximum widths used in the media query's condition.
+
+    These mixins uses two or three of the following:
+        - "$min" is a variable used as this mixin's argument to specify the number value for the minimum width used in the media query's condition.
+        - "$max" is a variable used as this mixin's argument to specify the number value for the maximum width used in the media query's condition.
+        - "@content" is a Sass directive that allows flexibile input of different CSS properties and values, whether to apply the same properties for multiple elements or tailor different properties to specific elements.
+*/
+/*
+    Key naming scheme is analogous to T-Shirt sizing:
+        2xs = xxs = extra extra small
+        xs = extra small
+        s = small
+        sm = small medium
+        m = medium
+        ml = medium large
+        l = large
+        xl = extra large
+        2xl = extra extra large
+        [n]xl = [number of xs] extra large
+*/
+/* Inset applies to the padding of an element. */
+/* Stack applies to bottom vertical space (mainly between elements or establishing negative space). */
+/* Inline applies to right horizontal space (mainly between elements or establishing negative space). */
+/* Default inset spacing for different types of buttons.*/
+@media only screen and (max-width: 750px) {
+  header, main {
+    padding-left: 16px;
+    padding-right: 16px;
+    max-width: calc(100% - 32px);
+  }
+}
+@media only screen and (min-width: 750px) {
+  header, main {
+    padding-left: 32px;
+    padding-right: 32px;
+    max-width: calc(100% - 64px);
+  }
+}
+
+header {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+main {
+  padding-top: 16px;
+  padding-bottom: 64px;
+}
+main > *:not(:last-child) {
+  padding-bottom: 32px;
+}
+
+@media only screen and (max-width: 750px) {
+  footer {
+    padding-top: 32px;
+    padding-right: 16px;
+    padding-bottom: 64px;
+    padding-left: 16px;
+    max-width: calc(100% - 32px);
+  }
+}
+@media only screen and (min-width: 750px) {
+  footer {
+    padding: 32px 32px 32px 32px;
+    max-width: calc(100% - 64px);
+  }
+}

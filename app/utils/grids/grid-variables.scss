@@ -1,0 +1,155 @@
+@use "./../../utils/mixins-other/screen-widths" as s-w;
+@use "./../../utils/size-spacing/row-column-gaps" as r-c-g;
+@use "./../../utils/variables/variables-global" as v-g;
+
+/*
+    Placeholder selector for the default properties of the grid.
+*/
+%grid-props {
+    display: grid;
+    @include s-w.mediaQuery-minOnly(v-g.$bp-dt) {
+        justify-items: flex-start;
+    }
+    /*
+        Any grid item that has the ".columnSpan-all" class name or not 
+        tagged with the "gridContent" class name will have 
+        their width take up the entire width of the grid container.
+    */
+    .columnSpan-all {
+        grid-column: 1/-1;
+    }
+    // @extend %grid-allGridTypes;
+}
+
+$definedGridRatios: (
+    2_3fr: 2fr 3fr,
+    3_2fr: 3fr 2fr
+);
+
+@mixin gridClass ($minWidth: '', $maxWidth: '', $columns: 1, $gridTempCol: 1fr) {
+    @if (($minWidth != '') and ($maxWidth != '')) {
+        // .grid-min#{$minWidth}-max#{$maxWidth}-#{$columns}col-#{$gridTempCol} {
+            @extend %grid-props;
+            @include s-w.mediaQuery-minMax($minWidth, $maxWidth) {
+                @if ((map-has-key($definedGridRatios, $gridTempCol)) and ($columns != 1)) {
+                    grid-template-columns: map-get($definedGridRatios, $gridTempCol);
+                } @else if (($gridTempCol: 1fr) and ($columns != 1)) {
+                    grid-template-columns: repeat($columns, $gridTempCol);
+                } @else {
+                    grid-template-columns: $gridTempCol;
+                }
+            }
+        // }
+    } @else if (($minWidth != '') and ($maxWidth == '')) {
+        // .grid-min#{$minWidth}-#{$columns}col-#{$gridTempCol} {
+            @extend %grid-props;
+            @include s-w.mediaQuery-minOnly($minWidth) {
+                @if ((map-has-key($definedGridRatios, $gridTempCol)) and ($columns != 1)) {
+                    grid-template-columns: map-get($definedGridRatios, $gridTempCol);
+                } @else if (($gridTempCol: 1fr) and ($columns != 1)) {
+                    grid-template-columns: repeat($columns, $gridTempCol);
+                } @else {
+                    grid-template-columns: $gridTempCol;
+                }
+            }
+        // }
+    } @else if (($minWidth == '') and ($maxWidth != '')) {
+        // .grid-max#{$maxWidth}-#{$columns}col-#{$gridTempCol} {
+            @extend %grid-props;
+            @include s-w.mediaQuery-maxOnly($maxWidth) {
+                @if ((map-has-key($definedGridRatios, $gridTempCol)) and ($columns != 1)) {
+                    grid-template-columns: map-get($definedGridRatios, $gridTempCol);
+                } @else if (($gridTempCol: 1fr) and ($columns != 1)) {
+                    grid-template-columns: repeat($columns, $gridTempCol);
+                } @else {
+                    grid-template-columns: $gridTempCol;
+                }
+            }
+        // }
+    } @else {
+        // Do nothing.
+    }
+}
+
+/*
+    Placeholder selector for setting the default amount of columns for grids to one below 1024px width.
+*/
+// %gridTemplateColumns-default {
+.grid-default-#{v-g.$bp-dt} {
+    @include r-c-g.rowColumnGaps("3xl", "xl");
+    @include s-w.mediaQuery-maxOnly(v-g.$bp-dt) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.grid-default-#{v-g.$bp-dt-l} {
+    @include r-c-g.rowColumnGaps("3xl", "xl");
+    @include s-w.mediaQuery-maxOnly(v-g.$bp-dt-l) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.grid-default-2c-equalWidth-#{v-g.$bp-dt-l} {
+    @include gridClass(v-g.$bp-dt, '', 2, 1fr);
+    @include r-c-g.rowColumnGaps("3xl", "xl");
+    @include s-w.mediaQuery-maxOnly(v-g.$bp-dt-l) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.grid-case-study-preview {
+    @include r-c-g.rowColumnGaps("m", "xl");
+    @include gridClass(v-g.$bp-dt, '', 2, 2_3fr);
+}
+
+main > section {
+    &.title:not(#home-title) {
+        @include r-c-g.rowColumnGaps("m", "xl");
+        @include gridClass(v-g.$bp-dt, '', 2, 2_3fr);
+        & > article {
+            width: 100%;
+        }
+    }
+    &.title-error {
+        @include r-c-g.rowColumnGaps("m", "xl");
+        @include gridClass('', '', 1, 1fr);
+    }
+}
+
+/*
+    Placeholder selectors for column variations of grid containers.
+    They are useful for having a limited, but good-enough selection of columns with different widths (relative to the grid container) to support different layouts of grouped text, images and/or other visual elements across different window widths.
+*/
+
+//min 320px, 2 columns, equal widths
+// @include gridClass(320, '', 2, 1fr);
+
+//min 450px, max 1400px, 2 columns, equal widths
+// @include gridClass(450, v-g.$bp-dt-l, 2, 1fr);
+
+//min 900px, 2 columns, width ratio 2:3
+// @include gridClass(900, '', 2, 2_3fr);
+
+//min 1024px, 2 columns, equal widths
+// @include gridClass(v-g.$bp-dt, '', 2, 1fr);
+
+//min 1200px, 2 columns, width ratio 2:3
+// @include gridClass(1200, '', 2, 2_3fr);
+
+//max 1400px, 1 column, equal widths
+// @include gridClass('', v-g.$bp-dt-l, 1, 1fr);
+
+//min 1400px, 2 columns, equal widths
+// @include gridClass(v-g.$bp-dt-l, '', 2, 1fr);
+
+//min 1400px, 2 columns, equal widths
+// @include gridClass(v-g.$bp-dt-l, '', 2, 1fr);
+
+//min 1400px, 2 columns, width ratio 3:2
+// @include gridClass(v-g.$bp-dt-l, '', 2, 3_2fr);
+
+//min 1400px, 2 columns, width ratio 2:3
+// @include gridClass(v-g.$bp-dt-l, '', 2, 2_3fr);
+
+//min 1400px, 3 columns, equal widths
+// @include gridClass(v-g.$bp-dt-l, '', 3, 1fr);

@@ -1,0 +1,100 @@
+/*
+    This mixin is used to position and wrap children elements relative to the parent container element. It takes the following arguments to define flexbox properties for container elements:
+        1. Sets the display to flex (essential for any of the other flex properties to function as intended).
+        2. Enables/disables the wrapping of the children elements based on the "$flexWrap" variable argument.
+            - "wrap" to have the children elements populate within the space 
+              of the container
+            - "nowrap" to have the children elements instead populate within 
+              the same row/column
+        3. Sets the orientation of the wrapping, whether in a row or column. This is based on the "$flexDirection" variable argument.
+        4. Sets the starting position of each children element relative to the container element. This is based on the "$alignItems" variable argument:
+            - "flex-start" to start from the beginning portion of the container
+            - "center" to start from the middle portion
+            - "flex-end" to start from the bottom portion
+            - "stretch" to take up the available space of the container
+        - Sets the positioning of all children elements relative to the container element. This is based on the "$alignContent" variable argument:
+            - "flex-start" to orient all the children elements from the 
+              beginning portion of the container
+            - "center" to orient all the children elements from the middle portion
+            - "flex-end" to orient all the children elements from the bottom portion
+            - "stretch" to take up the available space of the container
+        - Sets the alignment of all children elements when they don't take up all of the available space in the container. This is based on the "$justifyContent" variable argument.
+
+*/
+/*
+  Placeholder selectors for the flex display of a container:
+    - column flex direction, wrapping along the column for
+      children elements, top-left starting point and alignment
+      of children elements and text
+*/
+/*
+        - same as previous, except no wrapping of children elements
+*/
+/*
+        - column flex direction, wrapping, center starting point
+          and alignment of children elements and text
+*/
+/*
+        - same as previous, except no wrapping of children elements
+*/
+/*
+        - row flex direction, wrapping, top-left starting point 
+          and alignment of children elements and text
+*/
+main > section.bodyContent article#other-case-studies {
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: flex-start;
+}
+
+/*
+        - same as previous, except no wrapping of children elements
+*/
+/*
+        - row flex direction, wrapping, center starting point
+          and alignment of children elements and text
+*/
+/*
+        - row flex direction, wrapping, right starting point
+          and alignment of children elements and text
+*/
+/*
+    Key naming scheme is analogous to T-Shirt sizing:
+        2xs = xxs = extra extra small
+        xs = extra small
+        s = small
+        sm = small medium
+        m = medium
+        ml = medium large
+        l = large
+        xl = extra large
+        2xl = extra extra large
+        [n]xl = [number of xs] extra large
+*/
+/* Inset applies to the padding of an element. */
+/* Stack applies to bottom vertical space (mainly between elements or establishing negative space). */
+/* Inline applies to right horizontal space (mainly between elements or establishing negative space). */
+/* Default inset spacing for different types of buttons.*/
+/*
+    UPDATE COMMENT
+    Mixin to define the space between each children element in a 
+    container with flex display. For grid display, this defines the 
+    space between each grid cell. Varaible arguments are defined below.
+        - "$rowGap" is the horizontal spacing between elements in a 
+          flexbox container or grid cells.
+        - "$columnGap" is the horizontal spacing between elements in a 
+          flexbox container or grid cells.
+        - By default, each argument has a default value of zero (no space), 
+          even if the argument is empty. However, the value of either or both 
+          arguments can be non-zero if specified.
+*/
+main > section.bodyContent article#other-case-studies {
+  gap: 64px 32px;
+}
+main > section.bodyContent article#other-case-studies > article[class*=grid], main > section.bodyContent article#other-case-studies > article[class*=grid] article {
+  width: 100%;
+}

@@ -1,0 +1,1933 @@
+/*
+    This mixin is used to position and wrap children elements relative to the parent container element. It takes the following arguments to define flexbox properties for container elements:
+        1. Sets the display to flex (essential for any of the other flex properties to function as intended).
+        2. Enables/disables the wrapping of the children elements based on the "$flexWrap" variable argument.
+            - "wrap" to have the children elements populate within the space 
+              of the container
+            - "nowrap" to have the children elements instead populate within 
+              the same row/column
+        3. Sets the orientation of the wrapping, whether in a row or column. This is based on the "$flexDirection" variable argument.
+        4. Sets the starting position of each children element relative to the container element. This is based on the "$alignItems" variable argument:
+            - "flex-start" to start from the beginning portion of the container
+            - "center" to start from the middle portion
+            - "flex-end" to start from the bottom portion
+            - "stretch" to take up the available space of the container
+        - Sets the positioning of all children elements relative to the container element. This is based on the "$alignContent" variable argument:
+            - "flex-start" to orient all the children elements from the 
+              beginning portion of the container
+            - "center" to orient all the children elements from the middle portion
+            - "flex-end" to orient all the children elements from the bottom portion
+            - "stretch" to take up the available space of the container
+        - Sets the alignment of all children elements when they don't take up all of the available space in the container. This is based on the "$justifyContent" variable argument.
+
+*/
+/*
+  Placeholder selectors for the flex display of a container:
+    - column flex direction, wrapping along the column for
+      children elements, top-left starting point and alignment
+      of children elements and text
+*/
+/*
+        - same as previous, except no wrapping of children elements
+*/
+/*
+        - column flex direction, wrapping, center starting point
+          and alignment of children elements and text
+*/
+.buffer-page, .loading-page {
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+/*
+        - same as previous, except no wrapping of children elements
+*/
+figure {
+  display: flex;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+/*
+        - row flex direction, wrapping, top-left starting point 
+          and alignment of children elements and text
+*/
+main > section.bodyContent article#other-case-studies, main > section.bodyContent, main > section.bodyContent > section[class*=content], main > section.bodyContent > aside > nav.tocNavLinks, article#other-case-studies > article.grid-case-study-preview > article, main section, main section#design-work > article, main section#media-work > article, main section#about-me > article, main section#design-work > article[class*=grid-default] > article, main section#media-work > article[class*=grid-default] > article, main section#about-me > article[class*=grid-default] > article, main section#design-work > article > article.grid-case-study-preview > article, main section#media-work > article > article.grid-case-study-preview > article, main section#about-me > article > article.grid-case-study-preview > article, footer, header, footer article#endNavLinks > nav > a {
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: flex-start;
+}
+
+/*
+        - same as previous, except no wrapping of children elements
+*/
+/*
+        - row flex direction, wrapping, center starting point
+          and alignment of children elements and text
+*/
+.buffer-visual, figure picture, figure picture > img, footer article#endMessage > .contactButtons, header > nav.navigationBar, header > nav.navigationBar > nav, header > nav.navigationBar > .contactButtons, header > nav.navigationBar > button, header > nav.navigationBar > .contactButtons > button, main button, footer > article#endMessage > .contactButtons > button, header > nav.navigationBar > a, header > nav.navigationBar > nav > a, header > nav.navigationBar > .contactButtons > button > a, main button > a, main aside > a, main aside > nav.tocNavLinks > a, footer article#endMessage > .contactButtons > button > a, header > nav.navigationBar > button a picture, header > nav.navigationBar > .contactButtons > button a picture, main button a picture, footer > article#endMessage > .contactButtons > button a picture {
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+/*
+        - row flex direction, wrapping, right starting point
+          and alignment of children elements and text
+*/
+/*
+    These three mixins makes a container of code reusable for specifying the minimum 
+    and/or maximum width condition(s) to apply the CSS properties and values.
+        - "mediaQuery-minOnly" sets up a media query for only the minimum width used in the media query's condition.
+          - "mediaQuery-maxOnly" sets up a media query for only the maximum width used in the media query's condition.
+          - "mediaQuery-minMax" sets up a media query for a range between the minimum and maximum widths used in the media query's condition.
+
+    These mixins uses two or three of the following:
+        - "$min" is a variable used as this mixin's argument to specify the number value for the minimum width used in the media query's condition.
+        - "$max" is a variable used as this mixin's argument to specify the number value for the maximum width used in the media query's condition.
+        - "@content" is a Sass directive that allows flexibile input of different CSS properties and values, whether to apply the same properties for multiple elements or tailor different properties to specific elements.
+*/
+/*
+    Key naming scheme is analogous to T-Shirt sizing:
+        2xs = xxs = extra extra small
+        xs = extra small
+        s = small
+        sm = small medium
+        m = medium
+        ml = medium large
+        l = large
+        xl = extra large
+        2xl = extra extra large
+        [n]xl = [number of xs] extra large
+*/
+/* Inset applies to the padding of an element. */
+/* Stack applies to bottom vertical space (mainly between elements or establishing negative space). */
+/* Inline applies to right horizontal space (mainly between elements or establishing negative space). */
+/* Default inset spacing for different types of buttons.*/
+/*
+    Placeholder selector for the class which will set the 
+    object, width, and height properties for containers of 
+    small icon images associated with each ToC Section.
+
+    No right border is to prevent a miscellaneous line 
+    to the right of the image from appearing.
+*/
+header > nav.navigationBar > button a picture, header > nav.navigationBar > .contactButtons > button a picture, main button a picture, footer > article#endMessage > .contactButtons > button a picture {
+  position: relative;
+  object-fit: contain;
+  line-height: 0;
+  border-right: none !important;
+}
+@media only screen and (max-width: 1920px) {
+  header > nav.navigationBar > button a picture, header > nav.navigationBar > .contactButtons > button a picture, main button a picture, footer > article#endMessage > .contactButtons > button a picture {
+    width: 24px;
+    height: 24px;
+  }
+}
+@media only screen and (min-width: 1920px) {
+  header > nav.navigationBar > button a picture, header > nav.navigationBar > .contactButtons > button a picture, main button a picture, footer > article#endMessage > .contactButtons > button a picture {
+    width: 32px;
+    height: 32px;
+  }
+}
+header > nav.navigationBar > button a picture img, header > nav.navigationBar > .contactButtons > button a picture img, main button a picture img, footer > article#endMessage > .contactButtons > button a picture img {
+  width: 100%;
+  height: 100%;
+}
+
+/* 
+    UPDATE COMMENT
+
+    This Sass variable creates a map key value pairs, where each pair consists of the following:
+    - the expression on the left represents a key
+    - the expression on the right is value associated with that key
+
+    In this case, the values on the right represent the corresponding values for hue, saturation, and lightness 
+    of the color names on the left, which are the exact colors intended for usage in the visual 
+    appearance of text, buttons, and other visual elements.
+    For example "darkBlue" is a key that is a color name, and "hsl(" is a hexcode value that is 
+    associated with "darkBlue".
+
+    The map below is used for a simple, but reproducible function called "color($colorName)" that 
+    can be used to clearly communicate which color is being to for one or more selected elements.
+
+    This map can be expanded to include more colors other than the ones already listed, and the 
+    hexcode values can be conveniently changed so that all elements that uses the same color will 
+    have their colors updated to reflect this change.
+
+    For more information on maps and key-value pairs, copy and paste this URL on an article about 
+    maps from the Sass official website: https://sass-lang.com/documentation/values/maps/
+*/
+/*
+    UPDATE COMMENT
+    This function uses the map from the "$colors" variable to return the desired color included from 
+    the map.
+
+    The mapping of color names is necessary to avoid confusion from using color hexcodes on which 
+    colors each element is using and to make the code usage of the CSS color property reproducible, 
+    more understandable, and with less repetitive code.
+*/
+/* 
+    Values for different screen width breakpoints.
+    bp = breakpoint, mb = mobile, dt = desktop, s = small, l = large
+*/
+/*
+    Placeholder selector used for the html element to set the default transition time to 0.25 seconds
+    with an ease-in and ease-out transition smoothness.
+*/
+/*
+    Placeholder selector to set the default background color of the entire page (html element) and 
+    the navigation header to light blue using the color function.
+*/
+header > nav.navigationBar > button:before, header > nav.navigationBar > .contactButtons > button:before, main button:before, footer > article#endMessage > .contactButtons > button:before {
+  z-index: 0;
+}
+header > nav.navigationBar > button:after, header > nav.navigationBar > .contactButtons > button:after, main button:after, footer > article#endMessage > .contactButtons > button:after {
+  z-index: 1;
+}
+header > nav.navigationBar > button a, header > nav.navigationBar > .contactButtons > button a, main button a, footer > article#endMessage > .contactButtons > button a {
+  z-index: 2;
+}
+header > nav.navigationBar > button a p, header > nav.navigationBar > .contactButtons > button a p, main button a p, footer > article#endMessage > .contactButtons > button a p, header > nav.navigationBar > button a picture.icon, header > nav.navigationBar > .contactButtons > button a picture.icon, main button a picture.icon, footer > article#endMessage > .contactButtons > button a picture.icon {
+  z-index: 2;
+}
+header > nav.navigationBar > button p, header > nav.navigationBar > .contactButtons > button p, main button p, footer > article#endMessage > .contactButtons > button p, header > nav.navigationBar > button picture.icon, header > nav.navigationBar > .contactButtons > button picture.icon, main button picture.icon, footer > article#endMessage > .contactButtons > button picture.icon {
+  z-index: 2;
+}
+
+main, footer, article.h2-wrapper {
+  z-index: 3;
+}
+
+aside[role=navigation], aside[role=navigation] > button, .h2-wrapper, h2.sticky {
+  z-index: 4;
+}
+
+header, header * {
+  z-index: 5;
+}
+
+.buffer-page, .loading-page {
+  z-index: 999;
+}
+
+/*
+    This mixin uses two different variables to toggle the display of an element.
+
+    If value of the "$state" variable is "show", the element would appear 
+    with either of these display properties.
+        - If the element is a ToC container, the default display would be in flex to 
+          display the children elements as a horizontal row.
+        - Otherwise, set the display of that element to what it originally had, as 
+          defined within this CSS file.
+
+    If the value of the "$state" variable is "hide", that element would not appear 
+    at all. The space that it took up would also not appear.
+
+    This mixin doesn't do anything if the value of the "$state" variable is neither 
+    "show" or "hide".
+*/
+/*
+    sHT = showHideToggle, mQ = mediaQuery, dhds = "default", "hide", "default", "show"
+*/
+/*
+    sHT = showHideToggle, mQ = mediaQuery, dsdh = "default", "show", "default", "hide"
+*/
+/*
+    UPDATE COMMENT
+    Mixin to define the space between each children element in a 
+    container with flex display. For grid display, this defines the 
+    space between each grid cell. Varaible arguments are defined below.
+        - "$rowGap" is the horizontal spacing between elements in a 
+          flexbox container or grid cells.
+        - "$columnGap" is the horizontal spacing between elements in a 
+          flexbox container or grid cells.
+        - By default, each argument has a default value of zero (no space), 
+          even if the argument is empty. However, the value of either or both 
+          arguments can be non-zero if specified.
+*/
+header > nav.navigationBar > button:hover, header > nav.navigationBar > .contactButtons > button:hover, main button:hover, footer > article#endMessage > .contactButtons > button:hover {
+  cursor: pointer;
+}
+header > nav.navigationBar > button:hover span:after, header > nav.navigationBar > .contactButtons > button:hover span:after, main button:hover span:after, footer > article#endMessage > .contactButtons > button:hover span:after {
+  left: 0;
+  width: 100%;
+}
+
+/*
+    The name "%link" defines a placeholder selector.
+    Placeholder selectors have the percent (%) character before the selector name, and they have a use case of templatizing repetitive lines of code that need to define reusable CSS properties and values for multiple elements.
+
+    The reusable aspect of placeholder selectors is that the CSS properties and values defined won't be constantly reproduced in the outputed CSS file, reducing repetitive code and the 
+    size of the CSS file. Instead, they are used in "@extend" directives where elements that mention these directives would inherit the CSS elements, properties, and values defined in the corresponding placeholder selector.
+
+    For example, the "%hover" placeholder selector below mentions elements that are also not the ficaption element to have the mouse cursor set to the pointer appearance and to have the text of children paragraph (p) elements to be underlined. 
+    An element that has the class name ".class" may use the extend directive to inherit the elements, cursor property, and the text-decoration property from "%hover".
+
+    .class {
+        @extend hover;
+    }
+
+    Resulting CSS output would be...
+
+    .class {
+        &:not(figcaption) {
+            cursor: pointer;
+        }
+        p {
+            text-decoration: underline;
+        }
+    }
+*/
+footer article#endMessage > .contactButtons > button > a, header > nav.navigationBar > button a, header > nav.navigationBar > .contactButtons > button a, main button a, footer > article#endMessage > .contactButtons > button a, figure figcaption > a, footer article#endNavLinks > nav > a, main aside > a, main aside > nav.tocNavLinks > a, header > nav.navigationBar > a > a, header > nav.navigationBar > nav > a > a, header > nav.navigationBar > a, header > nav.navigationBar > nav > a {
+  gap: 16px 16px;
+  position: relative;
+  cursor: default;
+  text-decoration: none;
+}
+footer article#endMessage > .contactButtons > button > a span:after, header > nav.navigationBar > button a span:after, header > nav.navigationBar > .contactButtons > button a span:after, main button a span:after, footer > article#endMessage > .contactButtons > button a span:after, figure figcaption > a span:after, footer article#endNavLinks > nav > a span:after, main aside > a span:after, main aside > nav.tocNavLinks > a span:after, header > nav.navigationBar > a span:after, header > nav.navigationBar > nav > a span:after {
+  display: block;
+  position: relative;
+  left: 50%;
+  bottom: 0;
+  content: "";
+  height: 2px;
+  transform: translateY(2px);
+  transition: width 0.1s linear 0s, left 0.1s linear 0s;
+  width: 0%;
+  height: 2px;
+}
+footer article#endMessage > .contactButtons > button > a:hover, header > nav.navigationBar > button a:hover, header > nav.navigationBar > .contactButtons > button a:hover, main button a:hover, footer > article#endMessage > .contactButtons > button a:hover, figure figcaption > a:hover, footer article#endNavLinks > nav > a:hover, main aside > a:hover, main aside > nav.tocNavLinks > a:hover, header > nav.navigationBar > a > a:hover, header > nav.navigationBar > nav > a > a:hover, header > nav.navigationBar > a:hover, header > nav.navigationBar > nav > a:hover, footer article#endMessage > .contactButtons > button > a.active, header > nav.navigationBar > button a.active, header > nav.navigationBar > .contactButtons > button a.active, main button a.active, footer > article#endMessage > .contactButtons > button a.active, figure figcaption > a.active, footer article#endNavLinks > nav > a.active, main aside > a.active, main aside > nav.tocNavLinks > a.active, header > nav.navigationBar > a > a.active, header > nav.navigationBar > nav > a > a.active, header > nav.navigationBar > a.active, header > nav.navigationBar > nav > a.active {
+  cursor: pointer;
+}
+footer article#endMessage > .contactButtons > button > a:hover span:after, header > nav.navigationBar > button a:hover span:after, header > nav.navigationBar > .contactButtons > button a:hover span:after, main button a:hover span:after, footer > article#endMessage > .contactButtons > button a:hover span:after, figure figcaption > a:hover span:after, footer article#endNavLinks > nav > a:hover span:after, main aside > a:hover span:after, main aside > nav.tocNavLinks > a:hover span:after, header > nav.navigationBar > a > a:hover span:after, header > nav.navigationBar > nav > a > a:hover span:after, header > nav.navigationBar > a:hover span:after, header > nav.navigationBar > nav > a:hover span:after, footer article#endMessage > .contactButtons > button > a.active span:after, header > nav.navigationBar > button a.active span:after, header > nav.navigationBar > .contactButtons > button a.active span:after, main button a.active span:after, footer > article#endMessage > .contactButtons > button a.active span:after, figure figcaption > a.active span:after, footer article#endNavLinks > nav > a.active span:after, main aside > a.active span:after, main aside > nav.tocNavLinks > a.active span:after, header > nav.navigationBar > a > a.active span:after, header > nav.navigationBar > nav > a > a.active span:after, header > nav.navigationBar > a.active span:after, header > nav.navigationBar > nav > a.active span:after {
+  left: 0;
+  width: 100%;
+}
+
+footer article#endNavLinks > nav > a, main aside > a span, main aside > nav.tocNavLinks > a span, header > nav.navigationBar > a span, header > nav.navigationBar > nav > a span {
+  background-image: radial-gradient(transparent);
+  animation-name: noBackground;
+}
+@keyframes noBackground {
+  from {
+    background-image: radial-gradient(hsl(185, 90%, 86%) 0%, transparent 75%);
+  }
+  to {
+    background-image: radial-gradient(transparent);
+  }
+}
+
+footer article#endNavLinks > nav > a:hover, main aside > a:hover span, main aside > a.active span, main aside > nav.tocNavLinks > a:hover span, main aside > nav.tocNavLinks > a.active span, header > nav.navigationBar > a:hover span, header > nav.navigationBar > a.active span, header > nav.navigationBar > nav > a:hover span, header > nav.navigationBar > nav > a.active span {
+  background-image: radial-gradient(hsl(185, 90%, 86%) 0%, transparent 75%);
+  animation-name: activeBackground;
+}
+@keyframes activeBackground {
+  from {
+    background-image: radial-gradient(transparent);
+  }
+  to {
+    background-image: radial-gradient(hsl(185, 90%, 86%) 0%, transparent 75%);
+  }
+}
+
+footer article#endNavLinks > nav > a:hover, footer article#endNavLinks > nav > a, main aside > a:hover span, main aside > a.active span, main aside > nav.tocNavLinks > a:hover span, main aside > nav.tocNavLinks > a.active span, main aside > a span, main aside > nav.tocNavLinks > a span, header > nav.navigationBar > a:hover span, header > nav.navigationBar > a.active span, header > nav.navigationBar > nav > a:hover span, header > nav.navigationBar > nav > a.active span, header > nav.navigationBar > a span, header > nav.navigationBar > nav > a span {
+  animation-duration: 300ms;
+  animation-timing-function: ease-in-out;
+}
+
+header > nav.navigationBar > nav {
+  justify-content: space-between;
+  max-width: 568px;
+  width: 100%;
+}
+header > nav.navigationBar > a span:after, header > nav.navigationBar > nav > a span:after {
+  background-color: hsl(0, 0%, 50%);
+}
+@media only screen and (min-width: 1024px) {
+  header > nav.navigationBar > a, header > nav.navigationBar > nav > a {
+    padding: 0 16px 0 16px;
+  }
+}
+header > nav.navigationBar > a > a, header > nav.navigationBar > nav > a > a {
+  color: hsl(0, 0%, 30%);
+  max-width: 142px;
+  width: 100%;
+  max-height: 42px;
+}
+@media only screen and (max-width: 1024px) {
+  header > nav.navigationBar > a > a, header > nav.navigationBar > nav > a > a {
+    display: none !important;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  header > nav.navigationBar > a > a, header > nav.navigationBar > nav > a > a {
+    display: inherit;
+  }
+}
+header > nav.navigationBar > a > a#waynephung, header > nav.navigationBar > nav > a > a#waynephung {
+  max-width: 142px;
+  width: 100%;
+  max-height: 42px;
+}
+header > nav.navigationBar > nav > a {
+  max-height: 42px;
+  color: hsl(0, 0%, 30%);
+}
+@media only screen and (max-width: 200px) {
+  header > nav.navigationBar > nav > a {
+    padding: 8px 8px 8px 8px;
+  }
+}
+@media only screen and (min-width: 200px) {
+  header > nav.navigationBar > nav > a {
+    padding: 8px 16px 8px 16px;
+  }
+}
+@media only screen and (max-width: 275px) {
+  header > nav.navigationBar > nav > a {
+    width: calc(100% - 16px);
+  }
+}
+@media only screen and (min-width: 275px) and (max-width: 375px) {
+  header > nav.navigationBar > nav > a {
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 375px) {
+  header > nav.navigationBar > nav > a {
+    min-height: 44px;
+    padding: 0;
+  }
+}
+@media only screen and (min-width: 750px) and (max-width: 1024px) {
+  header > nav.navigationBar > nav > a:first-of-type {
+    padding-left: 0;
+  }
+}
+header > nav.navigationBar > nav > a > span {
+  max-width: 100px;
+  width: 100%;
+  max-height: 42px;
+}
+header > nav.navigationBar > .contactButtons > button > a {
+  width: 100%;
+  max-height: 32px;
+}
+header > nav.navigationBar > .contactButtons > button#linkedInButton > a {
+  max-width: 162px;
+}
+header > nav.navigationBar > .contactButtons > button#linkedInButton > a {
+  max-width: 138px;
+}
+
+main aside > a, main aside > nav.tocNavLinks > a {
+  padding: 8px 8px 8px 8px;
+  color: hsl(0, 0%, 30%);
+}
+main aside > a span:after, main aside > nav.tocNavLinks > a span:after {
+  background-color: hsl(0, 0%, 50%);
+}
+@media only screen and (min-width: 1024px) {
+  main aside > a, main aside > nav.tocNavLinks > a {
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-end;
+  }
+}
+
+footer article#endNavLinks > nav > a span {
+  color: hsl(0, 0%, 30%);
+}
+footer article#endNavLinks > nav > a span:after {
+  background-color: hsl(0, 0%, 50%);
+}
+figure > a {
+  border: none;
+  object-fit: contain;
+  object-position: center;
+  width: 100%;
+  height: auto;
+}
+/*
+    Placeholder selector to set default text properties, 
+    rounded corners, and underlined text styling upon 
+    cursor hovering on any button. Mainly used for other 
+    placeholder selectors for primary and secondary button 
+    styling.
+*/
+main button, header > nav.navigationBar > .contactButtons > button, footer > article#endMessage > .contactButtons > button, header > nav.navigationBar > button {
+  gap: 16px 16px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  cursor: default;
+  transition: background-image 0.3 ease-out;
+  padding: 0;
+  width: auto;
+}
+main button:before, header > nav.navigationBar > .contactButtons > button:before, footer > article#endMessage > .contactButtons > button:before, header > nav.navigationBar > button:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  border-radius: 12px;
+  transform: translate(-50%, -50%);
+  width: 141.421356237%;
+  padding-bottom: 141.421356237%;
+  opacity: 0;
+  transition: animation-play-state 0.3s linear;
+  animation: spin 1.2s cubic-bezier(0.4, 0.53, 0.67, 0.8) infinite;
+  animation-play-state: paused;
+}
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+main button:after, header > nav.navigationBar > .contactButtons > button:after, footer > article#endMessage > .contactButtons > button:after, header > nav.navigationBar > button:after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: 8px;
+}
+main button:hover:before, header > nav.navigationBar > .contactButtons > button:hover:before, footer > article#endMessage > .contactButtons > button:hover:before, header > nav.navigationBar > button:hover:before {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+/*
+    Applies a dark blue background color and light blue text color 
+    to a primary button (any button that emphasizes a key action, 
+    such as reading more about a case study or finding methods to 
+    contact).
+*/
+header > nav.navigationBar > .contactButtons > button, footer > article#endMessage > .contactButtons > button, header > nav.navigationBar > button {
+  background-color: hsl(215, 60%, 44%);
+}
+header > nav.navigationBar > .contactButtons > button a, footer > article#endMessage > .contactButtons > button a, header > nav.navigationBar > button a {
+  padding: 12px 24px 12px 24px;
+  width: 100%;
+}
+@media only screen and (max-width: 375px) {
+  header > nav.navigationBar > .contactButtons > button a, footer > article#endMessage > .contactButtons > button a, header > nav.navigationBar > button a {
+    padding: 12px 16px 12px 16px;
+  }
+}
+header > nav.navigationBar > .contactButtons > button a span, footer > article#endMessage > .contactButtons > button a span, header > nav.navigationBar > button a span {
+  color: hsl(190, 95%, 93%);
+}
+header > nav.navigationBar > .contactButtons > button a span:after, footer > article#endMessage > .contactButtons > button a span:after, header > nav.navigationBar > button a span:after {
+  background-color: hsl(190, 95%, 93%);
+}
+header > nav.navigationBar > .contactButtons > button a picture > img, footer > article#endMessage > .contactButtons > button a picture > img, header > nav.navigationBar > button a picture > img {
+  filter: invert(95%) sepia(10%) saturate(1177%) hue-rotate(170deg) brightness(103%) contrast(99%);
+}
+header > nav.navigationBar > .contactButtons > button picture > img, footer > article#endMessage > .contactButtons > button picture > img, header > nav.navigationBar > button picture > img {
+  filter: invert(95%) sepia(10%) saturate(1177%) hue-rotate(170deg) brightness(103%) contrast(99%);
+}
+header > nav.navigationBar > .contactButtons > button:before, footer > article#endMessage > .contactButtons > button:before, header > nav.navigationBar > button:before, header > nav.navigationBar > .contactButtons > button:after, footer > article#endMessage > .contactButtons > button:after, header > nav.navigationBar > button:after {
+  background-color: hsl(215, 60%, 44%);
+}
+header > nav.navigationBar > .contactButtons > button:hover, footer > article#endMessage > .contactButtons > button:hover, header > nav.navigationBar > button:hover {
+  background-image: linear-gradient(to right bottom, hsla(215, 60%, 44%, 0.65), hsl(215, 60%, 44%));
+}
+header > nav.navigationBar > .contactButtons > button:hover:before, footer > article#endMessage > .contactButtons > button:hover:before, header > nav.navigationBar > button:hover:before {
+  background: conic-gradient(hsl(215, 60%, 44%), hsl(190, 95%, 93%));
+}
+
+/*
+    Applies a transparent background color and dark blue text color 
+    to a second button (any button that provides an action that 
+    doesn't need to be emphasized as much, such as visiting 
+    an external website related to a case study).
+*/
+main button {
+  border: solid hsl(215, 60%, 44%);
+}
+main button a {
+  padding: 12px 16px 12px 16px;
+  width: 100%;
+}
+main button a span {
+  color: hsl(215, 60%, 44%);
+}
+main button a span:after {
+  background-color: hsl(215, 60%, 44%);
+}
+main button a picture > img {
+  filter: invert(32%) sepia(87%) saturate(828%) hue-rotate(186deg) brightness(75%) contrast(88%);
+}
+main button span {
+  color: hsl(215, 60%, 44%);
+}
+main button span:after {
+  background-color: hsl(215, 60%, 44%);
+}
+main button picture > img {
+  filter: invert(32%) sepia(87%) saturate(828%) hue-rotate(186deg) brightness(75%) contrast(88%);
+}
+main button:before, main button:after {
+  background-color: hsl(0, 0%, 90%);
+}
+main button:after {
+  border-radius: 4px;
+}
+main button:hover:before {
+  background: conic-gradient(hsl(215, 60%, 44%) 0deg, hsl(0, 0%, 90%) 25deg);
+}
+
+@media only screen and (max-width: 350px) {
+  header > nav.navigationBar > button#contactButton {
+    display: inherit;
+  }
+}
+@media only screen and (min-width: 350px) {
+  header > nav.navigationBar > button#contactButton {
+    display: none !important;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  header > nav.navigationBar > button {
+    display: none;
+  }
+}
+main button picture > img {
+  filter: invert(95%) sepia(10%) saturate(1177%) hue-rotate(170deg) brightness(103%) contrast(99%);
+}
+@media only screen and (max-width: 1024px) {
+  main button.toc-mobileButton {
+    display: inherit;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  main button.toc-mobileButton {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 250px) {
+  footer > article#endMessage > .contactButtons > button {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 250px) and (max-width: 375px) {
+  footer > article#endMessage > .contactButtons > button {
+    width: 75%;
+  }
+}
+
+header {
+  align-items: center;
+  background-color: hsla(0, 0%, 90%, 0.9);
+  backdrop-filter: blur(8px);
+}
+@media only screen and (max-width: 320px) {
+  header {
+    position: relative;
+  }
+}
+@media only screen and (min-width: 320px) {
+  header {
+    position: sticky;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 510px) {
+  header {
+    min-height: 128px;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 1024px) {
+  header {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  header {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: auto;
+    min-height: 64px;
+  }
+}
+header > nav.navigationBar {
+  position: relative;
+  justify-content: space-between;
+  order: 0;
+  height: 100%;
+}
+@media only screen and (min-width: 250px) {
+  header > nav.navigationBar {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 725px) {
+  header > nav.navigationBar {
+    justify-content: center;
+  }
+}
+@media only screen and (min-width: 725px) and (max-width: 1024px) {
+  header > nav.navigationBar {
+    justify-content: space-between;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  header > nav.navigationBar {
+    order: 2;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  header > nav.navigationBar > a:first-of-type {
+    padding-left: 0;
+  }
+}
+@media only screen and (max-width: 375px) {
+  header > nav.navigationBar > nav {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 375px) and (max-width: 715px) {
+  header > nav.navigationBar > nav {
+    justify-content: space-between;
+    min-width: 350px;
+  }
+  header > nav.navigationBar > nav > a:first-of-type {
+    padding-left: 0;
+  }
+  header > nav.navigationBar > nav > a:last-of-type {
+    padding-right: 0;
+  }
+}
+@media only screen and (max-width: 715px) {
+  header > nav.navigationBar > nav {
+    padding: 0 0 8px 0;
+  }
+}
+@media only screen and (min-width: 715px) and (max-width: 1024px) {
+  header > nav.navigationBar > nav {
+    padding: 0 16px 0 0;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  header > nav.navigationBar > nav {
+    padding: 0;
+  }
+}
+header > nav.navigationBar > .contactButtons {
+  justify-content: flex-start;
+  gap: 8px 16px;
+}
+@media only screen and (max-width: 350px) {
+  header > nav.navigationBar > .contactButtons {
+    display: none !important;
+  }
+}
+@media only screen and (min-width: 350px) {
+  header > nav.navigationBar > .contactButtons {
+    display: inherit;
+  }
+}
+@media only screen and (max-width: 715px) {
+  header > nav.navigationBar > .contactButtons {
+    justify-content: space-between;
+  }
+  header > nav.navigationBar > .contactButtons > button {
+    width: calc(50% - 12px);
+  }
+}
+header > .progressContainer {
+  left: 0;
+  max-width: 100%;
+  width: 100%;
+  height: 4px;
+  scroll-padding: 0;
+}
+header > .progressContainer > .progressBar {
+  width: 0%;
+  height: 4px;
+  background-image: linear-gradient(to right, hsla(0, 0%, 90%, 0.9), hsla(215, 60%, 44%, 0.65));
+  color: hsl(0, 0%, 30%);
+  border-radius: 2px;
+  scroll-padding: 0;
+  transition: 0s ease-in-out;
+}
+
+/*
+    Placeholder selector for the default properties of the grid.
+*/
+footer article#endNavLinks > nav, main > section.title:not(#home-title), .grid-case-study-preview, .grid-default-2c-equalWidth-1400 {
+  display: grid;
+  /*
+      Any grid item that has the ".columnSpan-all" class name or not 
+      tagged with the "gridContent" class name will have 
+      their width take up the entire width of the grid container.
+  */
+}
+@media only screen and (min-width: 1024px) {
+  footer article#endNavLinks > nav, main > section.title:not(#home-title), .grid-case-study-preview, .grid-default-2c-equalWidth-1400 {
+    justify-items: flex-start;
+  }
+}
+footer article#endNavLinks > nav .columnSpan-all, main > section.title:not(#home-title) .columnSpan-all, .grid-case-study-preview .columnSpan-all, .grid-default-2c-equalWidth-1400 .columnSpan-all {
+  grid-column: 1/-1;
+}
+
+/*
+    Placeholder selector for setting the default amount of columns for grids to one below 1024px width.
+*/
+.grid-default-1024 {
+  gap: 64px 32px;
+}
+@media only screen and (max-width: 1024px) {
+  .grid-default-1024 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid-default-1400 {
+  gap: 64px 32px;
+}
+@media only screen and (max-width: 1400px) {
+  .grid-default-1400 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid-default-2c-equalWidth-1400 {
+  gap: 64px 32px;
+}
+@media only screen and (min-width: 1024px) {
+  .grid-default-2c-equalWidth-1400 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 1400px) {
+  .grid-default-2c-equalWidth-1400 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid-case-study-preview {
+  gap: 16px 32px;
+}
+@media only screen and (min-width: 1024px) {
+  .grid-case-study-preview {
+    grid-template-columns: 2fr 3fr;
+  }
+}
+
+main > section.title:not(#home-title) {
+  gap: 16px 32px;
+}
+@media only screen and (min-width: 1024px) {
+  main > section.title:not(#home-title) {
+    grid-template-columns: 2fr 3fr;
+  }
+}
+main > section.title:not(#home-title) > article {
+  width: 100%;
+}
+main > section.title-error {
+  gap: 16px 32px;
+}
+
+/*
+    Placeholder selectors for column variations of grid containers.
+    They are useful for having a limited, but good-enough selection of columns with different widths (relative to the grid container) to support different layouts of grouped text, images and/or other visual elements across different window widths.
+*/
+h1 {
+  font-weight: 700;
+  color: hsl(220, 55%, 37%);
+}
+@media only screen and (max-width: 1024px) {
+  h1 {
+    font-size: 48px;
+    line-height: 1.2;
+    padding-bottom: 13.5px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  h1 {
+    font-size: 80px;
+    line-height: 1.15;
+    padding-bottom: 15px;
+  }
+}
+
+p.subtitle {
+  font-weight: 500;
+  color: hsl(0, 0%, 30%);
+}
+@media only screen and (max-width: 1024px) {
+  p.subtitle {
+    font-size: 20px;
+    line-height: 1.5;
+    padding-bottom: 8px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  p.subtitle {
+    font-size: 24px;
+    line-height: 1.5;
+    padding-bottom: 8px;
+  }
+}
+
+h2 {
+  font-weight: 600;
+  color: hsl(220, 55%, 37%);
+}
+@media only screen and (max-width: 1024px) {
+  h2 {
+    font-size: 36px;
+    line-height: 1.25;
+    padding-bottom: 16px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  h2 {
+    font-size: 52px;
+    line-height: 1.23;
+    padding-bottom: 16px;
+  }
+}
+
+h3 {
+  font-weight: 500;
+  color: hsl(21, 55%, 37%);
+}
+@media only screen and (max-width: 1024px) {
+  h3 {
+    font-size: 28px;
+    line-height: 1.3;
+    padding-bottom: 9.9px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  h3 {
+    font-size: 36px;
+    line-height: 1.3333;
+    padding-bottom: 11px;
+  }
+}
+
+h4 {
+  font-weight: 450;
+  color: hsl(21, 55%, 37%);
+}
+@media only screen and (max-width: 1024px) {
+  h4 {
+    font-size: 24px;
+    line-height: 1.375;
+    padding-bottom: 8.1px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  h4 {
+    font-size: 24px;
+    line-height: 1.3333;
+    padding-bottom: 9px;
+  }
+}
+
+p, a, ol, ul, ol > li, ul > li {
+  font-weight: 400;
+  color: hsl(0, 0%, 30%);
+}
+@media only screen and (max-width: 1024px) {
+  p, a, ol, ul, ol > li, ul > li {
+    font-size: 18px;
+    line-height: 1.6;
+    padding-bottom: 6.3px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  p, a, ol, ul, ol > li, ul > li {
+    font-size: 20px;
+    line-height: 1.6;
+    padding-bottom: 7px;
+  }
+}
+
+button > a > span, figcaption {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+button > a > span {
+  font-weight: 400;
+}
+
+figcaption {
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.03rem;
+  padding-bottom: 12px;
+}
+
+h1#home-h1 {
+  width: 100%;
+}
+
+h2 {
+  width: 100%;
+}
+
+h4.tags {
+  font-size: 20px;
+  font-style: italic;
+  color: hsl(0, 0%, 30%);
+}
+
+p > a {
+  font-size: 20px;
+}
+
+a {
+  padding-bottom: 0;
+  font-weight: 425;
+}
+a > span {
+  font-size: 16px;
+}
+
+.placeholder.span .placeholder-line {
+  color: transparent;
+}
+
+h1, h2, h3, h4, p, ol, ol > li, ul, ul > li, figcaption {
+  margin: 0;
+}
+
+footer > #endNavLinks h4 {
+  padding-bottom: 0;
+}
+
+footer {
+  background-color: hsl(185, 90%, 86%);
+  gap: 32px 64px;
+}
+footer article#endMessage {
+  max-width: 650px;
+}
+footer article#endMessage > p.subtitle {
+  padding-bottom: 16px;
+}
+@media only screen and (max-width: 1024px) {
+  footer article#endMessage > p.subtitle {
+    max-width: 500px;
+  }
+}
+footer article#endMessage > p#conversation {
+  padding-bottom: 8px;
+}
+@media only screen and (max-width: 375px) {
+  footer article#endMessage > p > span.noWidow {
+    white-space: normal;
+  }
+}
+@media only screen and (min-width: 375px) and (max-width: 600px) {
+  footer article#endMessage > p > span.noWidow {
+    white-space: nowrap;
+  }
+}
+@media only screen and (min-width: 600px) {
+  footer article#endMessage > p > span.noWidow {
+    white-space: normal;
+  }
+}
+footer article#endMessage > .contactButtons {
+  justify-content: flex-start;
+  gap: 8px 16px;
+}
+footer article#endNavLinks > nav {
+  gap: 8px 24px;
+}
+@media only screen and (min-width: 320px) {
+  footer article#endNavLinks > nav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/*
+    Default properties for any figure container across web pages; these containers are used for grouping images and image captions.
+
+    Inherits all properties of the both the default figure and grid placeholder selectors.
+
+    There is one class to place the children element to the left portion within the figure container.
+
+    There are specific class and id names to specify exact max widths for images that need specific sizes.
+
+    For the few audio players, specific justify-content and max-width properties are set.
+*/
+figure {
+  gap: 32px 64px;
+  position: relative;
+  margin: 0;
+  width: 100%;
+  height: auto;
+}
+figure .shadow {
+  box-shadow: 0 4px 8px 2px hsl(0, 0%, 50%);
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+}
+figure audio {
+  max-width: 100%;
+  justify-self: flex-start;
+  justify-content: space-between;
+}
+@media only screen and (min-width: 1024px) {
+  figure audio {
+    max-width: 650px;
+  }
+}
+figure picture, figure picture > img {
+  object-position: center;
+  object-fit: contain;
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  height: auto;
+  background-repeat: no-repeat;
+  touch-action: pan-x pan-y pinch-zoom;
+}
+@media only screen and (min-width: 1024px) {
+  figure picture {
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: flex-start;
+  }
+}
+figure video {
+  position: relative;
+  object-fit: contain;
+  align-self: flex-start;
+  width: 100%;
+  height: auto;
+}
+figure iframe {
+  width: 100%;
+  border: none;
+}
+figure a {
+  border: none;
+  object-fit: contain;
+  object-position: center;
+  padding: 0;
+  width: 100%;
+  height: auto;
+}
+figure figcaption {
+  display: inline-block;
+}
+figure#e-stride * {
+  max-height: 450px;
+  object-fit: cover;
+}
+
+@media only screen and (max-width: 1024px) {
+  h2 {
+    height: 64px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  h2 {
+    height: 80px;
+  }
+}
+h2.h2-sticky, h2.sticky {
+  position: fixed;
+  left: 0;
+  background-color: hsla(0, 0%, 90%, 0.9);
+}
+@media only screen and (max-width: 1024px) {
+  h2.h2-sticky, h2.sticky {
+    padding: 8px 0;
+    overflow-wrap: anywhere;
+    hyphens: auto;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  h2.h2-sticky, h2.sticky {
+    padding: 32px 0;
+    height: 64px;
+  }
+}
+
+/*
+    Mixin for using numbers as numerators and denominators into a system of class names 
+    that attach calculated aspect ratios to corresponding images.
+*/
+/*
+    Many repeated callings of the aspectRatioClass mixin 
+    to establish class names of aspect ratios.
+*/
+.ratio-1-5 {
+  aspect-ratio: calc(1 / 5);
+}
+
+.ratio-1-2 {
+  aspect-ratio: calc(1 / 2);
+}
+
+.ratio-9-16 {
+  aspect-ratio: calc(9 / 16);
+}
+
+.ratio-4-7 {
+  aspect-ratio: calc(4 / 7);
+}
+
+.ratio-23-40 {
+  aspect-ratio: calc(23 / 40);
+}
+
+.ratio-3-5 {
+  aspect-ratio: calc(3 / 5);
+}
+
+.ratio-5-8 {
+  aspect-ratio: calc(5 / 8);
+}
+
+.ratio-13-20 {
+  aspect-ratio: calc(13 / 20);
+}
+
+.ratio-2-3 {
+  aspect-ratio: calc(2 / 3);
+}
+
+.ratio-7-10 {
+  aspect-ratio: calc(7 / 10);
+}
+
+.ratio-3-4 {
+  aspect-ratio: calc(3 / 4);
+}
+
+.ratio-4-5 {
+  aspect-ratio: calc(4 / 5);
+}
+
+.ratio-5-6 {
+  aspect-ratio: calc(5 / 6);
+}
+
+.ratio-10-11 {
+  aspect-ratio: calc(10 / 11);
+}
+
+.ratio-40-43 {
+  aspect-ratio: calc(40 / 43);
+}
+
+.ratio-1-1 {
+  aspect-ratio: calc(1 / 1);
+}
+
+.ratio-9-8 {
+  aspect-ratio: calc(9 / 8);
+}
+
+.ratio-8-7 {
+  aspect-ratio: calc(8 / 7);
+}
+
+.ratio-7-6 {
+  aspect-ratio: calc(7 / 6);
+}
+
+.ratio-13-11 {
+  aspect-ratio: calc(13 / 11);
+}
+
+.ratio-6-5 {
+  aspect-ratio: calc(6 / 5);
+}
+
+.ratio-5-4 {
+  aspect-ratio: calc(5 / 4);
+}
+
+.ratio-4-3 {
+  aspect-ratio: calc(4 / 3);
+}
+
+.ratio-20-13 {
+  aspect-ratio: calc(20 / 13);
+}
+
+.ratio-8-5 {
+  aspect-ratio: calc(8 / 5);
+}
+
+.ratio-13-8 {
+  aspect-ratio: calc(13 / 8);
+}
+
+.ratio-5-3 {
+  aspect-ratio: calc(5 / 3);
+}
+
+.ratio-12-7 {
+  aspect-ratio: calc(12 / 7);
+}
+
+.ratio-40-23 {
+  aspect-ratio: calc(40 / 23);
+}
+
+.ratio-7-4 {
+  aspect-ratio: calc(7 / 4);
+}
+
+.ratio-325-183 {
+  aspect-ratio: calc(325 / 183);
+}
+
+.ratio-16-9 {
+  aspect-ratio: calc(16 / 9);
+}
+
+.ratio-9-5 {
+  aspect-ratio: calc(9 / 5);
+}
+
+.ratio-20-11 {
+  aspect-ratio: calc(20 / 11);
+}
+
+.ratio-15-8 {
+  aspect-ratio: calc(15 / 8);
+}
+
+.ratio-48-25 {
+  aspect-ratio: calc(48 / 25);
+}
+
+.ratio-2-1 {
+  aspect-ratio: calc(2 / 1);
+}
+
+.ratio-20-9 {
+  aspect-ratio: calc(20 / 9);
+}
+
+.ratio-9-4 {
+  aspect-ratio: calc(9 / 4);
+}
+
+.ratio-8-3 {
+  aspect-ratio: calc(8 / 3);
+}
+
+.ratio-5-2 {
+  aspect-ratio: calc(5 / 2);
+}
+
+.ratio-10-3 {
+  aspect-ratio: calc(10 / 3);
+}
+
+.ratio-4-1 {
+  aspect-ratio: calc(4 / 1);
+}
+
+.ratio-9-2 {
+  aspect-ratio: calc(9 / 2);
+}
+
+.ratio-5-1 {
+  aspect-ratio: calc(5 / 1);
+}
+
+.ratio-6-1 {
+  aspect-ratio: calc(6 / 1);
+}
+
+.ratio-19-3 {
+  aspect-ratio: calc(19 / 3);
+}
+
+@media only screen and (max-width: 750px) {
+  nav.navigationBar,
+  main > section,
+  main > section > h2.sticky,
+  footer {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+@media only screen and (min-width: 750px) {
+  nav.navigationBar,
+  main > section,
+  main > section > h2.sticky,
+  footer {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  nav.navigationBar {
+    max-width: calc(100% - 32px);
+  }
+}
+@media only screen and (min-width: 750px) {
+  nav.navigationBar {
+    max-width: calc(100% - 64px);
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  h2.h2-sticky, h2.sticky {
+    padding: 16px 12px;
+    width: calc(100% - 32px);
+  }
+}
+@media only screen and (min-width: 750px) {
+  h2.h2-sticky, h2.sticky {
+    padding: 0 32px 16px 32px;
+  }
+}
+
+nav.navigationBar {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+main {
+  padding-top: 16px;
+  padding-bottom: 128px;
+}
+main > *:not(:last-child) {
+  padding-bottom: 128px;
+}
+@media only screen and (max-width: 320px) {
+  main > section.bodyContent > section[class*=content] > article:not(:last-child) {
+    padding-bottom: 64px;
+  }
+}
+@media only screen and (min-width: 320px) {
+  main > section.bodyContent > section[class*=content] > article:not(:last-child) {
+    padding-bottom: 128px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  footer {
+    padding-bottom: 128px;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 750px) {
+  footer {
+    padding-bottom: 64px;
+  }
+}
+@media only screen and (max-width: 750px) {
+  footer {
+    padding-top: 32px;
+    padding-right: 16px;
+    padding-left: 16px;
+    max-width: calc(100% - 32px);
+  }
+}
+@media only screen and (min-width: 750px) {
+  footer {
+    padding: 64px 32px;
+    max-width: calc(100% - 64px);
+  }
+}
+
+main section {
+  gap: 32px 0;
+}
+main section#design-work > article, main section#media-work > article, main section#about-me > article {
+  gap: 64px 0;
+  width: 100%;
+}
+main section#design-work > article[class*=grid], main section#design-work > article > article[class*=grid] > article, main section#design-work > article > article[class*=grid] > article > article, main section#design-work > article > article[class*=grid], main section#design-work > article[class*=grid-default] > article, main section#design-work > article > p, main section#media-work > article[class*=grid], main section#media-work > article > article[class*=grid] > article, main section#media-work > article > article[class*=grid] > article > article, main section#media-work > article > article[class*=grid], main section#media-work > article[class*=grid-default] > article, main section#media-work > article > p, main section#about-me > article[class*=grid], main section#about-me > article > article[class*=grid] > article, main section#about-me > article > article[class*=grid] > article > article, main section#about-me > article > article[class*=grid], main section#about-me > article[class*=grid-default] > article, main section#about-me > article > p {
+  width: 100%;
+}
+main section#design-work > article[class*=grid-default] > article, main section#media-work > article[class*=grid-default] > article, main section#about-me > article[class*=grid-default] > article {
+  gap: 32px 32px;
+  width: 100%;
+}
+@media only screen and (min-width: 1024px) {
+  main section#design-work > article > article.grid-case-study-preview > article, main section#media-work > article > article.grid-case-study-preview > article, main section#about-me > article > article.grid-case-study-preview > article {
+    gap: 16px 0;
+  }
+}
+main section.title-error > article {
+  width: 100%;
+}
+
+@media only screen and (min-width: 1024px) {
+  article#other-case-studies > article.grid-case-study-preview > article {
+    gap: 16px 0;
+  }
+}
+
+aside.sticky-active {
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+aside.sticky-active:-webkit-scrollbar {
+  display: none;
+}
+@media only screen and (min-width: 1024px) {
+  aside.sticky-active {
+    position: sticky;
+    top: 86px;
+    order: 1;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  aside > nav.tocNavLinks {
+    display: none;
+    margin-bottom: 16px;
+    padding: 12px;
+    border: solid hsl(215, 60%, 44%);
+    border-radius: 12px;
+    background-color: hsl(0, 0%, 90%);
+  }
+}
+@media only screen and (min-width: 1024px) {
+  aside {
+    gap: 16px 0;
+  }
+}
+
+main > section.title > h1#home-title {
+  width: 100%;
+}
+main > section.bodyContent {
+  gap: 32px 32px;
+}
+@media only screen and (min-width: 1024px) {
+  main > section.bodyContent {
+    justify-content: space-between;
+  }
+}
+main > section.bodyContent > section[class*=content] {
+  width: 100%;
+}
+@media only screen and (max-width: 1024px) {
+  main > section.bodyContent > section[class*=content] {
+    justify-content: center;
+  }
+}
+@media only screen and (min-width: 1024px) and (max-width: 1920px) {
+  main > section.bodyContent > section[class*=content].content-loc {
+    max-width: calc(100% - 250px - 32px);
+  }
+}
+@media only screen and (min-width: 1920px) {
+  main > section.bodyContent > section[class*=content].content-loc {
+    max-width: calc(100% - 350px);
+  }
+}
+main > section.bodyContent > section[class*=content] > article {
+  width: 100%;
+}
+main > section.bodyContent > section[class*=content] > article > h2 {
+  width: 100%;
+}
+@media only screen and (max-width: 750px) {
+  main > section.bodyContent > aside {
+    width: calc(100% - 32px);
+  }
+}
+@media only screen and (min-width: 750px) and (max-width: 1024px) {
+  main > section.bodyContent > aside {
+    width: calc(100% - 64px);
+  }
+}
+@media only screen and (max-width: 1024px) {
+  main > section.bodyContent > aside {
+    display: flex;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    flex-direction: column-reverse;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-end;
+    position: fixed;
+    margin: 0 auto;
+  }
+}
+@media only screen and (min-width: 1024px) and (max-width: 1920px) {
+  main > section.bodyContent > aside {
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-end;
+    align-content: flex-end;
+    justify-content: flex-end;
+    max-width: 250px;
+  }
+}
+@media only screen and (min-width: 1920px) {
+  main > section.bodyContent > aside {
+    max-width: 350px;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  main > section.bodyContent > aside > a#toTop-desktop, main > section.bodyContent > aside > a#other-case-studies-desktop {
+    display: none !important;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  main > section.bodyContent > aside > a#toTop-desktop, main > section.bodyContent > aside > a#other-case-studies-desktop {
+    display: inherit;
+  }
+}
+main > section.bodyContent > aside > nav.tocNavLinks > * {
+  width: 100%;
+}
+@media only screen and (max-width: 1024px) {
+  main > section.bodyContent > aside > nav.tocNavLinks {
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  main > section.bodyContent > aside > nav.tocNavLinks > a#toTop-mobile, main > section.bodyContent > aside > nav.tocNavLinks > a#other-case-studies-mobile {
+    display: inherit;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  main > section.bodyContent > aside > nav.tocNavLinks > a#toTop-mobile, main > section.bodyContent > aside > nav.tocNavLinks > a#other-case-studies-mobile {
+    display: none !important;
+  }
+}
+
+main > section.bodyContent article#other-case-studies {
+  gap: 64px 32px;
+}
+main > section.bodyContent article#other-case-studies > article[class*=grid], main > section.bodyContent article#other-case-studies > article[class*=grid] article {
+  width: 100%;
+}
+
+.buffer-page, .loading-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: hsl(0, 0%, 90%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms ease-in-out;
+}
+.buffer-page.visible, .loading-page.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+body {
+  transition: opacity 300ms ease-in-out;
+}
+body.page-transition {
+  opacity: 0;
+}
+
+.loading-spinner {
+  border-bottom: 16px solid rgba(0, 0, 0, 0.2);
+  border-left: 16px solid rgba(0, 0, 0, 0.2);
+  border-right: 16px solid rgba(0, 0, 0, 0.2);
+  border-top: 16px solid rgba(0, 0, 0, 0.5);
+  border-radius: 100%;
+  min-width: 200px;
+  width: 200px;
+  min-height: 200px;
+  height: 200px;
+  animation: spin 1.5s infinite cubic-bezier(1, 0.3, 0.5, 0.7);
+  text-indent: 999em;
+  margin: 0;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+/* styles/image-carousel.css */
+/* Container for the carousel */
+.carousel-container {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  width: calc(100% - 32px);
+  height: calc(100% - 32px);
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+/* Styles for the carousel image */
+.carousel-image {
+  position: absolute;
+  left: 50%;
+  min-height: 100px;
+  width: auto;
+  height: 100px;
+  transform: translateX(-50%);
+  transition: top 0.5s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Image state: hidden (initial state) */
+.carousel-image.hidden {
+  top: -150%;
+  opacity: 0;
+}
+
+/* Image state: entering the view */
+.carousel-image.enter {
+  top: 25%;
+  opacity: 1;
+}
+
+/* Image state: exiting the view */
+.carousel-image.exit {
+  top: 100%;
+  opacity: 1;
+}
+
+/* Image state: reset position (top of container) */
+.carousel-image.reset {
+  top: -150%;
+  opacity: 0;
+  transition: none; /* Instant transition for reset */
+}
+
+/* Overlay for the carousel */
+.carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, transparent 50%, hsl(0, 0%, 90%) 100%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.buffer-visual {
+  width: auto;
+  height: auto;
+  background-color: transparent;
+}
+
+.button-placeholder, .figure-placeholder, .link-span-placeholder-line, .placeholder .placeholder-line, .placeholder .figcaption-placeholder-line, .placeholder .h4-placeholder-line, .placeholder .h3-placeholder-line, .placeholder .h2-placeholder-line, .placeholder .h1-placeholder-line, .placeholder .subtitle-placeholder-line, .placeholder .p-placeholder-line {
+  background-color: hsl(0, 0%, 70%);
+  animation: pulse 1.5s infinite;
+}
+
+.text-container {
+  width: 100%;
+}
+
+.placeholder .placeholder-line, .placeholder .figcaption-placeholder-line, .placeholder .h4-placeholder-line, .placeholder .h3-placeholder-line, .placeholder .h2-placeholder-line, .placeholder .h1-placeholder-line, .placeholder .subtitle-placeholder-line, .placeholder .p-placeholder-line {
+  border-radius: 8px;
+}
+.placeholder.lines-0 .placeholder-line:nth-child(n), .placeholder.lines-0 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-0 .p-placeholder-line:nth-child(n), .placeholder.lines-0 .h1-placeholder-line:nth-child(n), .placeholder.lines-0 .h2-placeholder-line:nth-child(n), .placeholder.lines-0 .h3-placeholder-line:nth-child(n), .placeholder.lines-0 .h4-placeholder-line:nth-child(n), .placeholder.lines-0 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-1 .placeholder-line:nth-child(n), .placeholder.lines-1 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-1 .p-placeholder-line:nth-child(n), .placeholder.lines-1 .h1-placeholder-line:nth-child(n), .placeholder.lines-1 .h2-placeholder-line:nth-child(n), .placeholder.lines-1 .h3-placeholder-line:nth-child(n), .placeholder.lines-1 .h4-placeholder-line:nth-child(n), .placeholder.lines-1 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-2 .placeholder-line:nth-child(n), .placeholder.lines-2 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-2 .p-placeholder-line:nth-child(n), .placeholder.lines-2 .h1-placeholder-line:nth-child(n), .placeholder.lines-2 .h2-placeholder-line:nth-child(n), .placeholder.lines-2 .h3-placeholder-line:nth-child(n), .placeholder.lines-2 .h4-placeholder-line:nth-child(n), .placeholder.lines-2 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-3 .placeholder-line:nth-child(n), .placeholder.lines-3 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-3 .p-placeholder-line:nth-child(n), .placeholder.lines-3 .h1-placeholder-line:nth-child(n), .placeholder.lines-3 .h2-placeholder-line:nth-child(n), .placeholder.lines-3 .h3-placeholder-line:nth-child(n), .placeholder.lines-3 .h4-placeholder-line:nth-child(n), .placeholder.lines-3 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-4 .placeholder-line:nth-child(n), .placeholder.lines-4 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-4 .p-placeholder-line:nth-child(n), .placeholder.lines-4 .h1-placeholder-line:nth-child(n), .placeholder.lines-4 .h2-placeholder-line:nth-child(n), .placeholder.lines-4 .h3-placeholder-line:nth-child(n), .placeholder.lines-4 .h4-placeholder-line:nth-child(n), .placeholder.lines-4 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-5 .placeholder-line:nth-child(n), .placeholder.lines-5 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-5 .p-placeholder-line:nth-child(n), .placeholder.lines-5 .h1-placeholder-line:nth-child(n), .placeholder.lines-5 .h2-placeholder-line:nth-child(n), .placeholder.lines-5 .h3-placeholder-line:nth-child(n), .placeholder.lines-5 .h4-placeholder-line:nth-child(n), .placeholder.lines-5 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-6 .placeholder-line:nth-child(n), .placeholder.lines-6 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-6 .p-placeholder-line:nth-child(n), .placeholder.lines-6 .h1-placeholder-line:nth-child(n), .placeholder.lines-6 .h2-placeholder-line:nth-child(n), .placeholder.lines-6 .h3-placeholder-line:nth-child(n), .placeholder.lines-6 .h4-placeholder-line:nth-child(n), .placeholder.lines-6 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-7 .placeholder-line:nth-child(n), .placeholder.lines-7 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-7 .p-placeholder-line:nth-child(n), .placeholder.lines-7 .h1-placeholder-line:nth-child(n), .placeholder.lines-7 .h2-placeholder-line:nth-child(n), .placeholder.lines-7 .h3-placeholder-line:nth-child(n), .placeholder.lines-7 .h4-placeholder-line:nth-child(n), .placeholder.lines-7 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-8 .placeholder-line:nth-child(n), .placeholder.lines-8 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-8 .p-placeholder-line:nth-child(n), .placeholder.lines-8 .h1-placeholder-line:nth-child(n), .placeholder.lines-8 .h2-placeholder-line:nth-child(n), .placeholder.lines-8 .h3-placeholder-line:nth-child(n), .placeholder.lines-8 .h4-placeholder-line:nth-child(n), .placeholder.lines-8 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-9 .placeholder-line:nth-child(n), .placeholder.lines-9 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-9 .p-placeholder-line:nth-child(n), .placeholder.lines-9 .h1-placeholder-line:nth-child(n), .placeholder.lines-9 .h2-placeholder-line:nth-child(n), .placeholder.lines-9 .h3-placeholder-line:nth-child(n), .placeholder.lines-9 .h4-placeholder-line:nth-child(n), .placeholder.lines-9 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-10 .placeholder-line:nth-child(n), .placeholder.lines-10 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-10 .p-placeholder-line:nth-child(n), .placeholder.lines-10 .h1-placeholder-line:nth-child(n), .placeholder.lines-10 .h2-placeholder-line:nth-child(n), .placeholder.lines-10 .h3-placeholder-line:nth-child(n), .placeholder.lines-10 .h4-placeholder-line:nth-child(n), .placeholder.lines-10 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-11 .placeholder-line:nth-child(n), .placeholder.lines-11 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-11 .p-placeholder-line:nth-child(n), .placeholder.lines-11 .h1-placeholder-line:nth-child(n), .placeholder.lines-11 .h2-placeholder-line:nth-child(n), .placeholder.lines-11 .h3-placeholder-line:nth-child(n), .placeholder.lines-11 .h4-placeholder-line:nth-child(n), .placeholder.lines-11 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-12 .placeholder-line:nth-child(n), .placeholder.lines-12 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-12 .p-placeholder-line:nth-child(n), .placeholder.lines-12 .h1-placeholder-line:nth-child(n), .placeholder.lines-12 .h2-placeholder-line:nth-child(n), .placeholder.lines-12 .h3-placeholder-line:nth-child(n), .placeholder.lines-12 .h4-placeholder-line:nth-child(n), .placeholder.lines-12 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-13 .placeholder-line:nth-child(n), .placeholder.lines-13 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-13 .p-placeholder-line:nth-child(n), .placeholder.lines-13 .h1-placeholder-line:nth-child(n), .placeholder.lines-13 .h2-placeholder-line:nth-child(n), .placeholder.lines-13 .h3-placeholder-line:nth-child(n), .placeholder.lines-13 .h4-placeholder-line:nth-child(n), .placeholder.lines-13 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-14 .placeholder-line:nth-child(n), .placeholder.lines-14 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-14 .p-placeholder-line:nth-child(n), .placeholder.lines-14 .h1-placeholder-line:nth-child(n), .placeholder.lines-14 .h2-placeholder-line:nth-child(n), .placeholder.lines-14 .h3-placeholder-line:nth-child(n), .placeholder.lines-14 .h4-placeholder-line:nth-child(n), .placeholder.lines-14 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-15 .placeholder-line:nth-child(n), .placeholder.lines-15 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-15 .p-placeholder-line:nth-child(n), .placeholder.lines-15 .h1-placeholder-line:nth-child(n), .placeholder.lines-15 .h2-placeholder-line:nth-child(n), .placeholder.lines-15 .h3-placeholder-line:nth-child(n), .placeholder.lines-15 .h4-placeholder-line:nth-child(n), .placeholder.lines-15 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-16 .placeholder-line:nth-child(n), .placeholder.lines-16 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-16 .p-placeholder-line:nth-child(n), .placeholder.lines-16 .h1-placeholder-line:nth-child(n), .placeholder.lines-16 .h2-placeholder-line:nth-child(n), .placeholder.lines-16 .h3-placeholder-line:nth-child(n), .placeholder.lines-16 .h4-placeholder-line:nth-child(n), .placeholder.lines-16 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-17 .placeholder-line:nth-child(n), .placeholder.lines-17 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-17 .p-placeholder-line:nth-child(n), .placeholder.lines-17 .h1-placeholder-line:nth-child(n), .placeholder.lines-17 .h2-placeholder-line:nth-child(n), .placeholder.lines-17 .h3-placeholder-line:nth-child(n), .placeholder.lines-17 .h4-placeholder-line:nth-child(n), .placeholder.lines-17 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-18 .placeholder-line:nth-child(n), .placeholder.lines-18 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-18 .p-placeholder-line:nth-child(n), .placeholder.lines-18 .h1-placeholder-line:nth-child(n), .placeholder.lines-18 .h2-placeholder-line:nth-child(n), .placeholder.lines-18 .h3-placeholder-line:nth-child(n), .placeholder.lines-18 .h4-placeholder-line:nth-child(n), .placeholder.lines-18 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-19 .placeholder-line:nth-child(n), .placeholder.lines-19 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-19 .p-placeholder-line:nth-child(n), .placeholder.lines-19 .h1-placeholder-line:nth-child(n), .placeholder.lines-19 .h2-placeholder-line:nth-child(n), .placeholder.lines-19 .h3-placeholder-line:nth-child(n), .placeholder.lines-19 .h4-placeholder-line:nth-child(n), .placeholder.lines-19 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-20 .placeholder-line:nth-child(n), .placeholder.lines-20 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-20 .p-placeholder-line:nth-child(n), .placeholder.lines-20 .h1-placeholder-line:nth-child(n), .placeholder.lines-20 .h2-placeholder-line:nth-child(n), .placeholder.lines-20 .h3-placeholder-line:nth-child(n), .placeholder.lines-20 .h4-placeholder-line:nth-child(n), .placeholder.lines-20 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.span {
+  width: 100px;
+  height: 42px;
+}
+
+.link-span-placeholder-line {
+  max-width: 100px;
+  width: 100%;
+  height: 32px;
+  border-radius: 8px;
+}
+
+.figure-placeholder {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+.button-placeholder {
+  position: relative;
+  overflow: hidden;
+  height: auto;
+  border-radius: 12px;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.fade-in {
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.hidden {
+  display: none;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+.placeholder.h1, .placeholder.h2 {
+  width: 100%;
+}
+@media (max-width: 1023px) {
+  .placeholder.p .placeholder-line, .placeholder.subtitle .placeholder-line, .placeholder.h1 .placeholder-line, .placeholder.h2 .placeholder-line, .placeholder.h3 .placeholder-line, .placeholder.h4 .placeholder-line, .placeholder.figcaption .placeholder-line {
+    height: 28.8px;
+    margin-bottom: 6.3px;
+    background-color: hsl(0, 0%, 70%);
+    animation: pulse 1.5s infinite;
+  }
+}
+@media (min-width: 1024px) {
+  .placeholder.p .placeholder-line, .placeholder.subtitle .placeholder-line, .placeholder.h1 .placeholder-line, .placeholder.h2 .placeholder-line, .placeholder.h3 .placeholder-line, .placeholder.h4 .placeholder-line, .placeholder.figcaption .placeholder-line {
+    height: 32px;
+    margin-bottom: 7px;
+    background-color: hsl(0, 0%, 70%);
+    animation: pulse 1.5s infinite;
+  }
+}
+.placeholder.span .placeholder-line {
+  height: 24px;
+  margin-bottom: 1px;
+  background-color: hsl(0, 0%, 70%);
+  animation: pulse 1.5s infinite;
+}
+
+body {
+  margin: 0;
+}

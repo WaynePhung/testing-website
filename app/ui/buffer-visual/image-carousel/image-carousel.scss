@@ -1,0 +1,69 @@
+/* styles/image-carousel.css */
+@use "./../../../utils/colors/colors";
+
+/* Container for the carousel */
+.carousel-container {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  width: calc(100% - 32px);
+  height: calc(100% - 32px);
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+/* Styles for the carousel image */
+.carousel-image {
+  position: absolute;
+  left: 50%;
+  min-height: 100px;
+  width: auto;
+  height: 100px;
+  transform: translateX(-50%);
+  transition: top 0.5s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Image state: hidden (initial state) */
+.carousel-image.hidden {
+  top: -150%;
+  opacity: 0;
+}
+
+/* Image state: entering the view */
+.carousel-image.enter {
+  top: 25%;
+  opacity: 1;
+}
+
+/* Image state: exiting the view */
+.carousel-image.exit {
+  top: 100%;
+  opacity: 1;
+}
+
+/* Image state: reset position (top of container) */
+.carousel-image.reset {
+  top: -150%;
+  opacity: 0;
+  transition: none; /* Instant transition for reset */
+}
+
+/* Overlay for the carousel */
+.carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    transparent 50%,
+    colors.color('n', 90) 100%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+}

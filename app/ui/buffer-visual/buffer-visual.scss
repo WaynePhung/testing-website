@@ -1,0 +1,12 @@
+@use "./loading-spinner/loading-spinner.scss";
+@use "./image-carousel/image-carousel.scss";
+
+@use "./../../utils/mixins-other/display-flex";
+
+.buffer-visual {
+    @extend %flex-row-wrap-center;
+    width: auto;
+    height: auto;
+    // height: 100vh;
+    background-color: transparent;
+}

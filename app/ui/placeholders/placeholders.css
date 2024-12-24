@@ -1,0 +1,184 @@
+/* 
+    UPDATE COMMENT
+
+    This Sass variable creates a map key value pairs, where each pair consists of the following:
+    - the expression on the left represents a key
+    - the expression on the right is value associated with that key
+
+    In this case, the values on the right represent the corresponding values for hue, saturation, and lightness 
+    of the color names on the left, which are the exact colors intended for usage in the visual 
+    appearance of text, buttons, and other visual elements.
+    For example "darkBlue" is a key that is a color name, and "hsl(" is a hexcode value that is 
+    associated with "darkBlue".
+
+    The map below is used for a simple, but reproducible function called "color($colorName)" that 
+    can be used to clearly communicate which color is being to for one or more selected elements.
+
+    This map can be expanded to include more colors other than the ones already listed, and the 
+    hexcode values can be conveniently changed so that all elements that uses the same color will 
+    have their colors updated to reflect this change.
+
+    For more information on maps and key-value pairs, copy and paste this URL on an article about 
+    maps from the Sass official website: https://sass-lang.com/documentation/values/maps/
+*/
+/*
+    UPDATE COMMENT
+    This function uses the map from the "$colors" variable to return the desired color included from 
+    the map.
+
+    The mapping of color names is necessary to avoid confusion from using color hexcodes on which 
+    colors each element is using and to make the code usage of the CSS color property reproducible, 
+    more understandable, and with less repetitive code.
+*/
+/*
+    Key naming scheme is analogous to T-Shirt sizing:
+        2xs = xxs = extra extra small
+        xs = extra small
+        s = small
+        sm = small medium
+        m = medium
+        ml = medium large
+        l = large
+        xl = extra large
+        2xl = extra extra large
+        [n]xl = [number of xs] extra large
+*/
+/* Inset applies to the padding of an element. */
+/* Stack applies to bottom vertical space (mainly between elements or establishing negative space). */
+/* Inline applies to right horizontal space (mainly between elements or establishing negative space). */
+/* Default inset spacing for different types of buttons.*/
+/*
+    These three mixins makes a container of code reusable for specifying the minimum 
+    and/or maximum width condition(s) to apply the CSS properties and values.
+        - "mediaQuery-minOnly" sets up a media query for only the minimum width used in the media query's condition.
+          - "mediaQuery-maxOnly" sets up a media query for only the maximum width used in the media query's condition.
+          - "mediaQuery-minMax" sets up a media query for a range between the minimum and maximum widths used in the media query's condition.
+
+    These mixins uses two or three of the following:
+        - "$min" is a variable used as this mixin's argument to specify the number value for the minimum width used in the media query's condition.
+        - "$max" is a variable used as this mixin's argument to specify the number value for the maximum width used in the media query's condition.
+        - "@content" is a Sass directive that allows flexibile input of different CSS properties and values, whether to apply the same properties for multiple elements or tailor different properties to specific elements.
+*/
+.button-placeholder, .figure-placeholder, .link-span-placeholder-line, .placeholder .placeholder-line, .placeholder .figcaption-placeholder-line, .placeholder .h4-placeholder-line, .placeholder .h3-placeholder-line, .placeholder .h2-placeholder-line, .placeholder .h1-placeholder-line, .placeholder .subtitle-placeholder-line, .placeholder .p-placeholder-line {
+  background-color: hsl(0, 0%, 70%);
+  animation: pulse 1.5s infinite;
+}
+
+.text-container {
+  width: 100%;
+}
+
+.placeholder .placeholder-line, .placeholder .figcaption-placeholder-line, .placeholder .h4-placeholder-line, .placeholder .h3-placeholder-line, .placeholder .h2-placeholder-line, .placeholder .h1-placeholder-line, .placeholder .subtitle-placeholder-line, .placeholder .p-placeholder-line {
+  border-radius: 8px;
+}
+.placeholder.lines-0 .placeholder-line:nth-child(n), .placeholder.lines-0 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-0 .p-placeholder-line:nth-child(n), .placeholder.lines-0 .h1-placeholder-line:nth-child(n), .placeholder.lines-0 .h2-placeholder-line:nth-child(n), .placeholder.lines-0 .h3-placeholder-line:nth-child(n), .placeholder.lines-0 .h4-placeholder-line:nth-child(n), .placeholder.lines-0 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-1 .placeholder-line:nth-child(n), .placeholder.lines-1 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-1 .p-placeholder-line:nth-child(n), .placeholder.lines-1 .h1-placeholder-line:nth-child(n), .placeholder.lines-1 .h2-placeholder-line:nth-child(n), .placeholder.lines-1 .h3-placeholder-line:nth-child(n), .placeholder.lines-1 .h4-placeholder-line:nth-child(n), .placeholder.lines-1 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-2 .placeholder-line:nth-child(n), .placeholder.lines-2 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-2 .p-placeholder-line:nth-child(n), .placeholder.lines-2 .h1-placeholder-line:nth-child(n), .placeholder.lines-2 .h2-placeholder-line:nth-child(n), .placeholder.lines-2 .h3-placeholder-line:nth-child(n), .placeholder.lines-2 .h4-placeholder-line:nth-child(n), .placeholder.lines-2 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-3 .placeholder-line:nth-child(n), .placeholder.lines-3 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-3 .p-placeholder-line:nth-child(n), .placeholder.lines-3 .h1-placeholder-line:nth-child(n), .placeholder.lines-3 .h2-placeholder-line:nth-child(n), .placeholder.lines-3 .h3-placeholder-line:nth-child(n), .placeholder.lines-3 .h4-placeholder-line:nth-child(n), .placeholder.lines-3 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-4 .placeholder-line:nth-child(n), .placeholder.lines-4 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-4 .p-placeholder-line:nth-child(n), .placeholder.lines-4 .h1-placeholder-line:nth-child(n), .placeholder.lines-4 .h2-placeholder-line:nth-child(n), .placeholder.lines-4 .h3-placeholder-line:nth-child(n), .placeholder.lines-4 .h4-placeholder-line:nth-child(n), .placeholder.lines-4 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-5 .placeholder-line:nth-child(n), .placeholder.lines-5 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-5 .p-placeholder-line:nth-child(n), .placeholder.lines-5 .h1-placeholder-line:nth-child(n), .placeholder.lines-5 .h2-placeholder-line:nth-child(n), .placeholder.lines-5 .h3-placeholder-line:nth-child(n), .placeholder.lines-5 .h4-placeholder-line:nth-child(n), .placeholder.lines-5 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-6 .placeholder-line:nth-child(n), .placeholder.lines-6 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-6 .p-placeholder-line:nth-child(n), .placeholder.lines-6 .h1-placeholder-line:nth-child(n), .placeholder.lines-6 .h2-placeholder-line:nth-child(n), .placeholder.lines-6 .h3-placeholder-line:nth-child(n), .placeholder.lines-6 .h4-placeholder-line:nth-child(n), .placeholder.lines-6 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-7 .placeholder-line:nth-child(n), .placeholder.lines-7 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-7 .p-placeholder-line:nth-child(n), .placeholder.lines-7 .h1-placeholder-line:nth-child(n), .placeholder.lines-7 .h2-placeholder-line:nth-child(n), .placeholder.lines-7 .h3-placeholder-line:nth-child(n), .placeholder.lines-7 .h4-placeholder-line:nth-child(n), .placeholder.lines-7 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-8 .placeholder-line:nth-child(n), .placeholder.lines-8 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-8 .p-placeholder-line:nth-child(n), .placeholder.lines-8 .h1-placeholder-line:nth-child(n), .placeholder.lines-8 .h2-placeholder-line:nth-child(n), .placeholder.lines-8 .h3-placeholder-line:nth-child(n), .placeholder.lines-8 .h4-placeholder-line:nth-child(n), .placeholder.lines-8 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-9 .placeholder-line:nth-child(n), .placeholder.lines-9 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-9 .p-placeholder-line:nth-child(n), .placeholder.lines-9 .h1-placeholder-line:nth-child(n), .placeholder.lines-9 .h2-placeholder-line:nth-child(n), .placeholder.lines-9 .h3-placeholder-line:nth-child(n), .placeholder.lines-9 .h4-placeholder-line:nth-child(n), .placeholder.lines-9 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-10 .placeholder-line:nth-child(n), .placeholder.lines-10 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-10 .p-placeholder-line:nth-child(n), .placeholder.lines-10 .h1-placeholder-line:nth-child(n), .placeholder.lines-10 .h2-placeholder-line:nth-child(n), .placeholder.lines-10 .h3-placeholder-line:nth-child(n), .placeholder.lines-10 .h4-placeholder-line:nth-child(n), .placeholder.lines-10 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-11 .placeholder-line:nth-child(n), .placeholder.lines-11 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-11 .p-placeholder-line:nth-child(n), .placeholder.lines-11 .h1-placeholder-line:nth-child(n), .placeholder.lines-11 .h2-placeholder-line:nth-child(n), .placeholder.lines-11 .h3-placeholder-line:nth-child(n), .placeholder.lines-11 .h4-placeholder-line:nth-child(n), .placeholder.lines-11 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-12 .placeholder-line:nth-child(n), .placeholder.lines-12 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-12 .p-placeholder-line:nth-child(n), .placeholder.lines-12 .h1-placeholder-line:nth-child(n), .placeholder.lines-12 .h2-placeholder-line:nth-child(n), .placeholder.lines-12 .h3-placeholder-line:nth-child(n), .placeholder.lines-12 .h4-placeholder-line:nth-child(n), .placeholder.lines-12 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-13 .placeholder-line:nth-child(n), .placeholder.lines-13 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-13 .p-placeholder-line:nth-child(n), .placeholder.lines-13 .h1-placeholder-line:nth-child(n), .placeholder.lines-13 .h2-placeholder-line:nth-child(n), .placeholder.lines-13 .h3-placeholder-line:nth-child(n), .placeholder.lines-13 .h4-placeholder-line:nth-child(n), .placeholder.lines-13 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-14 .placeholder-line:nth-child(n), .placeholder.lines-14 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-14 .p-placeholder-line:nth-child(n), .placeholder.lines-14 .h1-placeholder-line:nth-child(n), .placeholder.lines-14 .h2-placeholder-line:nth-child(n), .placeholder.lines-14 .h3-placeholder-line:nth-child(n), .placeholder.lines-14 .h4-placeholder-line:nth-child(n), .placeholder.lines-14 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-15 .placeholder-line:nth-child(n), .placeholder.lines-15 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-15 .p-placeholder-line:nth-child(n), .placeholder.lines-15 .h1-placeholder-line:nth-child(n), .placeholder.lines-15 .h2-placeholder-line:nth-child(n), .placeholder.lines-15 .h3-placeholder-line:nth-child(n), .placeholder.lines-15 .h4-placeholder-line:nth-child(n), .placeholder.lines-15 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-16 .placeholder-line:nth-child(n), .placeholder.lines-16 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-16 .p-placeholder-line:nth-child(n), .placeholder.lines-16 .h1-placeholder-line:nth-child(n), .placeholder.lines-16 .h2-placeholder-line:nth-child(n), .placeholder.lines-16 .h3-placeholder-line:nth-child(n), .placeholder.lines-16 .h4-placeholder-line:nth-child(n), .placeholder.lines-16 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-17 .placeholder-line:nth-child(n), .placeholder.lines-17 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-17 .p-placeholder-line:nth-child(n), .placeholder.lines-17 .h1-placeholder-line:nth-child(n), .placeholder.lines-17 .h2-placeholder-line:nth-child(n), .placeholder.lines-17 .h3-placeholder-line:nth-child(n), .placeholder.lines-17 .h4-placeholder-line:nth-child(n), .placeholder.lines-17 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-18 .placeholder-line:nth-child(n), .placeholder.lines-18 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-18 .p-placeholder-line:nth-child(n), .placeholder.lines-18 .h1-placeholder-line:nth-child(n), .placeholder.lines-18 .h2-placeholder-line:nth-child(n), .placeholder.lines-18 .h3-placeholder-line:nth-child(n), .placeholder.lines-18 .h4-placeholder-line:nth-child(n), .placeholder.lines-18 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-19 .placeholder-line:nth-child(n), .placeholder.lines-19 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-19 .p-placeholder-line:nth-child(n), .placeholder.lines-19 .h1-placeholder-line:nth-child(n), .placeholder.lines-19 .h2-placeholder-line:nth-child(n), .placeholder.lines-19 .h3-placeholder-line:nth-child(n), .placeholder.lines-19 .h4-placeholder-line:nth-child(n), .placeholder.lines-19 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-20 .placeholder-line:nth-child(n), .placeholder.lines-20 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-20 .p-placeholder-line:nth-child(n), .placeholder.lines-20 .h1-placeholder-line:nth-child(n), .placeholder.lines-20 .h2-placeholder-line:nth-child(n), .placeholder.lines-20 .h3-placeholder-line:nth-child(n), .placeholder.lines-20 .h4-placeholder-line:nth-child(n), .placeholder.lines-20 .figcaption-placeholder-line:nth-child(n) {
+  width: 100%;
+}
+.placeholder.span {
+  width: 100px;
+  height: 42px;
+}
+
+.link-span-placeholder-line {
+  max-width: 100px;
+  width: 100%;
+  height: 32px;
+  border-radius: 8px;
+}
+
+.figure-placeholder {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+.button-placeholder {
+  position: relative;
+  overflow: hidden;
+  height: auto;
+  border-radius: 12px;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.fade-in {
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.hidden {
+  display: none;
+}

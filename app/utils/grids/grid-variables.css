@@ -1,0 +1,181 @@
+/*
+    These three mixins makes a container of code reusable for specifying the minimum 
+    and/or maximum width condition(s) to apply the CSS properties and values.
+        - "mediaQuery-minOnly" sets up a media query for only the minimum width used in the media query's condition.
+          - "mediaQuery-maxOnly" sets up a media query for only the maximum width used in the media query's condition.
+          - "mediaQuery-minMax" sets up a media query for a range between the minimum and maximum widths used in the media query's condition.
+
+    These mixins uses two or three of the following:
+        - "$min" is a variable used as this mixin's argument to specify the number value for the minimum width used in the media query's condition.
+        - "$max" is a variable used as this mixin's argument to specify the number value for the maximum width used in the media query's condition.
+        - "@content" is a Sass directive that allows flexibile input of different CSS properties and values, whether to apply the same properties for multiple elements or tailor different properties to specific elements.
+*/
+/*
+    Key naming scheme is analogous to T-Shirt sizing:
+        2xs = xxs = extra extra small
+        xs = extra small
+        s = small
+        sm = small medium
+        m = medium
+        ml = medium large
+        l = large
+        xl = extra large
+        2xl = extra extra large
+        [n]xl = [number of xs] extra large
+*/
+/* Inset applies to the padding of an element. */
+/* Stack applies to bottom vertical space (mainly between elements or establishing negative space). */
+/* Inline applies to right horizontal space (mainly between elements or establishing negative space). */
+/* Default inset spacing for different types of buttons.*/
+/*
+    UPDATE COMMENT
+    Mixin to define the space between each children element in a 
+    container with flex display. For grid display, this defines the 
+    space between each grid cell. Varaible arguments are defined below.
+        - "$rowGap" is the horizontal spacing between elements in a 
+          flexbox container or grid cells.
+        - "$columnGap" is the horizontal spacing between elements in a 
+          flexbox container or grid cells.
+        - By default, each argument has a default value of zero (no space), 
+          even if the argument is empty. However, the value of either or both 
+          arguments can be non-zero if specified.
+*/
+/* 
+    UPDATE COMMENT
+
+    This Sass variable creates a map key value pairs, where each pair consists of the following:
+    - the expression on the left represents a key
+    - the expression on the right is value associated with that key
+
+    In this case, the values on the right represent the corresponding values for hue, saturation, and lightness 
+    of the color names on the left, which are the exact colors intended for usage in the visual 
+    appearance of text, buttons, and other visual elements.
+    For example "darkBlue" is a key that is a color name, and "hsl(" is a hexcode value that is 
+    associated with "darkBlue".
+
+    The map below is used for a simple, but reproducible function called "color($colorName)" that 
+    can be used to clearly communicate which color is being to for one or more selected elements.
+
+    This map can be expanded to include more colors other than the ones already listed, and the 
+    hexcode values can be conveniently changed so that all elements that uses the same color will 
+    have their colors updated to reflect this change.
+
+    For more information on maps and key-value pairs, copy and paste this URL on an article about 
+    maps from the Sass official website: https://sass-lang.com/documentation/values/maps/
+*/
+/*
+    UPDATE COMMENT
+    This function uses the map from the "$colors" variable to return the desired color included from 
+    the map.
+
+    The mapping of color names is necessary to avoid confusion from using color hexcodes on which 
+    colors each element is using and to make the code usage of the CSS color property reproducible, 
+    more understandable, and with less repetitive code.
+*/
+/* 
+    Values for different screen width breakpoints.
+    bp = breakpoint, mb = mobile, dt = desktop, s = small, l = large
+*/
+/*
+    Placeholder selector used for the html element to set the default transition time to 0.25 seconds
+    with an ease-in and ease-out transition smoothness.
+*/
+/*
+    Placeholder selector to set the default background color of the entire page (html element) and 
+    the navigation header to light blue using the color function.
+*/
+main, footer, article.h2-wrapper {
+  z-index: 3;
+}
+
+aside, .h2-wrapper, h2.sticky {
+  z-index: 4;
+}
+
+header, header * {
+  z-index: 5;
+}
+
+/*
+    Placeholder selector for the default properties of the grid.
+*/
+main > section.title:not(#home-title), .grid-case-study-preview, .grid-default-2c-equalWidth-1400 {
+  display: grid;
+  /*
+      Any grid item that has the ".columnSpan-all" class name or not 
+      tagged with the "gridContent" class name will have 
+      their width take up the entire width of the grid container.
+  */
+}
+@media only screen and (min-width: 1024px) {
+  main > section.title:not(#home-title), .grid-case-study-preview, .grid-default-2c-equalWidth-1400 {
+    justify-items: flex-start;
+  }
+}
+main > section.title:not(#home-title) .columnSpan-all, .grid-case-study-preview .columnSpan-all, .grid-default-2c-equalWidth-1400 .columnSpan-all {
+  grid-column: 1/-1;
+}
+
+/*
+    Placeholder selector for setting the default amount of columns for grids to one below 1024px width.
+*/
+.grid-default-1024 {
+  gap: 64px 32px;
+}
+@media only screen and (max-width: 1024px) {
+  .grid-default-1024 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid-default-1400 {
+  gap: 64px 32px;
+}
+@media only screen and (max-width: 1400px) {
+  .grid-default-1400 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid-default-2c-equalWidth-1400 {
+  gap: 64px 32px;
+}
+@media only screen and (min-width: 1024px) {
+  .grid-default-2c-equalWidth-1400 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 1400px) {
+  .grid-default-2c-equalWidth-1400 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid-case-study-preview {
+  gap: 16px 32px;
+}
+@media only screen and (min-width: 1024px) {
+  .grid-case-study-preview {
+    grid-template-columns: 2fr 3fr;
+  }
+}
+
+main > section.title:not(#home-title) {
+  gap: 16px 32px;
+}
+@media only screen and (min-width: 1024px) {
+  main > section.title:not(#home-title) {
+    grid-template-columns: 2fr 3fr;
+  }
+}
+main > section.title:not(#home-title) > article {
+  width: 100%;
+}
+main > section.title-error {
+  gap: 16px 32px;
+}
+
+/*
+    Placeholder selectors for column variations of grid containers.
+    They are useful for having a limited, but good-enough selection of columns with different widths (relative to the grid container) to support different layouts of grouped text, images and/or other visual elements across different window widths.
+*/

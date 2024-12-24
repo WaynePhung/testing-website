@@ -1,0 +1,61 @@
+/*
+    Mixin for using numbers as numerators and denominators into a system of class names 
+    that attach calculated aspect ratios to corresponding images.
+*/
+@mixin aspectRatioClass ($number1, $number2) {
+    .ratio-#{$number1}-#{$number2} {
+        aspect-ratio: calc(#{$number1}/#{$number2});
+    }
+}
+
+/*
+    Many repeated callings of the aspectRatioClass mixin 
+    to establish class names of aspect ratios.
+*/
+@include aspectRatioClass(1, 5); //0.2
+@include aspectRatioClass(1, 2); //0.5
+@include aspectRatioClass(9, 16); //0.5625
+@include aspectRatioClass(4, 7); //0.571428571
+@include aspectRatioClass(23, 40); //0.575
+@include aspectRatioClass(3, 5); //0.6
+@include aspectRatioClass(5, 8); //0.625
+@include aspectRatioClass(13, 20); //0.65
+@include aspectRatioClass(2, 3); //0.6666 repeating
+@include aspectRatioClass(7, 10); //0.7
+@include aspectRatioClass(3, 4); //0.75
+@include aspectRatioClass(4, 5); //0.8
+@include aspectRatioClass(5, 6); //0.8333 repeating
+@include aspectRatioClass(10, 11); //0.9090 (90 repeating)
+@include aspectRatioClass(40, 43); //0.93023255814
+@include aspectRatioClass(1, 1); //1
+@include aspectRatioClass(9, 8); //1.125
+@include aspectRatioClass(8, 7); //1.14285714
+@include aspectRatioClass(7, 6); //1.1666 repeating
+@include aspectRatioClass(13, 11); //1.1818 (18 repeating)
+@include aspectRatioClass(6, 5); //1.2
+@include aspectRatioClass(5, 4); //1.25
+@include aspectRatioClass(4, 3); //1.3333 repeating
+@include aspectRatioClass(20, 13); //1.53846153846
+@include aspectRatioClass(8, 5); //1.6
+@include aspectRatioClass(13, 8); //1.625
+@include aspectRatioClass(5, 3); //1.6666 repeating
+@include aspectRatioClass(12, 7); //1.71428571429
+@include aspectRatioClass(40, 23); //1.73913043478
+@include aspectRatioClass(7, 4); //1.75
+@include aspectRatioClass(325, 183); //1.7759562842
+@include aspectRatioClass(16, 9); //1.7777 repeating
+@include aspectRatioClass(9, 5); //1.8
+@include aspectRatioClass(20, 11); //1.8181 (81 repeating)
+@include aspectRatioClass(15, 8); //1.875
+@include aspectRatioClass(48, 25); //1.92
+@include aspectRatioClass(2, 1); //2
+@include aspectRatioClass(20, 9); //2.2222 repeating
+@include aspectRatioClass(9, 4); //2.25
+@include aspectRatioClass(8, 3); //2.5
+@include aspectRatioClass(5, 2); //2.6666 repeating
+@include aspectRatioClass(10, 3); //3.3333 repeating
+@include aspectRatioClass(4, 1); //4
+@include aspectRatioClass(9, 2); //4.5
+@include aspectRatioClass(5, 1); //5
+@include aspectRatioClass(6, 1); //6
+@include aspectRatioClass(19, 3); //6.3333 repeating

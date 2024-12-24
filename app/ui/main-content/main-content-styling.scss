@@ -1,0 +1,93 @@
+@use "./../../utils/mixins-other/display-flex" as d-f;
+@use "./../../utils/mixins-other/screen-widths" as s-w;
+@use "./../../utils/mixins-other/show-hide-toggle" as s-h-t;
+@use "./../../utils/size-spacing/nums-size-space" as n-s-s;
+@use "./../../utils/size-spacing/row-column-gaps" as r-c-g;
+@use "./../../utils/variables/variables-global" as v-g;
+
+$toc-width-1024px: 250px;
+$toc-width-1920px: 350px;
+
+main {
+    & > section.title {
+        & > h1#home-title {
+            width: 100%;
+        }
+    }
+    & > section.bodyContent {
+        @extend %flex-row-wrap-default;
+        
+        @include r-c-g.rowColumnGaps("xl", "xl");
+        @include s-w.mediaQuery-minOnly(v-g.$bp-dt) {
+            justify-content: space-between;
+        }
+        & > section {
+            &[class*="content"] {
+                @extend %flex-row-wrap-default;
+                width: 100%;
+                @include s-w.mediaQuery-maxOnly(v-g.$bp-dt) {
+                    justify-content: center;
+                }
+                &.content-loc {
+                    @include s-w.mediaQuery-minMax(v-g.$bp-dt, v-g.$bp-dt-xl) {
+                        // @include r-c-g.rowColumnGaps("xl", "xl");
+                        max-width: calc(100% - $toc-width-1024px - map-get(n-s-s.$size-space, "xl"));
+                    }
+                    @include s-w.mediaQuery-minOnly(v-g.$bp-dt-xl) {
+                        max-width: calc(100% - $toc-width-1920px);
+                    }
+                }
+                & > article {
+                    width: 100%;
+                    & > h2 {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        & > aside {
+            @include s-w.mediaQuery-maxOnly(750) {
+                width: calc(100% - (2 * map-get(n-s-s.$size-space, "m")));
+            }
+            @include s-w.mediaQuery-minMax(750, v-g.$bp-dt) {
+                width: calc(100% - (2 * map-get(n-s-s.$size-space, "xl")));
+            }
+            @include s-w.mediaQuery-maxOnly(v-g.$bp-dt) {
+                @include d-f.displayFlex(column-reverse, nowrap, center, center, flex-end);
+                position: fixed;
+                // bottom: 70px;
+                margin: 0 auto;
+                // width: auto;
+                // & > * {
+                    // width: 100%;
+                // }
+            }
+            @include s-w.mediaQuery-minMax(v-g.$bp-dt, v-g.$bp-dt-xl) {
+                @include d-f.displayFlex(column, wrap, flex-end, flex-end, flex-end);
+                max-width: $toc-width-1024px;
+            }
+            @include s-w.mediaQuery-minOnly(v-g.$bp-dt-xl) {
+                max-width: $toc-width-1920px;
+            }
+            & > a#toTop-desktop, & > a#other-case-studies-desktop {
+                @include s-h-t.sHT-mQ-dhds(v-g.$bp-dt);
+            }
+            & > nav.tocNavLinks {
+                @extend %flex-row-wrap-default;
+                & > * {
+                    width: 100%;
+                }
+                @include s-w.mediaQuery-maxOnly(v-g.$bp-dt) {
+                    @include d-f.displayFlex(row, wrap, center, center, center);
+                }
+                & > a#toTop-mobile, & > a#other-case-studies-mobile {
+                    @include s-h-t.sHT-mQ-dsdh(v-g.$bp-dt);
+                }
+            }
+        }
+    }
+}
+
+// section.content {
+//     width: calc(100% - 250px);
+// }

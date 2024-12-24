@@ -1,0 +1,15 @@
+@use "./../utils/text-styling/text-styling";
+@use "./utils/grids/grid-variables";
+@use "./../utils/variables/variables-global" as v-g;
+
+/*
+    Applies the default 0.25 seconds transition, light blue background color, spacing properties, 
+    and row/column gap properties across many elements within the html tag container.
+*/
+html {
+  @extend %default-transition;
+  @extend %default-backgroundColor;
+  // @include spacing;
+  // @include gaps;
+  overflow-x: hidden;
+} 

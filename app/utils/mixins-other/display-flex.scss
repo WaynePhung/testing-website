@@ -1,0 +1,88 @@
+/*
+    This mixin is used to position and wrap children elements relative to the parent container element. It takes the following arguments to define flexbox properties for container elements:
+        1. Sets the display to flex (essential for any of the other flex properties to function as intended).
+        2. Enables/disables the wrapping of the children elements based on the "$flexWrap" variable argument.
+            - "wrap" to have the children elements populate within the space 
+              of the container
+            - "nowrap" to have the children elements instead populate within 
+              the same row/column
+        3. Sets the orientation of the wrapping, whether in a row or column. This is based on the "$flexDirection" variable argument.
+        4. Sets the starting position of each children element relative to the container element. This is based on the "$alignItems" variable argument:
+            - "flex-start" to start from the beginning portion of the container
+            - "center" to start from the middle portion
+            - "flex-end" to start from the bottom portion
+            - "stretch" to take up the available space of the container
+        - Sets the positioning of all children elements relative to the container element. This is based on the "$alignContent" variable argument:
+            - "flex-start" to orient all the children elements from the 
+              beginning portion of the container
+            - "center" to orient all the children elements from the middle portion
+            - "flex-end" to orient all the children elements from the bottom portion
+            - "stretch" to take up the available space of the container
+        - Sets the alignment of all children elements when they don't take up all of the available space in the container. This is based on the "$justifyContent" variable argument.
+    
+*/
+@mixin displayFlex($flexDirection, $flexWrap, $alignItems, $alignContent, $justifyContent) {
+    display: flex;
+    -ms-flex-wrap: $flexWrap;
+    flex-wrap: $flexWrap;
+    flex-direction: $flexDirection;
+    align-items: $alignItems;
+    align-content: $alignContent;
+    justify-content: $justifyContent;
+}
+
+/*
+  Placeholder selectors for the flex display of a container:
+    - column flex direction, wrapping along the column for
+      children elements, top-left starting point and alignment
+      of children elements and text
+*/
+%flex-column-wrap-default {
+    @include displayFlex(column, wrap, flex-start, flex-start, flex-start);
+}
+/*
+        - same as previous, except no wrapping of children elements
+*/
+%flex-column-nowrap-default {
+    @include displayFlex(column, nowrap, flex-start, flex-start, flex-start);
+} 
+/*
+        - column flex direction, wrapping, center starting point
+          and alignment of children elements and text
+*/
+%flex-column-wrap-center {
+    @include displayFlex(column, wrap, center, center, center);
+}
+/*
+        - same as previous, except no wrapping of children elements
+*/
+%flex-column-nowrap-center {
+    @include displayFlex(column, nowrap, center, center, center);
+}
+/*
+        - row flex direction, wrapping, top-left starting point 
+          and alignment of children elements and text
+*/
+%flex-row-wrap-default {
+    @include displayFlex(row, wrap, flex-start, flex-start, flex-start);
+}
+/*
+        - same as previous, except no wrapping of children elements
+*/
+%flex-row-nowrap-default {
+    @include displayFlex(row, nowrap, flex-start, flex-start, flex-start);
+}
+/*
+        - row flex direction, wrapping, center starting point
+          and alignment of children elements and text
+*/
+%flex-row-wrap-center {
+    @include displayFlex(row, wrap, center, center, center);
+}
+/*
+        - row flex direction, wrapping, right starting point
+          and alignment of children elements and text
+*/
+%flex-row-wrap-end {
+    @include displayFlex(row, wrap, center, center, flex-end);
+}
