@@ -1,4 +1,3 @@
-import { isWithinViewportBounds } from "./check-viewport-old-01";
 import { isWithinBodyContentBounds } from "./checkBound-BodyContent";
 import { caseStudyPaths, otherPagePaths } from "@/app/utils/ts/exported-constants";
 import { setActiveLink } from "./active-link-styling";

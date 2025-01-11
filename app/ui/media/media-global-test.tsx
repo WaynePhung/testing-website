@@ -141,7 +141,7 @@ export default function FigureImageVideo ({mediaGroup, mediaType, mediaAlias, wr
                                     {...getVideoBooleanAttributes}
                                     onLoadedData={handleLoad}
                                 >
-                                    <source src={videoProps.videoSrc} />
+                                    <source src={videoProps.src} />
                                 </video>
                             )
                         }
@@ -155,7 +155,7 @@ export default function FigureImageVideo ({mediaGroup, mediaType, mediaAlias, wr
                             return (
                                 <iframe 
                                     className={`${iframeProps.className} ${shadow == "true" && "shadow"}`} 
-                                    src={iframeProps.videoSrc} 
+                                    src={iframeProps.src} 
                                     allow={iframeProps.allow} 
                                     allowFullScreen
                                     onLoad={handleLoad}
