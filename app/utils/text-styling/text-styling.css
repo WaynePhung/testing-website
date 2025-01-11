@@ -80,7 +80,7 @@ aside[role=navigation], aside[role=navigation] > button, .h2-wrapper, h2.sticky 
 }
 
 header, header * {
-  z-index: 5;
+  z-index: 5 !important;
 }
 
 .buffer-page, .loading-page {
@@ -225,6 +225,13 @@ h2 {
   width: 100%;
 }
 
+h3 {
+  width: 100%;
+}
+
+h4 {
+  width: 100%;
+}
 h4.tags {
   font-size: 20px;
   font-style: italic;

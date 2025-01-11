@@ -85,3 +85,13 @@ figure {
         object-fit: cover;
     }
 }
+
+a[class*="ratio-"] {
+    width: 100%;
+    height: auto;
+}
+
+a#e-stride, figure#e-stride {
+    max-height: 450px;
+    object-fit: cover;
+}

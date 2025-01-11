@@ -1,0 +1,71 @@
+.email-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+.email-form .text-field,
+.email-form .expandable-text-field {
+  margin-bottom: 1rem;
+}
+.email-form .text-field label,
+.email-form .expandable-text-field label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.email-form .text-field input,
+.email-form .text-field textarea,
+.email-form .expandable-text-field input,
+.email-form .expandable-text-field textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.email-form .text-field textarea,
+.email-form .expandable-text-field textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+.email-form .text-field .error-message,
+.email-form .expandable-text-field .error-message {
+  color: red;
+  font-size: 0.8rem;
+}
+.email-form .checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.email-form .checkbox input {
+  margin-right: 0.5rem;
+}
+.email-form .error-container {
+  background-color: #ffebee;
+  border: 1px solid #ffcdd2;
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.email-form .error-container ul {
+  margin: 0;
+  padding-left: 1rem;
+}
+.email-form .error-container li {
+  color: #b71c1c;
+}
+.email-form button {
+  background-color: #4caf50;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.email-form button:hover {
+  background-color: #45a049;
+}
+.email-form .success-message {
+  color: green;
+}
+.email-form .error-message {
+  color: red;
+}

@@ -61,7 +61,7 @@ figure {
         - row flex direction, wrapping, top-left starting point 
           and alignment of children elements and text
 */
-main > section.bodyContent article#other-case-studies, main > section.bodyContent, main > section.bodyContent > section[class*=content], main > section.bodyContent > aside > nav.tocNavLinks, article#other-case-studies > article.grid-case-study-preview > article, main section, main section#design-work > article, main section#media-work > article, main section#about-me > article, main section#design-work > article[class*=grid-default] > article, main section#media-work > article[class*=grid-default] > article, main section#about-me > article[class*=grid-default] > article, main section#design-work > article > article.grid-case-study-preview > article, main section#media-work > article > article.grid-case-study-preview > article, main section#about-me > article > article.grid-case-study-preview > article, footer, header, footer article#endNavLinks > nav > a {
+main section, main section#design-work > article, main section#media-work > article, main section#about-me > article, main section#design-work > article[class*=grid-default] > article, main section#media-work > article[class*=grid-default] > article, main section#about-me > article[class*=grid-default] > article, main section#design-work > article > article.grid-case-study-preview > article, main section#media-work > article > article.grid-case-study-preview > article, main section#about-me > article > article.grid-case-study-preview > article, article#other-case-studies > article.grid-case-study-preview > article, main > section.bodyContent, main > section.bodyContent > section[class*=content], main > section.bodyContent > section[class*=content].content-loc, main > section.bodyContent > section[class*=content].content-loc > article, main > section.bodyContent > aside > nav.tocNavLinks, main > section.bodyContent article#other-case-studies, footer, header, footer article#endNavLinks > nav > a {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -78,7 +78,7 @@ main > section.bodyContent article#other-case-studies, main > section.bodyConten
         - row flex direction, wrapping, center starting point
           and alignment of children elements and text
 */
-.buffer-visual, figure picture, figure picture > img, footer article#endMessage > .contactButtons, header > nav.navigationBar, header > nav.navigationBar > nav, header > nav.navigationBar > .contactButtons, header > nav.navigationBar > button, header > nav.navigationBar > .contactButtons > button, main button, footer > article#endMessage > .contactButtons > button, header > nav.navigationBar > a, header > nav.navigationBar > nav > a, header > nav.navigationBar > .contactButtons > button > a, main button > a, main aside > a, main aside > nav.tocNavLinks > a, footer article#endMessage > .contactButtons > button > a, header > nav.navigationBar > button a picture, header > nav.navigationBar > .contactButtons > button a picture, main button a picture, footer > article#endMessage > .contactButtons > button a picture {
+.placeholder.span, .placeholder.span .placeholder-line-span, .placeholder.figcaption, .placeholder.figcaption .placeholder-line-figcaption, .buffer-visual, figure picture, figure picture > img, footer article#endMessage > .contactButtons, header > nav.navigationBar, header > nav.navigationBar > nav, header > nav.navigationBar > .contactButtons, button.button-primary-loaded, button.button-primary-placeholder, button.button-secondary-loaded, button.button-secondary-placeholder, header > nav.navigationBar > a, header > nav.navigationBar > nav > a, header > nav.navigationBar > .contactButtons > button > a, main button > a, main aside > a, main aside > nav.tocNavLinks > a, footer article#endMessage > .contactButtons > button > a, button.button-primary-loaded a picture, button.button-primary-placeholder a picture, button.button-secondary-loaded a picture, button.button-secondary-placeholder a picture {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -129,25 +129,25 @@ main > section.bodyContent article#other-case-studies, main > section.bodyConten
     No right border is to prevent a miscellaneous line 
     to the right of the image from appearing.
 */
-header > nav.navigationBar > button a picture, header > nav.navigationBar > .contactButtons > button a picture, main button a picture, footer > article#endMessage > .contactButtons > button a picture {
+button.button-primary-loaded a picture, button.button-primary-placeholder a picture, button.button-secondary-loaded a picture, button.button-secondary-placeholder a picture {
   position: relative;
   object-fit: contain;
   line-height: 0;
   border-right: none !important;
 }
 @media only screen and (max-width: 1920px) {
-  header > nav.navigationBar > button a picture, header > nav.navigationBar > .contactButtons > button a picture, main button a picture, footer > article#endMessage > .contactButtons > button a picture {
+  button.button-primary-loaded a picture, button.button-primary-placeholder a picture, button.button-secondary-loaded a picture, button.button-secondary-placeholder a picture {
     width: 24px;
     height: 24px;
   }
 }
 @media only screen and (min-width: 1920px) {
-  header > nav.navigationBar > button a picture, header > nav.navigationBar > .contactButtons > button a picture, main button a picture, footer > article#endMessage > .contactButtons > button a picture {
+  button.button-primary-loaded a picture, button.button-primary-placeholder a picture, button.button-secondary-loaded a picture, button.button-secondary-placeholder a picture {
     width: 32px;
     height: 32px;
   }
 }
-header > nav.navigationBar > button a picture img, header > nav.navigationBar > .contactButtons > button a picture img, main button a picture img, footer > article#endMessage > .contactButtons > button a picture img {
+button.button-primary-loaded a picture img, button.button-primary-placeholder a picture img, button.button-secondary-loaded a picture img, button.button-secondary-placeholder a picture img {
   width: 100%;
   height: 100%;
 }
@@ -196,19 +196,19 @@ header > nav.navigationBar > button a picture img, header > nav.navigationBar > 
     Placeholder selector to set the default background color of the entire page (html element) and 
     the navigation header to light blue using the color function.
 */
-header > nav.navigationBar > button:before, header > nav.navigationBar > .contactButtons > button:before, main button:before, footer > article#endMessage > .contactButtons > button:before {
+button.button-primary-loaded:before, button.button-primary-placeholder:before, button.button-secondary-loaded:before, button.button-secondary-placeholder:before {
   z-index: 0;
 }
-header > nav.navigationBar > button:after, header > nav.navigationBar > .contactButtons > button:after, main button:after, footer > article#endMessage > .contactButtons > button:after {
+button.button-primary-loaded:after, button.button-primary-placeholder:after, button.button-secondary-loaded:after, button.button-secondary-placeholder:after {
   z-index: 1;
 }
-header > nav.navigationBar > button a, header > nav.navigationBar > .contactButtons > button a, main button a, footer > article#endMessage > .contactButtons > button a {
+button.button-primary-loaded a, button.button-primary-placeholder a, button.button-secondary-loaded a, button.button-secondary-placeholder a {
   z-index: 2;
 }
-header > nav.navigationBar > button a p, header > nav.navigationBar > .contactButtons > button a p, main button a p, footer > article#endMessage > .contactButtons > button a p, header > nav.navigationBar > button a picture.icon, header > nav.navigationBar > .contactButtons > button a picture.icon, main button a picture.icon, footer > article#endMessage > .contactButtons > button a picture.icon {
+button.button-primary-loaded a p, button.button-primary-placeholder a p, button.button-secondary-loaded a p, button.button-secondary-placeholder a p, button.button-primary-loaded a picture.icon, button.button-primary-placeholder a picture.icon, button.button-secondary-loaded a picture.icon, button.button-secondary-placeholder a picture.icon {
   z-index: 2;
 }
-header > nav.navigationBar > button p, header > nav.navigationBar > .contactButtons > button p, main button p, footer > article#endMessage > .contactButtons > button p, header > nav.navigationBar > button picture.icon, header > nav.navigationBar > .contactButtons > button picture.icon, main button picture.icon, footer > article#endMessage > .contactButtons > button picture.icon {
+button.button-primary-loaded p, button.button-primary-placeholder p, button.button-secondary-loaded p, button.button-secondary-placeholder p, button.button-primary-loaded picture.icon, button.button-primary-placeholder picture.icon, button.button-secondary-loaded picture.icon, button.button-secondary-placeholder picture.icon {
   z-index: 2;
 }
 
@@ -221,7 +221,7 @@ aside[role=navigation], aside[role=navigation] > button, .h2-wrapper, h2.sticky 
 }
 
 header, header * {
-  z-index: 5;
+  z-index: 5 !important;
 }
 
 .buffer-page, .loading-page {
@@ -263,10 +263,10 @@ header, header * {
           even if the argument is empty. However, the value of either or both 
           arguments can be non-zero if specified.
 */
-header > nav.navigationBar > button:hover, header > nav.navigationBar > .contactButtons > button:hover, main button:hover, footer > article#endMessage > .contactButtons > button:hover {
+button.button-primary-loaded:hover, button.button-primary-placeholder:hover, button.button-secondary-loaded:hover, button.button-secondary-placeholder:hover {
   cursor: pointer;
 }
-header > nav.navigationBar > button:hover span:after, header > nav.navigationBar > .contactButtons > button:hover span:after, main button:hover span:after, footer > article#endMessage > .contactButtons > button:hover span:after {
+button.button-primary-loaded:hover span:after, button.button-primary-placeholder:hover span:after, button.button-secondary-loaded:hover span:after, button.button-secondary-placeholder:hover span:after {
   left: 0;
   width: 100%;
 }
@@ -296,13 +296,13 @@ header > nav.navigationBar > button:hover span:after, header > nav.navigationBar
         }
     }
 */
-footer article#endMessage > .contactButtons > button > a, header > nav.navigationBar > button a, header > nav.navigationBar > .contactButtons > button a, main button a, footer > article#endMessage > .contactButtons > button a, figure figcaption > a, footer article#endNavLinks > nav > a, main aside > a, main aside > nav.tocNavLinks > a, header > nav.navigationBar > a > a, header > nav.navigationBar > nav > a > a, header > nav.navigationBar > a, header > nav.navigationBar > nav > a {
+footer article#endMessage > .contactButtons > button > a, button.button-primary-loaded a, button.button-primary-placeholder a, button.button-secondary-loaded a, button.button-secondary-placeholder a, figure figcaption > a, footer article#endNavLinks > nav > a, main aside > a, main aside > nav.tocNavLinks > a, header > nav.navigationBar > a > a, header > nav.navigationBar > nav > a > a, header > nav.navigationBar > a, header > nav.navigationBar > nav > a {
   gap: 16px 16px;
   position: relative;
   cursor: default;
   text-decoration: none;
 }
-footer article#endMessage > .contactButtons > button > a span:after, header > nav.navigationBar > button a span:after, header > nav.navigationBar > .contactButtons > button a span:after, main button a span:after, footer > article#endMessage > .contactButtons > button a span:after, figure figcaption > a span:after, footer article#endNavLinks > nav > a span:after, main aside > a span:after, main aside > nav.tocNavLinks > a span:after, header > nav.navigationBar > a span:after, header > nav.navigationBar > nav > a span:after {
+footer article#endMessage > .contactButtons > button > a span:after, button.button-primary-loaded a span:after, button.button-primary-placeholder a span:after, button.button-secondary-loaded a span:after, button.button-secondary-placeholder a span:after, figure figcaption > a span:after, footer article#endNavLinks > nav > a span:after, main aside > a span:after, main aside > nav.tocNavLinks > a span:after, header > nav.navigationBar > a span:after, header > nav.navigationBar > nav > a span:after {
   display: block;
   position: relative;
   left: 50%;
@@ -314,10 +314,10 @@ footer article#endMessage > .contactButtons > button > a span:after, header > na
   width: 0%;
   height: 2px;
 }
-footer article#endMessage > .contactButtons > button > a:hover, header > nav.navigationBar > button a:hover, header > nav.navigationBar > .contactButtons > button a:hover, main button a:hover, footer > article#endMessage > .contactButtons > button a:hover, figure figcaption > a:hover, footer article#endNavLinks > nav > a:hover, main aside > a:hover, main aside > nav.tocNavLinks > a:hover, header > nav.navigationBar > a > a:hover, header > nav.navigationBar > nav > a > a:hover, header > nav.navigationBar > a:hover, header > nav.navigationBar > nav > a:hover, footer article#endMessage > .contactButtons > button > a.active, header > nav.navigationBar > button a.active, header > nav.navigationBar > .contactButtons > button a.active, main button a.active, footer > article#endMessage > .contactButtons > button a.active, figure figcaption > a.active, footer article#endNavLinks > nav > a.active, main aside > a.active, main aside > nav.tocNavLinks > a.active, header > nav.navigationBar > a > a.active, header > nav.navigationBar > nav > a > a.active, header > nav.navigationBar > a.active, header > nav.navigationBar > nav > a.active {
+footer article#endMessage > .contactButtons > button > a:hover, button.button-primary-loaded a:hover, button.button-primary-placeholder a:hover, button.button-secondary-loaded a:hover, button.button-secondary-placeholder a:hover, figure figcaption > a:hover, footer article#endNavLinks > nav > a:hover, main aside > a:hover, main aside > nav.tocNavLinks > a:hover, header > nav.navigationBar > a > a:hover, header > nav.navigationBar > nav > a > a:hover, header > nav.navigationBar > a:hover, header > nav.navigationBar > nav > a:hover, footer article#endMessage > .contactButtons > button > a.active, button.button-primary-loaded a.active, button.button-primary-placeholder a.active, button.button-secondary-loaded a.active, button.button-secondary-placeholder a.active, figure figcaption > a.active, footer article#endNavLinks > nav > a.active, main aside > a.active, main aside > nav.tocNavLinks > a.active, header > nav.navigationBar > a > a.active, header > nav.navigationBar > nav > a > a.active, header > nav.navigationBar > a.active, header > nav.navigationBar > nav > a.active {
   cursor: pointer;
 }
-footer article#endMessage > .contactButtons > button > a:hover span:after, header > nav.navigationBar > button a:hover span:after, header > nav.navigationBar > .contactButtons > button a:hover span:after, main button a:hover span:after, footer > article#endMessage > .contactButtons > button a:hover span:after, figure figcaption > a:hover span:after, footer article#endNavLinks > nav > a:hover span:after, main aside > a:hover span:after, main aside > nav.tocNavLinks > a:hover span:after, header > nav.navigationBar > a > a:hover span:after, header > nav.navigationBar > nav > a > a:hover span:after, header > nav.navigationBar > a:hover span:after, header > nav.navigationBar > nav > a:hover span:after, footer article#endMessage > .contactButtons > button > a.active span:after, header > nav.navigationBar > button a.active span:after, header > nav.navigationBar > .contactButtons > button a.active span:after, main button a.active span:after, footer > article#endMessage > .contactButtons > button a.active span:after, figure figcaption > a.active span:after, footer article#endNavLinks > nav > a.active span:after, main aside > a.active span:after, main aside > nav.tocNavLinks > a.active span:after, header > nav.navigationBar > a > a.active span:after, header > nav.navigationBar > nav > a > a.active span:after, header > nav.navigationBar > a.active span:after, header > nav.navigationBar > nav > a.active span:after {
+footer article#endMessage > .contactButtons > button > a:hover span:after, button.button-primary-loaded a:hover span:after, button.button-primary-placeholder a:hover span:after, button.button-secondary-loaded a:hover span:after, button.button-secondary-placeholder a:hover span:after, figure figcaption > a:hover span:after, footer article#endNavLinks > nav > a:hover span:after, main aside > a:hover span:after, main aside > nav.tocNavLinks > a:hover span:after, header > nav.navigationBar > a > a:hover span:after, header > nav.navigationBar > nav > a > a:hover span:after, header > nav.navigationBar > a:hover span:after, header > nav.navigationBar > nav > a:hover span:after, footer article#endMessage > .contactButtons > button > a.active span:after, button.button-primary-loaded a.active span:after, button.button-primary-placeholder a.active span:after, button.button-secondary-loaded a.active span:after, button.button-secondary-placeholder a.active span:after, figure figcaption > a.active span:after, footer article#endNavLinks > nav > a.active span:after, main aside > a.active span:after, main aside > nav.tocNavLinks > a.active span:after, header > nav.navigationBar > a > a.active span:after, header > nav.navigationBar > nav > a > a.active span:after, header > nav.navigationBar > a.active span:after, header > nav.navigationBar > nav > a.active span:after {
   left: 0;
   width: 100%;
 }
@@ -431,12 +431,6 @@ header > nav.navigationBar > .contactButtons > button > a {
   width: 100%;
   max-height: 32px;
 }
-header > nav.navigationBar > .contactButtons > button#linkedInButton > a {
-  max-width: 162px;
-}
-header > nav.navigationBar > .contactButtons > button#linkedInButton > a {
-  max-width: 138px;
-}
 
 main aside > a, main aside > nav.tocNavLinks > a {
   padding: 8px 8px 8px 8px;
@@ -470,14 +464,12 @@ figure > a {
   width: 100%;
   height: auto;
 }
-/*
-    Placeholder selector to set default text properties, 
-    rounded corners, and underlined text styling upon 
-    cursor hovering on any button. Mainly used for other 
-    placeholder selectors for primary and secondary button 
-    styling.
-*/
-main button, header > nav.navigationBar > .contactButtons > button, footer > article#endMessage > .contactButtons > button, header > nav.navigationBar > button {
+aside a > figure {
+  width: 32px;
+  height: 32px;
+}
+
+button.button-secondary-placeholder, button.button-primary-placeholder, button.button-secondary-loaded, button.button-primary-loaded {
   gap: 16px 16px;
   position: relative;
   overflow: hidden;
@@ -488,7 +480,7 @@ main button, header > nav.navigationBar > .contactButtons > button, footer > art
   padding: 0;
   width: auto;
 }
-main button:before, header > nav.navigationBar > .contactButtons > button:before, footer > article#endMessage > .contactButtons > button:before, header > nav.navigationBar > button:before {
+button.button-secondary-placeholder:before, button.button-primary-placeholder:before, button.button-secondary-loaded:before, button.button-primary-loaded:before {
   content: "";
   display: inline-block;
   position: absolute;
@@ -509,96 +501,138 @@ main button:before, header > nav.navigationBar > .contactButtons > button:before
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
-main button:after, header > nav.navigationBar > .contactButtons > button:after, footer > article#endMessage > .contactButtons > button:after, header > nav.navigationBar > button:after {
+button.button-secondary-placeholder:after, button.button-primary-placeholder:after, button.button-secondary-loaded:after, button.button-primary-loaded:after {
   content: "";
   position: absolute;
   inset: 2px;
   border-radius: 8px;
 }
-main button:hover:before, header > nav.navigationBar > .contactButtons > button:hover:before, footer > article#endMessage > .contactButtons > button:hover:before, header > nav.navigationBar > button:hover:before {
+button.button-secondary-placeholder:hover:before, button.button-primary-placeholder:hover:before, button.button-secondary-loaded:hover:before, button.button-primary-loaded:hover:before {
   opacity: 1;
   animation-play-state: running;
 }
 
-/*
-    Applies a dark blue background color and light blue text color 
-    to a primary button (any button that emphasizes a key action, 
-    such as reading more about a case study or finding methods to 
-    contact).
-*/
-header > nav.navigationBar > .contactButtons > button, footer > article#endMessage > .contactButtons > button, header > nav.navigationBar > button {
+button.button-primary-placeholder, button.button-primary-loaded {
   background-color: hsl(215, 60%, 44%);
+  border-style: solid;
+  border-color: transparent;
 }
-header > nav.navigationBar > .contactButtons > button a, footer > article#endMessage > .contactButtons > button a, header > nav.navigationBar > button a {
+button.button-primary-placeholder a, button.button-primary-loaded a {
   padding: 12px 24px 12px 24px;
   width: 100%;
 }
 @media only screen and (max-width: 375px) {
-  header > nav.navigationBar > .contactButtons > button a, footer > article#endMessage > .contactButtons > button a, header > nav.navigationBar > button a {
+  button.button-primary-placeholder a, button.button-primary-loaded a {
     padding: 12px 16px 12px 16px;
   }
 }
-header > nav.navigationBar > .contactButtons > button a span, footer > article#endMessage > .contactButtons > button a span, header > nav.navigationBar > button a span {
+button.button-primary-placeholder a span, button.button-primary-loaded a span {
   color: hsl(190, 95%, 93%);
 }
-header > nav.navigationBar > .contactButtons > button a span:after, footer > article#endMessage > .contactButtons > button a span:after, header > nav.navigationBar > button a span:after {
+button.button-primary-placeholder a span:after, button.button-primary-loaded a span:after {
   background-color: hsl(190, 95%, 93%);
 }
-header > nav.navigationBar > .contactButtons > button a picture > img, footer > article#endMessage > .contactButtons > button a picture > img, header > nav.navigationBar > button a picture > img {
+button.button-primary-placeholder a picture > img, button.button-primary-loaded a picture > img {
   filter: invert(95%) sepia(10%) saturate(1177%) hue-rotate(170deg) brightness(103%) contrast(99%);
 }
-header > nav.navigationBar > .contactButtons > button picture > img, footer > article#endMessage > .contactButtons > button picture > img, header > nav.navigationBar > button picture > img {
+button.button-primary-placeholder picture > img, button.button-primary-loaded picture > img {
   filter: invert(95%) sepia(10%) saturate(1177%) hue-rotate(170deg) brightness(103%) contrast(99%);
 }
-header > nav.navigationBar > .contactButtons > button:before, footer > article#endMessage > .contactButtons > button:before, header > nav.navigationBar > button:before, header > nav.navigationBar > .contactButtons > button:after, footer > article#endMessage > .contactButtons > button:after, header > nav.navigationBar > button:after {
+
+button.button-secondary-placeholder, button.button-secondary-loaded {
+  background-color: transparent;
+  border-style: solid;
+  border-color: hsl(215, 60%, 44%);
+}
+button.button-secondary-placeholder a, button.button-secondary-loaded a {
+  padding: 12px 24px 12px 24px;
+  width: 100%;
+}
+@media only screen and (max-width: 375px) {
+  button.button-secondary-placeholder a, button.button-secondary-loaded a {
+    padding: 12px 16px 12px 16px;
+  }
+}
+button.button-secondary-placeholder a span, button.button-secondary-loaded a span {
+  color: hsl(215, 60%, 44%);
+}
+button.button-secondary-placeholder a span:after, button.button-secondary-loaded a span:after {
   background-color: hsl(215, 60%, 44%);
 }
-header > nav.navigationBar > .contactButtons > button:hover, footer > article#endMessage > .contactButtons > button:hover, header > nav.navigationBar > button:hover {
+button.button-secondary-placeholder a picture > img, button.button-secondary-loaded a picture > img {
+  filter: invert(32%) sepia(87%) saturate(828%) hue-rotate(186deg) brightness(75%) contrast(88%);
+}
+button.button-secondary-placeholder picture > img, button.button-secondary-loaded picture > img {
+  filter: invert(32%) sepia(87%) saturate(828%) hue-rotate(186deg) brightness(75%) contrast(88%);
+}
+
+button.button-secondary-loaded:before, button.button-primary-loaded:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  border-radius: 12px;
+  transform: translate(-50%, -50%);
+  width: 141.421356237%;
+  padding-bottom: 141.421356237%;
+  opacity: 0;
+  transition: animation-play-state 0.3s linear;
+  animation: spin 1.2s cubic-bezier(0.4, 0.53, 0.67, 0.8) infinite;
+  animation-play-state: paused;
+}
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+button.button-secondary-loaded:after, button.button-primary-loaded:after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: 8px;
+}
+button.button-secondary-loaded:hover:before, button.button-primary-loaded:hover:before {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+button.button-secondary-placeholder a, button.button-primary-placeholder a {
+  cursor: default !important;
+}
+button.button-primary-loaded:before, button.button-primary-loaded:after {
+  background-color: hsl(215, 60%, 44%);
+}
+button.button-primary-loaded:after {
+  border-radius: 4px;
+}
+button.button-primary-loaded:hover {
   background-image: linear-gradient(to right bottom, hsla(215, 60%, 44%, 0.65), hsl(215, 60%, 44%));
 }
-header > nav.navigationBar > .contactButtons > button:hover:before, footer > article#endMessage > .contactButtons > button:hover:before, header > nav.navigationBar > button:hover:before {
+button.button-primary-loaded:hover:before {
   background: conic-gradient(hsl(215, 60%, 44%), hsl(190, 95%, 93%));
 }
 
-/*
-    Applies a transparent background color and dark blue text color 
-    to a second button (any button that provides an action that 
-    doesn't need to be emphasized as much, such as visiting 
-    an external website related to a case study).
-*/
-main button {
-  border: solid hsl(215, 60%, 44%);
+button.button-primary-placeholder {
+  border-color: transparent;
 }
-main button a {
-  padding: 12px 16px 12px 16px;
-  width: 100%;
-}
-main button a span {
-  color: hsl(215, 60%, 44%);
-}
-main button a span:after {
-  background-color: hsl(215, 60%, 44%);
-}
-main button a picture > img {
-  filter: invert(32%) sepia(87%) saturate(828%) hue-rotate(186deg) brightness(75%) contrast(88%);
-}
-main button span {
-  color: hsl(215, 60%, 44%);
-}
-main button span:after {
-  background-color: hsl(215, 60%, 44%);
-}
-main button picture > img {
-  filter: invert(32%) sepia(87%) saturate(828%) hue-rotate(186deg) brightness(75%) contrast(88%);
-}
-main button:before, main button:after {
+
+button.button-secondary-loaded:before, button.button-secondary-loaded:after {
   background-color: hsl(0, 0%, 90%);
 }
-main button:after {
+button.button-secondary-loaded:after {
   border-radius: 4px;
 }
-main button:hover:before {
+button.button-secondary-loaded:hover {
+  background-image: transparent;
+}
+button.button-secondary-loaded:hover:before {
   background: conic-gradient(hsl(215, 60%, 44%) 0deg, hsl(0, 0%, 90%) 25deg);
+}
+
+button.button-secondary-placeholder {
+  border-color: hsl(0, 0%, 70%);
 }
 
 @media only screen and (max-width: 350px) {
@@ -616,9 +650,7 @@ main button:hover:before {
     display: none;
   }
 }
-main button picture > img {
-  filter: invert(95%) sepia(10%) saturate(1177%) hue-rotate(170deg) brightness(103%) contrast(99%);
-}
+
 @media only screen and (max-width: 1024px) {
   main button.toc-mobileButton {
     display: inherit;
@@ -639,6 +671,11 @@ main button picture > img {
   footer > article#endMessage > .contactButtons > button {
     width: 75%;
   }
+}
+
+button a > figure {
+  width: 32px;
+  height: 32px;
 }
 
 header {
@@ -863,6 +900,13 @@ main > section.title-error {
   gap: 16px 32px;
 }
 
+[class*=grid-default] > article {
+  width: 100%;
+}
+[class*=grid-default] > article > article {
+  width: 100%;
+}
+
 /*
     Placeholder selectors for column variations of grid containers.
     They are useful for having a limited, but good-enough selection of columns with different widths (relative to the grid container) to support different layouts of grouped text, images and/or other visual elements across different window widths.
@@ -1005,6 +1049,13 @@ h2 {
   width: 100%;
 }
 
+h3 {
+  width: 100%;
+}
+
+h4 {
+  width: 100%;
+}
 h4.tags {
   font-size: 20px;
   font-style: italic;
@@ -1040,7 +1091,8 @@ footer {
   gap: 32px 64px;
 }
 footer article#endMessage {
-  max-width: 650px;
+  max-width: 750px;
+  width: 100%;
 }
 footer article#endMessage > p.subtitle {
   padding-bottom: 16px;
@@ -1155,6 +1207,16 @@ figure figcaption {
   display: inline-block;
 }
 figure#e-stride * {
+  max-height: 450px;
+  object-fit: cover;
+}
+
+a[class*=ratio-] {
+  width: 100%;
+  height: auto;
+}
+
+a#e-stride, figure#e-stride {
   max-height: 450px;
   object-fit: cover;
 }
@@ -1474,183 +1536,6 @@ main > *:not(:last-child) {
   }
 }
 
-main section {
-  gap: 32px 0;
-}
-main section#design-work > article, main section#media-work > article, main section#about-me > article {
-  gap: 64px 0;
-  width: 100%;
-}
-main section#design-work > article[class*=grid], main section#design-work > article > article[class*=grid] > article, main section#design-work > article > article[class*=grid] > article > article, main section#design-work > article > article[class*=grid], main section#design-work > article[class*=grid-default] > article, main section#design-work > article > p, main section#media-work > article[class*=grid], main section#media-work > article > article[class*=grid] > article, main section#media-work > article > article[class*=grid] > article > article, main section#media-work > article > article[class*=grid], main section#media-work > article[class*=grid-default] > article, main section#media-work > article > p, main section#about-me > article[class*=grid], main section#about-me > article > article[class*=grid] > article, main section#about-me > article > article[class*=grid] > article > article, main section#about-me > article > article[class*=grid], main section#about-me > article[class*=grid-default] > article, main section#about-me > article > p {
-  width: 100%;
-}
-main section#design-work > article[class*=grid-default] > article, main section#media-work > article[class*=grid-default] > article, main section#about-me > article[class*=grid-default] > article {
-  gap: 32px 32px;
-  width: 100%;
-}
-@media only screen and (min-width: 1024px) {
-  main section#design-work > article > article.grid-case-study-preview > article, main section#media-work > article > article.grid-case-study-preview > article, main section#about-me > article > article.grid-case-study-preview > article {
-    gap: 16px 0;
-  }
-}
-main section.title-error > article {
-  width: 100%;
-}
-
-@media only screen and (min-width: 1024px) {
-  article#other-case-studies > article.grid-case-study-preview > article {
-    gap: 16px 0;
-  }
-}
-
-aside.sticky-active {
-  overflow-y: auto;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-aside.sticky-active:-webkit-scrollbar {
-  display: none;
-}
-@media only screen and (min-width: 1024px) {
-  aside.sticky-active {
-    position: sticky;
-    top: 86px;
-    order: 1;
-  }
-}
-@media only screen and (max-width: 1024px) {
-  aside > nav.tocNavLinks {
-    display: none;
-    margin-bottom: 16px;
-    padding: 12px;
-    border: solid hsl(215, 60%, 44%);
-    border-radius: 12px;
-    background-color: hsl(0, 0%, 90%);
-  }
-}
-@media only screen and (min-width: 1024px) {
-  aside {
-    gap: 16px 0;
-  }
-}
-
-main > section.title > h1#home-title {
-  width: 100%;
-}
-main > section.bodyContent {
-  gap: 32px 32px;
-}
-@media only screen and (min-width: 1024px) {
-  main > section.bodyContent {
-    justify-content: space-between;
-  }
-}
-main > section.bodyContent > section[class*=content] {
-  width: 100%;
-}
-@media only screen and (max-width: 1024px) {
-  main > section.bodyContent > section[class*=content] {
-    justify-content: center;
-  }
-}
-@media only screen and (min-width: 1024px) and (max-width: 1920px) {
-  main > section.bodyContent > section[class*=content].content-loc {
-    max-width: calc(100% - 250px - 32px);
-  }
-}
-@media only screen and (min-width: 1920px) {
-  main > section.bodyContent > section[class*=content].content-loc {
-    max-width: calc(100% - 350px);
-  }
-}
-main > section.bodyContent > section[class*=content] > article {
-  width: 100%;
-}
-main > section.bodyContent > section[class*=content] > article > h2 {
-  width: 100%;
-}
-@media only screen and (max-width: 750px) {
-  main > section.bodyContent > aside {
-    width: calc(100% - 32px);
-  }
-}
-@media only screen and (min-width: 750px) and (max-width: 1024px) {
-  main > section.bodyContent > aside {
-    width: calc(100% - 64px);
-  }
-}
-@media only screen and (max-width: 1024px) {
-  main > section.bodyContent > aside {
-    display: flex;
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap;
-    flex-direction: column-reverse;
-    align-items: center;
-    align-content: center;
-    justify-content: flex-end;
-    position: fixed;
-    margin: 0 auto;
-  }
-}
-@media only screen and (min-width: 1024px) and (max-width: 1920px) {
-  main > section.bodyContent > aside {
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: flex-end;
-    align-content: flex-end;
-    justify-content: flex-end;
-    max-width: 250px;
-  }
-}
-@media only screen and (min-width: 1920px) {
-  main > section.bodyContent > aside {
-    max-width: 350px;
-  }
-}
-@media only screen and (max-width: 1024px) {
-  main > section.bodyContent > aside > a#toTop-desktop, main > section.bodyContent > aside > a#other-case-studies-desktop {
-    display: none !important;
-  }
-}
-@media only screen and (min-width: 1024px) {
-  main > section.bodyContent > aside > a#toTop-desktop, main > section.bodyContent > aside > a#other-case-studies-desktop {
-    display: inherit;
-  }
-}
-main > section.bodyContent > aside > nav.tocNavLinks > * {
-  width: 100%;
-}
-@media only screen and (max-width: 1024px) {
-  main > section.bodyContent > aside > nav.tocNavLinks {
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-  }
-}
-@media only screen and (max-width: 1024px) {
-  main > section.bodyContent > aside > nav.tocNavLinks > a#toTop-mobile, main > section.bodyContent > aside > nav.tocNavLinks > a#other-case-studies-mobile {
-    display: inherit;
-  }
-}
-@media only screen and (min-width: 1024px) {
-  main > section.bodyContent > aside > nav.tocNavLinks > a#toTop-mobile, main > section.bodyContent > aside > nav.tocNavLinks > a#other-case-studies-mobile {
-    display: none !important;
-  }
-}
-
-main > section.bodyContent article#other-case-studies {
-  gap: 64px 32px;
-}
-main > section.bodyContent article#other-case-studies > article[class*=grid], main > section.bodyContent article#other-case-studies > article[class*=grid] article {
-  width: 100%;
-}
-
 .buffer-page, .loading-page {
   position: fixed;
   top: 0;
@@ -1767,112 +1652,183 @@ body.page-transition {
   background-color: transparent;
 }
 
-.button-placeholder, .figure-placeholder, .link-span-placeholder-line, .placeholder .placeholder-line, .placeholder .figcaption-placeholder-line, .placeholder .h4-placeholder-line, .placeholder .h3-placeholder-line, .placeholder .h2-placeholder-line, .placeholder .h1-placeholder-line, .placeholder .subtitle-placeholder-line, .placeholder .p-placeholder-line {
-  background-color: hsl(0, 0%, 70%);
-  animation: pulse 1.5s infinite;
+main > section.bodyContent article#other-case-studies {
+  gap: 64px 32px;
 }
-
-.text-container {
+main > section.bodyContent article#other-case-studies > article[class*=grid], main > section.bodyContent article#other-case-studies > article[class*=grid] article {
   width: 100%;
 }
 
-.placeholder .placeholder-line, .placeholder .figcaption-placeholder-line, .placeholder .h4-placeholder-line, .placeholder .h3-placeholder-line, .placeholder .h2-placeholder-line, .placeholder .h1-placeholder-line, .placeholder .subtitle-placeholder-line, .placeholder .p-placeholder-line {
-  border-radius: 8px;
+aside.sticky-active {
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
-.placeholder.lines-0 .placeholder-line:nth-child(n), .placeholder.lines-0 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-0 .p-placeholder-line:nth-child(n), .placeholder.lines-0 .h1-placeholder-line:nth-child(n), .placeholder.lines-0 .h2-placeholder-line:nth-child(n), .placeholder.lines-0 .h3-placeholder-line:nth-child(n), .placeholder.lines-0 .h4-placeholder-line:nth-child(n), .placeholder.lines-0 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
+aside.sticky-active:-webkit-scrollbar {
+  display: none;
 }
-.placeholder.lines-1 .placeholder-line:nth-child(n), .placeholder.lines-1 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-1 .p-placeholder-line:nth-child(n), .placeholder.lines-1 .h1-placeholder-line:nth-child(n), .placeholder.lines-1 .h2-placeholder-line:nth-child(n), .placeholder.lines-1 .h3-placeholder-line:nth-child(n), .placeholder.lines-1 .h4-placeholder-line:nth-child(n), .placeholder.lines-1 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
+@media only screen and (min-width: 1024px) {
+  aside.sticky-active {
+    position: sticky;
+    top: 86px;
+    order: 1;
+  }
 }
-.placeholder.lines-2 .placeholder-line:nth-child(n), .placeholder.lines-2 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-2 .p-placeholder-line:nth-child(n), .placeholder.lines-2 .h1-placeholder-line:nth-child(n), .placeholder.lines-2 .h2-placeholder-line:nth-child(n), .placeholder.lines-2 .h3-placeholder-line:nth-child(n), .placeholder.lines-2 .h4-placeholder-line:nth-child(n), .placeholder.lines-2 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
+@media only screen and (max-width: 1024px) {
+  aside > nav.tocNavLinks {
+    display: none;
+    margin-bottom: 16px;
+    padding: 12px;
+    border: solid hsl(215, 60%, 44%);
+    border-radius: 12px;
+    background-color: hsl(0, 0%, 90%);
+  }
 }
-.placeholder.lines-3 .placeholder-line:nth-child(n), .placeholder.lines-3 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-3 .p-placeholder-line:nth-child(n), .placeholder.lines-3 .h1-placeholder-line:nth-child(n), .placeholder.lines-3 .h2-placeholder-line:nth-child(n), .placeholder.lines-3 .h3-placeholder-line:nth-child(n), .placeholder.lines-3 .h4-placeholder-line:nth-child(n), .placeholder.lines-3 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-4 .placeholder-line:nth-child(n), .placeholder.lines-4 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-4 .p-placeholder-line:nth-child(n), .placeholder.lines-4 .h1-placeholder-line:nth-child(n), .placeholder.lines-4 .h2-placeholder-line:nth-child(n), .placeholder.lines-4 .h3-placeholder-line:nth-child(n), .placeholder.lines-4 .h4-placeholder-line:nth-child(n), .placeholder.lines-4 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-5 .placeholder-line:nth-child(n), .placeholder.lines-5 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-5 .p-placeholder-line:nth-child(n), .placeholder.lines-5 .h1-placeholder-line:nth-child(n), .placeholder.lines-5 .h2-placeholder-line:nth-child(n), .placeholder.lines-5 .h3-placeholder-line:nth-child(n), .placeholder.lines-5 .h4-placeholder-line:nth-child(n), .placeholder.lines-5 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-6 .placeholder-line:nth-child(n), .placeholder.lines-6 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-6 .p-placeholder-line:nth-child(n), .placeholder.lines-6 .h1-placeholder-line:nth-child(n), .placeholder.lines-6 .h2-placeholder-line:nth-child(n), .placeholder.lines-6 .h3-placeholder-line:nth-child(n), .placeholder.lines-6 .h4-placeholder-line:nth-child(n), .placeholder.lines-6 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-7 .placeholder-line:nth-child(n), .placeholder.lines-7 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-7 .p-placeholder-line:nth-child(n), .placeholder.lines-7 .h1-placeholder-line:nth-child(n), .placeholder.lines-7 .h2-placeholder-line:nth-child(n), .placeholder.lines-7 .h3-placeholder-line:nth-child(n), .placeholder.lines-7 .h4-placeholder-line:nth-child(n), .placeholder.lines-7 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-8 .placeholder-line:nth-child(n), .placeholder.lines-8 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-8 .p-placeholder-line:nth-child(n), .placeholder.lines-8 .h1-placeholder-line:nth-child(n), .placeholder.lines-8 .h2-placeholder-line:nth-child(n), .placeholder.lines-8 .h3-placeholder-line:nth-child(n), .placeholder.lines-8 .h4-placeholder-line:nth-child(n), .placeholder.lines-8 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-9 .placeholder-line:nth-child(n), .placeholder.lines-9 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-9 .p-placeholder-line:nth-child(n), .placeholder.lines-9 .h1-placeholder-line:nth-child(n), .placeholder.lines-9 .h2-placeholder-line:nth-child(n), .placeholder.lines-9 .h3-placeholder-line:nth-child(n), .placeholder.lines-9 .h4-placeholder-line:nth-child(n), .placeholder.lines-9 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-10 .placeholder-line:nth-child(n), .placeholder.lines-10 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-10 .p-placeholder-line:nth-child(n), .placeholder.lines-10 .h1-placeholder-line:nth-child(n), .placeholder.lines-10 .h2-placeholder-line:nth-child(n), .placeholder.lines-10 .h3-placeholder-line:nth-child(n), .placeholder.lines-10 .h4-placeholder-line:nth-child(n), .placeholder.lines-10 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-11 .placeholder-line:nth-child(n), .placeholder.lines-11 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-11 .p-placeholder-line:nth-child(n), .placeholder.lines-11 .h1-placeholder-line:nth-child(n), .placeholder.lines-11 .h2-placeholder-line:nth-child(n), .placeholder.lines-11 .h3-placeholder-line:nth-child(n), .placeholder.lines-11 .h4-placeholder-line:nth-child(n), .placeholder.lines-11 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-12 .placeholder-line:nth-child(n), .placeholder.lines-12 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-12 .p-placeholder-line:nth-child(n), .placeholder.lines-12 .h1-placeholder-line:nth-child(n), .placeholder.lines-12 .h2-placeholder-line:nth-child(n), .placeholder.lines-12 .h3-placeholder-line:nth-child(n), .placeholder.lines-12 .h4-placeholder-line:nth-child(n), .placeholder.lines-12 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-13 .placeholder-line:nth-child(n), .placeholder.lines-13 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-13 .p-placeholder-line:nth-child(n), .placeholder.lines-13 .h1-placeholder-line:nth-child(n), .placeholder.lines-13 .h2-placeholder-line:nth-child(n), .placeholder.lines-13 .h3-placeholder-line:nth-child(n), .placeholder.lines-13 .h4-placeholder-line:nth-child(n), .placeholder.lines-13 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-14 .placeholder-line:nth-child(n), .placeholder.lines-14 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-14 .p-placeholder-line:nth-child(n), .placeholder.lines-14 .h1-placeholder-line:nth-child(n), .placeholder.lines-14 .h2-placeholder-line:nth-child(n), .placeholder.lines-14 .h3-placeholder-line:nth-child(n), .placeholder.lines-14 .h4-placeholder-line:nth-child(n), .placeholder.lines-14 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-15 .placeholder-line:nth-child(n), .placeholder.lines-15 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-15 .p-placeholder-line:nth-child(n), .placeholder.lines-15 .h1-placeholder-line:nth-child(n), .placeholder.lines-15 .h2-placeholder-line:nth-child(n), .placeholder.lines-15 .h3-placeholder-line:nth-child(n), .placeholder.lines-15 .h4-placeholder-line:nth-child(n), .placeholder.lines-15 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-16 .placeholder-line:nth-child(n), .placeholder.lines-16 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-16 .p-placeholder-line:nth-child(n), .placeholder.lines-16 .h1-placeholder-line:nth-child(n), .placeholder.lines-16 .h2-placeholder-line:nth-child(n), .placeholder.lines-16 .h3-placeholder-line:nth-child(n), .placeholder.lines-16 .h4-placeholder-line:nth-child(n), .placeholder.lines-16 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-17 .placeholder-line:nth-child(n), .placeholder.lines-17 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-17 .p-placeholder-line:nth-child(n), .placeholder.lines-17 .h1-placeholder-line:nth-child(n), .placeholder.lines-17 .h2-placeholder-line:nth-child(n), .placeholder.lines-17 .h3-placeholder-line:nth-child(n), .placeholder.lines-17 .h4-placeholder-line:nth-child(n), .placeholder.lines-17 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-18 .placeholder-line:nth-child(n), .placeholder.lines-18 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-18 .p-placeholder-line:nth-child(n), .placeholder.lines-18 .h1-placeholder-line:nth-child(n), .placeholder.lines-18 .h2-placeholder-line:nth-child(n), .placeholder.lines-18 .h3-placeholder-line:nth-child(n), .placeholder.lines-18 .h4-placeholder-line:nth-child(n), .placeholder.lines-18 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-19 .placeholder-line:nth-child(n), .placeholder.lines-19 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-19 .p-placeholder-line:nth-child(n), .placeholder.lines-19 .h1-placeholder-line:nth-child(n), .placeholder.lines-19 .h2-placeholder-line:nth-child(n), .placeholder.lines-19 .h3-placeholder-line:nth-child(n), .placeholder.lines-19 .h4-placeholder-line:nth-child(n), .placeholder.lines-19 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-20 .placeholder-line:nth-child(n), .placeholder.lines-20 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-20 .p-placeholder-line:nth-child(n), .placeholder.lines-20 .h1-placeholder-line:nth-child(n), .placeholder.lines-20 .h2-placeholder-line:nth-child(n), .placeholder.lines-20 .h3-placeholder-line:nth-child(n), .placeholder.lines-20 .h4-placeholder-line:nth-child(n), .placeholder.lines-20 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.span {
-  width: 100px;
-  height: 42px;
+@media only screen and (min-width: 1024px) {
+  aside {
+    gap: 16px 0;
+    width: 318px;
+  }
 }
 
-.link-span-placeholder-line {
-  max-width: 100px;
+main > section.title > h1#home-title {
   width: 100%;
-  height: 32px;
-  border-radius: 8px;
 }
-
-.figure-placeholder {
+main > section.bodyContent {
+  gap: 32px 32px;
+}
+@media only screen and (min-width: 1024px) {
+  main > section.bodyContent {
+    justify-content: space-between;
+  }
+}
+main > section.bodyContent > section[class*=content] {
   width: 100%;
-  height: auto;
-  border-radius: 16px;
 }
-
-.button-placeholder {
-  position: relative;
-  overflow: hidden;
-  height: auto;
-  border-radius: 12px;
+@media only screen and (max-width: 1024px) {
+  main > section.bodyContent > section[class*=content] {
+    justify-content: center;
+  }
+}
+main > section.bodyContent > section[class*=content].content-loc {
+  width: 100%;
+}
+@media only screen and (min-width: 1024px) and (max-width: 1920px) {
+  main > section.bodyContent > section[class*=content].content-loc {
+    max-width: calc(100% - 250px - 32px);
+  }
+}
+@media only screen and (min-width: 1400px) {
+  main > section.bodyContent > section[class*=content].content-loc {
+    gap: 96px 32px;
+  }
+}
+@media only screen and (min-width: 1920px) {
+  main > section.bodyContent > section[class*=content].content-loc {
+    max-width: calc(100% - 350px);
+  }
+}
+main > section.bodyContent > section[class*=content].content-loc > article {
+  width: 100%;
+}
+@media only screen and (min-width: 1400px) {
+  main > section.bodyContent > section[class*=content].content-loc > article {
+    gap: 64px 32px;
+  }
+}
+main > section.bodyContent > section[class*=content].content-loc > article > article, main > section.bodyContent > section[class*=content].content-loc > article > article > article {
+  width: 100%;
+}
+main > section.bodyContent > section[class*=content] > article {
+  width: 100%;
+}
+main > section.bodyContent > section[class*=content] > article > h2 {
+  width: 100%;
+}
+@media only screen and (max-width: 750px) {
+  main > section.bodyContent > aside {
+    width: calc(100% - 32px);
+  }
+}
+@media only screen and (min-width: 750px) and (max-width: 1024px) {
+  main > section.bodyContent > aside {
+    width: calc(100% - 64px);
+  }
+}
+@media only screen and (max-width: 1024px) {
+  main > section.bodyContent > aside {
+    display: flex;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    flex-direction: column-reverse;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-end;
+    position: fixed;
+    margin: 0 auto;
+  }
+}
+@media only screen and (min-width: 1024px) and (max-width: 1920px) {
+  main > section.bodyContent > aside {
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-end;
+    align-content: flex-end;
+    justify-content: flex-end;
+    max-width: 250px;
+  }
+}
+@media only screen and (min-width: 1920px) {
+  main > section.bodyContent > aside {
+    max-width: 350px;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  main > section.bodyContent > aside > a#toTop-desktop, main > section.bodyContent > aside > a#other-case-studies-desktop {
+    display: none !important;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  main > section.bodyContent > aside > a#toTop-desktop, main > section.bodyContent > aside > a#other-case-studies-desktop {
+    display: inherit;
+  }
+}
+main > section.bodyContent > aside > nav.tocNavLinks > * {
+  width: 100%;
+}
+@media only screen and (max-width: 1024px) {
+  main > section.bodyContent > aside > nav.tocNavLinks {
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  main > section.bodyContent > aside > nav.tocNavLinks > a#toTop-mobile, main > section.bodyContent > aside > nav.tocNavLinks > a#other-case-studies-mobile {
+    display: inherit;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  main > section.bodyContent > aside > nav.tocNavLinks > a#toTop-mobile, main > section.bodyContent > aside > nav.tocNavLinks > a#other-case-studies-mobile {
+    display: none !important;
+  }
 }
 
 @keyframes pulse {
-  0%, 100% {
+  0% {
     opacity: 0.6;
   }
   50% {
     opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
   }
 }
 .fade-in {
@@ -1891,41 +1847,366 @@ body.page-transition {
   display: none;
 }
 
-@keyframes pulse {
-  0% {
-    opacity: 0.6;
+.placeholder .placeholder-line, .placeholder.h4 .placeholder-line-h4, .placeholder.h3 .placeholder-line-h3, .placeholder.h2 .placeholder-line-h2, .placeholder.h1 .placeholder-line-h1, .placeholder.figcaption .placeholder-line-figcaption, .placeholder.span .placeholder-line-span, .placeholder.subtitle .placeholder-line-subtitle, .placeholder.p .placeholder-line-p {
+  border-radius: 8px;
+}
+.placeholder.p {
+  min-width: 100px;
+  width: 100%;
+}
+@media only screen and (max-width: 1024px) {
+  .placeholder.p > .placeholder-line-p {
+    height: 24.3px;
+    line-height: 1.6;
+    padding-bottom: 6.3;
+    background-color: hsl(0, 0%, 70%);
+    animation: pulse 1.5s infinite;
   }
-  50% {
-    opacity: 1;
+}
+@media only screen and (min-width: 1024px) {
+  .placeholder.p > .placeholder-line-p {
+    height: 27px;
+    line-height: 1.6;
+    padding-bottom: 7;
+    background-color: hsl(0, 0%, 70%);
+    animation: pulse 1.5s infinite;
   }
-  100% {
-    opacity: 0.6;
+}
+@media only screen and (max-width: 1024px) {
+  .placeholder.subtitle > .placeholder-line-subtitle {
+    height: 27.2px;
+    line-height: 1.5;
+    padding-bottom: 7.2;
+    background-color: hsl(0, 0%, 70%);
+    animation: pulse 1.5s infinite;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .placeholder.subtitle > .placeholder-line-subtitle {
+    height: 32px;
+    line-height: 1.5;
+    padding-bottom: 8;
+    background-color: hsl(0, 0%, 70%);
+    animation: pulse 1.5s infinite;
+  }
+}
+.placeholder.span {
+  width: 96px;
+}
+@media only screen and (max-width: 1024px) {
+  .placeholder.span > .placeholder-line-span {
+    height: 16px;
+    line-height: 1.5;
+    padding-bottom: 0;
+    background-color: hsl(0, 0%, 70%);
+    animation: pulse 1.5s infinite;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .placeholder.span > .placeholder-line-span {
+    height: 16px;
+    line-height: 1.5;
+    padding-bottom: 0;
+    background-color: hsl(0, 0%, 70%);
+    animation: pulse 1.5s infinite;
+  }
+}
+.placeholder.span .placeholder-line-span {
+  width: 100%;
+}
+.placeholder.figcaption {
+  max-width: 100%;
+  width: 750px;
+}
+@media only screen and (max-width: 1024px) {
+  .placeholder.figcaption > .placeholder-line-figcaption {
+    height: 28px;
+    line-height: 1.5;
+    padding-bottom: 12;
+    background-color: hsl(0, 0%, 70%);
+    animation: pulse 1.5s infinite;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .placeholder.figcaption > .placeholder-line-figcaption {
+    height: 28px;
+    line-height: 1.5;
+    padding-bottom: 12;
+    background-color: hsl(0, 0%, 70%);
+    animation: pulse 1.5s infinite;
   }
 }
 .placeholder.h1, .placeholder.h2 {
   width: 100%;
 }
-@media (max-width: 1023px) {
-  .placeholder.p .placeholder-line, .placeholder.subtitle .placeholder-line, .placeholder.h1 .placeholder-line, .placeholder.h2 .placeholder-line, .placeholder.h3 .placeholder-line, .placeholder.h4 .placeholder-line, .placeholder.figcaption .placeholder-line {
-    height: 28.8px;
-    margin-bottom: 6.3px;
+@media only screen and (max-width: 1024px) {
+  .placeholder.h1 > .placeholder-line-h1 {
+    height: 61.5px;
+    line-height: 1.2;
+    padding-bottom: 13.5;
+    background-color: hsla(215, 60%, 44%, 0.65);
+    animation: pulse 1.5s infinite;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .placeholder.h1 > .placeholder-line-h1 {
+    height: 95px;
+    line-height: 1.2;
+    padding-bottom: 15;
+    background-color: hsla(215, 60%, 44%, 0.65);
+    animation: pulse 1.5s infinite;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .placeholder.h2 > .placeholder-line-h2 {
+    height: 47.7px;
+    line-height: 1.25;
+    padding-bottom: 11.7;
+    background-color: hsla(215, 60%, 44%, 0.65);
+    animation: pulse 1.5s infinite;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .placeholder.h2 > .placeholder-line-h2 {
+    height: 65px;
+    line-height: 1.25;
+    padding-bottom: 13;
+    background-color: hsla(215, 60%, 44%, 0.65);
+    animation: pulse 1.5s infinite;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .placeholder.h3 > .placeholder-line-h3 {
+    height: 37.9px;
+    line-height: 1.3;
+    padding-bottom: 9.9;
+    background-color: hsla(21, 55%, 37%, 0.65);
+    animation: pulse 1.5s infinite;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .placeholder.h3 > .placeholder-line-h3 {
+    height: 47px;
+    line-height: 1.3;
+    padding-bottom: 11;
+    background-color: hsla(21, 55%, 37%, 0.65);
+    animation: pulse 1.5s infinite;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .placeholder.h4 > .placeholder-line-h4 {
+    height: 32.1px;
+    line-height: 1.35;
+    padding-bottom: 8.1;
     background-color: hsl(0, 0%, 70%);
     animation: pulse 1.5s infinite;
   }
 }
-@media (min-width: 1024px) {
-  .placeholder.p .placeholder-line, .placeholder.subtitle .placeholder-line, .placeholder.h1 .placeholder-line, .placeholder.h2 .placeholder-line, .placeholder.h3 .placeholder-line, .placeholder.h4 .placeholder-line, .placeholder.figcaption .placeholder-line {
-    height: 32px;
-    margin-bottom: 7px;
+@media only screen and (min-width: 1024px) {
+  .placeholder.h4 > .placeholder-line-h4 {
+    height: 33px;
+    line-height: 1.35;
+    padding-bottom: 9;
     background-color: hsl(0, 0%, 70%);
     animation: pulse 1.5s infinite;
   }
 }
-.placeholder.span .placeholder-line {
-  height: 24px;
-  margin-bottom: 1px;
+.placeholder.lines-0 .placeholder-line:nth-child(n), .placeholder.lines-0 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-0 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-0 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-0 .placeholder-line-span:nth-child(n), .placeholder.lines-0 .placeholder-line-p:nth-child(n), .placeholder.lines-0 .placeholder-line-h1:nth-child(n), .placeholder.lines-0 .placeholder-line-h2:nth-child(n), .placeholder.lines-0 .placeholder-line-h3:nth-child(n), .placeholder.lines-0 .placeholder-line-h4:nth-child(n), .placeholder.lines-0 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-1 .placeholder-line:nth-child(n), .placeholder.lines-1 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-1 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-1 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-1 .placeholder-line-span:nth-child(n), .placeholder.lines-1 .placeholder-line-p:nth-child(n), .placeholder.lines-1 .placeholder-line-h1:nth-child(n), .placeholder.lines-1 .placeholder-line-h2:nth-child(n), .placeholder.lines-1 .placeholder-line-h3:nth-child(n), .placeholder.lines-1 .placeholder-line-h4:nth-child(n), .placeholder.lines-1 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-2 .placeholder-line:nth-child(n), .placeholder.lines-2 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-2 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-2 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-2 .placeholder-line-span:nth-child(n), .placeholder.lines-2 .placeholder-line-p:nth-child(n), .placeholder.lines-2 .placeholder-line-h1:nth-child(n), .placeholder.lines-2 .placeholder-line-h2:nth-child(n), .placeholder.lines-2 .placeholder-line-h3:nth-child(n), .placeholder.lines-2 .placeholder-line-h4:nth-child(n), .placeholder.lines-2 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-3 .placeholder-line:nth-child(n), .placeholder.lines-3 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-3 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-3 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-3 .placeholder-line-span:nth-child(n), .placeholder.lines-3 .placeholder-line-p:nth-child(n), .placeholder.lines-3 .placeholder-line-h1:nth-child(n), .placeholder.lines-3 .placeholder-line-h2:nth-child(n), .placeholder.lines-3 .placeholder-line-h3:nth-child(n), .placeholder.lines-3 .placeholder-line-h4:nth-child(n), .placeholder.lines-3 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-4 .placeholder-line:nth-child(n), .placeholder.lines-4 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-4 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-4 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-4 .placeholder-line-span:nth-child(n), .placeholder.lines-4 .placeholder-line-p:nth-child(n), .placeholder.lines-4 .placeholder-line-h1:nth-child(n), .placeholder.lines-4 .placeholder-line-h2:nth-child(n), .placeholder.lines-4 .placeholder-line-h3:nth-child(n), .placeholder.lines-4 .placeholder-line-h4:nth-child(n), .placeholder.lines-4 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-5 .placeholder-line:nth-child(n), .placeholder.lines-5 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-5 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-5 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-5 .placeholder-line-span:nth-child(n), .placeholder.lines-5 .placeholder-line-p:nth-child(n), .placeholder.lines-5 .placeholder-line-h1:nth-child(n), .placeholder.lines-5 .placeholder-line-h2:nth-child(n), .placeholder.lines-5 .placeholder-line-h3:nth-child(n), .placeholder.lines-5 .placeholder-line-h4:nth-child(n), .placeholder.lines-5 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-6 .placeholder-line:nth-child(n), .placeholder.lines-6 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-6 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-6 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-6 .placeholder-line-span:nth-child(n), .placeholder.lines-6 .placeholder-line-p:nth-child(n), .placeholder.lines-6 .placeholder-line-h1:nth-child(n), .placeholder.lines-6 .placeholder-line-h2:nth-child(n), .placeholder.lines-6 .placeholder-line-h3:nth-child(n), .placeholder.lines-6 .placeholder-line-h4:nth-child(n), .placeholder.lines-6 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-7 .placeholder-line:nth-child(n), .placeholder.lines-7 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-7 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-7 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-7 .placeholder-line-span:nth-child(n), .placeholder.lines-7 .placeholder-line-p:nth-child(n), .placeholder.lines-7 .placeholder-line-h1:nth-child(n), .placeholder.lines-7 .placeholder-line-h2:nth-child(n), .placeholder.lines-7 .placeholder-line-h3:nth-child(n), .placeholder.lines-7 .placeholder-line-h4:nth-child(n), .placeholder.lines-7 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-8 .placeholder-line:nth-child(n), .placeholder.lines-8 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-8 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-8 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-8 .placeholder-line-span:nth-child(n), .placeholder.lines-8 .placeholder-line-p:nth-child(n), .placeholder.lines-8 .placeholder-line-h1:nth-child(n), .placeholder.lines-8 .placeholder-line-h2:nth-child(n), .placeholder.lines-8 .placeholder-line-h3:nth-child(n), .placeholder.lines-8 .placeholder-line-h4:nth-child(n), .placeholder.lines-8 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-9 .placeholder-line:nth-child(n), .placeholder.lines-9 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-9 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-9 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-9 .placeholder-line-span:nth-child(n), .placeholder.lines-9 .placeholder-line-p:nth-child(n), .placeholder.lines-9 .placeholder-line-h1:nth-child(n), .placeholder.lines-9 .placeholder-line-h2:nth-child(n), .placeholder.lines-9 .placeholder-line-h3:nth-child(n), .placeholder.lines-9 .placeholder-line-h4:nth-child(n), .placeholder.lines-9 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-10 .placeholder-line:nth-child(n), .placeholder.lines-10 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-10 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-10 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-10 .placeholder-line-span:nth-child(n), .placeholder.lines-10 .placeholder-line-p:nth-child(n), .placeholder.lines-10 .placeholder-line-h1:nth-child(n), .placeholder.lines-10 .placeholder-line-h2:nth-child(n), .placeholder.lines-10 .placeholder-line-h3:nth-child(n), .placeholder.lines-10 .placeholder-line-h4:nth-child(n), .placeholder.lines-10 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-11 .placeholder-line:nth-child(n), .placeholder.lines-11 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-11 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-11 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-11 .placeholder-line-span:nth-child(n), .placeholder.lines-11 .placeholder-line-p:nth-child(n), .placeholder.lines-11 .placeholder-line-h1:nth-child(n), .placeholder.lines-11 .placeholder-line-h2:nth-child(n), .placeholder.lines-11 .placeholder-line-h3:nth-child(n), .placeholder.lines-11 .placeholder-line-h4:nth-child(n), .placeholder.lines-11 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-12 .placeholder-line:nth-child(n), .placeholder.lines-12 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-12 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-12 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-12 .placeholder-line-span:nth-child(n), .placeholder.lines-12 .placeholder-line-p:nth-child(n), .placeholder.lines-12 .placeholder-line-h1:nth-child(n), .placeholder.lines-12 .placeholder-line-h2:nth-child(n), .placeholder.lines-12 .placeholder-line-h3:nth-child(n), .placeholder.lines-12 .placeholder-line-h4:nth-child(n), .placeholder.lines-12 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-13 .placeholder-line:nth-child(n), .placeholder.lines-13 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-13 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-13 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-13 .placeholder-line-span:nth-child(n), .placeholder.lines-13 .placeholder-line-p:nth-child(n), .placeholder.lines-13 .placeholder-line-h1:nth-child(n), .placeholder.lines-13 .placeholder-line-h2:nth-child(n), .placeholder.lines-13 .placeholder-line-h3:nth-child(n), .placeholder.lines-13 .placeholder-line-h4:nth-child(n), .placeholder.lines-13 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-14 .placeholder-line:nth-child(n), .placeholder.lines-14 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-14 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-14 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-14 .placeholder-line-span:nth-child(n), .placeholder.lines-14 .placeholder-line-p:nth-child(n), .placeholder.lines-14 .placeholder-line-h1:nth-child(n), .placeholder.lines-14 .placeholder-line-h2:nth-child(n), .placeholder.lines-14 .placeholder-line-h3:nth-child(n), .placeholder.lines-14 .placeholder-line-h4:nth-child(n), .placeholder.lines-14 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-15 .placeholder-line:nth-child(n), .placeholder.lines-15 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-15 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-15 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-15 .placeholder-line-span:nth-child(n), .placeholder.lines-15 .placeholder-line-p:nth-child(n), .placeholder.lines-15 .placeholder-line-h1:nth-child(n), .placeholder.lines-15 .placeholder-line-h2:nth-child(n), .placeholder.lines-15 .placeholder-line-h3:nth-child(n), .placeholder.lines-15 .placeholder-line-h4:nth-child(n), .placeholder.lines-15 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-16 .placeholder-line:nth-child(n), .placeholder.lines-16 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-16 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-16 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-16 .placeholder-line-span:nth-child(n), .placeholder.lines-16 .placeholder-line-p:nth-child(n), .placeholder.lines-16 .placeholder-line-h1:nth-child(n), .placeholder.lines-16 .placeholder-line-h2:nth-child(n), .placeholder.lines-16 .placeholder-line-h3:nth-child(n), .placeholder.lines-16 .placeholder-line-h4:nth-child(n), .placeholder.lines-16 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-17 .placeholder-line:nth-child(n), .placeholder.lines-17 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-17 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-17 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-17 .placeholder-line-span:nth-child(n), .placeholder.lines-17 .placeholder-line-p:nth-child(n), .placeholder.lines-17 .placeholder-line-h1:nth-child(n), .placeholder.lines-17 .placeholder-line-h2:nth-child(n), .placeholder.lines-17 .placeholder-line-h3:nth-child(n), .placeholder.lines-17 .placeholder-line-h4:nth-child(n), .placeholder.lines-17 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-18 .placeholder-line:nth-child(n), .placeholder.lines-18 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-18 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-18 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-18 .placeholder-line-span:nth-child(n), .placeholder.lines-18 .placeholder-line-p:nth-child(n), .placeholder.lines-18 .placeholder-line-h1:nth-child(n), .placeholder.lines-18 .placeholder-line-h2:nth-child(n), .placeholder.lines-18 .placeholder-line-h3:nth-child(n), .placeholder.lines-18 .placeholder-line-h4:nth-child(n), .placeholder.lines-18 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-19 .placeholder-line:nth-child(n), .placeholder.lines-19 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-19 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-19 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-19 .placeholder-line-span:nth-child(n), .placeholder.lines-19 .placeholder-line-p:nth-child(n), .placeholder.lines-19 .placeholder-line-h1:nth-child(n), .placeholder.lines-19 .placeholder-line-h2:nth-child(n), .placeholder.lines-19 .placeholder-line-h3:nth-child(n), .placeholder.lines-19 .placeholder-line-h4:nth-child(n), .placeholder.lines-19 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-20 .placeholder-line:nth-child(n), .placeholder.lines-20 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-20 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-20 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-20 .placeholder-line-span:nth-child(n), .placeholder.lines-20 .placeholder-line-p:nth-child(n), .placeholder.lines-20 .placeholder-line-h1:nth-child(n), .placeholder.lines-20 .placeholder-line-h2:nth-child(n), .placeholder.lines-20 .placeholder-line-h3:nth-child(n), .placeholder.lines-20 .placeholder-line-h4:nth-child(n), .placeholder.lines-20 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+
+.button-placeholder, figure.figure-placeholder > picture, .placeholder .placeholder-line, .placeholder.p .placeholder-line-p, .placeholder.subtitle .placeholder-line-subtitle, .placeholder.span .placeholder-line-span, .placeholder.figcaption .placeholder-line-figcaption, .placeholder.h1 .placeholder-line-h1, .placeholder.h2 .placeholder-line-h2, .placeholder.h3 .placeholder-line-h3, .placeholder.h4 .placeholder-line-h4 {
   background-color: hsl(0, 0%, 70%);
   animation: pulse 1.5s infinite;
+}
+
+.text-container {
+  width: 100%;
+}
+
+figure.figure-placeholder {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+figure.figure-placeholder > picture {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+button > a > figure.figure-placeholder, a > figure.figure-placeholder {
+  width: 32px;
+  height: 32px;
+}
+button > a > figure.figure-placeholder > picture, a > figure.figure-placeholder > picture {
+  border-radius: 8px;
+}
+
+div.figure-placeholder#e-stride {
+  max-height: 450px;
+  object-fit: cover;
+}
+
+.button-placeholder {
+  background-color: transparent;
+  position: relative;
+  overflow: hidden;
+  height: auto;
+  border-radius: 12px;
+}
+
+a[aria-label*=placeholder] {
+  cursor: default !important;
+}
+
+@media only screen and (min-width: 1024px) {
+  article#other-case-studies > article.grid-case-study-preview > article {
+    gap: 16px 0;
+  }
+}
+
+main section {
+  gap: 32px 0;
+}
+main section#design-work > article, main section#media-work > article, main section#about-me > article {
+  gap: 64px 0;
+  width: 100%;
+}
+main section#design-work > article[class*=grid], main section#design-work > article > article[class*=grid] > article, main section#design-work > article > article[class*=grid] > article > article, main section#design-work > article > article[class*=grid], main section#design-work > article[class*=grid-default] > article, main section#design-work > article > p, main section#media-work > article[class*=grid], main section#media-work > article > article[class*=grid] > article, main section#media-work > article > article[class*=grid] > article > article, main section#media-work > article > article[class*=grid], main section#media-work > article[class*=grid-default] > article, main section#media-work > article > p, main section#about-me > article[class*=grid], main section#about-me > article > article[class*=grid] > article, main section#about-me > article > article[class*=grid] > article > article, main section#about-me > article > article[class*=grid], main section#about-me > article[class*=grid-default] > article, main section#about-me > article > p {
+  width: 100%;
+}
+main section#design-work > article[class*=grid-default] > article, main section#media-work > article[class*=grid-default] > article, main section#about-me > article[class*=grid-default] > article {
+  gap: 32px 32px;
+  width: 100%;
+}
+@media only screen and (min-width: 1024px) {
+  main section#design-work > article > article.grid-case-study-preview > article, main section#media-work > article > article.grid-case-study-preview > article, main section#about-me > article > article.grid-case-study-preview > article {
+    gap: 16px 0;
+  }
+}
+main section.title-error > article {
+  width: 100%;
+}
+
+.email-form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.email-form .text-field,
+.email-form .expandable-text-field {
+  margin-bottom: 15px;
+}
+.email-form .text-field label,
+.email-form .expandable-text-field label {
+  display: block;
+  margin-bottom: 5px;
+}
+.email-form .text-field input,
+.email-form .text-field textarea,
+.email-form .expandable-text-field input,
+.email-form .expandable-text-field textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.email-form .text-field textarea,
+.email-form .expandable-text-field textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+.email-form .checkbox {
+  margin-bottom: 15px;
+}
+.email-form .checkbox input {
+  margin-right: 5px;
+}
+.email-form .error-message {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+.email-form .error-container {
+  margin-bottom: 15px;
+}
+.email-form button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.email-form button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+.email-form .success-message {
+  color: green;
+  margin-top: 15px;
 }
 
 body {

@@ -68,7 +68,7 @@ aside[role=navigation], aside[role=navigation] > button, .h2-wrapper, h2.sticky 
 }
 
 header, header * {
-  z-index: 5;
+  z-index: 5 !important;
 }
 
 .buffer-page, .loading-page {

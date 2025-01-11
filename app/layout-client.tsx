@@ -74,7 +74,8 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           <Suspense fallback={<Loading />}>
             <Loading>
               <DefaultHeader />
-              <main ref={contentRef} id="top-of-page">
+              {/* <main ref={contentRef} id="top-of-page"> */}
+              <main ref={contentRef}>
                 {children}
               </main>
               <Footer />
@@ -203,7 +204,8 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <ErrorBoundary errorComponent={Error}>
         {/* <Suspense fallback={<Loading />}> */}
             <DefaultHeader />
-            <main ref={contentRef} id="top-of-page">
+            {/* <main ref={contentRef} id="top-of-page"> */}
+            <main ref={contentRef}>
               {children}
             </main>
             <Footer />

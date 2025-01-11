@@ -1,4 +1,5 @@
 import { size_space_num } from "../size-spacing/nums-size-space";
+import { ImageMedia } from "@/app/ui/media/media-content";
 
 export interface LinkProps {
     text: string;
@@ -13,12 +14,10 @@ export interface LinkProps {
     rel?: string;
     target?: string;
     icon?: {
-        imageSrc: string;
-        imageClasses: `icon ratio-${string}`
-        width: number;
-        height: number;
-        alt: string | "";
-        loading: "lazy" | "eager";
+        [imageKey in keyof ImageMedia] : ImageMedia[imageKey]
+    } & 
+    {
+        className: `icon ratio-${string}`
     }
     showBuffer?: "true";
     // children: React.ReactNode;
@@ -28,7 +27,7 @@ export interface SeeCaseStudyProps extends Omit<LinkProps, 'href'> {
     href: {
       [key: string]: string;
     };
-  }
+}
 
 const
     slash = "/",
@@ -90,12 +89,17 @@ export function getLinkProps(navBarType?: string) : { [key: string]: LinkProps |
             rel: "external",
             target: "_blank",
             icon: {
-                imageSrc: "icons/email.svg",
-                imageClasses: "icon ratio-4-3",
+                mediaType: "image", 
+                src: "icons/email.svg",
+                get className(): `icon ratio-${string}` {
+                    return `icon ratio-${this.imageRatio}`;
+                },
                 width: size_space_num["l-num"],
                 height: size_space_num["l-num"],
+                imageRatio: "4-3",
                 alt: "email icon",
-                loading: "lazy"
+                loading: "lazy",
+                shadow: false
             }
         },
         linkedIn: {
@@ -106,12 +110,17 @@ export function getLinkProps(navBarType?: string) : { [key: string]: LinkProps |
             rel: "external",
             target: "_blank",
             icon: {
-                imageSrc: "icons/linkedIn.svg",
-                imageClasses: "icon ratio-1-1",
+                mediaType: "image", 
+                src: "icons/linkedIn.svg",
+                get className(): `icon ratio-${string}` {
+                    return `icon ratio-${this.imageRatio}`;
+                },
                 width: size_space_num["l-num"],
                 height: size_space_num["l-num"],
+                imageRatio: "1-1",
                 alt: "linkedin icon",
-                loading: "lazy"
+                loading: "lazy",
+                shadow: false
             }
         },
         seeCaseStudy: {
@@ -122,7 +131,7 @@ export function getLinkProps(navBarType?: string) : { [key: string]: LinkProps |
                 // ap: slash + "automation-playground",
                 // tclc: slash + "tclc-video",
                 // ttvReel: slash + "triton-television-reel"
-                thelab: "the-lab",
+                theLab: "the-lab",
                 es: "electric-stride",
                 ap: "automation-playground",
                 tclc: "tclc-video",
@@ -132,12 +141,17 @@ export function getLinkProps(navBarType?: string) : { [key: string]: LinkProps |
             role: "link",
             ariaLabel: "see case study",
             icon: {
-                imageSrc: "icons/arrow-right.svg",
-                imageClasses: "icon ratio-1-1",
+                mediaType: "image", 
+                src: "icons/arrow-right.svg",
+                get className(): `icon ratio-${string}` {
+                    return `icon ratio-${this.imageRatio}`;
+                },
                 width: size_space_num["l-num"],
                 height: size_space_num["l-num"],
+                imageRatio: "1-1",
                 alt: "see case study icon as a right arrow",
-                loading: "lazy"
+                loading: "lazy",
+                shadow: false
             },
             showBuffer: "true"
         },
@@ -146,12 +160,17 @@ export function getLinkProps(navBarType?: string) : { [key: string]: LinkProps |
             role: "button",
             ariaLabel: "open list of contents",
             icon: {
-                imageSrc: "icons/list-of-contents.svg",
-                imageClasses: "icon ratio-1-1",
+                mediaType: "image", 
+                src: "icons/list-of-contents.svg",
+                get className(): `icon ratio-${string}` {
+                    return `icon ratio-${this.imageRatio}`;
+                },
                 width: size_space_num["l-num"],
                 height: size_space_num["l-num"],
+                imageRatio: "1-1",
                 alt: "open list of contents icon",
-                loading: "lazy"
+                loading: "lazy",
+                shadow: false
             }
         },
         topOfPage: {
@@ -161,16 +180,21 @@ export function getLinkProps(navBarType?: string) : { [key: string]: LinkProps |
             ariaLabel: "anchor link to top of the page"
         },
         placeholder_button_icon: {
-            text: "    ",
+            text: "Link Text",
             role: "button",
             ariaLabel: "placeholder button with an empty icon until the button is loaded",
             icon: {
-                imageSrc: "icons/empty.png",
-                imageClasses: "icon ratio-1-1",
+                mediaType: "image", 
+                src: "icons/empty.png",
+                get className(): `icon ratio-${string}` {
+                    return `icon ratio-${this.imageRatio}`;
+                },
                 width: size_space_num["l-num"],
                 height: size_space_num["l-num"],
+                imageRatio: "1-1",
                 alt: "empty placeholder icon",
-                loading: "eager"
+                loading: "eager",
+                shadow: false
             }
         }
     }

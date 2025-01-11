@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Placeholder from "../placeholders/placeholder";
 import { literata, noto_sans, noto_sans_italic } from "./../../utils/text-styling/fonts";
+import { indefinite } from "@/app/utils/ts/exported-constants";
 
 interface TextTagProps {
   tag: "p" | "h1" | "h2" | "h3" | "h4" | "figcaption" | "span" | "subtitle";
@@ -14,7 +15,7 @@ interface TextTagProps {
   placeholder?: boolean;
 }
 
-export default function TextTag({ tag, fontOverride, children, className, id, delayTimer = 600000, placeholder }: TextTagProps) {
+export default function TextTag({ tag, fontOverride, children, className, id, delayTimer = indefinite, placeholder }: TextTagProps) {
   const Tag = tag === "subtitle" ? "p" : tag;
 
   let literataFont = literata.className,
@@ -39,17 +40,6 @@ export default function TextTag({ tag, fontOverride, children, className, id, de
         break;
     }
   } else {
-    // console.log('Switch statement. tag: ' + tag);
-    // if (tag == "h1" || "h2") {
-    //   setFont = literataFont;
-    // } else if (tag == "p" || "subtitle" || "span" || "h3" || "h4") {
-    //   setFont = notoSansFont;
-    // } else if (tag == "figcaption") {
-    //   setFont = notoSansItalicFont;
-    // } else {
-    //   setFont = notoSansFont;
-    //   console.log('Default case. tag: ' + tag + ' setFont: ' + setFont);
-    // }
     switch(tag) {
       case "h1":
       case "h2":
@@ -85,7 +75,7 @@ export default function TextTag({ tag, fontOverride, children, className, id, de
     return () => clearTimeout(timer);
   }, []);
 
-  console.log('delayTimer: ' + delayTimer);
+  // console.log('delayTimer: ' + delayTimer);
 
   let combinedClassName = setFont;
   if (tag === "subtitle") {
@@ -102,10 +92,9 @@ export default function TextTag({ tag, fontOverride, children, className, id, de
       </Tag>
     );
   } else {
-    let comb
     return (
       <Placeholder tag={tag} delayTimer={delayTimer}>
-        <Tag id={id && id} className={combinedClassName + (isMounted ? 'fade-in' : '')}>
+        <Tag id={id && id} className={combinedClassName + (isMounted ? ' fade-in' : '')}>
           {children}
         </Tag>
       </Placeholder>

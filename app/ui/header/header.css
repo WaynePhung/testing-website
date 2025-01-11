@@ -58,7 +58,7 @@ header, footer article#endNavLinks > nav > a {
         - row flex direction, wrapping, center starting point
           and alignment of children elements and text
 */
-header > nav.navigationBar, header > nav.navigationBar > nav, header > nav.navigationBar > .contactButtons, header > nav.navigationBar > button, header > nav.navigationBar > .contactButtons > button, main button, footer > article#endMessage > .contactButtons > button, header > nav.navigationBar > a, header > nav.navigationBar > nav > a, header > nav.navigationBar > .contactButtons > button > a, main button > a, main aside > a, main aside > nav.tocNavLinks > a, footer article#endMessage > .contactButtons > button > a, header > nav.navigationBar > button a picture, header > nav.navigationBar > .contactButtons > button a picture, main button a picture, footer > article#endMessage > .contactButtons > button a picture {
+header > nav.navigationBar, header > nav.navigationBar > nav, header > nav.navigationBar > .contactButtons, button .button-primary-loaded, button .button-primary-placeholder, button .button-secondary-loaded, button .button-secondary-placeholder, header > nav.navigationBar > a, header > nav.navigationBar > nav > a, header > nav.navigationBar > .contactButtons > button > a, main button > a, main aside > a, main aside > nav.tocNavLinks > a, footer article#endMessage > .contactButtons > button > a, button .button-primary-loaded a picture, button .button-primary-placeholder a picture, button .button-secondary-loaded a picture, button .button-secondary-placeholder a picture {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -109,25 +109,25 @@ header > nav.navigationBar, header > nav.navigationBar > nav, header > nav.navig
     No right border is to prevent a miscellaneous line 
     to the right of the image from appearing.
 */
-header > nav.navigationBar > button a picture, header > nav.navigationBar > .contactButtons > button a picture, main button a picture, footer > article#endMessage > .contactButtons > button a picture {
+button .button-primary-loaded a picture, button .button-primary-placeholder a picture, button .button-secondary-loaded a picture, button .button-secondary-placeholder a picture {
   position: relative;
   object-fit: contain;
   line-height: 0;
   border-right: none !important;
 }
 @media only screen and (max-width: 1920px) {
-  header > nav.navigationBar > button a picture, header > nav.navigationBar > .contactButtons > button a picture, main button a picture, footer > article#endMessage > .contactButtons > button a picture {
+  button .button-primary-loaded a picture, button .button-primary-placeholder a picture, button .button-secondary-loaded a picture, button .button-secondary-placeholder a picture {
     width: 24px;
     height: 24px;
   }
 }
 @media only screen and (min-width: 1920px) {
-  header > nav.navigationBar > button a picture, header > nav.navigationBar > .contactButtons > button a picture, main button a picture, footer > article#endMessage > .contactButtons > button a picture {
+  button .button-primary-loaded a picture, button .button-primary-placeholder a picture, button .button-secondary-loaded a picture, button .button-secondary-placeholder a picture {
     width: 32px;
     height: 32px;
   }
 }
-header > nav.navigationBar > button a picture img, header > nav.navigationBar > .contactButtons > button a picture img, main button a picture img, footer > article#endMessage > .contactButtons > button a picture img {
+button .button-primary-loaded a picture img, button .button-primary-placeholder a picture img, button .button-secondary-loaded a picture img, button .button-secondary-placeholder a picture img {
   width: 100%;
   height: 100%;
 }
@@ -176,19 +176,19 @@ header > nav.navigationBar > button a picture img, header > nav.navigationBar > 
     Placeholder selector to set the default background color of the entire page (html element) and 
     the navigation header to light blue using the color function.
 */
-header > nav.navigationBar > button:before, header > nav.navigationBar > .contactButtons > button:before, main button:before, footer > article#endMessage > .contactButtons > button:before {
+button .button-primary-loaded:before, button .button-primary-placeholder:before, button .button-secondary-loaded:before, button .button-secondary-placeholder:before {
   z-index: 0;
 }
-header > nav.navigationBar > button:after, header > nav.navigationBar > .contactButtons > button:after, main button:after, footer > article#endMessage > .contactButtons > button:after {
+button .button-primary-loaded:after, button .button-primary-placeholder:after, button .button-secondary-loaded:after, button .button-secondary-placeholder:after {
   z-index: 1;
 }
-header > nav.navigationBar > button a, header > nav.navigationBar > .contactButtons > button a, main button a, footer > article#endMessage > .contactButtons > button a {
+button .button-primary-loaded a, button .button-primary-placeholder a, button .button-secondary-loaded a, button .button-secondary-placeholder a {
   z-index: 2;
 }
-header > nav.navigationBar > button a p, header > nav.navigationBar > .contactButtons > button a p, main button a p, footer > article#endMessage > .contactButtons > button a p, header > nav.navigationBar > button a picture.icon, header > nav.navigationBar > .contactButtons > button a picture.icon, main button a picture.icon, footer > article#endMessage > .contactButtons > button a picture.icon {
+button .button-primary-loaded a p, button .button-primary-placeholder a p, button .button-secondary-loaded a p, button .button-secondary-placeholder a p, button .button-primary-loaded a picture.icon, button .button-primary-placeholder a picture.icon, button .button-secondary-loaded a picture.icon, button .button-secondary-placeholder a picture.icon {
   z-index: 2;
 }
-header > nav.navigationBar > button p, header > nav.navigationBar > .contactButtons > button p, main button p, footer > article#endMessage > .contactButtons > button p, header > nav.navigationBar > button picture.icon, header > nav.navigationBar > .contactButtons > button picture.icon, main button picture.icon, footer > article#endMessage > .contactButtons > button picture.icon {
+button .button-primary-loaded p, button .button-primary-placeholder p, button .button-secondary-loaded p, button .button-secondary-placeholder p, button .button-primary-loaded picture.icon, button .button-primary-placeholder picture.icon, button .button-secondary-loaded picture.icon, button .button-secondary-placeholder picture.icon {
   z-index: 2;
 }
 
@@ -196,12 +196,16 @@ main, footer, article.h2-wrapper {
   z-index: 3;
 }
 
-aside, .h2-wrapper, h2.sticky {
+aside[role=navigation], aside[role=navigation] > button, .h2-wrapper, h2.sticky {
   z-index: 4;
 }
 
 header, header * {
   z-index: 5;
+}
+
+.buffer-page, .loading-page {
+  z-index: 999;
 }
 
 /*
@@ -239,10 +243,10 @@ header, header * {
           even if the argument is empty. However, the value of either or both 
           arguments can be non-zero if specified.
 */
-header > nav.navigationBar > button:hover, header > nav.navigationBar > .contactButtons > button:hover, main button:hover, footer > article#endMessage > .contactButtons > button:hover {
+button .button-primary-loaded:hover, button .button-primary-placeholder:hover, button .button-secondary-loaded:hover, button .button-secondary-placeholder:hover {
   cursor: pointer;
 }
-header > nav.navigationBar > button:hover span:after, header > nav.navigationBar > .contactButtons > button:hover span:after, main button:hover span:after, footer > article#endMessage > .contactButtons > button:hover span:after {
+button .button-primary-loaded:hover span:after, button .button-primary-placeholder:hover span:after, button .button-secondary-loaded:hover span:after, button .button-secondary-placeholder:hover span:after {
   left: 0;
   width: 100%;
 }
@@ -272,13 +276,13 @@ header > nav.navigationBar > button:hover span:after, header > nav.navigationBar
         }
     }
 */
-header > nav.navigationBar > button a, header > nav.navigationBar > .contactButtons > button a, main button a, footer > article#endMessage > .contactButtons > button a, figure figcaption > a, footer article#endNavLinks > nav > a, main aside > a, main aside > nav.tocNavLinks > a, header > nav.navigationBar > a, header > nav.navigationBar > nav > a {
+button .button-primary-loaded a, button .button-primary-placeholder a, button .button-secondary-loaded a, button .button-secondary-placeholder a, figure figcaption > a, footer article#endNavLinks > nav > a, main aside > a, main aside > nav.tocNavLinks > a, header > nav.navigationBar > a > a, header > nav.navigationBar > nav > a > a, header > nav.navigationBar > a, header > nav.navigationBar > nav > a {
   gap: 16px 16px;
   position: relative;
   cursor: default;
   text-decoration: none;
 }
-header > nav.navigationBar > button a span:after, header > nav.navigationBar > .contactButtons > button a span:after, main button a span:after, footer > article#endMessage > .contactButtons > button a span:after, figure figcaption > a span:after, footer article#endNavLinks > nav > a span:after, main aside > a span:after, main aside > nav.tocNavLinks > a span:after, header > nav.navigationBar > a span:after, header > nav.navigationBar > nav > a span:after {
+button .button-primary-loaded a span:after, button .button-primary-placeholder a span:after, button .button-secondary-loaded a span:after, button .button-secondary-placeholder a span:after, figure figcaption > a span:after, footer article#endNavLinks > nav > a span:after, main aside > a span:after, main aside > nav.tocNavLinks > a span:after, header > nav.navigationBar > a span:after, header > nav.navigationBar > nav > a span:after {
   display: block;
   position: relative;
   left: 50%;
@@ -290,10 +294,10 @@ header > nav.navigationBar > button a span:after, header > nav.navigationBar > .
   width: 0%;
   height: 2px;
 }
-header > nav.navigationBar > button a:hover, header > nav.navigationBar > .contactButtons > button a:hover, main button a:hover, footer > article#endMessage > .contactButtons > button a:hover, figure figcaption > a:hover, footer article#endNavLinks > nav > a:hover, main aside > a:hover, main aside > nav.tocNavLinks > a:hover, header > nav.navigationBar > a:hover, header > nav.navigationBar > nav > a:hover, header > nav.navigationBar > button a.active, header > nav.navigationBar > .contactButtons > button a.active, main button a.active, footer > article#endMessage > .contactButtons > button a.active, figure figcaption > a.active, footer article#endNavLinks > nav > a.active, main aside > a.active, main aside > nav.tocNavLinks > a.active, header > nav.navigationBar > a.active, header > nav.navigationBar > nav > a.active {
+button .button-primary-loaded a:hover, button .button-primary-placeholder a:hover, button .button-secondary-loaded a:hover, button .button-secondary-placeholder a:hover, figure figcaption > a:hover, footer article#endNavLinks > nav > a:hover, main aside > a:hover, main aside > nav.tocNavLinks > a:hover, header > nav.navigationBar > a > a:hover, header > nav.navigationBar > nav > a > a:hover, header > nav.navigationBar > a:hover, header > nav.navigationBar > nav > a:hover, button .button-primary-loaded a.active, button .button-primary-placeholder a.active, button .button-secondary-loaded a.active, button .button-secondary-placeholder a.active, figure figcaption > a.active, footer article#endNavLinks > nav > a.active, main aside > a.active, main aside > nav.tocNavLinks > a.active, header > nav.navigationBar > a > a.active, header > nav.navigationBar > nav > a > a.active, header > nav.navigationBar > a.active, header > nav.navigationBar > nav > a.active {
   cursor: pointer;
 }
-header > nav.navigationBar > button a:hover span:after, header > nav.navigationBar > .contactButtons > button a:hover span:after, main button a:hover span:after, footer > article#endMessage > .contactButtons > button a:hover span:after, figure figcaption > a:hover span:after, footer article#endNavLinks > nav > a:hover span:after, main aside > a:hover span:after, main aside > nav.tocNavLinks > a:hover span:after, header > nav.navigationBar > a:hover span:after, header > nav.navigationBar > nav > a:hover span:after, header > nav.navigationBar > button a.active span:after, header > nav.navigationBar > .contactButtons > button a.active span:after, main button a.active span:after, footer > article#endMessage > .contactButtons > button a.active span:after, figure figcaption > a.active span:after, footer article#endNavLinks > nav > a.active span:after, main aside > a.active span:after, main aside > nav.tocNavLinks > a.active span:after, header > nav.navigationBar > a.active span:after, header > nav.navigationBar > nav > a.active span:after {
+button .button-primary-loaded a:hover span:after, button .button-primary-placeholder a:hover span:after, button .button-secondary-loaded a:hover span:after, button .button-secondary-placeholder a:hover span:after, figure figcaption > a:hover span:after, footer article#endNavLinks > nav > a:hover span:after, main aside > a:hover span:after, main aside > nav.tocNavLinks > a:hover span:after, header > nav.navigationBar > a > a:hover span:after, header > nav.navigationBar > nav > a > a:hover span:after, header > nav.navigationBar > a:hover span:after, header > nav.navigationBar > nav > a:hover span:after, button .button-primary-loaded a.active span:after, button .button-primary-placeholder a.active span:after, button .button-secondary-loaded a.active span:after, button .button-secondary-placeholder a.active span:after, figure figcaption > a.active span:after, footer article#endNavLinks > nav > a.active span:after, main aside > a.active span:after, main aside > nav.tocNavLinks > a.active span:after, header > nav.navigationBar > a > a.active span:after, header > nav.navigationBar > nav > a > a.active span:after, header > nav.navigationBar > a.active span:after, header > nav.navigationBar > nav > a.active span:after {
   left: 0;
   width: 100%;
 }
@@ -329,6 +333,11 @@ footer article#endNavLinks > nav > a:hover, footer article#endNavLinks > nav > a
   animation-timing-function: ease-in-out;
 }
 
+header > nav.navigationBar > nav {
+  justify-content: space-between;
+  max-width: 568px;
+  width: 100%;
+}
 header > nav.navigationBar > a span:after, header > nav.navigationBar > nav > a span:after {
   background-color: hsl(0, 0%, 50%);
 }
@@ -337,20 +346,29 @@ header > nav.navigationBar > a span:after, header > nav.navigationBar > nav > a 
     padding: 0 16px 0 16px;
   }
 }
-header > nav.navigationBar > a {
+header > nav.navigationBar > a > a, header > nav.navigationBar > nav > a > a {
   color: hsl(0, 0%, 30%);
+  max-width: 142px;
+  width: 100%;
+  max-height: 42px;
 }
 @media only screen and (max-width: 1024px) {
-  header > nav.navigationBar > a {
+  header > nav.navigationBar > a > a, header > nav.navigationBar > nav > a > a {
     display: none !important;
   }
 }
 @media only screen and (min-width: 1024px) {
-  header > nav.navigationBar > a {
+  header > nav.navigationBar > a > a, header > nav.navigationBar > nav > a > a {
     display: inherit;
   }
 }
+header > nav.navigationBar > a > a#waynephung, header > nav.navigationBar > nav > a > a#waynephung {
+  max-width: 142px;
+  width: 100%;
+  max-height: 42px;
+}
 header > nav.navigationBar > nav > a {
+  max-height: 42px;
   color: hsl(0, 0%, 30%);
 }
 @media only screen and (max-width: 200px) {
@@ -384,6 +402,22 @@ header > nav.navigationBar > nav > a {
     padding-left: 0;
   }
 }
+header > nav.navigationBar > nav > a > span {
+  max-width: 100px;
+  width: 100%;
+  max-height: 42px;
+}
+header > nav.navigationBar > .contactButtons > button > a {
+  width: 100%;
+  max-height: 32px;
+}
+header > nav.navigationBar > .contactButtons > button#linkedInButton > a {
+  max-width: 162px;
+}
+header > nav.navigationBar > .contactButtons > button#linkedInButton > a {
+  max-width: 138px;
+}
+
 main aside > a, main aside > nav.tocNavLinks > a {
   padding: 8px 8px 8px 8px;
   color: hsl(0, 0%, 30%);
@@ -423,7 +457,7 @@ figure > a {
     placeholder selectors for primary and secondary button 
     styling.
 */
-main button, header > nav.navigationBar > .contactButtons > button, footer > article#endMessage > .contactButtons > button, header > nav.navigationBar > button {
+button .button-secondary-placeholder, button .button-primary-placeholder, button .button-secondary-loaded, button .button-primary-loaded {
   gap: 16px 16px;
   position: relative;
   overflow: hidden;
@@ -434,7 +468,7 @@ main button, header > nav.navigationBar > .contactButtons > button, footer > art
   padding: 0;
   width: auto;
 }
-main button:before, header > nav.navigationBar > .contactButtons > button:before, footer > article#endMessage > .contactButtons > button:before, header > nav.navigationBar > button:before {
+button .button-secondary-placeholder:before, button .button-primary-placeholder:before, button .button-secondary-loaded:before, button .button-primary-loaded:before {
   content: "";
   display: inline-block;
   position: absolute;
@@ -455,15 +489,154 @@ main button:before, header > nav.navigationBar > .contactButtons > button:before
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
-main button:after, header > nav.navigationBar > .contactButtons > button:after, footer > article#endMessage > .contactButtons > button:after, header > nav.navigationBar > button:after {
+button .button-secondary-placeholder:after, button .button-primary-placeholder:after, button .button-secondary-loaded:after, button .button-primary-loaded:after {
   content: "";
   position: absolute;
   inset: 2px;
   border-radius: 8px;
 }
-main button:hover:before, header > nav.navigationBar > .contactButtons > button:hover:before, footer > article#endMessage > .contactButtons > button:hover:before, header > nav.navigationBar > button:hover:before {
+button .button-secondary-placeholder:hover:before, button .button-primary-placeholder:hover:before, button .button-secondary-loaded:hover:before, button .button-primary-loaded:hover:before {
   opacity: 1;
   animation-play-state: running;
+}
+
+button .button-primary-placeholder, button .button-primary-loaded {
+  background-color: hsl(215, 60%, 44%);
+  border-style: solid;
+  border-color: transparent;
+}
+button .button-primary-placeholder a, button .button-primary-loaded a {
+  padding: 12px 24px 12px 24px;
+  width: 100%;
+}
+@media only screen and (max-width: 375px) {
+  button .button-primary-placeholder a, button .button-primary-loaded a {
+    padding: 12px 16px 12px 16px;
+  }
+}
+button .button-primary-placeholder a span, button .button-primary-loaded a span {
+  color: hsl(190, 95%, 93%);
+}
+button .button-primary-placeholder a span:after, button .button-primary-loaded a span:after {
+  background-color: hsl(190, 95%, 93%);
+}
+button .button-primary-placeholder a picture > img, button .button-primary-loaded a picture > img {
+  filter: invert(95%) sepia(10%) saturate(1177%) hue-rotate(170deg) brightness(103%) contrast(99%);
+}
+button .button-primary-placeholder picture > img, button .button-primary-loaded picture > img {
+  filter: invert(95%) sepia(10%) saturate(1177%) hue-rotate(170deg) brightness(103%) contrast(99%);
+}
+
+button .button-secondary-placeholder, button .button-secondary-loaded {
+  background-color: transparent;
+  border-style: solid;
+  border-color: hsl(215, 60%, 44%);
+}
+button .button-secondary-placeholder a, button .button-secondary-loaded a {
+  padding: 12px 24px 12px 24px;
+  width: 100%;
+}
+@media only screen and (max-width: 375px) {
+  button .button-secondary-placeholder a, button .button-secondary-loaded a {
+    padding: 12px 16px 12px 16px;
+  }
+}
+button .button-secondary-placeholder a span, button .button-secondary-loaded a span {
+  color: hsl(215, 60%, 44%);
+}
+button .button-secondary-placeholder a span:after, button .button-secondary-loaded a span:after {
+  background-color: hsl(215, 60%, 44%);
+}
+button .button-secondary-placeholder a picture > img, button .button-secondary-loaded a picture > img {
+  filter: invert(32%) sepia(87%) saturate(828%) hue-rotate(186deg) brightness(75%) contrast(88%);
+}
+button .button-secondary-placeholder picture > img, button .button-secondary-loaded picture > img {
+  filter: invert(32%) sepia(87%) saturate(828%) hue-rotate(186deg) brightness(75%) contrast(88%);
+}
+
+button .button-secondary-loaded:before, button .button-primary-loaded:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  border-radius: 12px;
+  transform: translate(-50%, -50%);
+  width: 141.421356237%;
+  padding-bottom: 141.421356237%;
+  opacity: 0;
+  transition: animation-play-state 0.3s linear;
+  animation: spin 1.2s cubic-bezier(0.4, 0.53, 0.67, 0.8) infinite;
+  animation-play-state: paused;
+}
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+button .button-secondary-loaded:after, button .button-primary-loaded:after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: 8px;
+}
+button .button-secondary-loaded:hover:before, button .button-primary-loaded:hover:before {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+button .button-secondary-placeholder a, button .button-primary-placeholder a {
+  cursor: default !important;
+}
+button .button-primary-loaded:before, button .button-primary-loaded:after {
+  background-color: hsl(215, 60%, 44%);
+}
+button .button-primary-loaded:after {
+  border-radius: 4px;
+}
+button .button-primary-loaded:hover {
+  background-image: linear-gradient(to right bottom, hsla(215, 60%, 44%, 0.65), hsl(215, 60%, 44%));
+}
+button .button-primary-loaded:hover:before {
+  background: conic-gradient(hsl(215, 60%, 44%), hsl(190, 95%, 93%));
+}
+button .button-primary-loaded:before, button .button-primary-loaded:after {
+  background-color: hsl(0, 0%, 90%);
+}
+button .button-primary-loaded:after {
+  border-radius: 4px;
+}
+button .button-primary-loaded:hover {
+  background-image: transparent;
+}
+button .button-primary-loaded:hover:before {
+  background: conic-gradient(hsl(215, 60%, 44%) 0deg, hsl(0, 0%, 90%) 25deg);
+}
+
+button .button-secondary-loaded:before, button .button-secondary-loaded:after {
+  background-color: hsl(215, 60%, 44%);
+}
+button .button-secondary-loaded:after {
+  border-radius: 4px;
+}
+button .button-secondary-loaded:hover {
+  background-image: linear-gradient(to right bottom, hsla(215, 60%, 44%, 0.65), hsl(215, 60%, 44%));
+}
+button .button-secondary-loaded:hover:before {
+  background: conic-gradient(hsl(215, 60%, 44%), hsl(190, 95%, 93%));
+}
+button .button-secondary-loaded:before, button .button-secondary-loaded:after {
+  background-color: hsl(0, 0%, 90%);
+}
+button .button-secondary-loaded:after {
+  border-radius: 4px;
+}
+button .button-secondary-loaded:hover {
+  background-image: transparent;
+}
+button .button-secondary-loaded:hover:before {
+  background: conic-gradient(hsl(215, 60%, 44%) 0deg, hsl(0, 0%, 90%) 25deg);
 }
 
 /*
@@ -472,94 +645,18 @@ main button:hover:before, header > nav.navigationBar > .contactButtons > button:
     such as reading more about a case study or finding methods to 
     contact).
 */
-header > nav.navigationBar > .contactButtons > button, footer > article#endMessage > .contactButtons > button, header > nav.navigationBar > button {
-  background-color: hsl(215, 60%, 44%);
-}
-header > nav.navigationBar > .contactButtons > button a, footer > article#endMessage > .contactButtons > button a, header > nav.navigationBar > button a {
-  padding: 12px 24px 12px 24px;
-  width: 100%;
-}
-@media only screen and (max-width: 375px) {
-  header > nav.navigationBar > .contactButtons > button a, footer > article#endMessage > .contactButtons > button a, header > nav.navigationBar > button a {
-    padding: 12px 16px 12px 16px;
-  }
-}
-header > nav.navigationBar > .contactButtons > button a span, footer > article#endMessage > .contactButtons > button a span, header > nav.navigationBar > button a span {
-  color: hsl(190, 95%, 93%);
-}
-header > nav.navigationBar > .contactButtons > button a span:after, footer > article#endMessage > .contactButtons > button a span:after, header > nav.navigationBar > button a span:after {
-  background-color: hsl(190, 95%, 93%);
-}
-header > nav.navigationBar > .contactButtons > button a picture > img, footer > article#endMessage > .contactButtons > button a picture > img, header > nav.navigationBar > button a picture > img {
-  filter: invert(95%) sepia(10%) saturate(1177%) hue-rotate(170deg) brightness(103%) contrast(99%);
-}
-header > nav.navigationBar > .contactButtons > button picture > img, footer > article#endMessage > .contactButtons > button picture > img, header > nav.navigationBar > button picture > img {
-  filter: invert(95%) sepia(10%) saturate(1177%) hue-rotate(170deg) brightness(103%) contrast(99%);
-}
-header > nav.navigationBar > .contactButtons > button:before, footer > article#endMessage > .contactButtons > button:before, header > nav.navigationBar > button:before, header > nav.navigationBar > .contactButtons > button:after, footer > article#endMessage > .contactButtons > button:after, header > nav.navigationBar > button:after {
-  background-color: hsl(215, 60%, 44%);
-}
-header > nav.navigationBar > .contactButtons > button:hover, footer > article#endMessage > .contactButtons > button:hover, header > nav.navigationBar > button:hover {
-  background-image: linear-gradient(to right bottom, hsla(215, 60%, 44%, 0.65), hsl(215, 60%, 44%));
-}
-header > nav.navigationBar > .contactButtons > button:hover:before, footer > article#endMessage > .contactButtons > button:hover:before, header > nav.navigationBar > button:hover:before {
-  background: conic-gradient(hsl(215, 60%, 44%), hsl(190, 95%, 93%));
-}
-
 /*
     Applies a transparent background color and dark blue text color 
     to a second button (any button that provides an action that 
     doesn't need to be emphasized as much, such as visiting 
     an external website related to a case study).
 */
-main button {
-  border: solid hsl(215, 60%, 44%);
-}
-main button a {
-  padding: 12px 16px 12px 16px;
-  width: 100%;
-}
-main button a span {
-  color: hsl(215, 60%, 44%);
-}
-main button a span:after {
-  background-color: hsl(215, 60%, 44%);
-}
-main button a picture > img {
-  filter: invert(32%) sepia(87%) saturate(828%) hue-rotate(186deg) brightness(75%) contrast(88%);
-}
-main button span {
-  color: hsl(215, 60%, 44%);
-}
-main button span:after {
-  background-color: hsl(215, 60%, 44%);
-}
-main button picture > img {
-  filter: invert(32%) sepia(87%) saturate(828%) hue-rotate(186deg) brightness(75%) contrast(88%);
-}
-main button:before, main button:after {
-  background-color: hsl(0, 0%, 90%);
-}
-main button:after {
-  border-radius: 4px;
-}
-main button:hover:before {
-  background: conic-gradient(hsl(215, 60%, 44%) 0deg, hsl(0, 0%, 90%) 25deg);
+@media only screen and (min-width: 1024px) {
+  header > nav.navigationBar > button {
+    display: none;
+  }
 }
 
-@media only screen and (max-width: 350px) {
-  header > nav.navigationBar > button#contactButton {
-    display: inherit;
-  }
-}
-@media only screen and (min-width: 350px) {
-  header > nav.navigationBar > button#contactButton {
-    display: none !important;
-  }
-}
-main button picture > img {
-  filter: invert(95%) sepia(10%) saturate(1177%) hue-rotate(170deg) brightness(103%) contrast(99%);
-}
 @media only screen and (max-width: 1024px) {
   main button.toc-mobileButton {
     display: inherit;

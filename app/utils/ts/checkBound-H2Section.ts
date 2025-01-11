@@ -39,12 +39,12 @@ export function initializeH2SectionBounds(pathname: string): void {
   }
 
   let sections: NodeListOf<Element>;
-  console.log('initializeH2SectionBounds - pathname: ' + pathname);
+  // console.log('initializeH2SectionBounds - pathname: ' + pathname);
   if (pathname === '/') {
     sections = main.querySelectorAll('section:not(section.title)');
     console.log('Getting sections from main page.');
   } else if (caseStudyPaths.includes(pathname)) {
-    sections = main.querySelectorAll('section.content > article');
+    sections = main.querySelectorAll('section.content-loc > article');
     console.log('Getting sections from case study page.');
   } else {
     sections = main.querySelectorAll('section.bodyContent > article');
@@ -84,7 +84,7 @@ export function initializeH2SectionBounds(pathname: string): void {
   // Update isWithinBounds using updateH2SectionBounds
   sectionInfoArray = updateH2SectionBounds(pathname);
 
-  console.log('Initialized sectionInfoArray: ', sectionInfoArray);
+  // console.log('Initialized sectionInfoArray: ', sectionInfoArray);
 
   sectionInfoArray.forEach((item, index) => {
     console.log(`Item ${index}:`);
@@ -186,7 +186,8 @@ function applyStickyStyling(h2: HTMLHeadingElement, h2Wrapper: HTMLElement) {
       const h2PaddingLeft = parseInt(window.getComputedStyle(h2).paddingLeft, 10);
       const h2PaddingRight = parseInt(window.getComputedStyle(h2).paddingRight, 10);
       const columnGap = bodyContentSection ? parseInt(window.getComputedStyle(bodyContentSection).columnGap, 10) : 0;
-      h2.style.width = `calc(${h2WrapperWidth}px - ${h2PaddingLeft}px  + ${columnGap}px)`;
+      // h2.style.width = `calc(${h2WrapperWidth}px - ${h2PaddingLeft}px + ${columnGap}px)`;
+      h2.style.width = `calc(${h2WrapperWidth}px + ${columnGap}px)`;
     }
   }
 }

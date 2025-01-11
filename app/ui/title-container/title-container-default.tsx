@@ -52,7 +52,7 @@ export default function TitleSection({pageType, children} : Page) : React.ReactE
       </article>
       {
         (pageType && getMediaType && getMediaAlias) && 
-        <FigureImageVideo mediaGroup={pageType} mediaType={getMediaType} mediaAlias={getMediaAlias} shadow="true"></FigureImageVideo>
+        <FigureImageVideo group={"case-study"} subgroup={pageType} mediaAlias={getMediaAlias} wrappingLink={false}/>
       }
       {/* <ButtonComponent type="listOfContents" imagePosition="before"></ButtonComponent> */}
   </section>

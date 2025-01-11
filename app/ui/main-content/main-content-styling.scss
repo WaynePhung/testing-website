@@ -29,12 +29,28 @@ main {
                     justify-content: center;
                 }
                 &.content-loc {
+                    @extend %flex-row-wrap-default;
+                    width: 100%;
                     @include s-w.mediaQuery-minMax(v-g.$bp-dt, v-g.$bp-dt-xl) {
                         // @include r-c-g.rowColumnGaps("xl", "xl");
                         max-width: calc(100% - $toc-width-1024px - map-get(n-s-s.$size-space, "xl"));
                     }
+                    @include s-w.mediaQuery-minOnly(v-g.$bp-dt-l) {
+                        @include r-c-g.rowColumnGaps("4xl", "xl");
+                    }
                     @include s-w.mediaQuery-minOnly(v-g.$bp-dt-xl) {
+                        // @include r-c-g.rowColumnGaps("4xl", "xl");
                         max-width: calc(100% - $toc-width-1920px);
+                    }
+                    & > article {
+                        @extend %flex-row-wrap-default;
+                        width: 100%;
+                        @include s-w.mediaQuery-minOnly(v-g.$bp-dt-l) {
+                            @include r-c-g.rowColumnGaps("3xl", "xl");
+                        }
+                        & > article, & > article > article {
+                            width: 100%;
+                        }
                     }
                 }
                 & > article {

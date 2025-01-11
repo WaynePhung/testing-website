@@ -1,121 +1,38 @@
 @use "./../../utils/colors/colors";
 @use "./../../utils/size-spacing/nums-size-space" as n-s-s;
 @use "./../../utils/mixins-other/screen-widths" as s-w;
+@use "./../../utils/variables/variables-global" as v-g;
+@use "./../../utils/mixins-other/display-flex";
 
-%placeholder-base {
-  background-color: colors.color('n', 70);
-  animation: pulse 1.5s infinite;
+$textType: "default";
+@function multiply($fontSize, $charWidthCoefficient) {
+  @return ($fontSize * $charWidthCoefficient);
 }
 
-.text-container {
-  width: 100%;
-  // margin-bottom: 0.5em;
-}
-
-.placeholder {
-  // width: 100%;
+@mixin placeholder-styles($tag, $fontSize, $lineHeight, $paddingBottom, $backgroundColor, $textType: "default") {
+  // $baseHeight: $fontSize * $lineHeight;
+  $baseHeight: $fontSize + $paddingBottom;
+  // $baseHeight: ($fontSize * $lineHeight) - $paddingBottom;
+  $padding: $fontSize * 0.2;
+  // $totalHeight: $baseHeight + $padding + $paddingBottom;
+  // $totalHeight: $baseHeight + $paddingBottom;
+  // $calculateLineHeight: round(($totalHeight/$fontSize), 3);
   
-  .placeholder-line {
-    @extend %placeholder-base;
-    border-radius: 8px;
-    // width: 100%;
+   & > .placeholder-line-#{$tag} {
+    // width: defineWidth($textType, $charWidthCoefficient);
+    // height: #{$calculateLineHeight}em;
+    height: #{$baseHeight}px;
+    line-height: $lineHeight;
+    padding-bottom: $paddingBottom;
+    background-color: $backgroundColor;
+    animation: pulse 1.5s infinite;
   }
+}
   
-  // Specific styles for p tag placeholders
-  .p-placeholder-line {
-    @extend .placeholder-line;
-  }
-
-  // Specific styles for subtitle tag placeholders
-  .subtitle-placeholder-line {
-    @extend .placeholder-line;
-  }
-
-  // Specific styles for h1 tag placeholders
-  .h1-placeholder-line {
-    @extend .placeholder-line;
-  }
-
-  // Specific styles for h2 tag placeholders
-  .h2-placeholder-line {
-    @extend .placeholder-line;
-  }
-
-  // Specific styles for h3 tag placeholders
-  .h3-placeholder-line {
-    @extend .placeholder-line;
-  }
-
-  // Specific styles for h4 tag placeholders
-  .h4-placeholder-line {
-    @extend .placeholder-line;
-  }
-
-  // Specific styles for h4 tag placeholders
-  .figcaption-placeholder-line {
-    @extend .placeholder-line;
-  }
-
-  // Add more placeholder styles for other heading tags as needed
-
-  @for $i from 0 through 20 {
-    &.lines-#{$i} {
-      .placeholder-line, .p-placeholder-line, .h1-placeholder-line, .h2-placeholder-line, .h3-placeholder-line, .h4-placeholder-line, .figcaption-placeholder-line {
-        &:nth-child(n) {
-          width: 100%;
-        }
-      }
-    }
-  }
-
-  &.span {
-    width: 100px;
-    height: 42px;
-  }
-}
-
-// Specific styles for link span tag placeholders
-.link-span-placeholder-line {
-  @extend %placeholder-base;
-  max-width: 100px;
-  width: 100%;
-  height: 32px;
-  border-radius: 8px;
-  // max-height: 42px;
-}
-
-// .image-placeholder, .video-placeholder {
-//   @extend %placeholder-base;
-//   width: 100%;
-//   height: 100%;
-// }
-
-// .button-placeholder {
-//   @extend %placeholder-base;
-//   width: 100px;
-//   height: 40px;
-//   border-radius: 4px;
-// }
-
-.figure-placeholder {
-  @extend %placeholder-base;
-  width: 100%;
-  height: auto;
-  border-radius: 16px;
-}
-
-.button-placeholder {
-  @extend %placeholder-base;
-  position: relative;
-  overflow: hidden;
-  // width: 100%;
-  height: auto;
-  border-radius: map-get(n-s-s.$size-space, "sm");
-}
-
 @keyframes pulse {
-  0%, 100% { opacity: 0.6; }
+  0% { opacity: 0.6; }
   50% { opacity: 1; }
+  100% { opacity: 0.6; }
 }
 
 .fade-in {
@@ -129,4 +46,183 @@
 
 .hidden {
   display: none;
+}
+
+.placeholder {
+
+  .placeholder-line {
+    @extend %placeholder-base;
+    border-radius: 8px;
+    // width: 100%;
+  }
+  
+  &.p {
+    min-width: 100px;
+    width: 100%;
+    @include s-w.mediaQuery-maxOnly(v-g.$bp-dt) {
+      @include placeholder-styles("p", 18, 1.6, multiply(18, 0.35), colors.color('n', 70));
+    }
+    @include s-w.mediaQuery-minOnly(v-g.$bp-dt) {
+      @include placeholder-styles("p", 20, 1.6, multiply(20, 0.35), colors.color('n', 70));
+    }
+    .placeholder-line-p {
+      @extend .placeholder-line;
+    }
+  }
+
+  &.subtitle {
+    @include s-w.mediaQuery-maxOnly(v-g.$bp-dt) {
+      @include placeholder-styles("subtitle", 20, 1.5, multiply(18, 0.4), colors.color('n', 70));
+    }
+    @include s-w.mediaQuery-minOnly(v-g.$bp-dt) {
+      @include placeholder-styles("subtitle", 24, 1.5, multiply(20, 0.4), colors.color('n', 70));
+    }
+    .placeholder-line-subtitle {
+      @extend .placeholder-line;
+    }
+  }
+
+  &.span {
+    @extend %flex-row-wrap-center;
+    width: map-get(n-s-s.$size-space, "4xl");
+    @include s-w.mediaQuery-maxOnly(v-g.$bp-dt) {
+      @include placeholder-styles("span", 16, 1.5, multiply(16, 0), colors.color('n', 70));
+    }
+    @include s-w.mediaQuery-minOnly(v-g.$bp-dt) {
+      @include placeholder-styles("span", 16, 1.5, multiply(16, 0), colors.color('n', 70));
+    }
+    .placeholder-line-span {
+      @extend %flex-row-wrap-center;
+      @extend .placeholder-line;
+      width: 100%;
+    }
+  }
+
+  &.figcaption {
+    @extend %flex-row-wrap-center;
+    max-width: 100%;
+    width: 750px;
+    @include s-w.mediaQuery-maxOnly(v-g.$bp-dt) {
+      @include placeholder-styles("figcaption", 16, 1.5, multiply(16, 0.75), colors.color('n', 70));
+    }
+    @include s-w.mediaQuery-minOnly(v-g.$bp-dt) {
+      @include placeholder-styles("figcaption", 16, 1.5, multiply(16, 0.75), colors.color('n', 70));
+    }
+    .placeholder-line-figcaption {
+      @extend %flex-row-wrap-center;
+      @extend .placeholder-line;
+    }
+  }
+
+  &.h1, &.h2 {
+    width: 100%;
+  }
+
+  &.h1 {
+    @include s-w.mediaQuery-maxOnly(v-g.$bp-dt) {
+      @include placeholder-styles("h1", 48, 1.2, multiply(18, 0.75), colors.color('p', 30, 65));
+    }
+    @include s-w.mediaQuery-minOnly(v-g.$bp-dt) {
+      @include placeholder-styles("h1", 80, 1.2, multiply(20, 0.75), colors.color('p', 30, 65));
+    }
+    .placeholder-line-h1 {
+      @extend .placeholder-line;
+    }
+  }
+
+  &.h2 {
+    @include s-w.mediaQuery-maxOnly(v-g.$bp-dt) {
+      @include placeholder-styles("h2", 36, 1.25, multiply(18, 0.65), colors.color('p', 30, 65));
+    }
+    @include s-w.mediaQuery-minOnly(v-g.$bp-dt) {
+      @include placeholder-styles("h2", 52, 1.25, multiply(20, 0.65), colors.color('p', 30, 65));
+    }
+    .placeholder-line-h2 {
+      @extend .placeholder-line;
+    }
+  }
+
+  &.h3 {
+    @include s-w.mediaQuery-maxOnly(v-g.$bp-dt) {
+      @include placeholder-styles("h3", 28, 1.3, multiply(18, 0.55), colors.color('s', 20, 65));
+    }
+    @include s-w.mediaQuery-minOnly(v-g.$bp-dt) {
+      @include placeholder-styles("h3", 36, 1.3, multiply(20, 0.55), colors.color('s', 20, 65));
+    }
+    .placeholder-line-h3 {
+      @extend .placeholder-line;
+    }
+  }
+
+  &.h4 {
+    @include s-w.mediaQuery-maxOnly(v-g.$bp-dt) {
+      @include placeholder-styles("h4", 24, 1.35, multiply(18, 0.45), colors.color('n', 70));
+    }
+    @include s-w.mediaQuery-minOnly(v-g.$bp-dt) {
+      @include placeholder-styles("h4", 24, 1.35, multiply(20, 0.45), colors.color('n', 70));
+    }
+    .placeholder-line-h4 {
+      @extend .placeholder-line;
+    }
+  }
+  
+  @for $i from 0 through 20 {
+    &.lines-#{$i} {
+      .placeholder-line, .placeholder-line-p, .placeholder-line-h1, .placeholder-line-h2, .placeholder-line-h3, .placeholder-line-h4, .placeholder-line-figcaption {
+        &:nth-child(n) {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+%placeholder-base {
+  background-color: colors.color('n', 70);
+  animation: pulse 1.5s infinite;
+}
+
+.text-container {
+  width: 100%;
+  // margin-bottom: 0.5em;
+}
+
+figure.figure-placeholder {
+  width: 100%;
+  height: auto;
+  border-radius: map-get(n-s-s.$size-space, "m");
+}
+
+figure.figure-placeholder > picture {
+  @extend %placeholder-base;
+  width: 100%;
+  height: auto;
+  border-radius: map-get(n-s-s.$size-space, "m");
+}
+
+button > a > figure.figure-placeholder, a > figure.figure-placeholder {
+  width: map-get(n-s-s.$size-space, "xl");
+  height: map-get(n-s-s.$size-space, "xl");
+  & > picture {
+    border-radius: map-get(n-s-s.$size-space, "s");
+  }
+}
+
+div.figure-placeholder#e-stride {
+  max-height: 450px;
+  object-fit: cover;
+}
+
+.button-placeholder {
+  @extend %placeholder-base;
+  background-color: transparent;
+  position: relative;
+  overflow: hidden;
+  // width: 100%;
+  height: auto;
+  border-radius: map-get(n-s-s.$size-space, "sm");
+}
+
+a[aria-label*="placeholder"] {
+  cursor: default !important;
 }

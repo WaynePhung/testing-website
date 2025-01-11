@@ -1,4 +1,4 @@
-.button-placeholder {
+[class$=-placeholder] {
   width: auto;
   height: 40px;
   background-color: #f0f0f0;

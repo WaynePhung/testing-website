@@ -88,12 +88,16 @@ main, footer, article.h2-wrapper {
   z-index: 3;
 }
 
-aside, .h2-wrapper, h2.sticky {
+aside[role=navigation], aside[role=navigation] > button, .h2-wrapper, h2.sticky {
   z-index: 4;
 }
 
 header, header * {
   z-index: 5;
+}
+
+.buffer-page, .loading-page {
+  z-index: 999;
 }
 
 aside.sticky-active {
@@ -124,5 +128,6 @@ aside.sticky-active:-webkit-scrollbar {
 @media only screen and (min-width: 1024px) {
   aside {
     gap: 16px 0;
+    width: 318px;
   }
 }

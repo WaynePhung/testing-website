@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
+import { indefinite } from "@/app/utils/ts/exported-constants";
 
 // Default delay in seconds
-const DEFAULT_DELAY = 60000000;
+const DEFAULT_DELAY = indefinite;
 
 // Interface for the hook's return value
 interface DelayedLoadState {

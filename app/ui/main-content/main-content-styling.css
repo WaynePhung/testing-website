@@ -41,7 +41,7 @@
         - row flex direction, wrapping, top-left starting point 
           and alignment of children elements and text
 */
-main > section.bodyContent, main > section.bodyContent > section[class*=content], main > section.bodyContent > aside > nav.tocNavLinks {
+main > section.bodyContent, main > section.bodyContent > section[class*=content], main > section.bodyContent > section[class*=content].content-loc, main > section.bodyContent > section[class*=content].content-loc > article, main > section.bodyContent > aside > nav.tocNavLinks {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -144,7 +144,7 @@ aside[role=navigation], aside[role=navigation] > button, .h2-wrapper, h2.sticky 
 }
 
 header, header * {
-  z-index: 5;
+  z-index: 5 !important;
 }
 
 .buffer-page, .loading-page {
@@ -205,15 +205,34 @@ main > section.bodyContent > section[class*=content] {
     justify-content: center;
   }
 }
+main > section.bodyContent > section[class*=content].content-loc {
+  width: 100%;
+}
 @media only screen and (min-width: 1024px) and (max-width: 1920px) {
   main > section.bodyContent > section[class*=content].content-loc {
     max-width: calc(100% - 250px - 32px);
+  }
+}
+@media only screen and (min-width: 1400px) {
+  main > section.bodyContent > section[class*=content].content-loc {
+    gap: 96px 32px;
   }
 }
 @media only screen and (min-width: 1920px) {
   main > section.bodyContent > section[class*=content].content-loc {
     max-width: calc(100% - 350px);
   }
+}
+main > section.bodyContent > section[class*=content].content-loc > article {
+  width: 100%;
+}
+@media only screen and (min-width: 1400px) {
+  main > section.bodyContent > section[class*=content].content-loc > article {
+    gap: 64px 32px;
+  }
+}
+main > section.bodyContent > section[class*=content].content-loc > article > article, main > section.bodyContent > section[class*=content].content-loc > article > article > article {
+  width: 100%;
 }
 main > section.bodyContent > section[class*=content] > article {
   width: 100%;

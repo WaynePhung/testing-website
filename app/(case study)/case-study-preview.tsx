@@ -7,20 +7,22 @@ import { H3Tag, H4Tag, PTag } from "../ui/text/text-tags";
 import { literata, noto_sans } from "../utils/text-styling/fonts";
 import { caseStudyPreviewProps, caseStudyPreviews } from "./case-study-preview-content";
 import ButtonComponent from "../ui/buttons/button-test";
+import FigureImageVideo from "../ui/media/media-global";
 import { SafeHTML } from "../ui/text/safe-html";
 import checkDataBufferAttr from "../ui/buffer-page/check-data-buffer-attr";
 import bpTransitionEffect from "../ui/buffer-page/bp-transition-effect";
 
+import getMediaGroupObject from "../ui/media/get-media-group-object";
+
 interface cspType {
-    type: string;
-    shadow: "true" | "false";
+    subgroup: string;
+    visualAlias: string;
     onClick?: (event: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
+    // href: string;
 }
 
-export function CSPComponent ({type, shadow, onClick} : cspType) : React.ReactElement | null {
+export function CSPComponent ({subgroup, visualAlias, onClick} : cspType) : React.ReactElement | null {
 
-    let cspPropsObject = caseStudyPreviews();
-    const getObjectProps = cspPropsObject[type];
     const router = useRouter();
 
     function delay(ms:number) {
@@ -40,83 +42,59 @@ export function CSPComponent ({type, shadow, onClick} : cspType) : React.ReactEl
             // await new Promise(resolve => setTimeout(resolve, 500));
             // getBuffer.classList.remove("visible");
         } else {
-            console.log('checkDataBufferAttr function\'s returned value: ', [getBuffer, getHref]);
-            console.log('checkDataBufferAttr function returned null or an incorrect value');
+            // console.log('checkDataBufferAttr function\'s returned value: ', [getBuffer, getHref]);
+            // console.log('checkDataBufferAttr function returned null or an incorrect value');
         }
     };
     
+    let mediaGroupObject = getMediaGroupObject("case-study", subgroup);
 
-    let 
-        imageElement = getObjectProps.image && (
-            <figure id={getObjectProps.id}>
-                <Link 
-                    href={getObjectProps.href} 
-                    rel={getObjectProps.rel} 
-                    className={`${getObjectProps.image.className} ${shadow == "true" && "shadow"}`}
-                    data-showbuffer="true"
-                    onClick={handleClick}
-                >
-                    <picture>
-                        <Image src={getObjectProps.image.src} width={getObjectProps.image.width} height={getObjectProps.image.height} alt={getObjectProps.image.alt} loading={getObjectProps.image.loading} />
-                    </picture>
-                </Link>
-            </figure>
-        ),
-        videoElement = getObjectProps.video && (
-            <figure id={getObjectProps.id}>
-                <Link 
-                    href={getObjectProps.href} 
-                    rel={getObjectProps.rel} 
-                    className={`${getObjectProps.video.className} ${shadow == "true" && "shadow"}`}
-                    data-showbuffer="true"
-                    onClick={handleClick}
-                >
-                    <iframe className={getObjectProps.video.className} src={getObjectProps.video.videoSrc}  allowFullScreen />
-                </Link>
-            </figure>
-        ),
-        iframeElement = getObjectProps.iframe && (
-            <figure id={getObjectProps.id}>
-                <Link 
-                    href={getObjectProps.href} 
-                    rel={getObjectProps.rel} 
-                    className={`${getObjectProps.iframe.className} ${shadow == "true" && "shadow"}`}
-                    data-showbuffer="true"
-                    onClick={handleClick}
-                >
-                    <iframe className={getObjectProps.iframe.className} src={getObjectProps.iframe.videoSrc} allow={getObjectProps.iframe.allow}  allowFullScreen />
-                </Link>
-            </figure>
-        );
-    
-    const [content, setContent] = useState<caseStudyPreviewProps[string] | null>(null);
+    let getCSHref = caseStudyPreviews()[subgroup].href;
 
-    useEffect(() => {
-        if (getObjectProps) {
-            setContent(getObjectProps as caseStudyPreviewProps[string]);
+    if (mediaGroupObject && getCSHref) {
+        let getObjectProps = mediaGroupObject[visualAlias];
+        if (getObjectProps && 'preview' in getObjectProps) {
+            const preview = getObjectProps.preview;
+            if (preview) {
+                return (
+                    <article className="grid-default-1400 grid-case-study-preview">
+                        <article>
+                            <article>
+                                <H3Tag className={literata.className}>
+                                    {preview.title}
+                                </H3Tag>
+                                <H4Tag className={"tags"}>
+                                    {preview.tags}
+                                </H4Tag>
+                            </article>
+                            <PTag>
+                                <SafeHTML html={preview.spiel} />
+                            </PTag>
+                            <ButtonComponent 
+                                group="link-global"
+                                subgroup={subgroup} 
+                                alias="seeCaseStudy"
+                                anchorLink={false}
+                                icon={true}
+                                imagePosition="after" showBuffer={true}buttonType="secondary" 
+                            />
+                        </article>
+                        <FigureImageVideo 
+                            group="case-study"
+                            subgroup={subgroup}
+                            mediaAlias={visualAlias}
+                            wrappingLink={true}
+                            href={getCSHref}
+                        />
+                    </article>
+                );
+            } else {
+                return null;
+            }
+        } else {
+            return null;
         }
-    }, [type]);
-    
-    if (!content) return null;
-
-    return (
-        <article className="grid-default-1400 grid-case-study-preview">
-            <article>
-                <article>
-                    <H3Tag className={literata.className}>
-                        {getObjectProps.title}
-                    </H3Tag>
-                    <H4Tag className={"tags"}>
-                        {getObjectProps.tags}
-                    </H4Tag>
-                </article>
-                <PTag>
-                    <SafeHTML html={getObjectProps.spiel} />
-                    {/* {getObjectProps.spiel} */}
-                </PTag>
-                <ButtonComponent type="seeCaseStudy" caseStudy={type} imagePosition="after" showBuffer="true"/>
-            </article>
-            {imageElement && imageElement || videoElement && videoElement || iframeElement && iframeElement}
-        </article>
-    );
+    } else {
+        return null;
+    }
 }

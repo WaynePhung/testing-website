@@ -1,5 +1,5 @@
 export default function changeBPText (route: string) {
-    console.log('route for buffer text: ' + route);
+    // console.log('route for buffer text: ' + route);
     switch(route) {
         case ("/"):
             return "viewing home page...";

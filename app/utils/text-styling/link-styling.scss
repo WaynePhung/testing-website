@@ -188,12 +188,12 @@ header > nav.navigationBar {
             width: 100%;
             max-height: 32px;
         }
-        &#linkedInButton > a {
-            max-width: 162px;
-        }
-        &#linkedInButton > a {
-            max-width: 138px;
-        }
+        // &#linkedInButton > a {
+        //     max-width: 162px;
+        // }
+        // &#linkedInButton > a {
+        //     max-width: 138px;
+        // }
     }
 }
 
@@ -266,4 +266,9 @@ figure {
     figcaption > a {
         @extend %link;
     }
+}
+
+aside a > figure {
+    width: map-get(n-s-s.$size-space, "xl");
+    height: map-get(n-s-s.$size-space, "xl");
 }

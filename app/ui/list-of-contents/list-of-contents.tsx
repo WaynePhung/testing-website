@@ -5,14 +5,18 @@ import { usePathname } from "next/navigation";
 import { literata, noto_sans } from "@/app/utils/text-styling/fonts";
 import Link from "next/link";
 import Image from "next/image";
+import { getLinkProps } from "./../../utils/ts/link-types";
 import { LinkComponent } from "../links/link";
 import ButtonComponent from "../buttons/button-test";
+import { SpanTag } from "../text/text-tags";
 import { locLinkProps, topOfPageMobileID, topOfPageDesktopID, otherCaseStudiesPropsMobileID, otherCaseStudiesPropsDesktopID} from "./loc-link-props";
 import { LoCElectricStride } from "../../(case study)/electric-stride/loc-electricStride";
-import { LoCTTVReel } from "../../(case study)/triton-television-reel/toc-ttv-reel";
+import { LoCTTVReel } from "../../(case study)/triton-television-reel/loc-ttv-reel";
+import { LoCDefault } from "./loc-link-props";
 import { toggleLoCDisplay } from "./toggle-loc-mobile";
 import { updateAsidePosition, throttle } from "./loc-sticky";
 import { setActiveLink } from "@/app/utils/ts/active-link-styling";
+import { indefinite } from "@/app/utils/ts/exported-constants";
 
 interface caseStudyType {
     caseStudy: string;
@@ -141,14 +145,14 @@ export default function ListOfContents({ caseStudy } : caseStudyType) : React.Re
         objectEntries;
     // console.log('LoC case study: ' + caseStudy);
     switch (caseStudy) {
-        case ("electricStride"):
+        case ("es"):
             tocObject = LoCElectricStride();
             break;
         case ("ttvReel"):
             tocObject = LoCTTVReel();
             break;
         default:
-            tocObject = LoCElectricStride();
+            tocObject = LoCDefault();
             break;
     }
     // if (tocObject != null && tocObject) {
@@ -158,62 +162,174 @@ export default function ListOfContents({ caseStudy } : caseStudyType) : React.Re
         // console.log('firstEntry index 0: ' + firstEntry[1].href);
         const lastEntry = objectEntries[objectEntries.length - 1];
     // }
-    toc = <ButtonComponent type="listOfContents" imagePosition="before" onClick={handleClick}></ButtonComponent>;
+    toc = 
+        <ButtonComponent 
+            group="link-global" 
+            alias="listOfContents" 
+            anchorLink={false}
+            icon={true}
+            imagePosition="before" 
+            onClick={handleClick} 
+            showBuffer={false}
+            buttonType="secondary" 
+        />;
 
-    return (
-        <aside role="navigation">
-            {screenSize && toc}
-            <LinkComponent 
-                type="loc-section"
-                getHref={topOfPageDesktopID.href}
-                aria-label={topOfPageDesktopID.ariaLabel}
-                id={topOfPageDesktopID.id}
-                role={topOfPageDesktopID.role}
-            >
-                {/* <span className={noto_sans.className}>
-                    {topOfPageDesktopID.text}
-                </span> */}
-            </LinkComponent>
-            {/* {middleEntries.slice(0, -1).map(([section, items]) => { */}
-            <nav className="tocNavLinks" ref={targetRef}>
-                {[firstEntry, ...middleEntries].map(([section, items]) => {
-                    return (
-                        <LinkComponent 
-                            type="loc-section"
-                            key={section}
-                            getHref={items.href}
-                            aria-label={items.ariaLabel}
-                            id={items.id}
-                            role={items.role}
-                            onClick={handleClick}
-                        >
-                            {/* <picture className={items.icon.imageClasses}>
-                                <Image
-                                src={items.icon.imageSrc}
-                                width={items.icon.width}
-                                height={items.icon.height}
-                                alt={items.icon.alt}
-                                loading={items.icon.loading}
-                                />
-                            </picture> */}
-                            {/* <span className={noto_sans.className}>
-                                {items.text}
-                            </span> */}
-                        </LinkComponent>
-                    );
-                })}
-            </nav>
-            <LinkComponent 
-                type="loc-section"
-                getHref={otherCaseStudiesPropsDesktopID.href}
-                aria-label={otherCaseStudiesPropsDesktopID.ariaLabel}
-                id={otherCaseStudiesPropsDesktopID.id}
-                role={otherCaseStudiesPropsDesktopID.role}
-            >
-                {/* <span className={noto_sans.className}>
-                    {otherCaseStudiesPropsDesktopID.text}
-                </span> */}
-            </LinkComponent>
-        </aside>
-    );
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [hasLoaded, setHasLoaded] = useState(false);
+
+    useEffect(() => {
+        // const loadedState = localStorage.getItem(`${mediaType}-${mediaAlias}-loaded`);
+        setTimeout(() => {
+            // if (loadedState === 'true') {
+                setIsLoaded(true);
+                // setHasLoaded(true);
+            // }
+        // }, 5000); // 5 seconds delay
+        }, indefinite); // plenty of seconds for initial load
+    }, []);
+    
+    const handleLoad = () => {
+        setTimeout(() => {
+            setIsLoaded(true);
+            // setHasLoaded(true);
+            // localStorage.setItem(`${mediaType}-${mediaAlias}-loaded`, 'true');
+        // }, 5000); // 5 seconds delay
+        }, indefinite); // plenty of seconds for initial load
+    };
+    if (!isLoaded && !hasLoaded) {
+        let linkPropsObject = getLinkProps();
+        return(
+            <aside role="navigation">
+                {screenSize && toc}
+                <LinkComponent 
+                    group="link-global"
+                    alias={"placeholder_button_icon"} 
+                    anchorLink={true}
+                    icon={true}
+                    imagePosition="before" 
+                    onClick={(e) => e.preventDefault()}
+                    showBuffer={false}
+                />
+                <nav className="tocNavLinks" ref={targetRef}>
+                    {[firstEntry, ...middleEntries].map(([section, items]) => {
+                        return (
+                            <LinkComponent 
+                                key={section}
+                                group="link-global"
+                                alias={"placeholder_button_icon"} 
+                                anchorLink={false}
+                                icon={true}
+                                imagePosition="before" 
+                                onClick={(e) => e.preventDefault()}
+                                showBuffer={false}
+                            />
+                        );
+                    })}
+                </nav>
+                <LinkComponent 
+                    group="link-global"
+                    alias={"placeholder_button_icon"} 
+                    anchorLink={true}
+                    icon={true}
+                    imagePosition="before" 
+                    onClick={(e) => e.preventDefault()}
+                    showBuffer={false}
+                />
+            </aside>
+        );
+    } else {
+        console.log('tocObject["otherCaseStudies"].href: ' + tocObject["otherCaseStudies"].href);
+        return (
+            <aside role="navigation">
+                {screenSize && toc}
+                <LinkComponent 
+                    group="loc"
+                    subgroup={caseStudy}
+                    alias="topOfPage"
+                    getHref={tocObject["topOfPage"].href}
+                    aria-label={tocObject["topOfPage"].ariaLabel}
+                    id={tocObject["topOfPage"].id}
+                    anchorLink={true}
+                    icon={true}
+                    imagePosition="before"
+                    role={tocObject["topOfPage"].role}
+                    showBuffer={false}
+                />
+                    {/* <span className={noto_sans.className}>
+                        {topOfPageDesktopID.text}
+                    </span> */}
+                {/* </LinkComponent> */}
+                {/* {middleEntries.slice(0, -1).map(([section, items]) => { */}
+                <nav className="tocNavLinks" ref={targetRef}>
+                    {[firstEntry, ...middleEntries].map(([section, items]) => {
+                        console.log('section: ' + section);
+                        console.log('items: ' + items);
+                        console.log('items.href: ' + items.href);
+                        console.log('items.ariaLabel: ' + items.ariaLabel);
+                        return (
+                            <LinkComponent 
+                                key={section}
+                                group="loc"
+                                subgroup={caseStudy}
+                                alias={section}
+                                getHref={items.href}
+                                anchorLink={true}
+                                aria-label={items.ariaLabel}
+                                id={items.id}
+                                icon={true}
+                                imagePosition="before" 
+                                role={items.role}
+                                onClick={handleClick}
+                                showBuffer={false}
+                            />
+                            // <Link 
+                            //     key={section}
+                            //     href={items.href}
+                            //     aria-label={items.ariaLabel}
+                            //     id={items.id}
+                            //     role={items.role}
+                            //     onClick={handleClick}
+                            // >
+                            //     <picture className={items.icon.imageClasses}>
+                            //         <Image
+                            //         src={items.icon.imageSrc}
+                            //         width={items.icon.width}
+                            //         height={items.icon.height}
+                            //         alt={items.icon.alt}
+                            //         loading={items.icon.loading}
+                            //         />
+                            //     </picture>
+                                /* <span className={noto_sans.className}>
+                                    {items.text}
+                                </span> */
+                                /* <SpanTag>
+                                    {items.text}
+                                </SpanTag> */
+                            /* </Link> */
+                        );
+                    })}
+                </nav>
+                {/* <LinkComponent 
+                    type="otherCaseStudies"
+                    getHref={tocObject["otherCaseStudies"].href}
+                    aria-label={tocObject["otherCaseStudies"].ariaLabel}
+                    id={tocObject["otherCaseStudies"].id}
+                    role={tocObject["otherCaseStudies"].role}
+                /> */}
+                <LinkComponent 
+                    group="loc"
+                    subgroup={caseStudy}
+                    alias="otherCaseStudies"
+                    getHref={tocObject["otherCaseStudies"].href}
+                    aria-label={tocObject["otherCaseStudies"].ariaLabel}
+                    id={tocObject["otherCaseStudies"].id}
+                    anchorLink={true}
+                    icon={true}
+                    imagePosition="before" 
+                    role={tocObject["otherCaseStudies"].role}
+                    showBuffer={false}
+                />
+            </aside>
+        );
+    }
 }

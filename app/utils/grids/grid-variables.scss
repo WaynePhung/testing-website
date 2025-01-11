@@ -116,6 +116,13 @@ main > section {
     }
 }
 
+[class*="grid-default"] > article {
+    width: 100%;
+    & > article {
+        width: 100%;
+    }
+}
+
 /*
     Placeholder selectors for column variations of grid containers.
     They are useful for having a limited, but good-enough selection of columns with different widths (relative to the grid container) to support different layouts of grouped text, images and/or other visual elements across different window widths.

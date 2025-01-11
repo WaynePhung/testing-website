@@ -154,7 +154,7 @@ aside[role=navigation], aside[role=navigation] > button, .h2-wrapper, h2.sticky 
 }
 
 header, header * {
-  z-index: 5;
+  z-index: 5 !important;
 }
 
 .buffer-page, .loading-page {
@@ -356,12 +356,6 @@ header > nav.navigationBar > .contactButtons > button > a {
   width: 100%;
   max-height: 32px;
 }
-header > nav.navigationBar > .contactButtons > button#linkedInButton > a {
-  max-width: 162px;
-}
-header > nav.navigationBar > .contactButtons > button#linkedInButton > a {
-  max-width: 138px;
-}
 
 main aside > a, main aside > nav.tocNavLinks > a {
   padding: 8px 8px 8px 8px;
@@ -394,4 +388,8 @@ figure > a {
   object-position: center;
   width: 100%;
   height: auto;
+}
+aside a > figure {
+  width: 32px;
+  height: 32px;
 }

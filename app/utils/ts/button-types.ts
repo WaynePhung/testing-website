@@ -36,7 +36,7 @@ export function getButtonProps() : { [key: string]: ButtonProps } {
             ariaLabel: "button to open the table of contents"
         },
         placeholder_button_icon: {
-            class: "button-placeholder",
+            class: "-placeholder",
             role: "button",
             ariaLabel: "placeholder button with an empty icon until the button is loaded"
         }

@@ -107,12 +107,17 @@ header {
                     width: calc(50% - map-get(n-s-s.$size-space, "sm"));
                 }
             }
-            & > button {
-                @extend %button-primary;
-                & > a {
-                    @extend %link;
-                }
-            }
+            // & > button {
+            //     &:not(.button-placeholder) {
+            //         @extend %button-primary-loaded;
+            //     }
+            //     &.button-placeholder {
+            //         @extend %button-primary-placeholder;
+            //     }
+            //     & > a {
+            //         @extend %link;
+            //     }
+            // }
         }
     
     }

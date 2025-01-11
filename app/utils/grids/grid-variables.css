@@ -88,12 +88,16 @@ main, footer, article.h2-wrapper {
   z-index: 3;
 }
 
-aside, .h2-wrapper, h2.sticky {
+aside[role=navigation], aside[role=navigation] > button, .h2-wrapper, h2.sticky {
   z-index: 4;
 }
 
 header, header * {
-  z-index: 5;
+  z-index: 5 !important;
+}
+
+.buffer-page, .loading-page {
+  z-index: 999;
 }
 
 /*
@@ -173,6 +177,13 @@ main > section.title:not(#home-title) > article {
 }
 main > section.title-error {
   gap: 16px 32px;
+}
+
+[class*=grid-default] > article {
+  width: 100%;
+}
+[class*=grid-default] > article > article {
+  width: 100%;
 }
 
 /*

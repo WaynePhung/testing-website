@@ -66,7 +66,7 @@ export const otherCaseStudiesPropsMobileID: locLinkProps = {
     id: "other-case-studies-mobile",
     role: "anchor link",
     icon: {
-        imageSrc: "icons/horizontal_dots.svg",
+        imageSrc: "icons/horizontal-dots.svg",
         imageClasses: "icon ratio-1-1",
         width: size_space_num["l-num"],
         height: size_space_num["l-num"],
@@ -80,6 +80,43 @@ export const otherCaseStudiesPropsDesktopID: locLinkProps = {
     id: "other-case-studies-desktop"
 };
 
+export function LoCDefault() : { [key: string]: locLinkProps} {
+    return {
+        topOfPage: topOfPageMobileID,
+        introduction: {
+            text: "Introduction",
+            href: "#introduction",
+            ariaLabel: "Anchor link to the Introduction section.",
+            role: "anchor link",
+            icon: {
+                imageSrc: "icons/book.svg",
+                imageClasses: "icon ratio-1-1",
+                width: size_space_num["l-num"],
+                height: size_space_num["l-num"],
+                alt: "icon of an arrow pointing up to indicate the top of the page",
+                loading: "lazy"
+            }
+        },
+        // otherCaseStudies: otherCaseStudiesPropsMobileID
+        otherCaseStudies: {
+            text: "Other Case Studies",
+            href: "#other-case-studies",
+            ariaLabel: "Anchor link to view other case studies.",
+            id: "other-case-studies-mobile",
+            role: "anchor link",
+            icon: {
+                imageSrc: "icons/horizontal-dots.svg",
+                imageClasses: "icon ratio-1-1",
+                width: size_space_num["l-num"],
+                height: size_space_num["l-num"],
+                alt: "Three dark gray dots aligned horizontally to indicate other case studies.",
+                loading: "lazy"
+            }
+        }
+    }
+}
+
+
 // export function getOtherCaseStudiesProps() : locLinkProps {
 //     return {
 //         text: "Other Case Studies",
@@ -87,7 +124,7 @@ export const otherCaseStudiesPropsDesktopID: locLinkProps = {
 //         ariaLabel: "Anchor link to view other case studies.",
 //         role: "anchor link",
 //         icon: {
-//             imageSrc: "icons/horizontal_dots.svg",
+//             imageSrc: "icons/horizontal-dots.svg",
 //             imageClasses: "icon ratio-1-1",
 //             width: size_space_num["l-num"],
 //             height: size_space_num["l-num"],

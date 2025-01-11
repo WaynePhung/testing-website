@@ -44,5 +44,6 @@ aside {
     }
     @include s-w.mediaQuery-minOnly(v-g.$bp-dt) {
         @include r-c-g.rowColumnGaps("m", 0);
+        width: calc(350px - 32px);
     }
 }

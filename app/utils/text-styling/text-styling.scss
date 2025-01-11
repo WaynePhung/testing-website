@@ -201,10 +201,12 @@ h2 {
 
 h3 {
     @extend %heading3;
+    width: 100%;
 }
 
 h4 {
     @extend %heading4;
+    width: 100%;
     &.tags {
         font-size: map-get(n-s-s.$size-space, "ml"); //20px
         font-style: italic;
@@ -234,6 +236,7 @@ a {
         font-size: map-get(n-s-s.$size-space, "m"); //16px
      }
 }
+
 .placeholder.span .placeholder-line {
     color: transparent;
 }

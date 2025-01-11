@@ -1,15 +1,9 @@
 // components/Placeholder.tsx
 
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, ReactElement, ReactNode } from 'react';
 import { noto_sans } from "@/app/utils/text-styling/fonts";
-
-// Define the props interface for the Placeholder component
-interface PlaceholderProps {
-  tag: 'p' | 'span' | 'subtitle' | 'figcaption' | 'h1' | 'h2' | 'h3' | 'h4';
-  children: React.ReactNode;
-  // containerWidth?: number;
-  delayTimer?: number;
-}
+import { SafeHTML } from "../text/safe-html";
+import { indefinite } from "@/app/utils/ts/exported-constants";
 
 // Define the tag properties interface
 interface TagProperties {
@@ -20,73 +14,160 @@ interface TagProperties {
   lineHeight: number;
 }
 
+interface ResponsiveTagProperties {
+  default: TagProperties;
+  1024: TagProperties;
+}
+
 // Define tag properties for each tag type
-const tagProperties: Record<string, TagProperties> = {
+const tagProperties: Record<string, ResponsiveTagProperties> = {
   p: {
-    fontSize: 18,
-    charWidth: 18 * 0.55,
-    fontFamily: 'Noto Sans',
-    paddingBottom: 18 * 0.35,
-    lineHeight: 1.6
-  },
-  span: {
-    fontSize: 16,
-    charWidth: 16 * 0.55,
-    fontFamily: 'Noto Sans',
-    paddingBottom: 0,
-    lineHeight: 1.5
+    default: {
+      fontSize: 18,
+      charWidth: 18 * 0.55, //9.9
+      fontFamily: 'Noto Sans',
+      paddingBottom: 18 * 0.35, //6.3
+      lineHeight: 1.6
+    },
+    1024: {
+      fontSize: 20,
+      charWidth: 20 * 0.55, //11
+      fontFamily: 'Noto Sans',
+      paddingBottom: 20 * 0.35, //7
+      lineHeight: 1.6
+    }
   },
   subtitle: {
-    fontSize: 20,
-    charWidth: 20 * 0.55,
-    fontFamily: 'Noto Sans',
-    paddingBottom: 20 * 0.4,
-    lineHeight: 1.5
+    default: {
+      fontSize: 20,
+      charWidth: 20 * 0.55, //11
+      fontFamily: 'Noto Sans',
+      paddingBottom: 18 * 0.4, //7.2
+      lineHeight: 1.5
+    },
+    1024: {
+      fontSize: 24,
+      charWidth: 24 * 0.55, //13.2
+      fontFamily: 'Noto Sans',
+      paddingBottom: 20 * 0.4, //8
+      lineHeight: 1.5
+    }
+  },
+  span: {
+    default: {
+      fontSize: 16,
+      charWidth: 16 * 0.55, //8.8
+      fontFamily: 'Noto Sans',
+      paddingBottom: 0,
+      lineHeight: 1.5
+    },
+    1024: {
+      fontSize: 16,
+      charWidth: 16 * 0.55, //8.8
+      fontFamily: 'Noto Sans',
+      paddingBottom: 0,
+      lineHeight: 1.5
+    }
   },
   figcaption: {
-    fontSize: 16,
-    charWidth: 16 * 0.6,
-    fontFamily: 'Noto Sans Italic',
-    paddingBottom: 24 * 0.75,
-    lineHeight: 1.5
+    default: {
+      fontSize: 16,
+      charWidth: 16 * 0.6, //9.6
+      fontFamily: 'Noto Sans Italic',
+      paddingBottom: 16 * 0.75, //12
+      lineHeight: 1.5
+    },
+    1024: {
+      fontSize: 16,
+      charWidth: 16 * 0.6, //9.6
+      fontFamily: 'Noto Sans Italic',
+      paddingBottom: 16 * 0.75, //12
+      lineHeight: 1.5
+    }
   },
   h1: {
-    fontSize: 48,
-    charWidth: 48 * 0.6,
-    fontFamily: 'Literata',
-    paddingBottom: 18 * 0.75,
-    lineHeight: 1.2
+    default: {
+      fontSize: 48,
+      charWidth: 48 * 0.6, //28.8
+      fontFamily: 'Literata',
+      paddingBottom: 18 * 0.75, //13.5
+      lineHeight: 1.2
+    },
+    1024: {
+      fontSize: 80,
+      charWidth: 80 * 0.6, //48
+      fontFamily: 'Literata',
+      paddingBottom: 20 * 0.75, //15
+      lineHeight: 1.2
+    }
   },
   h2: {
-    fontSize: 36,
-    charWidth: 36 * 0.6,
-    fontFamily: 'Literata',
-    paddingBottom: 16,
-    lineHeight: 1.25
+    default: {
+      fontSize: 36,
+      charWidth: 36 * 0.6, //21.6
+      fontFamily: 'Literata',
+      paddingBottom: 18 * 0.65, //11.7
+      lineHeight: 1.25
+    },
+    1024: {
+      fontSize: 52,
+      charWidth: 52 * 0.6, //31.2
+      fontFamily: 'Literata',
+      paddingBottom: 20 * 0.65, //13
+      lineHeight: 1.25
+    }
   },
   h3: {
-    fontSize: 28,
-    charWidth: 28 * 0.6,
-    fontFamily: 'Literata',
-    paddingBottom: 18 * 0.55,
-    lineHeight: 1.3
+    default: {
+      fontSize: 28,
+      charWidth: 28 * 0.6, //16.8
+      fontFamily: 'Literata',
+      paddingBottom: 18 * 0.55, //9.9
+      lineHeight: 1.3
+    },
+    1024: {
+      fontSize: 36,
+      charWidth: 36 * 0.6, //21.6
+      fontFamily: 'Literata',
+      paddingBottom: 20 * 0.55, //11
+      lineHeight: 1.3
+    }
   },
   h4: {
-    fontSize: 24,
-    charWidth: 24 * 0.6,
-    fontFamily: 'Noto Sans',
-    paddingBottom: 18 * 0.45,
-    lineHeight: 1.375
+    default: {
+      fontSize: 24,
+      charWidth: 24 * 0.6, //14.4
+      fontFamily: 'Noto Sans',
+      paddingBottom: 18 * 0.45, //8.1
+      lineHeight: 1.35
+    },
+    1024: {
+      fontSize: 24,
+      charWidth: 24 * 0.6, //14.4
+      fontFamily: 'Noto Sans',
+      paddingBottom: 20 * 0.45, //9
+      lineHeight: 1.35
+    }
   }
 };
 
-export default function Placeholder({ tag, children, delayTimer = 600000 }: PlaceholderProps) {
+// Define the props interface for the Placeholder component
+interface PlaceholderProps {
+  tag: keyof typeof tagProperties;
+  // children: React.ReactNode;
+  children: ReactElement<{ children: ReactNode }>;
+  delayTimer?: number;
+}
+
+export default function Placeholder({ tag, children, delayTimer = indefinite }: PlaceholderProps) {
   const [placeholderLines, setPlaceholderLines] = useState<number[]>([]);
+  const [maxWidth, setMaxWidth] = useState<number>(100); // State to hold max width
   const containerRef = useRef<HTMLDivElement>(null);
+  const [breakpoint, setBreakpoint] = useState<'default' | 1024>('default');
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    console.log('delay timer: ' + delayTimer);
+    // console.log('delay timer: ' + delayTimer);
     // Simulate loading delay
     const timer = setTimeout(() => {
       setIsLoading(false);
@@ -96,6 +177,16 @@ export default function Placeholder({ tag, children, delayTimer = 600000 }: Plac
   }, [delayTimer]);
 
   useEffect(() => {
+    const handleResize = () => {
+      setBreakpoint(window.innerWidth >= 1024 ? 1024 : 'default');
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
     // Get container width
     if (!containerRef.current) {
       console.log('No container.');
@@ -103,23 +194,66 @@ export default function Placeholder({ tag, children, delayTimer = 600000 }: Plac
     };
 
     const containerWidth = containerRef.current.offsetWidth;
+    console.log('tag: ' + tag + ' containerWidth : ' + containerWidth);
 
-    // Extract raw text and break tags from children
-    const rawText = React.Children.toArray(children).reduce((acc, child) => {
-      if (React.isValidElement<{ children: React.ReactNode }>(child) && typeof child.props.children === 'string') {
-        return acc + child.props.children.replace(/<(?!br\s*\/?)[^>]+>/g, '');
-      }
-      return acc;
-    }, '');
+    const properties = tagProperties[tag][breakpoint];
+
+    // Extract raw text from children
+    const rawText = extractTextFromChildren(children);
 
     console.log('tag: ' + tag + ' rawText: ' + rawText);
 
-    const properties = tagProperties[tag];
+    // const maxCharsPerLine = Math.floor(containerWidth / properties.charWidth);
+
+    // Extract raw text and break tags from children
+    // const rawText = React.Children.toArray(children).reduce((acc, child) => {
+    //   console.log('tag: ' + tag + ' typeof child: ' + typeof child);
+    //   if (typeof child === 'string') {
+    //     console.log('tag: ' + tag + ' child is string: ' + acc + child.replace(/<(?!br\s*\/?)[^>]+>/g, ''));
+    //     return acc + child.replace(/<(?!br\s*\/?)[^>]+>/g, '');
+    //   } else if (React.isValidElement<{ children: React.ReactNode }>(child) && typeof child.props.children === 'string') {
+    //     console.log('tag: ' + tag + ' child is not string: ' + acc + child.props.children.replace(/<(?!br\s*\/?)[^>]+>/g, ''));
+    //     if (typeof child.props.children === 'string') {
+    //       return acc + child.props.children.replace(/<(?!br\s*\/?)[^>]+>/g, '');
+    //     }
+    //     // Handle nested children for 'p' tags
+    //     if (tag === 'p' && typeof child === 'object' && child.props) {
+    //       return acc + extractTextFromObject(child.props);
+    //     }
+    //   }
+    //   return acc;
+    // }, '');
+
+    // Helper function to extract text from nested objects
+    function extractTextFromObject(obj: any): string {
+      if (typeof obj === 'string') {
+        return obj.replace(/<(?!br\s*\/?)[^>]+>/g, '');
+      }
+      if (Array.isArray(obj)) {
+        return obj.map(extractTextFromObject).join('');
+      }
+      if (typeof obj === 'object' && obj !== null) {
+        if (obj.props && obj.props.children) {
+          return extractTextFromObject(obj.props.children);
+        }
+        return Object.values(obj).map(extractTextFromObject).join('');
+      }
+      return '';
+    }
+
+    console.log('rawText: ' + rawText);
+
+    console.log('tag: ' + tag + ' rawText: ' + rawText);
+
+    // const properties = tagProperties[tag];
     const maxCharsPerLine = Math.floor(containerWidth / properties.charWidth);
+    if (containerWidth == 0) {
+      console.error('This tag does not have a container width: ' + tag + ' maxCharsPerLine: ' + maxCharsPerLine);
+    }
 
 
     // Split text by break tags
-    const textParts: string[] = (typeof rawText === 'string' ? rawText : rawText.toString()).split(/<br\s*\/?>/);
+    const textParts: string[] = rawText.split(/<br\s*\/?>/);
 
     const lines: number[] = [];
 
@@ -130,14 +264,59 @@ export default function Placeholder({ tag, children, delayTimer = 600000 }: Plac
         const lineLength = Math.min(maxCharsPerLine, part.length - i * maxCharsPerLine);
         lines.push(lineLength * properties.charWidth);
       }
-      if (part !== textParts[textParts.length - 1]) {
+      if (index < textParts.length - 1) {
         lines.push(0);
       }
     });
 
-
     setPlaceholderLines(lines);
-  }, [children, tag]);
+  }, [children, tag, breakpoint]);
+
+  // Helper function to extract text from children
+  function extractTextFromChildren(element: ReactElement<{ children: ReactNode }>): string {
+    const { children } = element.props;
+    
+    if (typeof children === 'string') {
+      return children.replace(/<(?!br\s*\/?)[^>]+>/g, '');
+    }
+    if (Array.isArray(children)) {
+      return children.map((child) => {
+        if (typeof child === 'string') {
+          return child.replace(/<(?!br\s*\/?)[^>]+>/g, '');
+        }
+        if (React.isValidElement(child)) {
+          if (child.type === SafeHTML) {
+            // Handle SafeHTML component
+            const htmlContent = (child.props as { html: string }).html;
+            return htmlContent.replace(/<(?!br\s*\/?)[^>]+>/g, '');
+          }
+          return extractTextFromChildren(child as ReactElement<{ children: ReactNode }>);
+        }
+        return '';
+      }).join('');
+    }
+    if (React.isValidElement(children)) {
+      if (children.type === SafeHTML) {
+        // Handle SafeHTML component
+        const htmlContent = (children.props as { html: string }).html;
+        return htmlContent.replace(/<(?!br\s*\/?)[^>]+>/g, '');
+      }
+      return extractTextFromChildren(children as ReactElement<{ children: ReactNode }>);
+    }
+    return '';
+  }
+  
+
+  const properties = tagProperties[tag][breakpoint];
+  const calculateLineHeight = (properties: TagProperties) => {
+    const baseHeight = properties.fontSize * properties.lineHeight;
+    const padding = properties.fontSize * 0.2; // Approximate padding for descenders/ascenders
+    const totalHeight = baseHeight + padding + properties.paddingBottom;
+    return `${(totalHeight / properties.fontSize).toFixed(3)}em`;
+  };
+  
+  // Then in the component:
+  const lineHeight = calculateLineHeight(properties);
 
   if (!isLoading) {
     return <>{children}</>;
@@ -150,12 +329,13 @@ export default function Placeholder({ tag, children, delayTimer = 600000 }: Plac
           key={index}
           className={`placeholder-line placeholder-line-${tag} ${tag === 'span' && noto_sans.className}`}
           style={{
-            height: `${tagProperties[tag]?.lineHeight || 1.2}em`,
+            height: `${lineHeight}em`,
             width: (tag === 'span') ? '100%' : width ? `${width}px` : '100%',
-            marginBottom: `${tagProperties[tag]?.paddingBottom || 0}px`,
+            marginBottom: `${properties.paddingBottom}px`,
           }}
         >
           {tag === 'span' ? 'Link Text' : ''}
+          {/* {tag === 'figcaption' ? 'Figcaption Text' : ''} */}
         </div>
       ))}
     </div>

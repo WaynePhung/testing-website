@@ -17,7 +17,8 @@ footer {
     @include r-c-g.rowColumnGaps("xl", "3xl");
     article {
         &#endMessage {
-            max-width: 650px;
+            max-width: 750px;
+            width: 100%;
             & > p {
                 &.subtitle {
                     padding-bottom: map-get(n-s-s.$size-space, "m");
@@ -38,7 +39,7 @@ footer {
                 @include r-c-g.rowColumnGaps("s", "m");
                 & > button {
                     // For some unknown reason, this @extend below forces a compilation error even though the file imports are defined...
-                    // @extend %button-primary;
+                    // @extend %button-primary-loaded;
                     & > a {
                         @extend %link;
                     }

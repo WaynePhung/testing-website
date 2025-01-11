@@ -1,31 +1,45 @@
-export interface ImageMedia {
-  imageRatio: string;
-  className: string;
+interface CaseStudyPreview {
+  preview?: {
+    title: string;
+    tags?: string;
+    spiel: string;
+    rel: "external" | string;
+  }
+}
+
+interface FigcaptionProps {
+  figcaption?: {
+    position: "before" | "after";
+    text: string;
+  }
+}
+
+export type ImageMedia = {
+  mediaType: "image";
   id?: string;
-  src: string; 
+  className?: string;
   width: number;
   height: number;
+  imageRatio: string;
+  src: string;
+  shadow: boolean;
+
   alt: string;
-  figcaption?: {
-    text: string;
-    position: "before" | "after";
-  }
   loading: "lazy" | "eager";
-}
+} & FigcaptionProps & CaseStudyPreview;
 
-export interface VideoIframeProps {
-  autoplayVideo?: boolean;
-  className: string;
-  figcaption?: {
-    text: string;
-    position: "before" | "after";
-  }
-  groupAlias?: string;
+type VideoIframeProps = {
+  id?: string;
+  className?: string;
   videoRatio: string;
-  videoSrc: string;
-}
+  src: string;
+  autoplayVideo?: boolean;
+  groupAlias?: string;
+  shadow: boolean;
+} & FigcaptionProps & CaseStudyPreview;
 
-export interface VideoMedia extends VideoIframeProps {
+export type VideoMedia = VideoIframeProps & {
+  mediaType: "video";
   autoPlay?: boolean;
   controls?: boolean;
   controlsList?: string;
@@ -37,28 +51,36 @@ export interface VideoMedia extends VideoIframeProps {
   preload?: "auto" | "metadata" | "none";
 }
 
-export interface IframeMedia extends VideoIframeProps {
+export type IframeMedia = VideoIframeProps & {
+  mediaType: "iframe";
   allow?: string;
-  videoSrc: string;
   youtubeID?: string;
 }
 
-export interface AudioMedia {
+export type AudioMedia = {
   // To be defined.
-  figcaption?: {
-    text: string;
-    position: "before" | "after";
-  }
-}
+  mediaType: "audio";
+  id?: string;
+  className?: string;
+  src: string;
+  ratio?: string;
+  shadow: boolean;
+} & FigcaptionProps;
 
 export type DynamicMedia = {
-  [key: string]:
-    | ({ mediaType: "image" } & ImageMedia)
-    | ({ mediaType: "video" } & VideoMedia)
-    | ({ mediaType: "iframe" } & IframeMedia)
-    | ({ mediaType: "audio" } & AudioMedia);
+  [key: string]: ImageMedia | VideoMedia | IframeMedia | AudioMedia;
 };
 
-export function createDynamicMedia(media: DynamicMedia): DynamicMedia {
-    return media;
-}
+// export type MediaTypes = "image" | "video" | "iframe" | "audio";
+
+// export type DynamicMedia<T extends MediaTypes> = {
+//   [key: string]: T extends "image" ? ImageMedia :
+//                  T extends "video" ? VideoMedia :
+//                  T extends "iframe" ? IframeMedia :
+//                  T extends "audio" ? AudioMedia :
+//                  never;
+// };
+
+// export function createDynamicMedia<T extends MediaTypes>(mediaType: T, media: DynamicMedia<T>): DynamicMedia<T> {
+//   return media;
+// }

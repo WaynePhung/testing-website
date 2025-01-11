@@ -184,12 +184,16 @@ main, footer, article.h2-wrapper {
   z-index: 3;
 }
 
-aside, .h2-wrapper, h2.sticky {
+aside[role=navigation], aside[role=navigation] > button, .h2-wrapper, h2.sticky {
   z-index: 4;
 }
 
 header, header * {
-  z-index: 5;
+  z-index: 5 !important;
+}
+
+.buffer-page, .loading-page {
+  z-index: 999;
 }
 
 figure {
@@ -255,6 +259,16 @@ figure figcaption {
   display: inline-block;
 }
 figure#e-stride * {
+  max-height: 450px;
+  object-fit: cover;
+}
+
+a[class*=ratio-] {
+  width: 100%;
+  height: auto;
+}
+
+a#e-stride, figure#e-stride {
   max-height: 450px;
   object-fit: cover;
 }

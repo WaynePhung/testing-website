@@ -2,7 +2,7 @@ import { H3Tag, H4Tag, PTag, SubtitleTag } from "./../../ui/text/text-tags";
 import { noto_sans } from "../../utils/text-styling/fonts";
 import Link from "next/link";
 import { LinkComponent } from "../links/link";
-import ButtonComponent from "../buttons/button";
+import ButtonComponent from "../buttons/button-test";
 // import Button_LinkedIn from "../buttons/button-linkedIn";
 // import Button_Email from "../buttons/button-email";
 
@@ -19,8 +19,24 @@ export default function Footer({pageString} : Footer) {
             <PTag id="conversation">Find me on LinkedIn or email if you're interested <span className="noWidow">to work with me.</span></PTag>
             {/* Container for contact buttons. */}
             <article className="contactButtons">
-                <ButtonComponent type="linkedIn" imagePosition="before"/>
-                <ButtonComponent type="email" imagePosition="before"/>
+                <ButtonComponent 
+                    group="link-global"
+                    alias="linkedIn" 
+                    anchorLink={false}
+                    icon={true}
+                    imagePosition="before" 
+                    showBuffer={false}
+                    buttonType="primary" 
+                />
+                <ButtonComponent 
+                    group="link-global"
+                    alias="email" 
+                    anchorLink={false}
+                    icon={true}
+                    imagePosition="before" 
+                    showBuffer={false}
+                    buttonType="primary" 
+                />
             </article>
         </article>
         {/* Container for navigation buttons. */}
@@ -28,13 +44,51 @@ export default function Footer({pageString} : Footer) {
             <H4Tag className={noto_sans.className}>Navigation</H4Tag>
             <hr />
             <nav className="grid gridType1-320Width">
-                <LinkComponent page={pageString == "home" ?  "home" : "global"} type="design" anchorLink="true" data-showbuffer={pageString == "home" ? "false" : "true"} />
-                <LinkComponent page={pageString == "home" ?  "home" : "global"} type="media" anchorLink="true" data-showbuffer={pageString == "home" ? "false" : "true"} />
-                <LinkComponent page={pageString == "home" ?  "home" : "global"} type="about" anchorLink="true" data-showbuffer={pageString == "home" ? "false" : "true"} />
+                <LinkComponent 
+                    group="link-global"
+                    alias="design" 
+                    page={pageString == "home" ?  "home" : "global"} 
+                    anchorLink={pageString == "home" ? true : false}
+                    showBuffer={pageString == "home" ? false : true}
+                />
+                <LinkComponent 
+                    group="link-global"
+                    alias="media" 
+                    page={pageString == "home" ?  "home" : "global"} 
+                    anchorLink={pageString == "home" ? true : false}
+                    showBuffer={pageString == "home" ? false : true}
+                />
+                <LinkComponent 
+                    group="link-global"
+                    alias="about" 
+                    page={pageString == "home" ?  "home" : "global"} 
+                    anchorLink={pageString == "home" ? true : false}
+                    showBuffer={pageString == "home" ? false : true}
+                />
+                <LinkComponent 
+                    group="link-global"
+                    alias="timeline" 
+                    anchorLink={pageString == "home" ? true : false}
+                    showBuffer={pageString == "home" ? false : true}
+                />
                 {/* <LinkComponent type="timeline" data-showbuffer="false"/> */}
-                <LinkComponent type="timeline" anchorLink={pageString == "home" ? "true" : ""} data-showbuffer={pageString == "home" ? "false" : "true"}/>
-                <LinkComponent type="topOfPage" anchorLink="true" data-showbuffer="false"/>
-                {/* <LinkComponent type="topOfPage" anchorLink={pageString == "home" ? "true" : ""} data-showbuffer={pageString == "home" ? "false" : "true"}/> */}
+                <LinkComponent 
+                    group="link-global"
+                    alias="timeline" 
+                    anchorLink={pageString == "home" ? true : false}
+                    showBuffer={pageString == "home" ? false : true}
+                />
+                {/* <LinkComponent 
+                    type="topOfPage" 
+                    anchorLink="true" 
+                    icon="topOfPage" data-showbuffer="false"
+                /> */}
+                <LinkComponent  
+                    group="link-global"
+                    alias="topOfPage" 
+                    anchorLink={pageString == "home" ? true : false}
+                    showBuffer={pageString == "home" ? false : true}
+                />
             </nav>
         </article>
     </footer>

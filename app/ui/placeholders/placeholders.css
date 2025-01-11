@@ -59,112 +59,107 @@
         - "$max" is a variable used as this mixin's argument to specify the number value for the maximum width used in the media query's condition.
         - "@content" is a Sass directive that allows flexibile input of different CSS properties and values, whether to apply the same properties for multiple elements or tailor different properties to specific elements.
 */
-.button-placeholder, .figure-placeholder, .link-span-placeholder-line, .placeholder .placeholder-line, .placeholder .figcaption-placeholder-line, .placeholder .h4-placeholder-line, .placeholder .h3-placeholder-line, .placeholder .h2-placeholder-line, .placeholder .h1-placeholder-line, .placeholder .subtitle-placeholder-line, .placeholder .p-placeholder-line {
-  background-color: hsl(0, 0%, 70%);
-  animation: pulse 1.5s infinite;
+/* 
+    Values for different screen width breakpoints.
+    bp = breakpoint, mb = mobile, dt = desktop, s = small, l = large
+*/
+/*
+    Placeholder selector used for the html element to set the default transition time to 0.25 seconds
+    with an ease-in and ease-out transition smoothness.
+*/
+/*
+    Placeholder selector to set the default background color of the entire page (html element) and 
+    the navigation header to light blue using the color function.
+*/
+main, footer, article.h2-wrapper {
+  z-index: 3;
 }
 
-.text-container {
-  width: 100%;
+aside[role=navigation], aside[role=navigation] > button, .h2-wrapper, h2.sticky {
+  z-index: 4;
 }
 
-.placeholder .placeholder-line, .placeholder .figcaption-placeholder-line, .placeholder .h4-placeholder-line, .placeholder .h3-placeholder-line, .placeholder .h2-placeholder-line, .placeholder .h1-placeholder-line, .placeholder .subtitle-placeholder-line, .placeholder .p-placeholder-line {
-  border-radius: 8px;
-}
-.placeholder.lines-0 .placeholder-line:nth-child(n), .placeholder.lines-0 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-0 .p-placeholder-line:nth-child(n), .placeholder.lines-0 .h1-placeholder-line:nth-child(n), .placeholder.lines-0 .h2-placeholder-line:nth-child(n), .placeholder.lines-0 .h3-placeholder-line:nth-child(n), .placeholder.lines-0 .h4-placeholder-line:nth-child(n), .placeholder.lines-0 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-1 .placeholder-line:nth-child(n), .placeholder.lines-1 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-1 .p-placeholder-line:nth-child(n), .placeholder.lines-1 .h1-placeholder-line:nth-child(n), .placeholder.lines-1 .h2-placeholder-line:nth-child(n), .placeholder.lines-1 .h3-placeholder-line:nth-child(n), .placeholder.lines-1 .h4-placeholder-line:nth-child(n), .placeholder.lines-1 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-2 .placeholder-line:nth-child(n), .placeholder.lines-2 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-2 .p-placeholder-line:nth-child(n), .placeholder.lines-2 .h1-placeholder-line:nth-child(n), .placeholder.lines-2 .h2-placeholder-line:nth-child(n), .placeholder.lines-2 .h3-placeholder-line:nth-child(n), .placeholder.lines-2 .h4-placeholder-line:nth-child(n), .placeholder.lines-2 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-3 .placeholder-line:nth-child(n), .placeholder.lines-3 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-3 .p-placeholder-line:nth-child(n), .placeholder.lines-3 .h1-placeholder-line:nth-child(n), .placeholder.lines-3 .h2-placeholder-line:nth-child(n), .placeholder.lines-3 .h3-placeholder-line:nth-child(n), .placeholder.lines-3 .h4-placeholder-line:nth-child(n), .placeholder.lines-3 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-4 .placeholder-line:nth-child(n), .placeholder.lines-4 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-4 .p-placeholder-line:nth-child(n), .placeholder.lines-4 .h1-placeholder-line:nth-child(n), .placeholder.lines-4 .h2-placeholder-line:nth-child(n), .placeholder.lines-4 .h3-placeholder-line:nth-child(n), .placeholder.lines-4 .h4-placeholder-line:nth-child(n), .placeholder.lines-4 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-5 .placeholder-line:nth-child(n), .placeholder.lines-5 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-5 .p-placeholder-line:nth-child(n), .placeholder.lines-5 .h1-placeholder-line:nth-child(n), .placeholder.lines-5 .h2-placeholder-line:nth-child(n), .placeholder.lines-5 .h3-placeholder-line:nth-child(n), .placeholder.lines-5 .h4-placeholder-line:nth-child(n), .placeholder.lines-5 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-6 .placeholder-line:nth-child(n), .placeholder.lines-6 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-6 .p-placeholder-line:nth-child(n), .placeholder.lines-6 .h1-placeholder-line:nth-child(n), .placeholder.lines-6 .h2-placeholder-line:nth-child(n), .placeholder.lines-6 .h3-placeholder-line:nth-child(n), .placeholder.lines-6 .h4-placeholder-line:nth-child(n), .placeholder.lines-6 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-7 .placeholder-line:nth-child(n), .placeholder.lines-7 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-7 .p-placeholder-line:nth-child(n), .placeholder.lines-7 .h1-placeholder-line:nth-child(n), .placeholder.lines-7 .h2-placeholder-line:nth-child(n), .placeholder.lines-7 .h3-placeholder-line:nth-child(n), .placeholder.lines-7 .h4-placeholder-line:nth-child(n), .placeholder.lines-7 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-8 .placeholder-line:nth-child(n), .placeholder.lines-8 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-8 .p-placeholder-line:nth-child(n), .placeholder.lines-8 .h1-placeholder-line:nth-child(n), .placeholder.lines-8 .h2-placeholder-line:nth-child(n), .placeholder.lines-8 .h3-placeholder-line:nth-child(n), .placeholder.lines-8 .h4-placeholder-line:nth-child(n), .placeholder.lines-8 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-9 .placeholder-line:nth-child(n), .placeholder.lines-9 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-9 .p-placeholder-line:nth-child(n), .placeholder.lines-9 .h1-placeholder-line:nth-child(n), .placeholder.lines-9 .h2-placeholder-line:nth-child(n), .placeholder.lines-9 .h3-placeholder-line:nth-child(n), .placeholder.lines-9 .h4-placeholder-line:nth-child(n), .placeholder.lines-9 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-10 .placeholder-line:nth-child(n), .placeholder.lines-10 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-10 .p-placeholder-line:nth-child(n), .placeholder.lines-10 .h1-placeholder-line:nth-child(n), .placeholder.lines-10 .h2-placeholder-line:nth-child(n), .placeholder.lines-10 .h3-placeholder-line:nth-child(n), .placeholder.lines-10 .h4-placeholder-line:nth-child(n), .placeholder.lines-10 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-11 .placeholder-line:nth-child(n), .placeholder.lines-11 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-11 .p-placeholder-line:nth-child(n), .placeholder.lines-11 .h1-placeholder-line:nth-child(n), .placeholder.lines-11 .h2-placeholder-line:nth-child(n), .placeholder.lines-11 .h3-placeholder-line:nth-child(n), .placeholder.lines-11 .h4-placeholder-line:nth-child(n), .placeholder.lines-11 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-12 .placeholder-line:nth-child(n), .placeholder.lines-12 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-12 .p-placeholder-line:nth-child(n), .placeholder.lines-12 .h1-placeholder-line:nth-child(n), .placeholder.lines-12 .h2-placeholder-line:nth-child(n), .placeholder.lines-12 .h3-placeholder-line:nth-child(n), .placeholder.lines-12 .h4-placeholder-line:nth-child(n), .placeholder.lines-12 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-13 .placeholder-line:nth-child(n), .placeholder.lines-13 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-13 .p-placeholder-line:nth-child(n), .placeholder.lines-13 .h1-placeholder-line:nth-child(n), .placeholder.lines-13 .h2-placeholder-line:nth-child(n), .placeholder.lines-13 .h3-placeholder-line:nth-child(n), .placeholder.lines-13 .h4-placeholder-line:nth-child(n), .placeholder.lines-13 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-14 .placeholder-line:nth-child(n), .placeholder.lines-14 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-14 .p-placeholder-line:nth-child(n), .placeholder.lines-14 .h1-placeholder-line:nth-child(n), .placeholder.lines-14 .h2-placeholder-line:nth-child(n), .placeholder.lines-14 .h3-placeholder-line:nth-child(n), .placeholder.lines-14 .h4-placeholder-line:nth-child(n), .placeholder.lines-14 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-15 .placeholder-line:nth-child(n), .placeholder.lines-15 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-15 .p-placeholder-line:nth-child(n), .placeholder.lines-15 .h1-placeholder-line:nth-child(n), .placeholder.lines-15 .h2-placeholder-line:nth-child(n), .placeholder.lines-15 .h3-placeholder-line:nth-child(n), .placeholder.lines-15 .h4-placeholder-line:nth-child(n), .placeholder.lines-15 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-16 .placeholder-line:nth-child(n), .placeholder.lines-16 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-16 .p-placeholder-line:nth-child(n), .placeholder.lines-16 .h1-placeholder-line:nth-child(n), .placeholder.lines-16 .h2-placeholder-line:nth-child(n), .placeholder.lines-16 .h3-placeholder-line:nth-child(n), .placeholder.lines-16 .h4-placeholder-line:nth-child(n), .placeholder.lines-16 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-17 .placeholder-line:nth-child(n), .placeholder.lines-17 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-17 .p-placeholder-line:nth-child(n), .placeholder.lines-17 .h1-placeholder-line:nth-child(n), .placeholder.lines-17 .h2-placeholder-line:nth-child(n), .placeholder.lines-17 .h3-placeholder-line:nth-child(n), .placeholder.lines-17 .h4-placeholder-line:nth-child(n), .placeholder.lines-17 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-18 .placeholder-line:nth-child(n), .placeholder.lines-18 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-18 .p-placeholder-line:nth-child(n), .placeholder.lines-18 .h1-placeholder-line:nth-child(n), .placeholder.lines-18 .h2-placeholder-line:nth-child(n), .placeholder.lines-18 .h3-placeholder-line:nth-child(n), .placeholder.lines-18 .h4-placeholder-line:nth-child(n), .placeholder.lines-18 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-19 .placeholder-line:nth-child(n), .placeholder.lines-19 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-19 .p-placeholder-line:nth-child(n), .placeholder.lines-19 .h1-placeholder-line:nth-child(n), .placeholder.lines-19 .h2-placeholder-line:nth-child(n), .placeholder.lines-19 .h3-placeholder-line:nth-child(n), .placeholder.lines-19 .h4-placeholder-line:nth-child(n), .placeholder.lines-19 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.lines-20 .placeholder-line:nth-child(n), .placeholder.lines-20 .subtitle-placeholder-line:nth-child(n), .placeholder.lines-20 .p-placeholder-line:nth-child(n), .placeholder.lines-20 .h1-placeholder-line:nth-child(n), .placeholder.lines-20 .h2-placeholder-line:nth-child(n), .placeholder.lines-20 .h3-placeholder-line:nth-child(n), .placeholder.lines-20 .h4-placeholder-line:nth-child(n), .placeholder.lines-20 .figcaption-placeholder-line:nth-child(n) {
-  width: 100%;
-}
-.placeholder.span {
-  width: 100px;
-  height: 42px;
+header, header * {
+  z-index: 5 !important;
 }
 
-.link-span-placeholder-line {
-  max-width: 100px;
-  width: 100%;
-  height: 32px;
-  border-radius: 8px;
+.buffer-page, .loading-page {
+  z-index: 999;
 }
 
-.figure-placeholder {
-  width: 100%;
-  height: auto;
-  border-radius: 16px;
+/*
+    This mixin is used to position and wrap children elements relative to the parent container element. It takes the following arguments to define flexbox properties for container elements:
+        1. Sets the display to flex (essential for any of the other flex properties to function as intended).
+        2. Enables/disables the wrapping of the children elements based on the "$flexWrap" variable argument.
+            - "wrap" to have the children elements populate within the space 
+              of the container
+            - "nowrap" to have the children elements instead populate within 
+              the same row/column
+        3. Sets the orientation of the wrapping, whether in a row or column. This is based on the "$flexDirection" variable argument.
+        4. Sets the starting position of each children element relative to the container element. This is based on the "$alignItems" variable argument:
+            - "flex-start" to start from the beginning portion of the container
+            - "center" to start from the middle portion
+            - "flex-end" to start from the bottom portion
+            - "stretch" to take up the available space of the container
+        - Sets the positioning of all children elements relative to the container element. This is based on the "$alignContent" variable argument:
+            - "flex-start" to orient all the children elements from the 
+              beginning portion of the container
+            - "center" to orient all the children elements from the middle portion
+            - "flex-end" to orient all the children elements from the bottom portion
+            - "stretch" to take up the available space of the container
+        - Sets the alignment of all children elements when they don't take up all of the available space in the container. This is based on the "$justifyContent" variable argument.
+
+*/
+/*
+  Placeholder selectors for the flex display of a container:
+    - column flex direction, wrapping along the column for
+      children elements, top-left starting point and alignment
+      of children elements and text
+*/
+/*
+        - same as previous, except no wrapping of children elements
+*/
+/*
+        - column flex direction, wrapping, center starting point
+          and alignment of children elements and text
+*/
+/*
+        - same as previous, except no wrapping of children elements
+*/
+/*
+        - row flex direction, wrapping, top-left starting point 
+          and alignment of children elements and text
+*/
+/*
+        - same as previous, except no wrapping of children elements
+*/
+/*
+        - row flex direction, wrapping, center starting point
+          and alignment of children elements and text
+*/
+.placeholder.span, .placeholder.span .placeholder-line-span, .placeholder.figcaption, .placeholder.figcaption .placeholder-line-figcaption {
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
 }
 
-.button-placeholder {
-  position: relative;
-  overflow: hidden;
-  height: auto;
-  border-radius: 12px;
-}
-
+/*
+        - row flex direction, wrapping, right starting point
+          and alignment of children elements and text
+*/
 @keyframes pulse {
-  0%, 100% {
+  0% {
     opacity: 0.6;
   }
   50% {
     opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
   }
 }
 .fade-in {
@@ -181,4 +176,278 @@
 }
 .hidden {
   display: none;
+}
+
+.placeholder .placeholder-line, .placeholder.h4 .placeholder-line-h4, .placeholder.h3 .placeholder-line-h3, .placeholder.h2 .placeholder-line-h2, .placeholder.h1 .placeholder-line-h1, .placeholder.figcaption .placeholder-line-figcaption, .placeholder.span .placeholder-line-span, .placeholder.subtitle .placeholder-line-subtitle, .placeholder.p .placeholder-line-p {
+  border-radius: 8px;
+}
+.placeholder.p {
+  min-width: 100px;
+  width: 100%;
+}
+@media only screen and (max-width: 1024px) {
+  .placeholder.p > .placeholder-line-p {
+    height: 24.3px;
+    line-height: 1.6;
+    padding-bottom: 6.3;
+    background-color: hsl(0, 0%, 70%);
+    animation: pulse 1.5s infinite;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .placeholder.p > .placeholder-line-p {
+    height: 27px;
+    line-height: 1.6;
+    padding-bottom: 7;
+    background-color: hsl(0, 0%, 70%);
+    animation: pulse 1.5s infinite;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .placeholder.subtitle > .placeholder-line-subtitle {
+    height: 27.2px;
+    line-height: 1.5;
+    padding-bottom: 7.2;
+    background-color: hsl(0, 0%, 70%);
+    animation: pulse 1.5s infinite;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .placeholder.subtitle > .placeholder-line-subtitle {
+    height: 32px;
+    line-height: 1.5;
+    padding-bottom: 8;
+    background-color: hsl(0, 0%, 70%);
+    animation: pulse 1.5s infinite;
+  }
+}
+.placeholder.span {
+  width: 96px;
+}
+@media only screen and (max-width: 1024px) {
+  .placeholder.span > .placeholder-line-span {
+    height: 16px;
+    line-height: 1.5;
+    padding-bottom: 0;
+    background-color: hsl(0, 0%, 70%);
+    animation: pulse 1.5s infinite;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .placeholder.span > .placeholder-line-span {
+    height: 16px;
+    line-height: 1.5;
+    padding-bottom: 0;
+    background-color: hsl(0, 0%, 70%);
+    animation: pulse 1.5s infinite;
+  }
+}
+.placeholder.span .placeholder-line-span {
+  width: 100%;
+}
+.placeholder.figcaption {
+  max-width: 100%;
+  width: 750px;
+}
+@media only screen and (max-width: 1024px) {
+  .placeholder.figcaption > .placeholder-line-figcaption {
+    height: 28px;
+    line-height: 1.5;
+    padding-bottom: 12;
+    background-color: hsl(0, 0%, 70%);
+    animation: pulse 1.5s infinite;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .placeholder.figcaption > .placeholder-line-figcaption {
+    height: 28px;
+    line-height: 1.5;
+    padding-bottom: 12;
+    background-color: hsl(0, 0%, 70%);
+    animation: pulse 1.5s infinite;
+  }
+}
+.placeholder.h1, .placeholder.h2 {
+  width: 100%;
+}
+@media only screen and (max-width: 1024px) {
+  .placeholder.h1 > .placeholder-line-h1 {
+    height: 61.5px;
+    line-height: 1.2;
+    padding-bottom: 13.5;
+    background-color: hsla(215, 60%, 44%, 0.65);
+    animation: pulse 1.5s infinite;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .placeholder.h1 > .placeholder-line-h1 {
+    height: 95px;
+    line-height: 1.2;
+    padding-bottom: 15;
+    background-color: hsla(215, 60%, 44%, 0.65);
+    animation: pulse 1.5s infinite;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .placeholder.h2 > .placeholder-line-h2 {
+    height: 47.7px;
+    line-height: 1.25;
+    padding-bottom: 11.7;
+    background-color: hsla(215, 60%, 44%, 0.65);
+    animation: pulse 1.5s infinite;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .placeholder.h2 > .placeholder-line-h2 {
+    height: 65px;
+    line-height: 1.25;
+    padding-bottom: 13;
+    background-color: hsla(215, 60%, 44%, 0.65);
+    animation: pulse 1.5s infinite;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .placeholder.h3 > .placeholder-line-h3 {
+    height: 37.9px;
+    line-height: 1.3;
+    padding-bottom: 9.9;
+    background-color: hsla(21, 55%, 37%, 0.65);
+    animation: pulse 1.5s infinite;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .placeholder.h3 > .placeholder-line-h3 {
+    height: 47px;
+    line-height: 1.3;
+    padding-bottom: 11;
+    background-color: hsla(21, 55%, 37%, 0.65);
+    animation: pulse 1.5s infinite;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .placeholder.h4 > .placeholder-line-h4 {
+    height: 32.1px;
+    line-height: 1.35;
+    padding-bottom: 8.1;
+    background-color: hsl(0, 0%, 70%);
+    animation: pulse 1.5s infinite;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .placeholder.h4 > .placeholder-line-h4 {
+    height: 33px;
+    line-height: 1.35;
+    padding-bottom: 9;
+    background-color: hsl(0, 0%, 70%);
+    animation: pulse 1.5s infinite;
+  }
+}
+.placeholder.lines-0 .placeholder-line:nth-child(n), .placeholder.lines-0 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-0 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-0 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-0 .placeholder-line-span:nth-child(n), .placeholder.lines-0 .placeholder-line-p:nth-child(n), .placeholder.lines-0 .placeholder-line-h1:nth-child(n), .placeholder.lines-0 .placeholder-line-h2:nth-child(n), .placeholder.lines-0 .placeholder-line-h3:nth-child(n), .placeholder.lines-0 .placeholder-line-h4:nth-child(n), .placeholder.lines-0 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-1 .placeholder-line:nth-child(n), .placeholder.lines-1 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-1 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-1 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-1 .placeholder-line-span:nth-child(n), .placeholder.lines-1 .placeholder-line-p:nth-child(n), .placeholder.lines-1 .placeholder-line-h1:nth-child(n), .placeholder.lines-1 .placeholder-line-h2:nth-child(n), .placeholder.lines-1 .placeholder-line-h3:nth-child(n), .placeholder.lines-1 .placeholder-line-h4:nth-child(n), .placeholder.lines-1 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-2 .placeholder-line:nth-child(n), .placeholder.lines-2 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-2 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-2 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-2 .placeholder-line-span:nth-child(n), .placeholder.lines-2 .placeholder-line-p:nth-child(n), .placeholder.lines-2 .placeholder-line-h1:nth-child(n), .placeholder.lines-2 .placeholder-line-h2:nth-child(n), .placeholder.lines-2 .placeholder-line-h3:nth-child(n), .placeholder.lines-2 .placeholder-line-h4:nth-child(n), .placeholder.lines-2 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-3 .placeholder-line:nth-child(n), .placeholder.lines-3 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-3 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-3 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-3 .placeholder-line-span:nth-child(n), .placeholder.lines-3 .placeholder-line-p:nth-child(n), .placeholder.lines-3 .placeholder-line-h1:nth-child(n), .placeholder.lines-3 .placeholder-line-h2:nth-child(n), .placeholder.lines-3 .placeholder-line-h3:nth-child(n), .placeholder.lines-3 .placeholder-line-h4:nth-child(n), .placeholder.lines-3 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-4 .placeholder-line:nth-child(n), .placeholder.lines-4 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-4 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-4 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-4 .placeholder-line-span:nth-child(n), .placeholder.lines-4 .placeholder-line-p:nth-child(n), .placeholder.lines-4 .placeholder-line-h1:nth-child(n), .placeholder.lines-4 .placeholder-line-h2:nth-child(n), .placeholder.lines-4 .placeholder-line-h3:nth-child(n), .placeholder.lines-4 .placeholder-line-h4:nth-child(n), .placeholder.lines-4 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-5 .placeholder-line:nth-child(n), .placeholder.lines-5 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-5 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-5 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-5 .placeholder-line-span:nth-child(n), .placeholder.lines-5 .placeholder-line-p:nth-child(n), .placeholder.lines-5 .placeholder-line-h1:nth-child(n), .placeholder.lines-5 .placeholder-line-h2:nth-child(n), .placeholder.lines-5 .placeholder-line-h3:nth-child(n), .placeholder.lines-5 .placeholder-line-h4:nth-child(n), .placeholder.lines-5 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-6 .placeholder-line:nth-child(n), .placeholder.lines-6 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-6 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-6 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-6 .placeholder-line-span:nth-child(n), .placeholder.lines-6 .placeholder-line-p:nth-child(n), .placeholder.lines-6 .placeholder-line-h1:nth-child(n), .placeholder.lines-6 .placeholder-line-h2:nth-child(n), .placeholder.lines-6 .placeholder-line-h3:nth-child(n), .placeholder.lines-6 .placeholder-line-h4:nth-child(n), .placeholder.lines-6 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-7 .placeholder-line:nth-child(n), .placeholder.lines-7 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-7 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-7 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-7 .placeholder-line-span:nth-child(n), .placeholder.lines-7 .placeholder-line-p:nth-child(n), .placeholder.lines-7 .placeholder-line-h1:nth-child(n), .placeholder.lines-7 .placeholder-line-h2:nth-child(n), .placeholder.lines-7 .placeholder-line-h3:nth-child(n), .placeholder.lines-7 .placeholder-line-h4:nth-child(n), .placeholder.lines-7 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-8 .placeholder-line:nth-child(n), .placeholder.lines-8 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-8 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-8 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-8 .placeholder-line-span:nth-child(n), .placeholder.lines-8 .placeholder-line-p:nth-child(n), .placeholder.lines-8 .placeholder-line-h1:nth-child(n), .placeholder.lines-8 .placeholder-line-h2:nth-child(n), .placeholder.lines-8 .placeholder-line-h3:nth-child(n), .placeholder.lines-8 .placeholder-line-h4:nth-child(n), .placeholder.lines-8 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-9 .placeholder-line:nth-child(n), .placeholder.lines-9 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-9 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-9 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-9 .placeholder-line-span:nth-child(n), .placeholder.lines-9 .placeholder-line-p:nth-child(n), .placeholder.lines-9 .placeholder-line-h1:nth-child(n), .placeholder.lines-9 .placeholder-line-h2:nth-child(n), .placeholder.lines-9 .placeholder-line-h3:nth-child(n), .placeholder.lines-9 .placeholder-line-h4:nth-child(n), .placeholder.lines-9 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-10 .placeholder-line:nth-child(n), .placeholder.lines-10 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-10 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-10 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-10 .placeholder-line-span:nth-child(n), .placeholder.lines-10 .placeholder-line-p:nth-child(n), .placeholder.lines-10 .placeholder-line-h1:nth-child(n), .placeholder.lines-10 .placeholder-line-h2:nth-child(n), .placeholder.lines-10 .placeholder-line-h3:nth-child(n), .placeholder.lines-10 .placeholder-line-h4:nth-child(n), .placeholder.lines-10 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-11 .placeholder-line:nth-child(n), .placeholder.lines-11 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-11 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-11 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-11 .placeholder-line-span:nth-child(n), .placeholder.lines-11 .placeholder-line-p:nth-child(n), .placeholder.lines-11 .placeholder-line-h1:nth-child(n), .placeholder.lines-11 .placeholder-line-h2:nth-child(n), .placeholder.lines-11 .placeholder-line-h3:nth-child(n), .placeholder.lines-11 .placeholder-line-h4:nth-child(n), .placeholder.lines-11 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-12 .placeholder-line:nth-child(n), .placeholder.lines-12 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-12 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-12 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-12 .placeholder-line-span:nth-child(n), .placeholder.lines-12 .placeholder-line-p:nth-child(n), .placeholder.lines-12 .placeholder-line-h1:nth-child(n), .placeholder.lines-12 .placeholder-line-h2:nth-child(n), .placeholder.lines-12 .placeholder-line-h3:nth-child(n), .placeholder.lines-12 .placeholder-line-h4:nth-child(n), .placeholder.lines-12 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-13 .placeholder-line:nth-child(n), .placeholder.lines-13 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-13 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-13 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-13 .placeholder-line-span:nth-child(n), .placeholder.lines-13 .placeholder-line-p:nth-child(n), .placeholder.lines-13 .placeholder-line-h1:nth-child(n), .placeholder.lines-13 .placeholder-line-h2:nth-child(n), .placeholder.lines-13 .placeholder-line-h3:nth-child(n), .placeholder.lines-13 .placeholder-line-h4:nth-child(n), .placeholder.lines-13 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-14 .placeholder-line:nth-child(n), .placeholder.lines-14 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-14 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-14 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-14 .placeholder-line-span:nth-child(n), .placeholder.lines-14 .placeholder-line-p:nth-child(n), .placeholder.lines-14 .placeholder-line-h1:nth-child(n), .placeholder.lines-14 .placeholder-line-h2:nth-child(n), .placeholder.lines-14 .placeholder-line-h3:nth-child(n), .placeholder.lines-14 .placeholder-line-h4:nth-child(n), .placeholder.lines-14 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-15 .placeholder-line:nth-child(n), .placeholder.lines-15 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-15 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-15 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-15 .placeholder-line-span:nth-child(n), .placeholder.lines-15 .placeholder-line-p:nth-child(n), .placeholder.lines-15 .placeholder-line-h1:nth-child(n), .placeholder.lines-15 .placeholder-line-h2:nth-child(n), .placeholder.lines-15 .placeholder-line-h3:nth-child(n), .placeholder.lines-15 .placeholder-line-h4:nth-child(n), .placeholder.lines-15 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-16 .placeholder-line:nth-child(n), .placeholder.lines-16 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-16 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-16 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-16 .placeholder-line-span:nth-child(n), .placeholder.lines-16 .placeholder-line-p:nth-child(n), .placeholder.lines-16 .placeholder-line-h1:nth-child(n), .placeholder.lines-16 .placeholder-line-h2:nth-child(n), .placeholder.lines-16 .placeholder-line-h3:nth-child(n), .placeholder.lines-16 .placeholder-line-h4:nth-child(n), .placeholder.lines-16 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-17 .placeholder-line:nth-child(n), .placeholder.lines-17 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-17 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-17 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-17 .placeholder-line-span:nth-child(n), .placeholder.lines-17 .placeholder-line-p:nth-child(n), .placeholder.lines-17 .placeholder-line-h1:nth-child(n), .placeholder.lines-17 .placeholder-line-h2:nth-child(n), .placeholder.lines-17 .placeholder-line-h3:nth-child(n), .placeholder.lines-17 .placeholder-line-h4:nth-child(n), .placeholder.lines-17 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-18 .placeholder-line:nth-child(n), .placeholder.lines-18 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-18 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-18 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-18 .placeholder-line-span:nth-child(n), .placeholder.lines-18 .placeholder-line-p:nth-child(n), .placeholder.lines-18 .placeholder-line-h1:nth-child(n), .placeholder.lines-18 .placeholder-line-h2:nth-child(n), .placeholder.lines-18 .placeholder-line-h3:nth-child(n), .placeholder.lines-18 .placeholder-line-h4:nth-child(n), .placeholder.lines-18 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-19 .placeholder-line:nth-child(n), .placeholder.lines-19 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-19 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-19 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-19 .placeholder-line-span:nth-child(n), .placeholder.lines-19 .placeholder-line-p:nth-child(n), .placeholder.lines-19 .placeholder-line-h1:nth-child(n), .placeholder.lines-19 .placeholder-line-h2:nth-child(n), .placeholder.lines-19 .placeholder-line-h3:nth-child(n), .placeholder.lines-19 .placeholder-line-h4:nth-child(n), .placeholder.lines-19 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+.placeholder.lines-20 .placeholder-line:nth-child(n), .placeholder.lines-20 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-20 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-20 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-20 .placeholder-line-span:nth-child(n), .placeholder.lines-20 .placeholder-line-p:nth-child(n), .placeholder.lines-20 .placeholder-line-h1:nth-child(n), .placeholder.lines-20 .placeholder-line-h2:nth-child(n), .placeholder.lines-20 .placeholder-line-h3:nth-child(n), .placeholder.lines-20 .placeholder-line-h4:nth-child(n), .placeholder.lines-20 .placeholder-line-figcaption:nth-child(n) {
+  width: 100%;
+}
+
+.button-placeholder, figure.figure-placeholder > picture, .placeholder .placeholder-line, .placeholder.p .placeholder-line-p, .placeholder.subtitle .placeholder-line-subtitle, .placeholder.span .placeholder-line-span, .placeholder.figcaption .placeholder-line-figcaption, .placeholder.h1 .placeholder-line-h1, .placeholder.h2 .placeholder-line-h2, .placeholder.h3 .placeholder-line-h3, .placeholder.h4 .placeholder-line-h4 {
+  background-color: hsl(0, 0%, 70%);
+  animation: pulse 1.5s infinite;
+}
+
+.text-container {
+  width: 100%;
+}
+
+figure.figure-placeholder {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+figure.figure-placeholder > picture {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+button > a > figure.figure-placeholder, a > figure.figure-placeholder {
+  width: 32px;
+  height: 32px;
+}
+button > a > figure.figure-placeholder > picture, a > figure.figure-placeholder > picture {
+  border-radius: 8px;
+}
+
+div.figure-placeholder#e-stride {
+  max-height: 450px;
+  object-fit: cover;
+}
+
+.button-placeholder {
+  background-color: transparent;
+  position: relative;
+  overflow: hidden;
+  height: auto;
+  border-radius: 12px;
+}
+
+a[aria-label*=placeholder] {
+  cursor: default !important;
 }

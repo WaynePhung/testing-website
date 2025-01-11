@@ -5,11 +5,6 @@ import Link from "next/link";
 import { H1Tag, H2Tag, PTag } from "./ui/text/text-tags";
 import { CSPComponent } from "./(case study)/case-study-preview";
 
-import ElectricStride from "./ui/_unused components/electric-stride";
-import AutoPG from "./ui/_unused components/automation-playground";
-import TTVReel from "./ui/_unused components/triton-television-reel";
-import TCLCVideo from "./ui/_unused components/tclc-video";
-
 export default function HomePageContent() {
   const [activeId, setActiveId] = useState<string | null>(null);
 
@@ -44,8 +39,8 @@ export default function HomePageContent() {
       <section className="work-previews" id="design-work">
         <H2Tag>Design Work</H2Tag>
         <article>
-          <CSPComponent type="es" shadow="true" />
-          <CSPComponent type="ap" shadow="false"/>
+        <CSPComponent subgroup="es" visualAlias="main" />
+        <CSPComponent subgroup="ap" visualAlias="main" />
           {/* <ElectricStride />
           <AutoPG /> */}
         </article>
@@ -53,8 +48,8 @@ export default function HomePageContent() {
       <section className="work-previews" id="media-work">
         <H2Tag>Media Work</H2Tag>
         <article>
-          <CSPComponent type="ttvReel" shadow="true" />
-          <CSPComponent type="tclc" shadow="true" />
+          <CSPComponent subgroup="ttvReel" visualAlias="finalDraft" />
+          <CSPComponent subgroup="tclc" visualAlias="finalDraft" />
           {/* <TTVReel />
           <TCLCVideo /> */}
         </article>
