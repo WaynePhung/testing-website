@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { usePathname } from "next/navigation";
 import { LinkComponent } from "../links/link";
-import ButtonComponent from "../buttons/button-test";
+import ButtonComponent from "../buttons/button";
 import { useScrollToSection } from "./../../utils/ts/anchorLinkScrollSpy";
 import ProgressBar from "../progress-bar/progress-bar";
 import { caseStudyPaths, otherPagePaths } from "@/app/utils/ts/exported-constants";

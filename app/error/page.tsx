@@ -1,7 +1,7 @@
 "use client";
 
 import TitleSection from "../ui/title-container/title-container-default";
-import ButtonComponent from "../ui/buttons/button-test";
+import ButtonComponent from "../ui/buttons/button";
 import { H2Tag, H1Tag, PTag } from "../ui/text/text-tags";
 import { CSPComponent } from "./../(case study)/case-study-preview";
 

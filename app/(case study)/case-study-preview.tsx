@@ -6,7 +6,7 @@ import { useRouter, usePathname } from 'next/navigation';
 import { H3Tag, H4Tag, PTag } from "../ui/text/text-tags";
 import { literata, noto_sans } from "../utils/text-styling/fonts";
 import { caseStudyPreviewProps, caseStudyPreviews } from "./case-study-preview-content";
-import ButtonComponent from "../ui/buttons/button-test";
+import ButtonComponent from "../ui/buttons/button";
 import FigureImageVideo from "../ui/media/media-global";
 import { SafeHTML } from "../ui/text/safe-html";
 import checkDataBufferAttr from "../ui/buffer-page/check-data-buffer-attr";

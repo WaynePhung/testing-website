@@ -1,7 +1,7 @@
 'use client';
 
 import Link from "next/link";
-import ButtonComponent from "@/app/ui/buttons/button-test";
+import ButtonComponent from "@/app/ui/buttons/button";
 import ListOfContents from "../../ui/list-of-contents/list-of-contents";
 import { H2Tag, PTag } from "./../../ui/text/text-tags";
 import { CSPComponent } from "../case-study-preview";

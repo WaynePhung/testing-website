@@ -7,7 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getLinkProps } from "./../../utils/ts/link-types";
 import { LinkComponent } from "../links/link";
-import ButtonComponent from "../buttons/button-test";
+import ButtonComponent from "../buttons/button";
 import { SpanTag } from "../text/text-tags";
 import { locLinkProps, topOfPageMobileID, topOfPageDesktopID, otherCaseStudiesPropsMobileID, otherCaseStudiesPropsDesktopID} from "./loc-link-props";
 import { LoCElectricStride } from "../../(case study)/electric-stride/loc-electricStride";

@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import TitleSection from "../ui/title-container/title-container-default";
 import PTagPlaceholder from "../ui/placeholders/ptag-placeholder";
 import { H2Tag, H1Tag, PTag } from "../ui/text/text-tags";
-import ButtonComponent from "../ui/buttons/button-test";
+import ButtonComponent from "../ui/buttons/button";
 import { SafeHTML } from "../ui/text/safe-html";
 import { getTextProps } from "./text-props";
 import { childrenToString } from "../ui/text/childrenToString";
@@ -19,12 +19,13 @@ import FigureImageVideo from "../ui/media/media-global";
 // import RhfWithAction from "../ui/email-form/with-action";
 // import RhfWithZod from "../ui/email-form/rhf-with-zod";
 // import EmailForm from "../ui/email-form-old/email-form-old-01";
+import { ContactForm } from "../ui/email-form/email-form-test";
 
 // Dynamically import EmailForm with SSR disabled
-const EmailForm = dynamic(() => import("../ui/email-form/email-form"), {
-    ssr: false,
-    loading: () => <p>Loading form...</p>,
-});
+// const EmailForm = dynamic(() => import("../ui/email-form/email-form"), {
+//     ssr: false,
+//     loading: () => <p>Loading form...</p>,
+// });
 
 export default function ExperimentalPage() {
 
@@ -42,7 +43,8 @@ export default function ExperimentalPage() {
                     {/* <RhfWithZod /> */}
                     {/* <RhfWithAction /> */}
                     <Suspense fallback={<div>Loading form...</div>}>
-                        <EmailForm />
+                        <ContactForm />
+                        {/* <EmailForm /> */}
                     </Suspense>
                     <ButtonComponent 
                         group="link-global"
