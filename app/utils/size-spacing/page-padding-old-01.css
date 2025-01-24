@@ -90,7 +90,8 @@ header, header * {
 @media only screen and (max-width: 750px) {
   nav.navigationBar,
   main > section,
-  main > section > h2.sticky {
+  main > section > h2.sticky,
+  footer {
     padding-left: 16px;
     padding-right: 16px;
   }
@@ -98,7 +99,8 @@ header, header * {
 @media only screen and (min-width: 750px) {
   nav.navigationBar,
   main > section,
-  main > section > h2.sticky {
+  main > section > h2.sticky,
+  footer {
     padding-left: 32px;
     padding-right: 32px;
   }
@@ -147,5 +149,30 @@ main > *:not(:last-child) {
 @media only screen and (min-width: 320px) {
   main > section.bodyContent > section[class*=content] > article:not(:last-child) {
     padding-bottom: 128px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  footer {
+    padding-bottom: 128px;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 750px) {
+  footer {
+    padding-bottom: 64px;
+  }
+}
+@media only screen and (max-width: 750px) {
+  footer {
+    padding-top: 32px;
+    padding-right: 16px;
+    padding-left: 16px;
+    max-width: calc(100% - 32px);
+  }
+}
+@media only screen and (min-width: 750px) {
+  footer {
+    padding: 64px 32px;
+    max-width: calc(100% - 64px);
   }
 }

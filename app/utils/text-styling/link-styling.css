@@ -90,7 +90,7 @@ footer article#endNavLinks > nav > a {
         - row flex direction, wrapping, center starting point
           and alignment of children elements and text
 */
-header > nav.navigationBar > a, header > nav.navigationBar > nav > a, header > nav.navigationBar > .contactButtons > button > a, main button > a, main aside > a, main aside > nav.tocNavLinks > a, footer article#endMessage > .contactButtons > button > a {
+header > nav.navigationBar > a, header > nav.navigationBar > nav > a, footer > nav.navigationBar > a, footer > nav.navigationBar > nav > a, header > nav.navigationBar > .contactButtons > button > a, footer > nav.navigationBar > .contactButtons > button > a, main button > a, main aside > a, main aside > nav.tocNavLinks > a, footer article#endMessage > .contactButtons > button > a {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -221,13 +221,13 @@ header, header * {
         }
     }
 */
-figure figcaption > a, footer article#endNavLinks > nav > a, main aside > a, main aside > nav.tocNavLinks > a, header > nav.navigationBar > a > a, header > nav.navigationBar > nav > a > a, header > nav.navigationBar > a, header > nav.navigationBar > nav > a {
+figure figcaption > a, footer article#endNavLinks > nav > a, main aside > a, main aside > nav.tocNavLinks > a, header > nav.navigationBar > a > a, header > nav.navigationBar > nav > a > a, footer > nav.navigationBar > a > a, footer > nav.navigationBar > nav > a > a, header > nav.navigationBar > a, header > nav.navigationBar > nav > a, footer > nav.navigationBar > a, footer > nav.navigationBar > nav > a {
   gap: 16px 16px;
   position: relative;
   cursor: default;
   text-decoration: none;
 }
-figure figcaption > a span:after, footer article#endNavLinks > nav > a span:after, main aside > a span:after, main aside > nav.tocNavLinks > a span:after, header > nav.navigationBar > a span:after, header > nav.navigationBar > nav > a span:after {
+figure figcaption > a span:after, footer article#endNavLinks > nav > a span:after, main aside > a span:after, main aside > nav.tocNavLinks > a span:after, header > nav.navigationBar > a span:after, header > nav.navigationBar > nav > a span:after, footer > nav.navigationBar > a span:after, footer > nav.navigationBar > nav > a span:after {
   display: block;
   position: relative;
   left: 50%;
@@ -239,15 +239,15 @@ figure figcaption > a span:after, footer article#endNavLinks > nav > a span:afte
   width: 0%;
   height: 2px;
 }
-figure figcaption > a:hover, footer article#endNavLinks > nav > a:hover, main aside > a:hover, main aside > nav.tocNavLinks > a:hover, header > nav.navigationBar > a > a:hover, header > nav.navigationBar > nav > a > a:hover, header > nav.navigationBar > a:hover, header > nav.navigationBar > nav > a:hover, figure figcaption > a.active, footer article#endNavLinks > nav > a.active, main aside > a.active, main aside > nav.tocNavLinks > a.active, header > nav.navigationBar > a > a.active, header > nav.navigationBar > nav > a > a.active, header > nav.navigationBar > a.active, header > nav.navigationBar > nav > a.active {
+figure figcaption > a:hover, footer article#endNavLinks > nav > a:hover, main aside > a:hover, main aside > nav.tocNavLinks > a:hover, header > nav.navigationBar > a > a:hover, header > nav.navigationBar > nav > a > a:hover, footer > nav.navigationBar > a > a:hover, footer > nav.navigationBar > nav > a > a:hover, header > nav.navigationBar > a:hover, header > nav.navigationBar > nav > a:hover, footer > nav.navigationBar > a:hover, footer > nav.navigationBar > nav > a:hover, figure figcaption > a.active, footer article#endNavLinks > nav > a.active, main aside > a.active, main aside > nav.tocNavLinks > a.active, header > nav.navigationBar > a > a.active, header > nav.navigationBar > nav > a > a.active, footer > nav.navigationBar > a > a.active, footer > nav.navigationBar > nav > a > a.active, header > nav.navigationBar > a.active, header > nav.navigationBar > nav > a.active, footer > nav.navigationBar > a.active, footer > nav.navigationBar > nav > a.active {
   cursor: pointer;
 }
-figure figcaption > a:hover span:after, footer article#endNavLinks > nav > a:hover span:after, main aside > a:hover span:after, main aside > nav.tocNavLinks > a:hover span:after, header > nav.navigationBar > a > a:hover span:after, header > nav.navigationBar > nav > a > a:hover span:after, header > nav.navigationBar > a:hover span:after, header > nav.navigationBar > nav > a:hover span:after, figure figcaption > a.active span:after, footer article#endNavLinks > nav > a.active span:after, main aside > a.active span:after, main aside > nav.tocNavLinks > a.active span:after, header > nav.navigationBar > a > a.active span:after, header > nav.navigationBar > nav > a > a.active span:after, header > nav.navigationBar > a.active span:after, header > nav.navigationBar > nav > a.active span:after {
+figure figcaption > a:hover span:after, footer article#endNavLinks > nav > a:hover span:after, main aside > a:hover span:after, main aside > nav.tocNavLinks > a:hover span:after, header > nav.navigationBar > a > a:hover span:after, header > nav.navigationBar > nav > a > a:hover span:after, footer > nav.navigationBar > a > a:hover span:after, footer > nav.navigationBar > nav > a > a:hover span:after, header > nav.navigationBar > a:hover span:after, header > nav.navigationBar > nav > a:hover span:after, footer > nav.navigationBar > a:hover span:after, footer > nav.navigationBar > nav > a:hover span:after, figure figcaption > a.active span:after, footer article#endNavLinks > nav > a.active span:after, main aside > a.active span:after, main aside > nav.tocNavLinks > a.active span:after, header > nav.navigationBar > a > a.active span:after, header > nav.navigationBar > nav > a > a.active span:after, footer > nav.navigationBar > a > a.active span:after, footer > nav.navigationBar > nav > a > a.active span:after, header > nav.navigationBar > a.active span:after, header > nav.navigationBar > nav > a.active span:after, footer > nav.navigationBar > a.active span:after, footer > nav.navigationBar > nav > a.active span:after {
   left: 0;
   width: 100%;
 }
 
-footer article#endNavLinks > nav > a, main aside > a span, main aside > nav.tocNavLinks > a span, header > nav.navigationBar > a span, header > nav.navigationBar > nav > a span {
+footer article#endNavLinks > nav > a, main aside > a span, main aside > nav.tocNavLinks > a span, header > nav.navigationBar > a span, header > nav.navigationBar > nav > a span, footer > nav.navigationBar > a span, footer > nav.navigationBar > nav > a span {
   background-image: radial-gradient(transparent);
   animation-name: noBackground;
 }
@@ -260,7 +260,7 @@ footer article#endNavLinks > nav > a, main aside > a span, main aside > nav.tocN
   }
 }
 
-footer article#endNavLinks > nav > a:hover, main aside > a:hover span, main aside > a.active span, main aside > nav.tocNavLinks > a:hover span, main aside > nav.tocNavLinks > a.active span, header > nav.navigationBar > a:hover span, header > nav.navigationBar > a.active span, header > nav.navigationBar > nav > a:hover span, header > nav.navigationBar > nav > a.active span {
+footer article#endNavLinks > nav > a:hover, main aside > a:hover span, main aside > a.active span, main aside > nav.tocNavLinks > a:hover span, main aside > nav.tocNavLinks > a.active span, header > nav.navigationBar > a:hover span, header > nav.navigationBar > a.active span, header > nav.navigationBar > nav > a:hover span, header > nav.navigationBar > nav > a.active span, footer > nav.navigationBar > a:hover span, footer > nav.navigationBar > a.active span, footer > nav.navigationBar > nav > a:hover span, footer > nav.navigationBar > nav > a.active span {
   background-image: radial-gradient(hsl(185, 90%, 86%) 0%, transparent 75%);
   animation-name: activeBackground;
 }
@@ -273,89 +273,89 @@ footer article#endNavLinks > nav > a:hover, main aside > a:hover span, main asid
   }
 }
 
-footer article#endNavLinks > nav > a:hover, footer article#endNavLinks > nav > a, main aside > a:hover span, main aside > a.active span, main aside > nav.tocNavLinks > a:hover span, main aside > nav.tocNavLinks > a.active span, main aside > a span, main aside > nav.tocNavLinks > a span, header > nav.navigationBar > a:hover span, header > nav.navigationBar > a.active span, header > nav.navigationBar > nav > a:hover span, header > nav.navigationBar > nav > a.active span, header > nav.navigationBar > a span, header > nav.navigationBar > nav > a span {
+footer article#endNavLinks > nav > a:hover, footer article#endNavLinks > nav > a, main aside > a:hover span, main aside > a.active span, main aside > nav.tocNavLinks > a:hover span, main aside > nav.tocNavLinks > a.active span, main aside > a span, main aside > nav.tocNavLinks > a span, header > nav.navigationBar > a:hover span, header > nav.navigationBar > a.active span, header > nav.navigationBar > nav > a:hover span, header > nav.navigationBar > nav > a.active span, footer > nav.navigationBar > a:hover span, footer > nav.navigationBar > a.active span, footer > nav.navigationBar > nav > a:hover span, footer > nav.navigationBar > nav > a.active span, header > nav.navigationBar > a span, header > nav.navigationBar > nav > a span, footer > nav.navigationBar > a span, footer > nav.navigationBar > nav > a span {
   animation-duration: 300ms;
   animation-timing-function: ease-in-out;
 }
 
-header > nav.navigationBar > nav {
+header > nav.navigationBar > nav, footer > nav.navigationBar > nav {
   justify-content: space-between;
   max-width: 568px;
   width: 100%;
 }
-header > nav.navigationBar > a span:after, header > nav.navigationBar > nav > a span:after {
+header > nav.navigationBar > a span:after, header > nav.navigationBar > nav > a span:after, footer > nav.navigationBar > a span:after, footer > nav.navigationBar > nav > a span:after {
   background-color: hsl(0, 0%, 50%);
 }
 @media only screen and (min-width: 1024px) {
-  header > nav.navigationBar > a, header > nav.navigationBar > nav > a {
+  header > nav.navigationBar > a, header > nav.navigationBar > nav > a, footer > nav.navigationBar > a, footer > nav.navigationBar > nav > a {
     padding: 0 16px 0 16px;
   }
 }
-header > nav.navigationBar > a > a, header > nav.navigationBar > nav > a > a {
+header > nav.navigationBar > a > a, header > nav.navigationBar > nav > a > a, footer > nav.navigationBar > a > a, footer > nav.navigationBar > nav > a > a {
   color: hsl(0, 0%, 30%);
   max-width: 142px;
   width: 100%;
   max-height: 42px;
 }
 @media only screen and (max-width: 1024px) {
-  header > nav.navigationBar > a > a, header > nav.navigationBar > nav > a > a {
+  header > nav.navigationBar > a > a, header > nav.navigationBar > nav > a > a, footer > nav.navigationBar > a > a, footer > nav.navigationBar > nav > a > a {
     display: none !important;
   }
 }
 @media only screen and (min-width: 1024px) {
-  header > nav.navigationBar > a > a, header > nav.navigationBar > nav > a > a {
+  header > nav.navigationBar > a > a, header > nav.navigationBar > nav > a > a, footer > nav.navigationBar > a > a, footer > nav.navigationBar > nav > a > a {
     display: inherit;
   }
 }
-header > nav.navigationBar > a > a#waynephung, header > nav.navigationBar > nav > a > a#waynephung {
+header > nav.navigationBar > a > a#waynephung, header > nav.navigationBar > nav > a > a#waynephung, footer > nav.navigationBar > a > a#waynephung, footer > nav.navigationBar > nav > a > a#waynephung {
   max-width: 142px;
   width: 100%;
   max-height: 42px;
 }
-header > nav.navigationBar > nav > a {
+header > nav.navigationBar > nav > a, footer > nav.navigationBar > nav > a {
   max-height: 42px;
   color: hsl(0, 0%, 30%);
 }
 @media only screen and (max-width: 200px) {
-  header > nav.navigationBar > nav > a {
+  header > nav.navigationBar > nav > a, footer > nav.navigationBar > nav > a {
     padding: 8px 8px 8px 8px;
   }
 }
 @media only screen and (min-width: 200px) {
-  header > nav.navigationBar > nav > a {
+  header > nav.navigationBar > nav > a, footer > nav.navigationBar > nav > a {
     padding: 8px 16px 8px 16px;
   }
 }
 @media only screen and (max-width: 275px) {
-  header > nav.navigationBar > nav > a {
+  header > nav.navigationBar > nav > a, footer > nav.navigationBar > nav > a {
     width: calc(100% - 16px);
   }
 }
 @media only screen and (min-width: 275px) and (max-width: 375px) {
-  header > nav.navigationBar > nav > a {
+  header > nav.navigationBar > nav > a, footer > nav.navigationBar > nav > a {
     width: 50%;
   }
 }
 @media only screen and (max-width: 375px) {
-  header > nav.navigationBar > nav > a {
+  header > nav.navigationBar > nav > a, footer > nav.navigationBar > nav > a {
     min-height: 44px;
     padding: 0;
   }
 }
 @media only screen and (min-width: 750px) and (max-width: 1024px) {
-  header > nav.navigationBar > nav > a:first-of-type {
+  header > nav.navigationBar > nav > a:first-of-type, footer > nav.navigationBar > nav > a:first-of-type {
     padding-left: 0;
   }
 }
-header > nav.navigationBar > nav > a > span {
+header > nav.navigationBar > nav > a > span, footer > nav.navigationBar > nav > a > span {
   width: 100%;
   max-height: 42px;
 }
-header > nav.navigationBar > .contactButtons > button > a {
+header > nav.navigationBar > .contactButtons > button > a, footer > nav.navigationBar > .contactButtons > button > a {
   width: 100%;
   max-height: 32px;
 }
-header > nav.navigationBar > .contactButtons > button > a > span {
+header > nav.navigationBar > .contactButtons > button > a > span, footer > nav.navigationBar > .contactButtons > button > a > span {
   max-height: 42px;
 }
 

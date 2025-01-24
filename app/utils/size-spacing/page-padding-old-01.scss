@@ -6,7 +6,8 @@
 nav.navigationBar, 
 main > section, 
 // main > section:not(.title, .title-error, .work-previews) > article:not(.h2-wrapper, section.bodyContent > article#other-case-studies), 
-main > section > h2.sticky {
+main > section > h2.sticky, 
+footer {
     @include s-w.mediaQuery-maxOnly(750) {
         padding-left: map-get(n-s-s.$size-space, "m");
         padding-right: map-get(n-s-s.$size-space, "m");
@@ -71,24 +72,24 @@ main {
     } 
 }
 
-// footer {
-    // @include s-w.mediaQuery-maxOnly(v-g.$bp-mb-s) {
-    //     padding-bottom: map-get(n-s-s.$size-space, "5xl");
-    // }
-    // @include s-w.mediaQuery-minMax(v-g.$bp-mb-s, 750) {
-    //     padding-bottom: map-get(n-s-s.$size-space, "3xl");
-    // }
-    // @include s-w.mediaQuery-maxOnly(750) {
-    //     // padding: map-get(n-s-s.$size-space, "m") map-get(n-s-s.$size-space, "m");
-    //     padding-top: map-get(n-s-s.$size-space, "xl");
-    //     padding-right: map-get(n-s-s.$size-space, "m");
-    //     padding-left: map-get(n-s-s.$size-space, "m");
-    //     max-width: calc(100% - map-get(n-s-s.$size-space, "xl"));
-    // }
-    // @include s-w.mediaQuery-minOnly(750) {
-    //     padding: map-get(n-s-s.$size-space, "3xl") map-get(n-s-s.$size-space, "xl");
-    //     max-width: calc(100% - map-get(n-s-s.$size-space, "3xl"));
-    // }
-// }
+footer {
+    @include s-w.mediaQuery-maxOnly(v-g.$bp-mb-s) {
+        padding-bottom: map-get(n-s-s.$size-space, "5xl");
+    }
+    @include s-w.mediaQuery-minMax(v-g.$bp-mb-s, 750) {
+        padding-bottom: map-get(n-s-s.$size-space, "3xl");
+    }
+    @include s-w.mediaQuery-maxOnly(750) {
+        // padding: map-get(n-s-s.$size-space, "m") map-get(n-s-s.$size-space, "m");
+        padding-top: map-get(n-s-s.$size-space, "xl");
+        padding-right: map-get(n-s-s.$size-space, "m");
+        padding-left: map-get(n-s-s.$size-space, "m");
+        max-width: calc(100% - map-get(n-s-s.$size-space, "xl"));
+    }
+    @include s-w.mediaQuery-minOnly(750) {
+        padding: map-get(n-s-s.$size-space, "3xl") map-get(n-s-s.$size-space, "xl");
+        max-width: calc(100% - map-get(n-s-s.$size-space, "3xl"));
+    }
+}
 
 

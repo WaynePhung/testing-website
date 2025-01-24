@@ -74,7 +74,7 @@ export default function TextTag({ tag, fontOverride, children, className, id, de
     setIsMounted(true);
     const timer = setTimeout(() => {
       setIsMounted(false);
-    }, 5500); // Adjust this value to match your fade-in animation duration
+    }, indefinite + 500); // Adjust this value to match your fade-in animation duration
 
     return () => clearTimeout(timer);
   }, []);

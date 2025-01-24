@@ -58,7 +58,7 @@ footer, header, footer article#endNavLinks > nav > a {
         - row flex direction, wrapping, center starting point
           and alignment of children elements and text
 */
-footer article#endMessage > .contactButtons, header > nav.navigationBar, header > nav.navigationBar > nav, header > nav.navigationBar > .contactButtons, button.button-primary-loaded, button.button-primary-placeholder, button.button-secondary-loaded, button.button-secondary-placeholder, header > nav.navigationBar > a, header > nav.navigationBar > nav > a, header > nav.navigationBar > .contactButtons > button > a, main button > a, main aside > a, main aside > nav.tocNavLinks > a, footer article#endMessage > .contactButtons > button > a, button.button-primary-loaded a picture, button.button-primary-placeholder a picture, button.button-secondary-loaded a picture, button.button-secondary-placeholder a picture {
+footer > nav.navigationBar, footer > nav.navigationBar > nav, footer > nav.navigationBar > .contactButtons, footer article#endMessage > .contactButtons, header > nav.navigationBar, header > nav.navigationBar > nav, header > nav.navigationBar > .contactButtons, button.button-primary-loaded, button.button-primary-placeholder, button.button-secondary-loaded, button.button-secondary-placeholder, header > nav.navigationBar > a, header > nav.navigationBar > nav > a, header > nav.navigationBar > .contactButtons > button > a, main button > a, main aside > a, main aside > nav.tocNavLinks > a, footer article#endMessage > .contactButtons > button > a, button.button-primary-loaded a picture, button.button-primary-placeholder a picture, button.button-secondary-loaded a picture, button.button-secondary-placeholder a picture {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -123,8 +123,8 @@ button.button-primary-loaded a picture, button.button-primary-placeholder a pict
 }
 @media only screen and (min-width: 1920px) {
   button.button-primary-loaded a picture, button.button-primary-placeholder a picture, button.button-secondary-loaded a picture, button.button-secondary-placeholder a picture {
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
   }
 }
 button.button-primary-loaded a picture img, button.button-primary-placeholder a picture img, button.button-secondary-loaded a picture img, button.button-secondary-placeholder a picture img {
@@ -403,13 +403,15 @@ header > nav.navigationBar > nav > a {
   }
 }
 header > nav.navigationBar > nav > a > span {
-  max-width: 100px;
   width: 100%;
   max-height: 42px;
 }
 header > nav.navigationBar > .contactButtons > button > a {
   width: 100%;
   max-height: 32px;
+}
+header > nav.navigationBar > .contactButtons > button > a > span {
+  max-height: 42px;
 }
 
 main aside > a, main aside > nav.tocNavLinks > a {
@@ -444,6 +446,11 @@ figure > a {
   width: 100%;
   height: auto;
 }
+aside a > figure {
+  width: 32px;
+  height: 32px;
+}
+
 button.button-secondary-placeholder, button.button-primary-placeholder, button.button-secondary-loaded, button.button-primary-loaded {
   gap: 16px 16px;
   position: relative;
@@ -580,7 +587,7 @@ button.button-primary-loaded:before, button.button-primary-loaded:after {
   background-color: hsl(215, 60%, 44%);
 }
 button.button-primary-loaded:after {
-  border-radius: 4px;
+  border-radius: 8px;
 }
 button.button-primary-loaded:hover {
   background-image: linear-gradient(to right bottom, hsla(215, 60%, 44%, 0.65), hsl(215, 60%, 44%));
@@ -597,7 +604,7 @@ button.button-secondary-loaded:before, button.button-secondary-loaded:after {
   background-color: hsl(0, 0%, 90%);
 }
 button.button-secondary-loaded:after {
-  border-radius: 4px;
+  border-radius: 8px;
 }
 button.button-secondary-loaded:hover {
   background-image: transparent;
@@ -610,19 +617,14 @@ button.button-secondary-placeholder {
   border-color: hsl(0, 0%, 70%);
 }
 
-@media only screen and (max-width: 350px) {
+@media only screen and (max-width: 1024px) {
   header > nav.navigationBar > button#contactButton {
     display: inherit;
   }
 }
-@media only screen and (min-width: 350px) {
+@media only screen and (min-width: 1024px) {
   header > nav.navigationBar > button#contactButton {
     display: none !important;
-  }
-}
-@media only screen and (min-width: 1024px) {
-  header > nav.navigationBar > button {
-    display: none;
   }
 }
 
@@ -646,6 +648,18 @@ button.button-secondary-placeholder {
   footer > article#endMessage > .contactButtons > button {
     width: 75%;
   }
+}
+
+button a > figure {
+  width: 24px;
+  height: 24px;
+}
+
+button.linkedIn {
+  width: 160px;
+}
+button.email {
+  width: 135px;
 }
 
 header {
@@ -794,7 +808,7 @@ header > .progressContainer > .progressBar {
 /*
     Placeholder selector for the default properties of the grid.
 */
-footer article#endNavLinks > nav, main > section.title:not(#home-title), .grid-case-study-preview, .grid-default-2c-equalWidth-1400 {
+footer article#endNavLinks > nav, main > section.title:not(#home-title), .grid-case-study-preview, .grid-default-3c-equalWidth-1400, .grid-default-2c-equalWidth-1400 {
   display: grid;
   /*
       Any grid item that has the ".columnSpan-all" class name or not 
@@ -803,11 +817,11 @@ footer article#endNavLinks > nav, main > section.title:not(#home-title), .grid-c
   */
 }
 @media only screen and (min-width: 1024px) {
-  footer article#endNavLinks > nav, main > section.title:not(#home-title), .grid-case-study-preview, .grid-default-2c-equalWidth-1400 {
+  footer article#endNavLinks > nav, main > section.title:not(#home-title), .grid-case-study-preview, .grid-default-3c-equalWidth-1400, .grid-default-2c-equalWidth-1400 {
     justify-items: flex-start;
   }
 }
-footer article#endNavLinks > nav .columnSpan-all, main > section.title:not(#home-title) .columnSpan-all, .grid-case-study-preview .columnSpan-all, .grid-default-2c-equalWidth-1400 .columnSpan-all {
+footer article#endNavLinks > nav .columnSpan-all, main > section.title:not(#home-title) .columnSpan-all, .grid-case-study-preview .columnSpan-all, .grid-default-3c-equalWidth-1400 .columnSpan-all, .grid-default-2c-equalWidth-1400 .columnSpan-all {
   grid-column: 1/-1;
 }
 
@@ -842,6 +856,20 @@ footer article#endNavLinks > nav .columnSpan-all, main > section.title:not(#home
 }
 @media only screen and (max-width: 1400px) {
   .grid-default-2c-equalWidth-1400 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid-default-3c-equalWidth-1400 {
+  gap: 64px 32px;
+}
+@media only screen and (min-width: 1024px) {
+  .grid-default-3c-equalWidth-1400 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media only screen and (max-width: 1400px) {
+  .grid-default-3c-equalWidth-1400 {
     grid-template-columns: 1fr;
   }
 }
@@ -976,19 +1004,19 @@ h4 {
   }
 }
 
-p, a, ol, ul, ol > li, ul > li {
+input[type=text], textarea[id=message], p, a, ol, ul, ol > li, ul > li {
   font-weight: 400;
   color: hsl(0, 0%, 30%);
 }
 @media only screen and (max-width: 1024px) {
-  p, a, ol, ul, ol > li, ul > li {
+  input[type=text], textarea[id=message], p, a, ol, ul, ol > li, ul > li {
     font-size: 18px;
     line-height: 1.6;
     padding-bottom: 6.3px;
   }
 }
 @media only screen and (min-width: 1024px) {
-  p, a, ol, ul, ol > li, ul > li {
+  input[type=text], textarea[id=message], p, a, ol, ul, ol > li, ul > li {
     font-size: 20px;
     line-height: 1.6;
     padding-bottom: 7px;
@@ -1052,13 +1080,123 @@ h1, h2, h3, h4, p, ol, ol > li, ul, ul > li, figcaption {
   margin: 0;
 }
 
+aside.loading-page > h1 {
+  height: auto;
+}
+
 footer > #endNavLinks h4 {
   padding-bottom: 0;
 }
 
+input[type=text], textarea[id=message] {
+  padding: 4px 8px;
+  border: 1px solid hsl(0, 0%, 70%);
+  border-radius: 8px;
+}
+
 footer {
   background-color: hsl(185, 90%, 86%);
-  gap: 32px 64px;
+}
+footer > nav.navigationBar {
+  position: relative;
+  justify-content: space-between;
+  order: 0;
+  height: 100%;
+}
+@media only screen and (min-width: 250px) {
+  footer > nav.navigationBar {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 725px) {
+  footer > nav.navigationBar {
+    justify-content: center;
+  }
+}
+@media only screen and (min-width: 725px) and (max-width: 1024px) {
+  footer > nav.navigationBar {
+    justify-content: space-between;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  footer > nav.navigationBar {
+    order: 2;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  footer > nav.navigationBar > a:first-of-type {
+    padding-left: 0;
+  }
+}
+@media only screen and (max-width: 375px) {
+  footer > nav.navigationBar > nav {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 375px) and (max-width: 715px) {
+  footer > nav.navigationBar > nav {
+    justify-content: space-between;
+    min-width: 350px;
+  }
+  footer > nav.navigationBar > nav > a:first-of-type {
+    padding-left: 0;
+  }
+  footer > nav.navigationBar > nav > a:last-of-type {
+    padding-right: 0;
+  }
+}
+@media only screen and (max-width: 715px) {
+  footer > nav.navigationBar > nav {
+    padding: 0 0 8px 0;
+  }
+}
+@media only screen and (min-width: 715px) and (max-width: 1024px) {
+  footer > nav.navigationBar > nav {
+    padding: 0 16px 0 0;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  footer > nav.navigationBar > nav {
+    padding: 0;
+  }
+}
+footer > nav.navigationBar > .contactButtons {
+  justify-content: flex-start;
+  gap: 8px 16px;
+}
+@media only screen and (max-width: 350px) {
+  footer > nav.navigationBar > .contactButtons {
+    display: none !important;
+  }
+}
+@media only screen and (min-width: 350px) {
+  footer > nav.navigationBar > .contactButtons {
+    display: inherit;
+  }
+}
+@media only screen and (max-width: 715px) {
+  footer > nav.navigationBar > .contactButtons {
+    justify-content: space-between;
+  }
+  footer > nav.navigationBar > .contactButtons > button {
+    width: calc(50% - 12px);
+  }
+}
+footer > .progressContainer {
+  left: 0;
+  max-width: 100%;
+  width: 100%;
+  height: 4px;
+  scroll-padding: 0;
+}
+footer > .progressContainer > .progressBar {
+  width: 0%;
+  height: 4px;
+  background-image: linear-gradient(to right, hsla(0, 0%, 90%, 0.9), hsla(215, 60%, 44%, 0.65));
+  color: hsl(0, 0%, 30%);
+  border-radius: 2px;
+  scroll-padding: 0;
+  transition: 0s ease-in-out;
 }
 footer article#endMessage {
   max-width: 750px;

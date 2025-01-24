@@ -40,9 +40,9 @@ export default function ContactForm({ onSubmitAction }: { onSubmitAction: (formD
 
     return (
         <section className="form-container">
-          <article>
-            <H2Tag>Contact Me</H2Tag>
-            <article>
+          {/* <article> */}
+            <H2Tag className="width100 height-auto">Contact Me</H2Tag>
+            {/* <article>
               <PTag className="width100">You can select one of these buttons to start a conversation in the platform of your choice:</PTag>
               <div className="contactButtons">
                 <ButtonComponent 
@@ -65,8 +65,30 @@ export default function ContactForm({ onSubmitAction }: { onSubmitAction: (formD
                 />
               </div>
               <PTag className="width100">Or you can fill out this contact form. All fields below are required to be filled in.</PTag>
+            </article> */}
+          {/* </article> */}
+            <article className="paddingB-16">
+              <PTag className="width100">Buttons to contact: </PTag>
+              <ButtonComponent 
+                    group="link-global"
+                    alias="linkedIn" 
+                    anchorLink={false}
+                    icon={true} 
+                    imagePosition="before" 
+                    showBuffer={false}
+                    buttonType="primary" 
+                />
+                <ButtonComponent 
+                    group="link-global"
+                    alias="email" 
+                    anchorLink={false}
+                    icon={true} 
+                    imagePosition="before" 
+                    showBuffer={false}
+                    buttonType="primary" 
+                />
+              <PTag className="width100">All fields below this contact form are required to be filled in.</PTag>
             </article>
-          </article>
           <form>
             <TextField
               label="First Name"

@@ -1,11 +1,11 @@
 @use "./ui/buttons/buttons";
+@use "./ui/header/header";
 @use "./ui/footer/footer";
 @use "./ui/media/media";
-@use "./ui/header/header";
 @use "./utils/sticky-h2/sticky-h2";
 @use "./utils/mixins-other/aspect-ratios";
 // @use "./utils/mixins-other/screen-widths" as s-w;
-// @use "./utils/size-spacing/nums-size-space" as n-s-s;
+@use "./utils/size-spacing/nums-size-space" as n-s-s;
 @use "./utils/size-spacing/page-padding";
 @use "./utils/text-styling/text-styling";
 @use "./utils/variables/variables-global";
@@ -29,4 +29,20 @@ body {
 
 .width100 {
     width: 100%;
+}
+
+.lineHeight-1 {
+    line-height: 1;
+}
+
+.paddingB-0 {
+    padding-bottom: 0;
+}
+
+.paddingB-16 {
+    padding-bottom: map-get(n-s-s.$size-space, "m");
+}
+
+.height-auto {
+    height: auto;
 }
