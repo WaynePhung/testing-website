@@ -47,7 +47,10 @@ export default function ImageCarousel({ images, displayTime, delayTime, resetTim
 
   // Main effect for managing the image carousel
   useEffect(() => {
-    if (imageOrder.length === 0) return;
+    if (imageOrder.length === 0) {
+      setImageOrder(shuffleImages());
+      return;
+    }
 
     const transitionCycle = () => {
       setImageState('exit');
@@ -77,10 +80,16 @@ export default function ImageCarousel({ images, displayTime, delayTime, resetTim
     const interval = setInterval(transitionCycle, displayTime + delayTime);
 
     return () => clearInterval(interval);
-  }, [currentIndex, displayTime, delayTime, resetTime, imageOrder, getNextImageOrder]);
+  }, [currentIndex, displayTime, delayTime, resetTime, imageOrder, getNextImageOrder, shuffleImages]);
 
-  // Render nothing if image order is not yet set
-  if (imageOrder.length === 0) return null;
+  // Render a placeholder if image order is not yet set
+  if (imageOrder.length === 0) {
+    return (
+      <div className="carousel-container">
+        <div className="carousel-placeholder">Loading...</div>
+      </div>
+    );
+  }
 
   // Get the current image based on the current index in the image order
   const currentImage = images[imageOrder[currentIndex]];

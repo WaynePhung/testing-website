@@ -123,8 +123,8 @@ button.button-primary-loaded a picture, button.button-primary-placeholder a pict
 }
 @media only screen and (min-width: 1920px) {
   button.button-primary-loaded a picture, button.button-primary-placeholder a picture, button.button-secondary-loaded a picture, button.button-secondary-placeholder a picture {
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
   }
 }
 button.button-primary-loaded a picture img, button.button-primary-placeholder a picture img, button.button-secondary-loaded a picture img, button.button-secondary-placeholder a picture img {
@@ -403,13 +403,15 @@ header > nav.navigationBar > nav > a {
   }
 }
 header > nav.navigationBar > nav > a > span {
-  max-width: 100px;
   width: 100%;
   max-height: 42px;
 }
 header > nav.navigationBar > .contactButtons > button > a {
   width: 100%;
   max-height: 32px;
+}
+header > nav.navigationBar > .contactButtons > button > a > span {
+  max-height: 42px;
 }
 
 main aside > a, main aside > nav.tocNavLinks > a {
@@ -585,7 +587,7 @@ button.button-primary-loaded:before, button.button-primary-loaded:after {
   background-color: hsl(215, 60%, 44%);
 }
 button.button-primary-loaded:after {
-  border-radius: 4px;
+  border-radius: 8px;
 }
 button.button-primary-loaded:hover {
   background-image: linear-gradient(to right bottom, hsla(215, 60%, 44%, 0.65), hsl(215, 60%, 44%));
@@ -602,7 +604,7 @@ button.button-secondary-loaded:before, button.button-secondary-loaded:after {
   background-color: hsl(0, 0%, 90%);
 }
 button.button-secondary-loaded:after {
-  border-radius: 4px;
+  border-radius: 8px;
 }
 button.button-secondary-loaded:hover {
   background-image: transparent;
@@ -615,19 +617,14 @@ button.button-secondary-placeholder {
   border-color: hsl(0, 0%, 70%);
 }
 
-@media only screen and (max-width: 350px) {
+@media only screen and (max-width: 1024px) {
   header > nav.navigationBar > button#contactButton {
     display: inherit;
   }
 }
-@media only screen and (min-width: 350px) {
+@media only screen and (min-width: 1024px) {
   header > nav.navigationBar > button#contactButton {
     display: none !important;
-  }
-}
-@media only screen and (min-width: 1024px) {
-  header > nav.navigationBar > button {
-    display: none;
   }
 }
 
@@ -654,6 +651,13 @@ button.button-secondary-placeholder {
 }
 
 button a > figure {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
+}
+
+button.linkedIn {
+  width: 160px;
+}
+button.email {
+  width: 135px;
 }

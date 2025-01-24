@@ -59,6 +59,7 @@
 %flex-column-nowrap-center {
     @include displayFlex(column, nowrap, center, center, center);
 }
+
 /*
         - row flex direction, wrapping, top-left starting point 
           and alignment of children elements and text
@@ -66,6 +67,11 @@
 %flex-row-wrap-default {
     @include displayFlex(row, wrap, flex-start, flex-start, flex-start);
 }
+
+%flex-row-wrap-sb {
+    @include displayFlex(row, wrap, flex-start, flex-start, space-between);
+}
+
 /*
         - same as previous, except no wrapping of children elements
 */

@@ -61,7 +61,7 @@ figure {
         - row flex direction, wrapping, top-left starting point 
           and alignment of children elements and text
 */
-main section, main section#design-work > article, main section#media-work > article, main section#about-me > article, main section#design-work > article[class*=grid-default] > article, main section#media-work > article[class*=grid-default] > article, main section#about-me > article[class*=grid-default] > article, main section#design-work > article > article.grid-case-study-preview > article, main section#media-work > article > article.grid-case-study-preview > article, main section#about-me > article > article.grid-case-study-preview > article, article#other-case-studies > article.grid-case-study-preview > article, main > section.bodyContent, main > section.bodyContent > section[class*=content], main > section.bodyContent > section[class*=content].content-loc, main > section.bodyContent > section[class*=content].content-loc > article, main > section.bodyContent > aside > nav.tocNavLinks, main > section.bodyContent article#other-case-studies, footer, header, footer article#endNavLinks > nav > a {
+section.form-container, section.form-container > article, section.form-container > form > article.text-field, section.form-container > form > article.expandable-text-field, main section, main section#design-work > article, main section#media-work > article, main section#about-me > article, main section#design-work > article[class*=grid-default] > article, main section#media-work > article[class*=grid-default] > article, main section#about-me > article[class*=grid-default] > article, main section#design-work > article > article.grid-case-study-preview > article, main section#media-work > article > article.grid-case-study-preview > article, main section#about-me > article > article.grid-case-study-preview > article, article#other-case-studies > article.grid-case-study-preview > article, main > section.bodyContent, main > section.bodyContent > section[class*=content], main > section.bodyContent > section[class*=content].content-loc, main > section.bodyContent > section[class*=content].content-loc > article, main > section.bodyContent > aside > nav.tocNavLinks, main > section.bodyContent article#other-case-studies, footer, header, footer article#endNavLinks > nav > a {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -71,6 +71,16 @@ main section, main section#design-work > article, main section#media-work > arti
   justify-content: flex-start;
 }
 
+section.form-container > form {
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: space-between;
+}
+
 /*
         - same as previous, except no wrapping of children elements
 */
@@ -78,7 +88,7 @@ main section, main section#design-work > article, main section#media-work > arti
         - row flex direction, wrapping, center starting point
           and alignment of children elements and text
 */
-.placeholder.span, .placeholder.span .placeholder-line-span, .placeholder.figcaption, .placeholder.figcaption .placeholder-line-figcaption, .buffer-visual, figure picture, figure picture > img, footer article#endMessage > .contactButtons, header > nav.navigationBar, header > nav.navigationBar > nav, header > nav.navigationBar > .contactButtons, button.button-primary-loaded, button.button-primary-placeholder, button.button-secondary-loaded, button.button-secondary-placeholder, header > nav.navigationBar > a, header > nav.navigationBar > nav > a, header > nav.navigationBar > .contactButtons > button > a, main button > a, main aside > a, main aside > nav.tocNavLinks > a, footer article#endMessage > .contactButtons > button > a, button.button-primary-loaded a picture, button.button-primary-placeholder a picture, button.button-secondary-loaded a picture, button.button-secondary-placeholder a picture {
+.placeholder.span, .placeholder.span > .placeholder-line-span, .placeholder.figcaption, .placeholder.figcaption .placeholder-line-figcaption, main > section#contact .contactButtons, .buffer-visual, figure picture, figure picture > img, footer article#endMessage > .contactButtons, header > nav.navigationBar, header > nav.navigationBar > nav, header > nav.navigationBar > .contactButtons, button.button-primary-loaded, button.button-primary-placeholder, button.button-secondary-loaded, button.button-secondary-placeholder, header > nav.navigationBar > a, header > nav.navigationBar > nav > a, header > nav.navigationBar > .contactButtons > button > a, main button > a, main aside > a, main aside > nav.tocNavLinks > a, footer article#endMessage > .contactButtons > button > a, button.button-primary-loaded a picture, button.button-primary-placeholder a picture, button.button-secondary-loaded a picture, button.button-secondary-placeholder a picture {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -143,8 +153,8 @@ button.button-primary-loaded a picture, button.button-primary-placeholder a pict
 }
 @media only screen and (min-width: 1920px) {
   button.button-primary-loaded a picture, button.button-primary-placeholder a picture, button.button-secondary-loaded a picture, button.button-secondary-placeholder a picture {
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
   }
 }
 button.button-primary-loaded a picture img, button.button-primary-placeholder a picture img, button.button-secondary-loaded a picture img, button.button-secondary-placeholder a picture img {
@@ -423,13 +433,15 @@ header > nav.navigationBar > nav > a {
   }
 }
 header > nav.navigationBar > nav > a > span {
-  max-width: 100px;
   width: 100%;
   max-height: 42px;
 }
 header > nav.navigationBar > .contactButtons > button > a {
   width: 100%;
   max-height: 32px;
+}
+header > nav.navigationBar > .contactButtons > button > a > span {
+  max-height: 42px;
 }
 
 main aside > a, main aside > nav.tocNavLinks > a {
@@ -605,7 +617,7 @@ button.button-primary-loaded:before, button.button-primary-loaded:after {
   background-color: hsl(215, 60%, 44%);
 }
 button.button-primary-loaded:after {
-  border-radius: 4px;
+  border-radius: 8px;
 }
 button.button-primary-loaded:hover {
   background-image: linear-gradient(to right bottom, hsla(215, 60%, 44%, 0.65), hsl(215, 60%, 44%));
@@ -622,7 +634,7 @@ button.button-secondary-loaded:before, button.button-secondary-loaded:after {
   background-color: hsl(0, 0%, 90%);
 }
 button.button-secondary-loaded:after {
-  border-radius: 4px;
+  border-radius: 8px;
 }
 button.button-secondary-loaded:hover {
   background-image: transparent;
@@ -635,19 +647,14 @@ button.button-secondary-placeholder {
   border-color: hsl(0, 0%, 70%);
 }
 
-@media only screen and (max-width: 350px) {
+@media only screen and (max-width: 1024px) {
   header > nav.navigationBar > button#contactButton {
     display: inherit;
   }
 }
-@media only screen and (min-width: 350px) {
+@media only screen and (min-width: 1024px) {
   header > nav.navigationBar > button#contactButton {
     display: none !important;
-  }
-}
-@media only screen and (min-width: 1024px) {
-  header > nav.navigationBar > button {
-    display: none;
   }
 }
 
@@ -674,8 +681,15 @@ button.button-secondary-placeholder {
 }
 
 button a > figure {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
+}
+
+button.linkedIn {
+  width: 160px;
+}
+button.email {
+  width: 135px;
 }
 
 header {
@@ -824,7 +838,7 @@ header > .progressContainer > .progressBar {
 /*
     Placeholder selector for the default properties of the grid.
 */
-footer article#endNavLinks > nav, main > section.title:not(#home-title), .grid-case-study-preview, .grid-default-2c-equalWidth-1400 {
+footer article#endNavLinks > nav, main > section.title:not(#home-title), .grid-case-study-preview, .grid-default-3c-equalWidth-1400, .grid-default-2c-equalWidth-1400 {
   display: grid;
   /*
       Any grid item that has the ".columnSpan-all" class name or not 
@@ -833,11 +847,11 @@ footer article#endNavLinks > nav, main > section.title:not(#home-title), .grid-c
   */
 }
 @media only screen and (min-width: 1024px) {
-  footer article#endNavLinks > nav, main > section.title:not(#home-title), .grid-case-study-preview, .grid-default-2c-equalWidth-1400 {
+  footer article#endNavLinks > nav, main > section.title:not(#home-title), .grid-case-study-preview, .grid-default-3c-equalWidth-1400, .grid-default-2c-equalWidth-1400 {
     justify-items: flex-start;
   }
 }
-footer article#endNavLinks > nav .columnSpan-all, main > section.title:not(#home-title) .columnSpan-all, .grid-case-study-preview .columnSpan-all, .grid-default-2c-equalWidth-1400 .columnSpan-all {
+footer article#endNavLinks > nav .columnSpan-all, main > section.title:not(#home-title) .columnSpan-all, .grid-case-study-preview .columnSpan-all, .grid-default-3c-equalWidth-1400 .columnSpan-all, .grid-default-2c-equalWidth-1400 .columnSpan-all {
   grid-column: 1/-1;
 }
 
@@ -872,6 +886,20 @@ footer article#endNavLinks > nav .columnSpan-all, main > section.title:not(#home
 }
 @media only screen and (max-width: 1400px) {
   .grid-default-2c-equalWidth-1400 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid-default-3c-equalWidth-1400 {
+  gap: 64px 32px;
+}
+@media only screen and (min-width: 1024px) {
+  .grid-default-3c-equalWidth-1400 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media only screen and (max-width: 1400px) {
+  .grid-default-3c-equalWidth-1400 {
     grid-template-columns: 1fr;
   }
 }
@@ -1006,19 +1034,19 @@ h4 {
   }
 }
 
-p, a, ol, ul, ol > li, ul > li {
+input[type=text], textarea[id=message], p, a, ol, ul, ol > li, ul > li {
   font-weight: 400;
   color: hsl(0, 0%, 30%);
 }
 @media only screen and (max-width: 1024px) {
-  p, a, ol, ul, ol > li, ul > li {
+  input[type=text], textarea[id=message], p, a, ol, ul, ol > li, ul > li {
     font-size: 18px;
     line-height: 1.6;
     padding-bottom: 6.3px;
   }
 }
 @media only screen and (min-width: 1024px) {
-  p, a, ol, ul, ol > li, ul > li {
+  input[type=text], textarea[id=message], p, a, ol, ul, ol > li, ul > li {
     font-size: 20px;
     line-height: 1.6;
     padding-bottom: 7px;
@@ -1082,8 +1110,18 @@ h1, h2, h3, h4, p, ol, ol > li, ul, ul > li, figcaption {
   margin: 0;
 }
 
+aside.loading-page > h1 {
+  height: auto;
+}
+
 footer > #endNavLinks h4 {
   padding-bottom: 0;
+}
+
+input[type=text], textarea[id=message] {
+  padding: 4px 8px;
+  border: 1px solid hsl(0, 0%, 70%);
+  border-radius: 8px;
 }
 
 footer {
@@ -1819,6 +1857,11 @@ main > section.bodyContent > aside > nav.tocNavLinks > * {
     display: none !important;
   }
 }
+main > section#contact .contactButtons {
+  justify-content: flex-start;
+  gap: 8px 16px;
+  padding-bottom: 24px;
+}
 
 @keyframes pulse {
   0% {
@@ -1847,7 +1890,7 @@ main > section.bodyContent > aside > nav.tocNavLinks > * {
   display: none;
 }
 
-.placeholder .placeholder-line, .placeholder.h4 .placeholder-line-h4, .placeholder.h3 .placeholder-line-h3, .placeholder.h2 .placeholder-line-h2, .placeholder.h1 .placeholder-line-h1, .placeholder.figcaption .placeholder-line-figcaption, .placeholder.span .placeholder-line-span, .placeholder.subtitle .placeholder-line-subtitle, .placeholder.p .placeholder-line-p {
+.placeholder .placeholder-line, .placeholder.h4 .placeholder-line-h4, .placeholder.h3 .placeholder-line-h3, .placeholder.h2 .placeholder-line-h2, .placeholder.h1 .placeholder-line-h1, .placeholder.figcaption .placeholder-line-figcaption, .placeholder.span > .placeholder-line-span, .placeholder.subtitle .placeholder-line-subtitle, .placeholder.p .placeholder-line-p {
   border-radius: 8px;
 }
 .placeholder.p {
@@ -1891,7 +1934,7 @@ main > section.bodyContent > aside > nav.tocNavLinks > * {
   }
 }
 .placeholder.span {
-  width: 96px;
+  width: 64px;
 }
 @media only screen and (max-width: 1024px) {
   .placeholder.span > .placeholder-line-span {
@@ -1911,8 +1954,8 @@ main > section.bodyContent > aside > nav.tocNavLinks > * {
     animation: pulse 1.5s infinite;
   }
 }
-.placeholder.span .placeholder-line-span {
-  width: 100%;
+.placeholder.span > .placeholder-line-span {
+  width: 100px;
 }
 .placeholder.figcaption {
   max-width: 100%;
@@ -2011,71 +2054,81 @@ main > section.bodyContent > aside > nav.tocNavLinks > * {
     animation: pulse 1.5s infinite;
   }
 }
-.placeholder.lines-0 .placeholder-line:nth-child(n), .placeholder.lines-0 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-0 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-0 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-0 .placeholder-line-span:nth-child(n), .placeholder.lines-0 .placeholder-line-p:nth-child(n), .placeholder.lines-0 .placeholder-line-h1:nth-child(n), .placeholder.lines-0 .placeholder-line-h2:nth-child(n), .placeholder.lines-0 .placeholder-line-h3:nth-child(n), .placeholder.lines-0 .placeholder-line-h4:nth-child(n), .placeholder.lines-0 .placeholder-line-figcaption:nth-child(n) {
+.placeholder.input {
+  width: 100%;
+  height: 42px;
+  border-radius: 8px;
+}
+.placeholder.input-expandable {
+  width: 100%;
+  height: 84px;
+  border-radius: 8px;
+}
+.placeholder.lines-0 .placeholder-line:nth-child(n), .placeholder.lines-0 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-0 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-0 .placeholder.span > .placeholder-line-span:nth-child(n), .placeholder.lines-0 .placeholder-line-p:nth-child(n), .placeholder.lines-0 .placeholder-line-h1:nth-child(n), .placeholder.lines-0 .placeholder-line-h2:nth-child(n), .placeholder.lines-0 .placeholder-line-h3:nth-child(n), .placeholder.lines-0 .placeholder-line-h4:nth-child(n), .placeholder.lines-0 .placeholder-line-figcaption:nth-child(n) {
   width: 100%;
 }
-.placeholder.lines-1 .placeholder-line:nth-child(n), .placeholder.lines-1 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-1 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-1 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-1 .placeholder-line-span:nth-child(n), .placeholder.lines-1 .placeholder-line-p:nth-child(n), .placeholder.lines-1 .placeholder-line-h1:nth-child(n), .placeholder.lines-1 .placeholder-line-h2:nth-child(n), .placeholder.lines-1 .placeholder-line-h3:nth-child(n), .placeholder.lines-1 .placeholder-line-h4:nth-child(n), .placeholder.lines-1 .placeholder-line-figcaption:nth-child(n) {
+.placeholder.lines-1 .placeholder-line:nth-child(n), .placeholder.lines-1 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-1 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-1 .placeholder.span > .placeholder-line-span:nth-child(n), .placeholder.lines-1 .placeholder-line-p:nth-child(n), .placeholder.lines-1 .placeholder-line-h1:nth-child(n), .placeholder.lines-1 .placeholder-line-h2:nth-child(n), .placeholder.lines-1 .placeholder-line-h3:nth-child(n), .placeholder.lines-1 .placeholder-line-h4:nth-child(n), .placeholder.lines-1 .placeholder-line-figcaption:nth-child(n) {
   width: 100%;
 }
-.placeholder.lines-2 .placeholder-line:nth-child(n), .placeholder.lines-2 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-2 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-2 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-2 .placeholder-line-span:nth-child(n), .placeholder.lines-2 .placeholder-line-p:nth-child(n), .placeholder.lines-2 .placeholder-line-h1:nth-child(n), .placeholder.lines-2 .placeholder-line-h2:nth-child(n), .placeholder.lines-2 .placeholder-line-h3:nth-child(n), .placeholder.lines-2 .placeholder-line-h4:nth-child(n), .placeholder.lines-2 .placeholder-line-figcaption:nth-child(n) {
+.placeholder.lines-2 .placeholder-line:nth-child(n), .placeholder.lines-2 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-2 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-2 .placeholder.span > .placeholder-line-span:nth-child(n), .placeholder.lines-2 .placeholder-line-p:nth-child(n), .placeholder.lines-2 .placeholder-line-h1:nth-child(n), .placeholder.lines-2 .placeholder-line-h2:nth-child(n), .placeholder.lines-2 .placeholder-line-h3:nth-child(n), .placeholder.lines-2 .placeholder-line-h4:nth-child(n), .placeholder.lines-2 .placeholder-line-figcaption:nth-child(n) {
   width: 100%;
 }
-.placeholder.lines-3 .placeholder-line:nth-child(n), .placeholder.lines-3 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-3 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-3 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-3 .placeholder-line-span:nth-child(n), .placeholder.lines-3 .placeholder-line-p:nth-child(n), .placeholder.lines-3 .placeholder-line-h1:nth-child(n), .placeholder.lines-3 .placeholder-line-h2:nth-child(n), .placeholder.lines-3 .placeholder-line-h3:nth-child(n), .placeholder.lines-3 .placeholder-line-h4:nth-child(n), .placeholder.lines-3 .placeholder-line-figcaption:nth-child(n) {
+.placeholder.lines-3 .placeholder-line:nth-child(n), .placeholder.lines-3 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-3 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-3 .placeholder.span > .placeholder-line-span:nth-child(n), .placeholder.lines-3 .placeholder-line-p:nth-child(n), .placeholder.lines-3 .placeholder-line-h1:nth-child(n), .placeholder.lines-3 .placeholder-line-h2:nth-child(n), .placeholder.lines-3 .placeholder-line-h3:nth-child(n), .placeholder.lines-3 .placeholder-line-h4:nth-child(n), .placeholder.lines-3 .placeholder-line-figcaption:nth-child(n) {
   width: 100%;
 }
-.placeholder.lines-4 .placeholder-line:nth-child(n), .placeholder.lines-4 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-4 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-4 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-4 .placeholder-line-span:nth-child(n), .placeholder.lines-4 .placeholder-line-p:nth-child(n), .placeholder.lines-4 .placeholder-line-h1:nth-child(n), .placeholder.lines-4 .placeholder-line-h2:nth-child(n), .placeholder.lines-4 .placeholder-line-h3:nth-child(n), .placeholder.lines-4 .placeholder-line-h4:nth-child(n), .placeholder.lines-4 .placeholder-line-figcaption:nth-child(n) {
+.placeholder.lines-4 .placeholder-line:nth-child(n), .placeholder.lines-4 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-4 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-4 .placeholder.span > .placeholder-line-span:nth-child(n), .placeholder.lines-4 .placeholder-line-p:nth-child(n), .placeholder.lines-4 .placeholder-line-h1:nth-child(n), .placeholder.lines-4 .placeholder-line-h2:nth-child(n), .placeholder.lines-4 .placeholder-line-h3:nth-child(n), .placeholder.lines-4 .placeholder-line-h4:nth-child(n), .placeholder.lines-4 .placeholder-line-figcaption:nth-child(n) {
   width: 100%;
 }
-.placeholder.lines-5 .placeholder-line:nth-child(n), .placeholder.lines-5 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-5 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-5 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-5 .placeholder-line-span:nth-child(n), .placeholder.lines-5 .placeholder-line-p:nth-child(n), .placeholder.lines-5 .placeholder-line-h1:nth-child(n), .placeholder.lines-5 .placeholder-line-h2:nth-child(n), .placeholder.lines-5 .placeholder-line-h3:nth-child(n), .placeholder.lines-5 .placeholder-line-h4:nth-child(n), .placeholder.lines-5 .placeholder-line-figcaption:nth-child(n) {
+.placeholder.lines-5 .placeholder-line:nth-child(n), .placeholder.lines-5 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-5 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-5 .placeholder.span > .placeholder-line-span:nth-child(n), .placeholder.lines-5 .placeholder-line-p:nth-child(n), .placeholder.lines-5 .placeholder-line-h1:nth-child(n), .placeholder.lines-5 .placeholder-line-h2:nth-child(n), .placeholder.lines-5 .placeholder-line-h3:nth-child(n), .placeholder.lines-5 .placeholder-line-h4:nth-child(n), .placeholder.lines-5 .placeholder-line-figcaption:nth-child(n) {
   width: 100%;
 }
-.placeholder.lines-6 .placeholder-line:nth-child(n), .placeholder.lines-6 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-6 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-6 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-6 .placeholder-line-span:nth-child(n), .placeholder.lines-6 .placeholder-line-p:nth-child(n), .placeholder.lines-6 .placeholder-line-h1:nth-child(n), .placeholder.lines-6 .placeholder-line-h2:nth-child(n), .placeholder.lines-6 .placeholder-line-h3:nth-child(n), .placeholder.lines-6 .placeholder-line-h4:nth-child(n), .placeholder.lines-6 .placeholder-line-figcaption:nth-child(n) {
+.placeholder.lines-6 .placeholder-line:nth-child(n), .placeholder.lines-6 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-6 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-6 .placeholder.span > .placeholder-line-span:nth-child(n), .placeholder.lines-6 .placeholder-line-p:nth-child(n), .placeholder.lines-6 .placeholder-line-h1:nth-child(n), .placeholder.lines-6 .placeholder-line-h2:nth-child(n), .placeholder.lines-6 .placeholder-line-h3:nth-child(n), .placeholder.lines-6 .placeholder-line-h4:nth-child(n), .placeholder.lines-6 .placeholder-line-figcaption:nth-child(n) {
   width: 100%;
 }
-.placeholder.lines-7 .placeholder-line:nth-child(n), .placeholder.lines-7 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-7 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-7 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-7 .placeholder-line-span:nth-child(n), .placeholder.lines-7 .placeholder-line-p:nth-child(n), .placeholder.lines-7 .placeholder-line-h1:nth-child(n), .placeholder.lines-7 .placeholder-line-h2:nth-child(n), .placeholder.lines-7 .placeholder-line-h3:nth-child(n), .placeholder.lines-7 .placeholder-line-h4:nth-child(n), .placeholder.lines-7 .placeholder-line-figcaption:nth-child(n) {
+.placeholder.lines-7 .placeholder-line:nth-child(n), .placeholder.lines-7 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-7 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-7 .placeholder.span > .placeholder-line-span:nth-child(n), .placeholder.lines-7 .placeholder-line-p:nth-child(n), .placeholder.lines-7 .placeholder-line-h1:nth-child(n), .placeholder.lines-7 .placeholder-line-h2:nth-child(n), .placeholder.lines-7 .placeholder-line-h3:nth-child(n), .placeholder.lines-7 .placeholder-line-h4:nth-child(n), .placeholder.lines-7 .placeholder-line-figcaption:nth-child(n) {
   width: 100%;
 }
-.placeholder.lines-8 .placeholder-line:nth-child(n), .placeholder.lines-8 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-8 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-8 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-8 .placeholder-line-span:nth-child(n), .placeholder.lines-8 .placeholder-line-p:nth-child(n), .placeholder.lines-8 .placeholder-line-h1:nth-child(n), .placeholder.lines-8 .placeholder-line-h2:nth-child(n), .placeholder.lines-8 .placeholder-line-h3:nth-child(n), .placeholder.lines-8 .placeholder-line-h4:nth-child(n), .placeholder.lines-8 .placeholder-line-figcaption:nth-child(n) {
+.placeholder.lines-8 .placeholder-line:nth-child(n), .placeholder.lines-8 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-8 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-8 .placeholder.span > .placeholder-line-span:nth-child(n), .placeholder.lines-8 .placeholder-line-p:nth-child(n), .placeholder.lines-8 .placeholder-line-h1:nth-child(n), .placeholder.lines-8 .placeholder-line-h2:nth-child(n), .placeholder.lines-8 .placeholder-line-h3:nth-child(n), .placeholder.lines-8 .placeholder-line-h4:nth-child(n), .placeholder.lines-8 .placeholder-line-figcaption:nth-child(n) {
   width: 100%;
 }
-.placeholder.lines-9 .placeholder-line:nth-child(n), .placeholder.lines-9 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-9 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-9 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-9 .placeholder-line-span:nth-child(n), .placeholder.lines-9 .placeholder-line-p:nth-child(n), .placeholder.lines-9 .placeholder-line-h1:nth-child(n), .placeholder.lines-9 .placeholder-line-h2:nth-child(n), .placeholder.lines-9 .placeholder-line-h3:nth-child(n), .placeholder.lines-9 .placeholder-line-h4:nth-child(n), .placeholder.lines-9 .placeholder-line-figcaption:nth-child(n) {
+.placeholder.lines-9 .placeholder-line:nth-child(n), .placeholder.lines-9 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-9 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-9 .placeholder.span > .placeholder-line-span:nth-child(n), .placeholder.lines-9 .placeholder-line-p:nth-child(n), .placeholder.lines-9 .placeholder-line-h1:nth-child(n), .placeholder.lines-9 .placeholder-line-h2:nth-child(n), .placeholder.lines-9 .placeholder-line-h3:nth-child(n), .placeholder.lines-9 .placeholder-line-h4:nth-child(n), .placeholder.lines-9 .placeholder-line-figcaption:nth-child(n) {
   width: 100%;
 }
-.placeholder.lines-10 .placeholder-line:nth-child(n), .placeholder.lines-10 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-10 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-10 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-10 .placeholder-line-span:nth-child(n), .placeholder.lines-10 .placeholder-line-p:nth-child(n), .placeholder.lines-10 .placeholder-line-h1:nth-child(n), .placeholder.lines-10 .placeholder-line-h2:nth-child(n), .placeholder.lines-10 .placeholder-line-h3:nth-child(n), .placeholder.lines-10 .placeholder-line-h4:nth-child(n), .placeholder.lines-10 .placeholder-line-figcaption:nth-child(n) {
+.placeholder.lines-10 .placeholder-line:nth-child(n), .placeholder.lines-10 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-10 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-10 .placeholder.span > .placeholder-line-span:nth-child(n), .placeholder.lines-10 .placeholder-line-p:nth-child(n), .placeholder.lines-10 .placeholder-line-h1:nth-child(n), .placeholder.lines-10 .placeholder-line-h2:nth-child(n), .placeholder.lines-10 .placeholder-line-h3:nth-child(n), .placeholder.lines-10 .placeholder-line-h4:nth-child(n), .placeholder.lines-10 .placeholder-line-figcaption:nth-child(n) {
   width: 100%;
 }
-.placeholder.lines-11 .placeholder-line:nth-child(n), .placeholder.lines-11 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-11 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-11 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-11 .placeholder-line-span:nth-child(n), .placeholder.lines-11 .placeholder-line-p:nth-child(n), .placeholder.lines-11 .placeholder-line-h1:nth-child(n), .placeholder.lines-11 .placeholder-line-h2:nth-child(n), .placeholder.lines-11 .placeholder-line-h3:nth-child(n), .placeholder.lines-11 .placeholder-line-h4:nth-child(n), .placeholder.lines-11 .placeholder-line-figcaption:nth-child(n) {
+.placeholder.lines-11 .placeholder-line:nth-child(n), .placeholder.lines-11 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-11 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-11 .placeholder.span > .placeholder-line-span:nth-child(n), .placeholder.lines-11 .placeholder-line-p:nth-child(n), .placeholder.lines-11 .placeholder-line-h1:nth-child(n), .placeholder.lines-11 .placeholder-line-h2:nth-child(n), .placeholder.lines-11 .placeholder-line-h3:nth-child(n), .placeholder.lines-11 .placeholder-line-h4:nth-child(n), .placeholder.lines-11 .placeholder-line-figcaption:nth-child(n) {
   width: 100%;
 }
-.placeholder.lines-12 .placeholder-line:nth-child(n), .placeholder.lines-12 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-12 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-12 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-12 .placeholder-line-span:nth-child(n), .placeholder.lines-12 .placeholder-line-p:nth-child(n), .placeholder.lines-12 .placeholder-line-h1:nth-child(n), .placeholder.lines-12 .placeholder-line-h2:nth-child(n), .placeholder.lines-12 .placeholder-line-h3:nth-child(n), .placeholder.lines-12 .placeholder-line-h4:nth-child(n), .placeholder.lines-12 .placeholder-line-figcaption:nth-child(n) {
+.placeholder.lines-12 .placeholder-line:nth-child(n), .placeholder.lines-12 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-12 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-12 .placeholder.span > .placeholder-line-span:nth-child(n), .placeholder.lines-12 .placeholder-line-p:nth-child(n), .placeholder.lines-12 .placeholder-line-h1:nth-child(n), .placeholder.lines-12 .placeholder-line-h2:nth-child(n), .placeholder.lines-12 .placeholder-line-h3:nth-child(n), .placeholder.lines-12 .placeholder-line-h4:nth-child(n), .placeholder.lines-12 .placeholder-line-figcaption:nth-child(n) {
   width: 100%;
 }
-.placeholder.lines-13 .placeholder-line:nth-child(n), .placeholder.lines-13 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-13 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-13 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-13 .placeholder-line-span:nth-child(n), .placeholder.lines-13 .placeholder-line-p:nth-child(n), .placeholder.lines-13 .placeholder-line-h1:nth-child(n), .placeholder.lines-13 .placeholder-line-h2:nth-child(n), .placeholder.lines-13 .placeholder-line-h3:nth-child(n), .placeholder.lines-13 .placeholder-line-h4:nth-child(n), .placeholder.lines-13 .placeholder-line-figcaption:nth-child(n) {
+.placeholder.lines-13 .placeholder-line:nth-child(n), .placeholder.lines-13 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-13 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-13 .placeholder.span > .placeholder-line-span:nth-child(n), .placeholder.lines-13 .placeholder-line-p:nth-child(n), .placeholder.lines-13 .placeholder-line-h1:nth-child(n), .placeholder.lines-13 .placeholder-line-h2:nth-child(n), .placeholder.lines-13 .placeholder-line-h3:nth-child(n), .placeholder.lines-13 .placeholder-line-h4:nth-child(n), .placeholder.lines-13 .placeholder-line-figcaption:nth-child(n) {
   width: 100%;
 }
-.placeholder.lines-14 .placeholder-line:nth-child(n), .placeholder.lines-14 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-14 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-14 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-14 .placeholder-line-span:nth-child(n), .placeholder.lines-14 .placeholder-line-p:nth-child(n), .placeholder.lines-14 .placeholder-line-h1:nth-child(n), .placeholder.lines-14 .placeholder-line-h2:nth-child(n), .placeholder.lines-14 .placeholder-line-h3:nth-child(n), .placeholder.lines-14 .placeholder-line-h4:nth-child(n), .placeholder.lines-14 .placeholder-line-figcaption:nth-child(n) {
+.placeholder.lines-14 .placeholder-line:nth-child(n), .placeholder.lines-14 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-14 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-14 .placeholder.span > .placeholder-line-span:nth-child(n), .placeholder.lines-14 .placeholder-line-p:nth-child(n), .placeholder.lines-14 .placeholder-line-h1:nth-child(n), .placeholder.lines-14 .placeholder-line-h2:nth-child(n), .placeholder.lines-14 .placeholder-line-h3:nth-child(n), .placeholder.lines-14 .placeholder-line-h4:nth-child(n), .placeholder.lines-14 .placeholder-line-figcaption:nth-child(n) {
   width: 100%;
 }
-.placeholder.lines-15 .placeholder-line:nth-child(n), .placeholder.lines-15 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-15 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-15 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-15 .placeholder-line-span:nth-child(n), .placeholder.lines-15 .placeholder-line-p:nth-child(n), .placeholder.lines-15 .placeholder-line-h1:nth-child(n), .placeholder.lines-15 .placeholder-line-h2:nth-child(n), .placeholder.lines-15 .placeholder-line-h3:nth-child(n), .placeholder.lines-15 .placeholder-line-h4:nth-child(n), .placeholder.lines-15 .placeholder-line-figcaption:nth-child(n) {
+.placeholder.lines-15 .placeholder-line:nth-child(n), .placeholder.lines-15 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-15 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-15 .placeholder.span > .placeholder-line-span:nth-child(n), .placeholder.lines-15 .placeholder-line-p:nth-child(n), .placeholder.lines-15 .placeholder-line-h1:nth-child(n), .placeholder.lines-15 .placeholder-line-h2:nth-child(n), .placeholder.lines-15 .placeholder-line-h3:nth-child(n), .placeholder.lines-15 .placeholder-line-h4:nth-child(n), .placeholder.lines-15 .placeholder-line-figcaption:nth-child(n) {
   width: 100%;
 }
-.placeholder.lines-16 .placeholder-line:nth-child(n), .placeholder.lines-16 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-16 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-16 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-16 .placeholder-line-span:nth-child(n), .placeholder.lines-16 .placeholder-line-p:nth-child(n), .placeholder.lines-16 .placeholder-line-h1:nth-child(n), .placeholder.lines-16 .placeholder-line-h2:nth-child(n), .placeholder.lines-16 .placeholder-line-h3:nth-child(n), .placeholder.lines-16 .placeholder-line-h4:nth-child(n), .placeholder.lines-16 .placeholder-line-figcaption:nth-child(n) {
+.placeholder.lines-16 .placeholder-line:nth-child(n), .placeholder.lines-16 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-16 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-16 .placeholder.span > .placeholder-line-span:nth-child(n), .placeholder.lines-16 .placeholder-line-p:nth-child(n), .placeholder.lines-16 .placeholder-line-h1:nth-child(n), .placeholder.lines-16 .placeholder-line-h2:nth-child(n), .placeholder.lines-16 .placeholder-line-h3:nth-child(n), .placeholder.lines-16 .placeholder-line-h4:nth-child(n), .placeholder.lines-16 .placeholder-line-figcaption:nth-child(n) {
   width: 100%;
 }
-.placeholder.lines-17 .placeholder-line:nth-child(n), .placeholder.lines-17 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-17 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-17 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-17 .placeholder-line-span:nth-child(n), .placeholder.lines-17 .placeholder-line-p:nth-child(n), .placeholder.lines-17 .placeholder-line-h1:nth-child(n), .placeholder.lines-17 .placeholder-line-h2:nth-child(n), .placeholder.lines-17 .placeholder-line-h3:nth-child(n), .placeholder.lines-17 .placeholder-line-h4:nth-child(n), .placeholder.lines-17 .placeholder-line-figcaption:nth-child(n) {
+.placeholder.lines-17 .placeholder-line:nth-child(n), .placeholder.lines-17 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-17 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-17 .placeholder.span > .placeholder-line-span:nth-child(n), .placeholder.lines-17 .placeholder-line-p:nth-child(n), .placeholder.lines-17 .placeholder-line-h1:nth-child(n), .placeholder.lines-17 .placeholder-line-h2:nth-child(n), .placeholder.lines-17 .placeholder-line-h3:nth-child(n), .placeholder.lines-17 .placeholder-line-h4:nth-child(n), .placeholder.lines-17 .placeholder-line-figcaption:nth-child(n) {
   width: 100%;
 }
-.placeholder.lines-18 .placeholder-line:nth-child(n), .placeholder.lines-18 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-18 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-18 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-18 .placeholder-line-span:nth-child(n), .placeholder.lines-18 .placeholder-line-p:nth-child(n), .placeholder.lines-18 .placeholder-line-h1:nth-child(n), .placeholder.lines-18 .placeholder-line-h2:nth-child(n), .placeholder.lines-18 .placeholder-line-h3:nth-child(n), .placeholder.lines-18 .placeholder-line-h4:nth-child(n), .placeholder.lines-18 .placeholder-line-figcaption:nth-child(n) {
+.placeholder.lines-18 .placeholder-line:nth-child(n), .placeholder.lines-18 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-18 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-18 .placeholder.span > .placeholder-line-span:nth-child(n), .placeholder.lines-18 .placeholder-line-p:nth-child(n), .placeholder.lines-18 .placeholder-line-h1:nth-child(n), .placeholder.lines-18 .placeholder-line-h2:nth-child(n), .placeholder.lines-18 .placeholder-line-h3:nth-child(n), .placeholder.lines-18 .placeholder-line-h4:nth-child(n), .placeholder.lines-18 .placeholder-line-figcaption:nth-child(n) {
   width: 100%;
 }
-.placeholder.lines-19 .placeholder-line:nth-child(n), .placeholder.lines-19 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-19 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-19 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-19 .placeholder-line-span:nth-child(n), .placeholder.lines-19 .placeholder-line-p:nth-child(n), .placeholder.lines-19 .placeholder-line-h1:nth-child(n), .placeholder.lines-19 .placeholder-line-h2:nth-child(n), .placeholder.lines-19 .placeholder-line-h3:nth-child(n), .placeholder.lines-19 .placeholder-line-h4:nth-child(n), .placeholder.lines-19 .placeholder-line-figcaption:nth-child(n) {
+.placeholder.lines-19 .placeholder-line:nth-child(n), .placeholder.lines-19 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-19 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-19 .placeholder.span > .placeholder-line-span:nth-child(n), .placeholder.lines-19 .placeholder-line-p:nth-child(n), .placeholder.lines-19 .placeholder-line-h1:nth-child(n), .placeholder.lines-19 .placeholder-line-h2:nth-child(n), .placeholder.lines-19 .placeholder-line-h3:nth-child(n), .placeholder.lines-19 .placeholder-line-h4:nth-child(n), .placeholder.lines-19 .placeholder-line-figcaption:nth-child(n) {
   width: 100%;
 }
-.placeholder.lines-20 .placeholder-line:nth-child(n), .placeholder.lines-20 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-20 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-20 .placeholder.span .placeholder-line-span:nth-child(n), .placeholder.span .placeholder.lines-20 .placeholder-line-span:nth-child(n), .placeholder.lines-20 .placeholder-line-p:nth-child(n), .placeholder.lines-20 .placeholder-line-h1:nth-child(n), .placeholder.lines-20 .placeholder-line-h2:nth-child(n), .placeholder.lines-20 .placeholder-line-h3:nth-child(n), .placeholder.lines-20 .placeholder-line-h4:nth-child(n), .placeholder.lines-20 .placeholder-line-figcaption:nth-child(n) {
+.placeholder.lines-20 .placeholder-line:nth-child(n), .placeholder.lines-20 .placeholder.subtitle .placeholder-line-subtitle:nth-child(n), .placeholder.subtitle .placeholder.lines-20 .placeholder-line-subtitle:nth-child(n), .placeholder.lines-20 .placeholder.span > .placeholder-line-span:nth-child(n), .placeholder.lines-20 .placeholder-line-p:nth-child(n), .placeholder.lines-20 .placeholder-line-h1:nth-child(n), .placeholder.lines-20 .placeholder-line-h2:nth-child(n), .placeholder.lines-20 .placeholder-line-h3:nth-child(n), .placeholder.lines-20 .placeholder-line-h4:nth-child(n), .placeholder.lines-20 .placeholder-line-figcaption:nth-child(n) {
   width: 100%;
 }
 
-.button-placeholder, figure.figure-placeholder > picture, .placeholder .placeholder-line, .placeholder.p .placeholder-line-p, .placeholder.subtitle .placeholder-line-subtitle, .placeholder.span .placeholder-line-span, .placeholder.figcaption .placeholder-line-figcaption, .placeholder.h1 .placeholder-line-h1, .placeholder.h2 .placeholder-line-h2, .placeholder.h3 .placeholder-line-h3, .placeholder.h4 .placeholder-line-h4 {
+.button-placeholder, figure.figure-placeholder > picture, .placeholder .placeholder-line, .placeholder.p .placeholder-line-p, .placeholder.subtitle .placeholder-line-subtitle, .placeholder.span > .placeholder-line-span, .placeholder.figcaption .placeholder-line-figcaption, .placeholder.h1 .placeholder-line-h1, .placeholder.h2 .placeholder-line-h2, .placeholder.h3 .placeholder-line-h3, .placeholder.h4 .placeholder-line-h4, .placeholder.input, .placeholder.input-expandable {
   background-color: hsl(0, 0%, 70%);
   animation: pulse 1.5s infinite;
 }
@@ -2097,8 +2150,8 @@ figure.figure-placeholder > picture {
 }
 
 button > a > figure.figure-placeholder, a > figure.figure-placeholder {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
 }
 button > a > figure.figure-placeholder > picture, a > figure.figure-placeholder > picture {
   border-radius: 8px;
@@ -2146,69 +2199,103 @@ main section#design-work > article[class*=grid-default] > article, main section#
     gap: 16px 0;
   }
 }
+main section#contact > section.form-container {
+  margin: auto;
+}
 main section.title-error > article {
   width: 100%;
 }
 
-.email-form {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 20px;
-}
-.email-form .text-field,
-.email-form .expandable-text-field {
-  margin-bottom: 15px;
-}
-.email-form .text-field label,
-.email-form .expandable-text-field label {
-  display: block;
-  margin-bottom: 5px;
-}
-.email-form .text-field input,
-.email-form .text-field textarea,
-.email-form .expandable-text-field input,
-.email-form .expandable-text-field textarea {
+section.form-container {
+  gap: 24px 24px;
+  max-width: 1000px;
   width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  height: 100%;
 }
-.email-form .text-field textarea,
-.email-form .expandable-text-field textarea {
-  min-height: 100px;
-  resize: vertical;
+section.form-container > article {
+  gap: 8px 24px;
+  width: 100%;
 }
-.email-form .checkbox {
-  margin-bottom: 15px;
+section.form-container > form {
+  gap: 24px 24px;
+  width: 100%;
 }
-.email-form .checkbox input {
-  margin-right: 5px;
+section.form-container > form > article.text-field {
+  gap: 8px 24px;
+  width: 100%;
 }
-.email-form .error-message {
-  color: red;
-  font-size: 0.9em;
-  margin-top: 5px;
+@media only screen and (max-width: 510px) {
+  section.form-container > form > article.text-field:nth-child(1), section.form-container > form > article.text-field:nth-child(2), section.form-container > form > article.text-field:nth-child(3) {
+    width: 100%;
+  }
 }
-.email-form .error-container {
-  margin-bottom: 15px;
+@media only screen and (min-width: 510px) and (max-width: 800px) {
+  section.form-container > form > article.text-field:nth-child(1), section.form-container > form > article.text-field:nth-child(2), section.form-container > form > article.text-field:nth-child(3) {
+    width: calc(50% - 24px);
+  }
 }
-.email-form button {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+@media only screen and (min-width: 800px) {
+  section.form-container > form > article.text-field:nth-child(1), section.form-container > form > article.text-field:nth-child(2), section.form-container > form > article.text-field:nth-child(3) {
+    width: calc(33.3333% - 24px);
+  }
 }
-.email-form button:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
+section.form-container > form > article.text-field:nth-child(4) {
+  width: 100%;
 }
-.email-form .success-message {
-  color: green;
-  margin-top: 15px;
+section.form-container > form > article.text-field > label {
+  width: 100%;
+}
+section.form-container > form > article.text-field > label > h3 {
+  width: 100%;
+  padding-bottom: 0;
+}
+section.form-container > form > article.text-field > input {
+  width: calc(100% - 18px);
+}
+section.form-container > form > article.text-field > span {
+  color: hsl(335, 60%, 44%);
+}
+section.form-container > form > article.expandable-text-field {
+  gap: 8px 24px;
+  width: 100%;
+}
+section.form-container > form > article.expandable-text-field > label {
+  width: 100%;
+}
+section.form-container > form > article.expandable-text-field > label > h3 {
+  width: 100%;
+  padding-bottom: 0;
+}
+section.form-container > form > article.expandable-text-field > textarea {
+  width: calc(100% - 18px);
+}
+section.form-container > form > article.expandable-text-field > span {
+  color: hsl(335, 60%, 44%);
+}
+
+.custom-toast {
+  padding: 12px 20px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: bold;
+}
+.custom-toast.success {
+  background-color: #4caf50;
+}
+.custom-toast.error {
+  background-color: #f44336;
+}
+.custom-toast.info {
+  background-color: #2196f3;
+}
+.custom-toast .toast-message {
+  font-size: 16px;
 }
 
 body {
   margin: 0;
+}
+
+.width100 {
+  width: 100%;
 }

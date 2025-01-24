@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
+// import Link from 'next/link';
 import Image from 'next/image';
 import { Url } from "next/dist/shared/lib/router/router";
 import { useRouter, usePathname } from 'next/navigation';
@@ -39,7 +39,7 @@ export interface LinkComponentProps {
     role?: string;
     onClick?: (event: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
     showBuffer: boolean;
-    // children: React.ReactNode;
+    children?: React.ReactNode;
 }
 
 type LinkComponentWithIcon = (LinkComponentProps & {icon: true; imagePosition: "before" | "after"});
@@ -58,7 +58,7 @@ function delay(ms: number): Promise<void> {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-export function LinkComponent({ group, subgroup, alias, className, id, page, getHref="/", anchorLink, isActive, icon, imagePosition="", role, onClick, showBuffer} : LinkTypes) : React.ReactElement | null {
+export function LinkComponent({ group, subgroup, alias, className, id, page, getHref="", anchorLink, isActive, icon, imagePosition="", role, onClick, showBuffer, children} : LinkTypes) : React.ReactElement | null {
     // const 
     //     linkPropsObject = getLinkProps("home"),
     //     getProps = linkPropsObject[type];
@@ -75,12 +75,12 @@ export function LinkComponent({ group, subgroup, alias, className, id, page, get
             scrollToSection.scrollToSection(getHref as string);
         } else if (anchorLink != true) {
             const [getBuffer, getHref] = checkDataBufferAttr(e);
-            if (getBuffer != null && getHref != null) {
+            if (getBuffer != null && getHref != null && showBuffer == true) {
                 e.preventDefault();
                 bpTransitionEffect(getHref);
                 await delay(500);
                 router.push(getHref);
-            } else if (getHref != null) {
+            } else if (showBuffer == false && getHref != null) {
                 // Do nothing, but proceed the default browser behavior for onClick events will still occur. This is for links that should not show a buffer page but have hrefs.
             } else {
                 console.log('checkDataBufferAttr function\'s returned value: ' + checkDataBufferAttr(e));
@@ -88,11 +88,16 @@ export function LinkComponent({ group, subgroup, alias, className, id, page, get
             }
         } else if (!getHref || getHref == "undefined") {
             console.log('href does not exist.');
-            e.preventDefault();
+            if (showBuffer == false) {
+                e.preventDefault();
+            }
             checkDataBufferAttr(e);
         } else if (onClick) {
             console.log('Default onClick event triggered.');
             checkDataBufferAttr(e);
+            if (showBuffer == false) {
+                e.preventDefault();
+            }
             onClick(e);
         } else {
             console.log('The link does nothing.');
@@ -115,7 +120,7 @@ export function LinkComponent({ group, subgroup, alias, className, id, page, get
             } else {
                 console.log('transitionWithBuffer function return null or an incorrect value');
             }
-        } else if (!getHref || getHref == "undefined") {
+        } else if (!getHref || getHref == "undefined" || getHref == "") {
             console.log('href does not exist.');
             e.preventDefault();
         } else if (onClick) {
@@ -155,9 +160,9 @@ export function LinkComponent({ group, subgroup, alias, className, id, page, get
                             getHref = "/";
                         }
                     } else {
-                        getHref = typeof (getProps as LinkProps).href === "string" ? ("" + (getProps as LinkProps).href) : "/";
+                        getHref = typeof (getProps as LinkProps).href === "string" ? ("" + (getProps as LinkProps).href) : "";
                     }
-                    getHref = typeof getHref === "string" ? getHref : "/";
+                    getHref = typeof getHref === "string" ? getHref : "";
                     // console.log('getHref: ' + getHref);
                 }
             }
@@ -233,11 +238,11 @@ export function LinkComponent({ group, subgroup, alias, className, id, page, get
 
     if (linkPropsObject != undefined && getProps != undefined) {
         let linkComponent = 
-            <Link 
+            <a 
                 id={id ? id : getProps.id}
                 className={isActive ? 'active' : ''}
                 // href={getHref ? getHref : ' '}
-                href={`${getHref && getHref !== "undefined" && getHref !== null ? getHref : ''}`}
+                href={`${(getHref && getHref !== "undefined" && getHref !== null) && getHref}`}
                 aria-label={getProps.ariaLabel}
                 rel={getProps.rel}
                 target={getProps.target}
@@ -267,7 +272,7 @@ export function LinkComponent({ group, subgroup, alias, className, id, page, get
                     {linkPropsObject["placeholder_button_icon"].text || ''}
                 </LinkSpanTag> */}
                 {imagePosition === "after" && imageElement}
-            </Link>
+            </a>
         
         if (!isLoaded && !hasLoaded) {
             console.log("linkPropsObject[\"placeholder_button_icon\"].text: " + getLinkProps()["placeholder_button_icon"].text);
@@ -281,8 +286,8 @@ export function LinkComponent({ group, subgroup, alias, className, id, page, get
                 // <div className="link-span-placeholder-line">
                 // </div>
             
-            <Link 
-                href=""
+            <a 
+                // href=""
                 // href={(getHref && getHref != "undefined" && getHref != null) ? getHref : ''}
                 aria-label={getLinkProps()["placeholder_button_icon"].ariaLabel}
                 role={getLinkProps()["placeholder_button_icon"].role}
@@ -302,7 +307,7 @@ export function LinkComponent({ group, subgroup, alias, className, id, page, get
                     {linkPropsObject["placeholder_button_icon"].text || 'link'}
                 </LinkSpanTag> */}
                 {imagePosition === "after" && imageElement}
-            </Link>
+            </a>
             );
         } else {
             console.log('items.href link: ' + getHref);
@@ -311,11 +316,11 @@ export function LinkComponent({ group, subgroup, alias, className, id, page, get
             // console.log("getProps.text: " + getProps.text);
             // console.log("getProps.text: " + getHref);
             return (
-                <Link 
+                <a 
                     id={id ? id : getProps.id}
                     className={`${className ? className : ''}${isActive ? ' active' : ''}`}
                     // href={getHref ? getHref : ' '}
-                    href={`${getHref && getHref !== "undefined" && getHref !== null ? getHref : ''}`}
+                    href={`${(getHref && getHref !== "undefined" && getHref !== null) &&  getHref}`}
                     aria-label={getProps.ariaLabel}
                     rel={getProps.rel}
                     target={getProps.target}
@@ -327,13 +332,15 @@ export function LinkComponent({ group, subgroup, alias, className, id, page, get
                 >
                     {imagePosition === "before" && imageElement}
                     <SpanTag>
-                        {getProps.text || 'Text'}
+                        {getProps.text}
+                        {children && children}
+                        {/* {getProps.text || 'Text'} */}
                     </SpanTag>
                     {/* <LinkSpanTag>
                         {getProps.text || ''}
                     </LinkSpanTag> */}
                     {imagePosition === "after" && imageElement}
-                </Link>
+                </a>
             );
         }
         return linkComponent;

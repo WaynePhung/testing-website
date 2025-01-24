@@ -1,0 +1,242 @@
+/* 
+    UPDATE COMMENT
+
+    This Sass variable creates a map key value pairs, where each pair consists of the following:
+    - the expression on the left represents a key
+    - the expression on the right is value associated with that key
+
+    In this case, the values on the right represent the corresponding values for hue, saturation, and lightness 
+    of the color names on the left, which are the exact colors intended for usage in the visual 
+    appearance of text, buttons, and other visual elements.
+    For example "darkBlue" is a key that is a color name, and "hsl(" is a hexcode value that is 
+    associated with "darkBlue".
+
+    The map below is used for a simple, but reproducible function called "color($colorName)" that 
+    can be used to clearly communicate which color is being to for one or more selected elements.
+
+    This map can be expanded to include more colors other than the ones already listed, and the 
+    hexcode values can be conveniently changed so that all elements that uses the same color will 
+    have their colors updated to reflect this change.
+
+    For more information on maps and key-value pairs, copy and paste this URL on an article about 
+    maps from the Sass official website: https://sass-lang.com/documentation/values/maps/
+*/
+/*
+    UPDATE COMMENT
+    This function uses the map from the "$colors" variable to return the desired color included from 
+    the map.
+
+    The mapping of color names is necessary to avoid confusion from using color hexcodes on which 
+    colors each element is using and to make the code usage of the CSS color property reproducible, 
+    more understandable, and with less repetitive code.
+*/
+/*
+    These three mixins makes a container of code reusable for specifying the minimum 
+    and/or maximum width condition(s) to apply the CSS properties and values.
+        - "mediaQuery-minOnly" sets up a media query for only the minimum width used in the media query's condition.
+          - "mediaQuery-maxOnly" sets up a media query for only the maximum width used in the media query's condition.
+          - "mediaQuery-minMax" sets up a media query for a range between the minimum and maximum widths used in the media query's condition.
+
+    These mixins uses two or three of the following:
+        - "$min" is a variable used as this mixin's argument to specify the number value for the minimum width used in the media query's condition.
+        - "$max" is a variable used as this mixin's argument to specify the number value for the maximum width used in the media query's condition.
+        - "@content" is a Sass directive that allows flexibile input of different CSS properties and values, whether to apply the same properties for multiple elements or tailor different properties to specific elements.
+*/
+/*
+    This mixin is used to position and wrap children elements relative to the parent container element. It takes the following arguments to define flexbox properties for container elements:
+        1. Sets the display to flex (essential for any of the other flex properties to function as intended).
+        2. Enables/disables the wrapping of the children elements based on the "$flexWrap" variable argument.
+            - "wrap" to have the children elements populate within the space 
+              of the container
+            - "nowrap" to have the children elements instead populate within 
+              the same row/column
+        3. Sets the orientation of the wrapping, whether in a row or column. This is based on the "$flexDirection" variable argument.
+        4. Sets the starting position of each children element relative to the container element. This is based on the "$alignItems" variable argument:
+            - "flex-start" to start from the beginning portion of the container
+            - "center" to start from the middle portion
+            - "flex-end" to start from the bottom portion
+            - "stretch" to take up the available space of the container
+        - Sets the positioning of all children elements relative to the container element. This is based on the "$alignContent" variable argument:
+            - "flex-start" to orient all the children elements from the 
+              beginning portion of the container
+            - "center" to orient all the children elements from the middle portion
+            - "flex-end" to orient all the children elements from the bottom portion
+            - "stretch" to take up the available space of the container
+        - Sets the alignment of all children elements when they don't take up all of the available space in the container. This is based on the "$justifyContent" variable argument.
+
+*/
+/*
+  Placeholder selectors for the flex display of a container:
+    - column flex direction, wrapping along the column for
+      children elements, top-left starting point and alignment
+      of children elements and text
+*/
+/*
+        - same as previous, except no wrapping of children elements
+*/
+/*
+        - column flex direction, wrapping, center starting point
+          and alignment of children elements and text
+*/
+/*
+        - same as previous, except no wrapping of children elements
+*/
+/*
+        - row flex direction, wrapping, top-left starting point 
+          and alignment of children elements and text
+*/
+section.form-container, section.form-container > article, section.form-container > form > article.text-field, section.form-container > form > article.expandable-text-field {
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: flex-start;
+}
+
+section.form-container > form {
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: space-between;
+}
+
+/*
+        - same as previous, except no wrapping of children elements
+*/
+/*
+        - row flex direction, wrapping, center starting point
+          and alignment of children elements and text
+*/
+/*
+        - row flex direction, wrapping, right starting point
+          and alignment of children elements and text
+*/
+/*
+    Key naming scheme is analogous to T-Shirt sizing:
+        2xs = xxs = extra extra small
+        xs = extra small
+        s = small
+        sm = small medium
+        m = medium
+        ml = medium large
+        l = large
+        xl = extra large
+        2xl = extra extra large
+        [n]xl = [number of xs] extra large
+*/
+/* Inset applies to the padding of an element. */
+/* Stack applies to bottom vertical space (mainly between elements or establishing negative space). */
+/* Inline applies to right horizontal space (mainly between elements or establishing negative space). */
+/* Default inset spacing for different types of buttons.*/
+/*
+    UPDATE COMMENT
+    Mixin to define the space between each children element in a 
+    container with flex display. For grid display, this defines the 
+    space between each grid cell. Varaible arguments are defined below.
+        - "$rowGap" is the horizontal spacing between elements in a 
+          flexbox container or grid cells.
+        - "$columnGap" is the horizontal spacing between elements in a 
+          flexbox container or grid cells.
+        - By default, each argument has a default value of zero (no space), 
+          even if the argument is empty. However, the value of either or both 
+          arguments can be non-zero if specified.
+*/
+/* 
+    Values for different screen width breakpoints.
+    bp = breakpoint, mb = mobile, dt = desktop, s = small, l = large
+*/
+/*
+    Placeholder selector used for the html element to set the default transition time to 0.25 seconds
+    with an ease-in and ease-out transition smoothness.
+*/
+/*
+    Placeholder selector to set the default background color of the entire page (html element) and 
+    the navigation header to light blue using the color function.
+*/
+main, footer, article.h2-wrapper {
+  z-index: 3;
+}
+
+aside[role=navigation], aside[role=navigation] > button, .h2-wrapper, h2.sticky {
+  z-index: 4;
+}
+
+header, header * {
+  z-index: 5 !important;
+}
+
+.buffer-page, .loading-page {
+  z-index: 999;
+}
+
+section.form-container {
+  gap: 24px 24px;
+  max-width: 1000px;
+  width: 100%;
+  height: 100%;
+}
+section.form-container > article {
+  gap: 8px 24px;
+  width: 100%;
+}
+section.form-container > form {
+  gap: 24px 24px;
+  width: 100%;
+}
+section.form-container > form > article.text-field {
+  gap: 8px 24px;
+  width: 100%;
+}
+@media only screen and (max-width: 510px) {
+  section.form-container > form > article.text-field:nth-child(1), section.form-container > form > article.text-field:nth-child(2), section.form-container > form > article.text-field:nth-child(3) {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 510px) and (max-width: 800px) {
+  section.form-container > form > article.text-field:nth-child(1), section.form-container > form > article.text-field:nth-child(2), section.form-container > form > article.text-field:nth-child(3) {
+    width: calc(50% - 24px);
+  }
+}
+@media only screen and (min-width: 800px) {
+  section.form-container > form > article.text-field:nth-child(1), section.form-container > form > article.text-field:nth-child(2), section.form-container > form > article.text-field:nth-child(3) {
+    width: calc(33.3333% - 24px);
+  }
+}
+section.form-container > form > article.text-field:nth-child(4) {
+  width: 100%;
+}
+section.form-container > form > article.text-field > label {
+  width: 100%;
+}
+section.form-container > form > article.text-field > label > h3 {
+  width: 100%;
+  padding-bottom: 0;
+}
+section.form-container > form > article.text-field > input {
+  width: calc(100% - 18px);
+}
+section.form-container > form > article.text-field > span {
+  color: hsl(335, 60%, 44%);
+}
+section.form-container > form > article.expandable-text-field {
+  gap: 8px 24px;
+  width: 100%;
+}
+section.form-container > form > article.expandable-text-field > label {
+  width: 100%;
+}
+section.form-container > form > article.expandable-text-field > label > h3 {
+  width: 100%;
+  padding-bottom: 0;
+}
+section.form-container > form > article.expandable-text-field > textarea {
+  width: calc(100% - 18px);
+}
+section.form-container > form > article.expandable-text-field > span {
+  color: hsl(335, 60%, 44%);
+}

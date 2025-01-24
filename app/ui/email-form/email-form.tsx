@@ -1,79 +1,137 @@
-import React, { useState } from 'react';
-import axios, { AxiosError } from 'axios';
+"use client";
 
-const EmailForm: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-    sendCopy: false,
-  });
-  const [status, setStatus] = useState('idle');
-  const [errorMessage, setErrorMessage] = useState('');
+import React, { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { FormData } from "@/app/types/form-data";
+import emailFormSchema from "@/app/utils/email/validation/email-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import sendMail from "./send-mail";
+import { Toaster, toast } from "react-hot-toast";
+import { useEmailForm } from "./use-email-form";
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value, type } = e.target;
-    setFormData(prevData => ({
-      ...prevData,
-      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value,
-    }));
-  };
+import { H2Tag, PTag } from "../text/text-tags";
+import TextField from "../widgets/text-field-default";
+import ExpandableTextField from "../widgets/text-field-expandable";
+import ButtonComponent from "../buttons/button";
+import { noto_sans } from "./../../utils/text-styling/fonts";
+import { handleSubmitAction } from "./handle-submit-action";
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setStatus('loading');
-  
-    try {
-      const response = await axios.post('/api/send-email', formData);
-      if (response.data.success) {
-        setStatus('success');
-        setFormData({ name: '', email: '', subject: '', message: '', sendCopy: false });
-      } else {
-        setStatus('error');
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setStatus('error');
-    }
-  };
+export default function ContactForm({ onSubmitAction }: { onSubmitAction: (formData: FormData) => Promise<void> }) {
+    const { register, handleSubmit, errors, isSubmitting, handleFormSubmit } = useEmailForm();
 
+    useEffect(() => {
+      // toast.success('Success message!', {
+      //   className: `${noto_sans.className} email-submission-message`,
+      //   position: 'bottom-center',
+      //   duration: Infinity,
+      //   icon: null,
+      //   style: {
+      //     minWidth: 'auto',
+      //   }
+      // });
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Name</label>
-        <input type="text" name="name" value={formData.name} onChange={handleChange} required />
-      </div>
-      <div>
-        <label>Email</label>
-        <input type="email" name="email" value={formData.email} onChange={handleChange} required />
-      </div>
-      <div>
-        <label>Subject</label>
-        <input type="text" name="subject" value={formData.subject} onChange={handleChange} required />
-      </div>
-      <div>
-        <label>Message</label>
-        <textarea name="message" value={formData.message} onChange={handleChange} required />
-      </div>
-      <div>
-        <label>
-          <input type="checkbox" name="sendCopy" checked={formData.sendCopy} onChange={handleChange} />
-          Send a copy to myself
-        </label>
-      </div>
-      <button type="submit">Send Email</button>
-      {status === 'loading' && <p>Sending...</p>}
-      {status === 'success' && <p>Email sent successfully!</p>}
-      {status === 'error' && (
-        <>
-          <p>Failed to send email. Please try again.</p>
-          {errorMessage && <p>Error: {errorMessage}</p>}
-        </>
-      )}
-    </form>
-  );
-};
+      // const handleLoad = () => {
+      // };
+      // window.addEventListener('load', handleLoad);
+      // return () => {
+      //   window.removeEventListener('load', handleLoad);
+      // };
+    }, []);
 
-export default EmailForm;
+    return (
+        <section className="form-container">
+          <article>
+            <H2Tag>Contact Me</H2Tag>
+            <article>
+              <PTag className="width100">You can select one of these buttons to start a conversation in the platform of your choice:</PTag>
+              <div className="contactButtons">
+                <ButtonComponent 
+                    group="link-global"
+                    alias="linkedIn" 
+                    anchorLink={false}
+                    icon={true} 
+                    imagePosition="before" 
+                    showBuffer={false}
+                    buttonType="primary" 
+                />
+                <ButtonComponent 
+                    group="link-global"
+                    alias="email" 
+                    anchorLink={false}
+                    icon={true} 
+                    imagePosition="before" 
+                    showBuffer={false}
+                    buttonType="primary" 
+                />
+              </div>
+              <PTag className="width100">Or you can fill out this contact form. All fields below are required to be filled in.</PTag>
+            </article>
+          </article>
+          <form>
+            <TextField
+              label="First Name"
+              name="firstName"
+              register={register}
+              error={errors.firstName}
+              placeholder="John Dewey"
+              // description="If you prefer to include your middle name, include it after your first name."
+            />
+            <TextField
+              label="Last Name"
+              name="lastName"
+              register={register}
+              error={errors.lastName}
+              placeholder="Smith"
+            />
+            <TextField
+              label="Email"
+              name="email"
+              register={register}
+              error={errors.email}
+              placeholder="youremail@email.com"
+            />
+            <TextField
+              className="width100"
+              label="Subject"
+              name="subject"
+              register={register}
+              error={errors.subject}
+              placeholder="Enter your subject here."
+              description="The subject cannot exceed 200 characters."
+            />
+            <ExpandableTextField
+              label="Message"
+              name="message"
+              register={register}
+              error={errors.message}
+              placeholder="Enter your message here."
+              description="Your message must be at least 10 characters long."
+
+            />
+            <ButtonComponent
+              group="link-global"
+              alias="sendEmail" 
+              anchorLink={false}
+              icon={true}
+              imagePosition="after"
+              showBuffer={false} 
+              buttonType="primary" 
+              onClick={(e) => {
+                e.preventDefault();
+                handleSubmit(handleFormSubmit)();
+              }}
+            >
+              {/* Submit */}
+              {isSubmitting ? 'Processing Submission' : 'Send Email'}
+            </ButtonComponent>
+            <Toaster />
+          </form>
+          {/* <button
+              type="submit"
+              disabled={isSubmitting}
+          >
+              {isSubmitting ? 'Processing' : 'Submit'}
+          </button> */}
+        </section>
+    );
+}

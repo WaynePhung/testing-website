@@ -97,6 +97,14 @@ $definedGridRatios: (
     }
 }
 
+.grid-default-3c-equalWidth-#{v-g.$bp-dt-l} {
+    @include gridClass(v-g.$bp-dt, '', 3, 1fr);
+    @include r-c-g.rowColumnGaps("3xl", "xl");
+    @include s-w.mediaQuery-maxOnly(v-g.$bp-dt-l) {
+        grid-template-columns: 1fr;
+    }
+}
+
 .grid-case-study-preview {
     @include r-c-g.rowColumnGaps("m", "xl");
     @include gridClass(v-g.$bp-dt, '', 2, 2_3fr);

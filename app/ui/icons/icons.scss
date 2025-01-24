@@ -20,8 +20,8 @@
         height: map-get(n-s-s.$size-space, "l");
     }
     @include s-w.mediaQuery-minOnly(1920) {
-        width: map-get(n-s-s.$size-space, "xl");
-        height: map-get(n-s-s.$size-space, "xl");
+        width: map-get(n-s-s.$size-space, "l");
+        height: map-get(n-s-s.$size-space, "l");
     }
     img {
         width: 100%;

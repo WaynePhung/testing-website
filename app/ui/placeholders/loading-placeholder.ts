@@ -16,6 +16,7 @@ export function useDelayedLoad(delay: number = DEFAULT_DELAY): DelayedLoadState 
   const [hasLoaded, setHasLoaded] = useState(false);
 
   useEffect(() => {
+    setIsLoaded(false);
     const delayMs = delay * 1000;
     const timer = setTimeout(() => {
       setIsLoaded(true);

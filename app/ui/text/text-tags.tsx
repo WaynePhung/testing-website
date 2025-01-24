@@ -6,7 +6,7 @@ import TextTag from "./text-tag";
 interface MainTagProps {
   id?: string;
   className?: string;
-  fontOverride?: 'literata' | 'noto_sans' | 'noto_sans_italic';
+  fontOverride?: 'literata' | 'noto_sans' | 'noto_sans_bold' | 'noto_sans_italic';
   delayTimer?: number;
   placeholder?: boolean;
   children: React.ReactNode;

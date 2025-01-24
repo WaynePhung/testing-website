@@ -2,12 +2,12 @@
 
 import React, { useEffect, useState } from 'react';
 import Placeholder from "../placeholders/placeholder";
-import { literata, noto_sans, noto_sans_italic } from "./../../utils/text-styling/fonts";
+import { literata, noto_sans, noto_sans_bold, noto_sans_italic } from "./../../utils/text-styling/fonts";
 import { indefinite } from "@/app/utils/ts/exported-constants";
 
 interface TextTagProps {
   tag: "p" | "h1" | "h2" | "h3" | "h4" | "figcaption" | "span" | "subtitle";
-  fontOverride?: 'literata' | 'noto_sans' | 'noto_sans_italic';
+  fontOverride?: 'literata' | 'noto_sans' | 'noto_sans_bold' | 'noto_sans_italic';
   children: React.ReactNode;
   className?: string;
   id?: string;
@@ -20,6 +20,7 @@ export default function TextTag({ tag, fontOverride, children, className, id, de
 
   let literataFont = literata.className,
       notoSansFont = noto_sans.className,
+      notoSansBoldFont = noto_sans_bold.className,
       notoSansItalicFont = noto_sans_italic.className,
       setFont;
 
@@ -30,6 +31,9 @@ export default function TextTag({ tag, fontOverride, children, className, id, de
         break;
       case('noto_sans'):
         setFont = notoSansFont;
+        break;
+      case('noto_sans_bold'):
+        setFont = notoSansBoldFont;
         break;
       case('noto_sans_italic'):
         setFont = notoSansItalicFont;
@@ -82,7 +86,7 @@ export default function TextTag({ tag, fontOverride, children, className, id, de
     combinedClassName += " subtitle";
   }
   if (className) {
-    combinedClassName += " " + className;
+    combinedClassName += ` ${className}`;
   }
 
   if (placeholder == false) {
@@ -96,6 +100,7 @@ export default function TextTag({ tag, fontOverride, children, className, id, de
       <Placeholder tag={tag} delayTimer={delayTimer}>
         <Tag id={id && id} className={combinedClassName + (isMounted ? ' fade-in' : '')}>
           {children}
+          {/* Text */}
         </Tag>
       </Placeholder>
     );

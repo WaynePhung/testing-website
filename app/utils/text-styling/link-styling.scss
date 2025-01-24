@@ -177,7 +177,7 @@ header > nav.navigationBar {
             }
         }
         & > span {
-            max-width: 100px;
+            // max-width: 100px;
             width: 100%;
             max-height: 42px;
         }
@@ -187,6 +187,11 @@ header > nav.navigationBar {
             @extend %flex-row-wrap-center;
             width: 100%;
             max-height: 32px;
+            & > span {
+                // max-width: 100px;
+                // width: calc(100% - 24px - 24px);
+                max-height: 42px;
+            }
         }
         // &#linkedInButton > a {
         //     max-width: 162px;

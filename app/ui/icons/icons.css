@@ -49,6 +49,10 @@
           and alignment of children elements and text
 */
 /*
+        - row flex direction, wrapping, right starting point
+          and alignment of children elements and text
+*/
+/*
     These three mixins makes a container of code reusable for specifying the minimum 
     and/or maximum width condition(s) to apply the CSS properties and values.
         - "mediaQuery-minOnly" sets up a media query for only the minimum width used in the media query's condition.

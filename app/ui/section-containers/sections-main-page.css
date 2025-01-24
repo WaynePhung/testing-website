@@ -152,18 +152,22 @@ main, footer, article.h2-wrapper {
   z-index: 3;
 }
 
-aside, .h2-wrapper, h2.sticky {
+aside[role=navigation], aside[role=navigation] > button, .h2-wrapper, h2.sticky {
   z-index: 4;
 }
 
 header, header * {
-  z-index: 5;
+  z-index: 5 !important;
+}
+
+.buffer-page, .loading-page {
+  z-index: 999;
 }
 
 /*
     Placeholder selector for the default properties of the grid.
 */
-main > section.title:not(#home-title), .grid-case-study-preview, .grid-default-2c-equalWidth-1400 {
+main > section.title:not(#home-title), .grid-case-study-preview, .grid-default-3c-equalWidth-1400, .grid-default-2c-equalWidth-1400 {
   display: grid;
   /*
       Any grid item that has the ".columnSpan-all" class name or not 
@@ -172,11 +176,11 @@ main > section.title:not(#home-title), .grid-case-study-preview, .grid-default-2
   */
 }
 @media only screen and (min-width: 1024px) {
-  main > section.title:not(#home-title), .grid-case-study-preview, .grid-default-2c-equalWidth-1400 {
+  main > section.title:not(#home-title), .grid-case-study-preview, .grid-default-3c-equalWidth-1400, .grid-default-2c-equalWidth-1400 {
     justify-items: flex-start;
   }
 }
-main > section.title:not(#home-title) .columnSpan-all, .grid-case-study-preview .columnSpan-all, .grid-default-2c-equalWidth-1400 .columnSpan-all {
+main > section.title:not(#home-title) .columnSpan-all, .grid-case-study-preview .columnSpan-all, .grid-default-3c-equalWidth-1400 .columnSpan-all, .grid-default-2c-equalWidth-1400 .columnSpan-all {
   grid-column: 1/-1;
 }
 
@@ -215,6 +219,20 @@ main > section.title:not(#home-title) .columnSpan-all, .grid-case-study-preview 
   }
 }
 
+.grid-default-3c-equalWidth-1400 {
+  gap: 64px 32px;
+}
+@media only screen and (min-width: 1024px) {
+  .grid-default-3c-equalWidth-1400 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media only screen and (max-width: 1400px) {
+  .grid-default-3c-equalWidth-1400 {
+    grid-template-columns: 1fr;
+  }
+}
+
 .grid-case-study-preview {
   gap: 16px 32px;
 }
@@ -239,6 +257,13 @@ main > section.title-error {
   gap: 16px 32px;
 }
 
+[class*=grid-default] > article {
+  width: 100%;
+}
+[class*=grid-default] > article > article {
+  width: 100%;
+}
+
 /*
     Placeholder selectors for column variations of grid containers.
     They are useful for having a limited, but good-enough selection of columns with different widths (relative to the grid container) to support different layouts of grouped text, images and/or other visual elements across different window widths.
@@ -261,6 +286,9 @@ main section#design-work > article[class*=grid-default] > article, main section#
   main section#design-work > article > article.grid-case-study-preview > article, main section#media-work > article > article.grid-case-study-preview > article, main section#about-me > article > article.grid-case-study-preview > article {
     gap: 16px 0;
   }
+}
+main section#contact > section.form-container {
+  margin: auto;
 }
 main section.title-error > article {
   width: 100%;

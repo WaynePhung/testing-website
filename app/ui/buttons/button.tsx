@@ -3,6 +3,8 @@ import { getButtonProps } from "@/app/utils/ts/button-types";
 import { LinkComponentProps, LinkComponent } from "../links/link";
 import { toggleLoCDisplay } from "../list-of-contents/toggle-loc-mobile";
 import ButtonPlaceholder_NoIcon from "../placeholders/button-placeholder";
+import { useDelayedLoad } from "@/app/hooks/use-delay-load";
+
 import { indefinite } from "@/app/utils/ts/exported-constants";
 
 // interface ButtonType {
@@ -12,36 +14,15 @@ import { indefinite } from "@/app/utils/ts/exported-constants";
 //     // children: React.ReactNode;
 // }
 
-type ButtonComponentProps = LinkComponentProps & { buttonType: string, icon?: boolean };
+type ButtonComponentProps = LinkComponentProps & {
+  buttonType: string, 
+  icon?: boolean, 
+  children?: React.ReactNode;
+};
 
-export default function ButtonComponent({group, subgroup, alias, anchorLink, imagePosition, onClick, showBuffer, buttonType, icon} : ButtonComponentProps): React.ReactElement | null {
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [hasLoaded, setHasLoaded] = useState(false);
-
-    useEffect(() => {
-      // const loadedState = localStorage.getItem(`${mediaType}-${mediaAlias}-loaded`);
-      setTimeout(() => {
-          // if (loadedState === 'true') {
-              setIsLoaded(true);
-              // setHasLoaded(true);
-          // }
-        // }, 0); // 0 seconds for initial load
-        // }, 5000); // 5 seconds delay
-        // }, 60000); // 60 seconds for initial load
-      }, indefinite); // plenty of seconds for initial load
-    });
-
-    const handleLoad = () => {
-      setTimeout(() => {
-          setIsLoaded(true);
-          // setHasLoaded(true);
-          // localStorage.setItem(`${mediaType}-${mediaAlias}-loaded`, 'true');
-      // }, 0); // 0 seconds for initial load
-      // }, 5000); // 5 seconds delay
-      // }, 60000); // 60 seconds for initial load
-      }, indefinite); // plenty of seconds for initial load
-    };
-
+export default function ButtonComponent({group, subgroup, alias, anchorLink, imagePosition, onClick, showBuffer, buttonType, icon, children} : ButtonComponentProps): React.ReactElement | null {
+    const { isLoaded, hasLoaded, handleLoad } = useDelayedLoad();
+    
     const 
         buttonPropsObject = getButtonProps(),
         getPropsHref = buttonPropsObject[alias],
@@ -115,7 +96,9 @@ export default function ButtonComponent({group, subgroup, alias, anchorLink, ima
                 icon={icon}
                 imagePosition={imagePosition} 
                 showBuffer={showBuffer}
-            />
+            >
+              {children && children}
+            </LinkComponent>
           </button>
       );
     }

@@ -10,6 +10,7 @@ $textType: "default";
   $width: calc(100% * $charWidthCoefficient);
   @if ($textType != "default" and $textType == "span") {
     $width: auto;
+    // $width: 100px;
   }
   @return $width;
 }

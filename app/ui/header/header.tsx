@@ -97,26 +97,28 @@ export default function DefaultHeader() {
                         buttonType="primary" 
                     />
                 }
-                <div className="contactButtons">
-                    <ButtonComponent 
-                        group="link-global"
-                        alias="linkedIn" 
-                        anchorLink={false}
-                        icon={true} 
-                        imagePosition="before" 
-                        showBuffer={false}
-                        buttonType="primary" 
-                    />
-                    <ButtonComponent 
-                        group="link-global"
-                        alias="email" 
-                        anchorLink={false}
-                        icon={true} 
-                        imagePosition="before" 
-                        showBuffer={false}
-                        buttonType="primary" 
-                    />
-                </div>
+                {window.innerWidth >= 1024 && 
+                    <div className="contactButtons">
+                        <ButtonComponent 
+                            group="link-global"
+                            alias="linkedIn" 
+                            anchorLink={false}
+                            icon={true} 
+                            imagePosition="before" 
+                            showBuffer={false}
+                            buttonType="primary" 
+                        />
+                        <ButtonComponent 
+                            group="link-global"
+                            alias="email" 
+                            anchorLink={false}
+                            icon={true} 
+                            imagePosition="before" 
+                            showBuffer={false}
+                            buttonType="primary" 
+                        />
+                    </div>
+                }
             </nav>
             <ProgressBar />
         </header>

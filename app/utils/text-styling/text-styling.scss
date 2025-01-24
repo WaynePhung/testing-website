@@ -255,10 +255,23 @@ figcaption {
 
 h1, h2, h3, h4, p, ol, ol > li, ul, ul > li, figcaption {
     margin: 0;
+    // height: 100%;
+}
+
+aside.loading-page > h1 {
+    height: auto;
 }
 
 footer > #endNavLinks h4 {
     padding-bottom: 0;
+}
+
+input[type="text"], textarea[id="message"] {
+    @extend %p-bodyText;
+    padding: map-get(n-s-s.$size-space, "xs") map-get(n-s-s.$size-space, "s");
+    border: 1px solid colors.color('n', 70);
+    border-radius: map-get(n-s-s.$size-space, "s");
+    // padding-bottom: map-get(n-s-s.$size-space, "s");
 }
 
 // Prevent stray widows and display words as intended.

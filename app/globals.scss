@@ -17,11 +17,16 @@
 @use "./ui/placeholders/placeholders";
 @use "./ui/section-containers/sections-case-studies";
 @use "./ui/section-containers/sections-main-page";
-@use "./ui/email-form/email-form";
+@use "./ui/section-containers/sections-widgets";
+@use "./ui/email-form/custom-toast-message";
 // @use "./ui/placeholders/placeholders-test";
 // @use "./ui/placeholders/button-placeholder";
 // @use "./ui/placeholders/figure-placeholder";
 
 body {
     margin: 0;
+}
+
+.width100 {
+    width: 100%;
 }

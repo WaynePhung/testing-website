@@ -176,15 +176,15 @@ export default function Placeholder({ tag, children, delayTimer = indefinite }: 
     return () => clearTimeout(timer);
   }, [delayTimer]);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setBreakpoint(window.innerWidth >= 1024 ? 1024 : 'default');
-    };
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setBreakpoint(window.innerWidth >= 1024 ? 1024 : 'default');
+  //   };
 
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  //   handleResize();
+  //   window.addEventListener('resize', handleResize);
+  //   return () => window.removeEventListener('resize', handleResize);
+  // }, []);
 
   useEffect(() => {
     // Get container width
@@ -246,9 +246,10 @@ export default function Placeholder({ tag, children, delayTimer = indefinite }: 
     console.log('tag: ' + tag + ' rawText: ' + rawText);
 
     // const properties = tagProperties[tag];
+    console.log('tag props: ' + JSON.stringify(tagProperties[tag]));
     const maxCharsPerLine = Math.floor(containerWidth / properties.charWidth);
     if (containerWidth == 0) {
-      console.error('This tag does not have a container width: ' + tag + ' maxCharsPerLine: ' + maxCharsPerLine);
+      console.error('This tag does not have a container width: ' + tag + ' class name: ' + tag + ' maxCharsPerLine: ' + maxCharsPerLine);
     }
 
 
@@ -334,7 +335,7 @@ export default function Placeholder({ tag, children, delayTimer = indefinite }: 
             marginBottom: `${properties.paddingBottom}px`,
           }}
         >
-          {tag === 'span' ? 'Link Text' : ''}
+          {tag === 'span' ? `${children}` : ''}
           {/* {tag === 'figcaption' ? 'Figcaption Text' : ''} */}
         </div>
       ))}

@@ -2,7 +2,7 @@ import { size_space_num } from "../size-spacing/nums-size-space";
 import { ImageMedia } from "@/app/ui/media/media-content";
 
 export interface LinkProps {
-    text: string;
+    text?: string;
     class?: string;
     href?: string | 
     { 
@@ -102,6 +102,26 @@ export function getLinkProps(navBarType?: string) : { [key: string]: LinkProps |
                 shadow: false
             }
         },
+        sendEmail: {
+            // text: "Send Email",
+            role: "link",
+            ariaLabel: "button to submit contact form",
+            // rel: "external",
+            // target: "_blank",
+            icon: {
+                mediaType: "image", 
+                src: "icons/arrow-right.svg",
+                get className(): `icon ratio-${string}` {
+                    return `icon ratio-${this.imageRatio}`;
+                },
+                width: size_space_num["l-num"],
+                height: size_space_num["l-num"],
+                imageRatio: "1-1",
+                alt: "submit icon as a right arrow",
+                loading: "lazy",
+                shadow: false
+            },
+        },
         linkedIn: {
             text: "LinkedIn",
             href: "https://www.linkedin.com/in/wayne-phung-8a8242102/",
@@ -180,7 +200,7 @@ export function getLinkProps(navBarType?: string) : { [key: string]: LinkProps |
             ariaLabel: "anchor link to top of the page"
         },
         placeholder_button_icon: {
-            text: "Link Text",
+            text: "Text",
             role: "button",
             ariaLabel: "placeholder button with an empty icon until the button is loaded",
             icon: {

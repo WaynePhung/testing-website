@@ -348,13 +348,15 @@ header > nav.navigationBar > nav > a {
   }
 }
 header > nav.navigationBar > nav > a > span {
-  max-width: 100px;
   width: 100%;
   max-height: 42px;
 }
 header > nav.navigationBar > .contactButtons > button > a {
   width: 100%;
   max-height: 32px;
+}
+header > nav.navigationBar > .contactButtons > button > a > span {
+  max-height: 42px;
 }
 
 main aside > a, main aside > nav.tocNavLinks > a {

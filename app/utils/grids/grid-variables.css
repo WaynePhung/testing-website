@@ -103,7 +103,7 @@ header, header * {
 /*
     Placeholder selector for the default properties of the grid.
 */
-main > section.title:not(#home-title), .grid-case-study-preview, .grid-default-2c-equalWidth-1400 {
+main > section.title:not(#home-title), .grid-case-study-preview, .grid-default-3c-equalWidth-1400, .grid-default-2c-equalWidth-1400 {
   display: grid;
   /*
       Any grid item that has the ".columnSpan-all" class name or not 
@@ -112,11 +112,11 @@ main > section.title:not(#home-title), .grid-case-study-preview, .grid-default-2
   */
 }
 @media only screen and (min-width: 1024px) {
-  main > section.title:not(#home-title), .grid-case-study-preview, .grid-default-2c-equalWidth-1400 {
+  main > section.title:not(#home-title), .grid-case-study-preview, .grid-default-3c-equalWidth-1400, .grid-default-2c-equalWidth-1400 {
     justify-items: flex-start;
   }
 }
-main > section.title:not(#home-title) .columnSpan-all, .grid-case-study-preview .columnSpan-all, .grid-default-2c-equalWidth-1400 .columnSpan-all {
+main > section.title:not(#home-title) .columnSpan-all, .grid-case-study-preview .columnSpan-all, .grid-default-3c-equalWidth-1400 .columnSpan-all, .grid-default-2c-equalWidth-1400 .columnSpan-all {
   grid-column: 1/-1;
 }
 
@@ -151,6 +151,20 @@ main > section.title:not(#home-title) .columnSpan-all, .grid-case-study-preview 
 }
 @media only screen and (max-width: 1400px) {
   .grid-default-2c-equalWidth-1400 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid-default-3c-equalWidth-1400 {
+  gap: 64px 32px;
+}
+@media only screen and (min-width: 1024px) {
+  .grid-default-3c-equalWidth-1400 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media only screen and (max-width: 1400px) {
+  .grid-default-3c-equalWidth-1400 {
     grid-template-columns: 1fr;
   }
 }

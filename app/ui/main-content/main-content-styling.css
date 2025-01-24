@@ -58,6 +58,16 @@ main > section.bodyContent, main > section.bodyContent > section[class*=content]
         - row flex direction, wrapping, center starting point
           and alignment of children elements and text
 */
+main > section#contact .contactButtons {
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
 /*
         - row flex direction, wrapping, right starting point
           and alignment of children elements and text
@@ -313,4 +323,9 @@ main > section.bodyContent > aside > nav.tocNavLinks > * {
   main > section.bodyContent > aside > nav.tocNavLinks > a#toTop-mobile, main > section.bodyContent > aside > nav.tocNavLinks > a#other-case-studies-mobile {
     display: none !important;
   }
+}
+main > section#contact .contactButtons {
+  justify-content: flex-start;
+  gap: 8px 16px;
+  padding-bottom: 24px;
 }

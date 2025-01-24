@@ -16,7 +16,7 @@ import { LoCDefault } from "./loc-link-props";
 import { toggleLoCDisplay } from "./toggle-loc-mobile";
 import { updateAsidePosition, throttle } from "./loc-sticky";
 import { setActiveLink } from "@/app/utils/ts/active-link-styling";
-import { indefinite } from "@/app/utils/ts/exported-constants";
+import { useDelayedLoad } from "@/app/hooks/use-delay-load";
 
 interface caseStudyType {
     caseStudy: string;
@@ -174,28 +174,8 @@ export default function ListOfContents({ caseStudy } : caseStudyType) : React.Re
             buttonType="secondary" 
         />;
 
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [hasLoaded, setHasLoaded] = useState(false);
-
-    useEffect(() => {
-        // const loadedState = localStorage.getItem(`${mediaType}-${mediaAlias}-loaded`);
-        setTimeout(() => {
-            // if (loadedState === 'true') {
-                setIsLoaded(true);
-                // setHasLoaded(true);
-            // }
-        // }, 5000); // 5 seconds delay
-        }, indefinite); // plenty of seconds for initial load
-    }, []);
+    const { isLoaded, hasLoaded, handleLoad } = useDelayedLoad();
     
-    const handleLoad = () => {
-        setTimeout(() => {
-            setIsLoaded(true);
-            // setHasLoaded(true);
-            // localStorage.setItem(`${mediaType}-${mediaAlias}-loaded`, 'true');
-        // }, 5000); // 5 seconds delay
-        }, indefinite); // plenty of seconds for initial load
-    };
     if (!isLoaded && !hasLoaded) {
         let linkPropsObject = getLinkProps();
         return(

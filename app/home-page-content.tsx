@@ -4,6 +4,8 @@ import Link from "next/link";
 // import { literata, noto_sans } from "./utils/text-styling/fonts";
 import { H1Tag, H2Tag, PTag } from "./ui/text/text-tags";
 import { CSPComponent } from "./(case study)/case-study-preview";
+import ContactForm from "./ui/email-form/email-form";
+import { handleSubmitAction } from "./ui/email-form/handle-submit-action";
 
 export default function HomePageContent() {
   const [activeId, setActiveId] = useState<string | null>(null);
@@ -90,6 +92,10 @@ export default function HomePageContent() {
             </PTag>
           </article>
         </article>
+      </section>
+      <section id="contact">
+        <ContactForm onSubmitAction={handleSubmitAction} />
+        {/* <EmailForm /> */}
       </section>
     </>
   );

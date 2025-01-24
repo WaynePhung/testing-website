@@ -102,6 +102,13 @@ main {
             }
         }
     }
+
+    & > section#contact .contactButtons {
+        @extend %flex-row-wrap-center;
+        justify-content: flex-start;
+        @include r-c-g.rowColumnGaps("s", "m");
+        padding-bottom: map-get(n-s-s.$size-space, "l");
+    }
 }
 
 // section.content {

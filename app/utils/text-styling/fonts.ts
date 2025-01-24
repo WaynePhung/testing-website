@@ -13,6 +13,13 @@ export const noto_sans = Noto_Sans({
     style: 'normal'
 })
 
+export const noto_sans_bold = Noto_Sans({
+    subsets: ['latin'],
+    weight : '600',
+    display: 'swap',
+    style: 'normal'
+})
+
 export const noto_sans_italic = Noto_Sans({
     subsets: ['latin'],
     weight : 'variable',

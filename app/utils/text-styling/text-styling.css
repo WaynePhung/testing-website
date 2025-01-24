@@ -182,19 +182,19 @@ h4 {
   }
 }
 
-p, a, ol, ul, ol > li, ul > li {
+input[type=text], textarea[id=message], p, a, ol, ul, ol > li, ul > li {
   font-weight: 400;
   color: hsl(0, 0%, 30%);
 }
 @media only screen and (max-width: 1024px) {
-  p, a, ol, ul, ol > li, ul > li {
+  input[type=text], textarea[id=message], p, a, ol, ul, ol > li, ul > li {
     font-size: 18px;
     line-height: 1.6;
     padding-bottom: 6.3px;
   }
 }
 @media only screen and (min-width: 1024px) {
-  p, a, ol, ul, ol > li, ul > li {
+  input[type=text], textarea[id=message], p, a, ol, ul, ol > li, ul > li {
     font-size: 20px;
     line-height: 1.6;
     padding-bottom: 7px;
@@ -258,6 +258,16 @@ h1, h2, h3, h4, p, ol, ol > li, ul, ul > li, figcaption {
   margin: 0;
 }
 
+aside.loading-page > h1 {
+  height: auto;
+}
+
 footer > #endNavLinks h4 {
   padding-bottom: 0;
+}
+
+input[type=text], textarea[id=message] {
+  padding: 4px 8px;
+  border: 1px solid hsl(0, 0%, 70%);
+  border-radius: 8px;
 }

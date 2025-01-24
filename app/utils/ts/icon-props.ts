@@ -1,5 +1,6 @@
 import { ImageMedia, DynamicMedia } from "../../ui/media/media-content";
 import { size_space_num } from "../size-spacing/nums-size-space";
+import { sendEmail } from "./email-service";
 
 export type SeeCaseStudyProps = DynamicMedia & {
     [key: string]: {
@@ -23,6 +24,19 @@ export function iconMediaProps() : DynamicMedia | SeeCaseStudyProps {
             shadow: false,
             alt: "email icon",
             loading: "lazy",
+        },
+        sendEmail: {
+            mediaType: "image", 
+            src: "icons/arrow-right.svg",
+            get className(): `icon ratio-${string}` {
+                return `icon ratio-${this.imageRatio}`;
+            },
+            width: size_space_num["l-num"],
+            height: size_space_num["l-num"],
+            imageRatio: "1-1",
+            alt: "submit icon as a right arrow",
+            loading: "lazy",
+            shadow: false
         },
         linkedIn: {
             mediaType: "image",

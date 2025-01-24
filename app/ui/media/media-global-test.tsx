@@ -15,6 +15,8 @@ import { ttvReelMediaProps } from "@/app/(case study)/triton-television-reel/ttv
 
 import { ImageMedia, VideoMedia, IframeMedia, AudioMedia } from './media-content';
 
+import { useDelayedLoad } from "@/app/hooks/use-delay-load";
+
 interface mediaArgs {
     mediaGroup: string;
     mediaType: string;
@@ -25,8 +27,6 @@ interface mediaArgs {
 }
 
 export default function FigureImageVideo ({mediaGroup, mediaType, mediaAlias, wrappingLink, href, shadow} : mediaArgs) : React.ReactElement | null | undefined {
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [hasLoaded, setHasLoaded] = useState(false);
 
     let mediaGroupObject;
     switch (mediaGroup) {
@@ -50,23 +50,7 @@ export default function FigureImageVideo ({mediaGroup, mediaType, mediaAlias, wr
             break;
     }
 
-    useEffect(() => {
-        // const loadedState = localStorage.getItem(`${mediaType}-${mediaAlias}-loaded`);
-        setTimeout(() => {
-            // if (loadedState === 'true') {
-                setIsLoaded(true);
-                // setHasLoaded(true);
-            // }
-        }, 5000); // 5 seconds delay
-    }, [mediaType, mediaAlias]);
-
-    const handleLoad = () => {
-        setTimeout(() => {
-            setIsLoaded(true);
-            // setHasLoaded(true);
-            // localStorage.setItem(`${mediaType}-${mediaAlias}-loaded`, 'true');
-        }, 5000); // 5 seconds delay
-    };
+    const { isLoaded, hasLoaded, handleLoad } = useDelayedLoad();
 
     if (mediaGroupObject) {
         // console.log('Media group object exists.');

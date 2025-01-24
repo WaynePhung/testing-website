@@ -1,0 +1,83 @@
+@use "./../../utils/colors/colors";
+@use "./../../utils/mixins-other/screen-widths" as s-w;
+@use "./../../utils/mixins-other/display-flex";
+@use "./../../utils/size-spacing/row-column-gaps" as r-c-g;
+@use "./../../utils/variables/variables-global" as v-g;
+
+section {
+    &.form-container {
+        @extend %flex-row-wrap-default;
+        @include r-c-g.rowColumnGaps("l", "l");
+        max-width: 1000px;
+        width: 100%;
+        height: 100%;
+        & > article {
+            @extend %flex-row-wrap-default;
+            @include r-c-g.rowColumnGaps("s", "l");
+            // width: 500px;
+            width: 100%;
+        }
+        & > form {
+            @extend %flex-row-wrap-sb;
+            @include r-c-g.rowColumnGaps("l", "l");
+            width: 100%;
+            & > article.text-field {
+                @extend %flex-row-wrap-default;
+                @include r-c-g.rowColumnGaps("s", "l");
+                // width: 500px;
+                width: 100%;
+                &:nth-child(1), &:nth-child(2), &:nth-child(3) {
+                    @include s-w.mediaQuery-maxOnly(v-g.$bp-mb-l) {
+                        width: calc(100%);
+                    }
+                    @include s-w.mediaQuery-minMax(v-g.$bp-mb-l, 800) {
+                        width: calc(50% - 24px);
+                    }
+                    @include s-w.mediaQuery-minOnly(800) {
+                        width: calc(33.3333% - 24px);
+                    }
+                }
+                &:nth-child(4) {
+                    // width: 500px;
+                    width: 100%;
+                }
+                & > label {
+                    width: 100%;
+                    // width: 250px;
+                    & > h3 {
+                        width: 100%;
+                        padding-bottom: 0;
+                    }
+                }
+                & > input {
+                    width: calc(100% - 18px);
+                }
+                & > span {
+                    color: colors.color('a2', 30);
+                    // text-decoration: underline;
+                }
+            }
+            & > article.expandable-text-field {
+                @extend %flex-row-wrap-default;
+                @include r-c-g.rowColumnGaps("s", "l");
+                // width: 500px;
+                width: 100%;
+                & > label {
+                    width: 100%;
+                    // width: 250px;
+                    & > h3 {
+                        width: 100%;
+                        padding-bottom: 0;
+                    }
+                }
+                & > textarea {
+                    width: calc(100% - 18px);
+                }
+                & > span {
+                    color: colors.color('a2', 30);
+                    // text-decoration: underline;
+                }
+            }
+        }
+    }
+}
