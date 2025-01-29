@@ -3,7 +3,10 @@
 import { useRouter, usePathname } from 'next/navigation';
 import { useDelayedLoad } from "@/app/hooks/use-delay-load";
 import { useScrollToSection } from "@/app/utils/ts/anchorLinkScrollSpy";
+import { DynamicMedia, ImageMedia } from "../media/media-content";
 import { getLinkProps, LinkProps, SeeCaseStudyProps } from "./../../utils/ts/link-types";
+import { locLinkProps } from "../list-of-contents/loc-link-props";
+import { iconMediaProps } from "@/app/utils/ts/icon-props";
 import checkDataBufferAttr from "./../../ui/buffer-page/check-data-buffer-attr";
 import bpTransitionEffect from "../buffer-page/bp-transition-effect";
 import { SpanTag } from "../text/text-tags";
@@ -49,7 +52,7 @@ export function LinkComponent({
     const handleClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
         if (anchorLink && pathname === "/") {
             e.preventDefault();
-            scrollToSection(href as string);
+            scrollToSection(getHref as string);
             if (onClick) {
                 onClick(e);
             }
@@ -65,104 +68,111 @@ export function LinkComponent({
         }
     };
 
-    const getLinkPropsObject = () => {
-        if (group === "link-global") {
-            return getLinkProps(page);
-        } else if (group === "loc" && subgroup) {
-            return getMediaGroupObject(group, subgroup);
-        }
-        return null;
-    };
-
-    const linkPropsObject = getLinkPropsObject();
-    if (!linkPropsObject) return null;
-
-    // const getProps = linkPropsObject[alias] as LinkProps | SeeCaseStudyProps;
-    let getProps, grabHref;
-    if (group === "link-global") {
-        console.log("group is link-global");
-        getProps = linkPropsObject[alias];
-        if (alias === "seeCaseStudy" && subgroup && typeof getProps === 'object' && 'href' in getProps) {
-            const seeCaseStudyProps = getProps as SeeCaseStudyProps;
-            if (subgroup in seeCaseStudyProps.href) {
-                if (pathname === "/") {
-                    grabHref = "" + seeCaseStudyProps.href[subgroup];
-                } else {
-                    grabHref = "/" + seeCaseStudyProps.href[subgroup];
-                }
+    let linkPropsObject, getProps;
+    switch(group) {
+        case("link-global"):
+            if (page == "home") {
+                linkPropsObject = getLinkProps(page);
             } else {
-                console.warn(`Subgroup "${subgroup}" not found in seeCaseStudy href object`);
-                getHref = "/";
+                linkPropsObject = getLinkProps();
             }
-        } else {
-            grabHref = typeof (getProps as LinkProps).href === "string" ? ("" + (getProps as LinkProps).href) : "";
-        }
-        grabHref = typeof grabHref === "string" ? grabHref : "";
-    } else if (group === "loc" && subgroup) {
-        console.log("group is loc");
-        getProps = linkPropsObject[alias] as locLinkProps;
-        grabHref = "" + getProps.href;
-    } else {
-        // return null;
+            if (linkPropsObject) {
+                getProps = linkPropsObject[alias];
+                if (!getProps) {
+                    console.warn(`No navigation getProps found for group: ${group} and alias: ${alias}`);
+                    return null;
+                } else {
+                    if (alias === "seeCaseStudy" && subgroup && typeof getProps === 'object' && 'href' in getProps) {
+                        const seeCaseStudyProps = getProps as SeeCaseStudyProps;
+                        if (subgroup in seeCaseStudyProps.href) {
+                            if (pathname === "/") {
+                                getHref = "" + seeCaseStudyProps.href[subgroup];
+                            } else {
+                                getHref = "/" + seeCaseStudyProps.href[subgroup];
+                            }
+                        } else {
+                            console.warn(`Subgroup "${subgroup}" not found in seeCaseStudy href object`);
+                            getHref = "/";
+                        }
+                    } else {
+                        getHref = typeof (getProps as LinkProps).href === "string" ? ("" + (getProps as LinkProps).href) : "";
+                    }
+                    getHref = typeof getHref === "string" ? getHref : "";
+                    // console.log('getHref: ' + getHref);
+                }
+            }
+            break;
+        case("loc"):
+            linkPropsObject = getMediaGroupObject(group, subgroup);
+            if (linkPropsObject) {
+                getProps = linkPropsObject[alias] as locLinkProps;
+                if (!getProps) {
+                    console.warn(`No navigation getProps found for group: ${group} and alias: ${alias}`);
+                    return null;
+                } else {
+                    getHref = "" + getProps.href;
+                }
+            }
+            break;
+        default:
+            break;
     }
-    
-    // let getProps;
-    if (!getProps) {
-        console.warn(`No navigation props found for group: ${group} and alias: ${alias}`);
+
+    let iconPropsObject, imageElement;
+    if (icon && icon == true) {
+        if (group == "loc" && subgroup) {
+                    iconPropsObject = getMediaGroupObject(group, subgroup);
+                    if (iconPropsObject && typeof iconPropsObject === 'object' && alias in iconPropsObject) {
+                        const media = iconPropsObject[alias] as locLinkProps;
+                        const iconProps = media.icon;
+                        if (!isLoaded && !hasLoaded) {
+                            imageElement = <FigureImageVideo group={"icon"} mediaAlias={"placeholder_button_icon"} wrappingLink={false} />
+                        } else {
+                            imageElement = <FigureImageVideo group={"loc"} subgroup={subgroup} mediaAlias={alias} wrappingLink={false} />
+                        }
+                    }
+                } else {
+                    iconPropsObject = iconMediaProps() as DynamicMedia;
+                    function isImageMedia(media: DynamicMedia[keyof DynamicMedia]): media is ImageMedia {
+                        return media.mediaType === 'image';
+                    }
+                    
+                    if (iconPropsObject && typeof iconPropsObject === 'object' && alias in iconPropsObject) {
+                        const media = iconPropsObject[alias];
+                        if (isImageMedia(media)) {
+                            // console.log('icon: ' + icon);
+                            // console.log('getIconProps src: ' + media.src);
+                            if (!isLoaded && !hasLoaded) {
+                                imageElement = <FigureImageVideo group={"icon"} mediaAlias={"placeholder_button_icon"} wrappingLink={false} />
+                            } else {
+                                imageElement = <FigureImageVideo group={"icon"} mediaAlias={alias} wrappingLink={false} />
+                            }
+                        }
+                    }
+                }
+    }
+
+    if (linkPropsObject != undefined && getProps != undefined) {
+        return (
+            <a 
+                id={id || getProps.id}
+                className={`${className || ''} ${isActive ? ' active' : ''}`}
+                href={`${(getHref && getHref !== "undefined" && getHref !== null) && getHref}`}
+                aria-label={getProps.ariaLabel}
+                rel={getProps.rel}
+                target={getProps.target}
+                role={role || getProps.role}
+                onClick={handleClick}
+                data-showbuffer={showBuffer ? "true" : ""}
+            >
+                {imagePosition === "before" && imageElement}
+                <SpanTag placeholder={placeholder}>
+                    {('text' in getProps) ? getProps.text : children}
+                </SpanTag>
+                {imagePosition === "after" && imageElement}
+            </a>
+        );
+    } else {
         return null;
     }
-
-    // const href = getHref || (typeof getProps.href === "string" ? getProps.href : "");
-    console.log('grabHref: ' + grabHref);
-    const href = (grabHref && grabHref !== "undefined" && grabHref !== null) && grabHref;
-
-    console.log('href from getHref: ' + getHref);
-    console.log('href from getProps.href: ' + getProps.href);
-    console.log('href: ' + href);
-
-    let imageElement;
-    if (icon && icon == true) {
-        if (!isLoaded && !hasLoaded) {
-            imageElement = 
-                <FigureImageVideo 
-                    group={"icon"} 
-                    mediaAlias={"placeholder_button_icon"} 
-                    wrappingLink={false} 
-                />
-        } else {
-            imageElement = (group === "loc" && subgroup) ? 
-                <FigureImageVideo 
-                    group={"loc"} 
-                    subgroup={subgroup} 
-                    mediaAlias={alias} 
-                    wrappingLink={false} 
-                /> 
-            : 
-                <FigureImageVideo 
-                    group={"icon"} 
-                    mediaAlias={alias} 
-                    wrappingLink={false} 
-                />
-        }
-    }
-
-    return (
-        <a 
-            id={id || getProps.id}
-            className={`${className || ''} ${isActive ? ' active' : ''}`}
-            href={href}
-            aria-label={getProps.ariaLabel}
-            rel={getProps.rel}
-            target={getProps.target}
-            role={role || getProps.role}
-            onClick={handleClick}
-            data-showbuffer={showBuffer ? "true" : ""}
-        >
-            {imagePosition === "before" && imageElement}
-            <SpanTag placeholder={placeholder}>
-                {('text' in getProps) ? getProps.text : children}
-            </SpanTag>
-            {imagePosition === "after" && imageElement}
-        </a>
-    );
 }
