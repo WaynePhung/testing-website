@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Placeholder from "../placeholders/placeholder";
 import { literata, noto_sans, noto_sans_bold, noto_sans_italic } from "./../../utils/text-styling/fonts";
 import { indefinite } from "@/app/utils/ts/exported-constants";
+import { useDelayedLoad } from "@/app/hooks/use-delay-load";
 
 interface TextTagProps {
   tag: "p" | "h1" | "h2" | "h3" | "h4" | "figcaption" | "span" | "subtitle";
@@ -40,7 +41,7 @@ export default function TextTag({ tag, fontOverride, children, className, id, de
         break;
       default:
         setFont = notoSansFont;
-        console.log('Default case, no font override. tag: ' + tag + ' setFont: ' + setFont);
+        // console.log('Default case, no font override. tag: ' + tag + ' setFont: ' + setFont);
         break;
     }
   } else {
@@ -61,20 +62,23 @@ export default function TextTag({ tag, fontOverride, children, className, id, de
         break;
       default:
         setFont = notoSansFont;
-        console.log('Default case. tag: ' + tag + ' setFont: ' + setFont);
+        // console.log('Default case. tag: ' + tag + ' setFont: ' + setFont);
         break;
     }
   }
 
   // console.log('tag: ' + tag + ' setFont: ' + setFont);
 
-  const [isMounted, setIsMounted] = useState(false);
 
+  const { isLoaded, hasLoaded } = useDelayedLoad({ delay: 0 });
+
+  const [isMounted, setIsMounted] = useState(false);
+  const delayMS = delayTimer * 1000;
   useEffect(() => {
     setIsMounted(true);
     const timer = setTimeout(() => {
       setIsMounted(false);
-    }, indefinite + 500); // Adjust this value to match your fade-in animation duration
+    }, delayMS); // Adjust this value to match your fade-in animation duration
 
     return () => clearTimeout(timer);
   }, []);

@@ -75,19 +75,18 @@ main, footer, article.h2-wrapper {
   z-index: 3;
 }
 
-aside, .h2-wrapper, h2.sticky {
+aside[role=navigation], aside[role=navigation] > button, .h2-wrapper, h2.sticky {
   z-index: 4;
 }
 
 header, header * {
-  z-index: 5;
+  z-index: 5 !important;
 }
 
-@media only screen and (max-width: 1024px) {
-  h2 {
-    height: 64px;
-  }
+.buffer-page, .loading-page {
+  z-index: 999;
 }
+
 @media only screen and (min-width: 1024px) {
   h2 {
     height: 80px;

@@ -16,7 +16,7 @@ interface ExpandableTextFieldProps {
 }
 
 export default function ExpandableTextField({ label, name, register, error, placeholder, description }: ExpandableTextFieldProps) {
-  const { isLoaded, hasLoaded, handleLoad } = useDelayedLoad();
+  const { isLoaded, hasLoaded } = useDelayedLoad({ delay: 0 });
   if (!isLoaded && !hasLoaded) {
     return (
       <article className="text-field">

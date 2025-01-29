@@ -14,21 +14,27 @@ header {
     align-items: center;
     background-color: colors.color('n', 90, 90);
     backdrop-filter: blur(map-get(n-s-s.$size-space, "s"));
-    @include s-w.mediaQuery-maxOnly(v-g.$bp-mb-s) {
-        position: relative;
-    }
-    @include s-w.mediaQuery-minOnly(v-g.$bp-mb-s) {
-        position: sticky;
-    }
-    @include s-w.mediaQuery-minMax(v-g.$bp-mb-s, v-g.$bp-mb-l) {
-        min-height: #{map-get(n-s-s.$size-space, "5xl-num")}px;
-    }
-    @include s-w.mediaQuery-minMax(v-g.$bp-mb-s, v-g.$bp-dt) {
+    // @include s-w.mediaQuery-maxOnly(v-g.$bp-mb-s) {
+    //     position: relative;
+    // }
+    // @include s-w.mediaQuery-minOnly(v-g.$bp-mb-s) {
+    //     position: sticky;
+    // }
+    // @include s-w.mediaQuery-minMax(v-g.$bp-mb-s, v-g.$bp-mb-l) {
+    //     min-height: #{map-get(n-s-s.$size-space, "5xl-num")}px;
+    // }
+    // @include s-w.mediaQuery-minMax(v-g.$bp-mb-s, v-g.$bp-dt) {
+    //     position: fixed;
+    //     bottom: 0;
+    //     left: 0;
+    // }
+    // @include s-w.mediaQuery-maxOnly(v-g.$bp-dt) {
+    //     width: 100%;
+    // }
+    @include s-w.mediaQuery-maxOnly(v-g.$bp-dt) {
         position: fixed;
         bottom: 0;
         left: 0;
-    }
-    @include s-w.mediaQuery-maxOnly(v-g.$bp-dt) {
         width: 100%;
     }
     @include s-w.mediaQuery-minOnly(v-g.$bp-dt) {
@@ -39,9 +45,15 @@ header {
         min-height: #{map-get(n-s-s.$size-space, "3xl-num")}px;
     }
     
-    & > nav.navigationBar {
+    // & > nav.navigationBar {
+    // & > nav {
+    //     @extend %flex-row-wrap-center;
+    //     width: 100%;
+    // }
+    & > nav {
         position: relative;
         @extend %flex-row-wrap-center;
+        @include r-c-g.rowColumnGaps("m", "m");
         justify-content: space-between;
         order: 0;
         height: 100%;
@@ -53,7 +65,7 @@ header {
             // padding: 0;
         }
         @include s-w.mediaQuery-maxOnly(725) {
-            justify-content: center;
+            justify-content: space-between;
         }
         @include s-w.mediaQuery-minMax(725, v-g.$bp-dt) {
             justify-content: space-between;
@@ -68,7 +80,14 @@ header {
             }
         }
 
-        & > nav {
+        & > nav.open-mobile-nav {
+            @extend %flex-row-wrap-center;
+            @include r-c-g.rowColumnGaps("m", "m");
+            width: 100%;
+            height: auto;
+        }
+
+        & > nav.anchorLinks {
             @extend %flex-row-wrap-center;
             @include s-w.mediaQuery-maxOnly(375) {
                 width: 100%;
@@ -87,9 +106,9 @@ header {
                 // padding: map-get(n-s-s.$size-space-stack, "m");
                 padding: map-get(n-s-s.$size-space-stack, "s");
             }
-            @include s-w.mediaQuery-minMax(715, v-g.$bp-dt) {
-                padding: map-get(n-s-s.$size-space-inline, "m");
-            }
+            // @include s-w.mediaQuery-minMax(715, v-g.$bp-dt) {
+            //     padding: map-get(n-s-s.$size-space-inline, "m");
+            // }
             @include s-w.mediaQuery-minOnly(v-g.$bp-dt) {
                 padding: 0;
             }

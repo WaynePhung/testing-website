@@ -6,7 +6,8 @@
 
 h2 {
     @include s-w.mediaQuery-maxOnly(v-g.$bp-dt) {
-        height: map-get(n-s-s.$size-space, "3xl");
+        // height: map-get(n-s-s.$size-space, "3xl");
+        // height: 100%;
     }
     @include s-w.mediaQuery-minOnly(v-g.$bp-dt) {
         height: 80px;

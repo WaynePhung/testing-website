@@ -85,10 +85,19 @@
 %flex-row-wrap-center {
     @include displayFlex(row, wrap, center, center, center);
 }
+
+%flex-row-wrap-end {
+    @include displayFlex(row, wrap, flex-end, flex-end, flex-end);
+}
+
 /*
         - row flex direction, wrapping, right starting point
           and alignment of children elements and text
 */
-%flex-row-wrap-end {
+%flex-row-wrap-center-end {
     @include displayFlex(row, wrap, center, center, flex-end);
+}
+
+%flex-row-wrap-start-start-end {
+    @include displayFlex(row, wrap, flex-start, flex-start, flex-end);
 }

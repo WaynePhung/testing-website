@@ -13,9 +13,11 @@ import { locLinkProps, topOfPageMobileID, topOfPageDesktopID, otherCaseStudiesPr
 import { LoCElectricStride } from "../../(case study)/electric-stride/loc-electricStride";
 import { LoCTTVReel } from "../../(case study)/triton-television-reel/loc-ttv-reel";
 import { LoCDefault } from "./loc-link-props";
+import { useScrollToSection } from "@/app/utils/ts/anchorLinkScrollSpy";
 import { toggleLoCDisplay } from "./toggle-loc-mobile";
 import { updateAsidePosition, throttle } from "./loc-sticky";
 import { setActiveLink } from "@/app/utils/ts/active-link-styling";
+// import { useDelayedLoad } from "@/app/hooks/use-delay-load-old-01";
 import { useDelayedLoad } from "@/app/hooks/use-delay-load";
 
 interface caseStudyType {
@@ -27,19 +29,22 @@ export default function ListOfContents({ caseStudy } : caseStudyType) : React.Re
         [screenSize, setScreenSize] = useState(false),
         targetRef = useRef<HTMLElement>(null),
         pathname = usePathname(),
-        handleClick = (event: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
+        { scrollToSection } = useScrollToSection(),
+        handleClick = async (event: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
             if (targetRef.current) {
+                event.preventDefault();
                 toggleLoCDisplay(targetRef.current);
             }
             const getTarget = event.target;
             if (getTarget instanceof HTMLElement) {
                 const getTagName = getTarget.tagName;
-                console.log('Tag name: ' + getTagName);
+                // console.log('Tag name: ' + getTagName);
                 if (getTagName === 'A') {
                     if (getTarget.getAttribute('href')) {
                         const getHref = getTarget.getAttribute('href');
                         if (getHref != null) {
                             console.log('getHref: ' + getHref);
+                            scrollToSection(getHref as string);
                             setActiveLink(getHref, pathname, true);
                         } else {
                             // Do nothing.
@@ -52,6 +57,7 @@ export default function ListOfContents({ caseStudy } : caseStudyType) : React.Re
                             const getHref = getParentElementTag.getAttribute('href');
                             if (getHref != null) {
                                 console.log('getHref: ' + getHref);
+                                scrollToSection(getHref as string);
                                 setActiveLink(getHref, pathname, true);
                             } else {
                                 // Do nothing.
@@ -66,7 +72,7 @@ export default function ListOfContents({ caseStudy } : caseStudyType) : React.Re
     
     useEffect(() => {
         const checkScreenSize = () => {
-            setScreenSize(window.innerWidth <= 1024);
+            setScreenSize(window.innerWidth < 1024);
             if (targetRef.current) {
                 let header = document.querySelector('header')!,
                     aside = document.querySelector('aside')!;
@@ -169,28 +175,34 @@ export default function ListOfContents({ caseStudy } : caseStudyType) : React.Re
             anchorLink={false}
             icon={true}
             imagePosition="before" 
+            // onClick={handleClick} 
             onClick={handleClick} 
             showBuffer={false}
             buttonType="secondary" 
         />;
 
-    const { isLoaded, hasLoaded, handleLoad } = useDelayedLoad();
+    // const { isLoaded, hasLoaded, handleLoad } = useDelayedLoad();
+    const { isLoaded, hasLoaded } = useDelayedLoad({ delay: 0 });
     
     if (!isLoaded && !hasLoaded) {
         let linkPropsObject = getLinkProps();
         return(
-            <aside role="navigation">
+            <aside className="list-of-contents" role="navigation">
                 {screenSize && toc}
-                <LinkComponent 
-                    group="link-global"
-                    alias={"placeholder_button_icon"} 
-                    anchorLink={true}
-                    icon={true}
-                    imagePosition="before" 
-                    onClick={(e) => e.preventDefault()}
-                    showBuffer={false}
-                />
-                <nav className="tocNavLinks" ref={targetRef}>
+                {
+                    !screenSize && 
+                    <LinkComponent 
+                        group="link-global"
+                        alias={"placeholder_button_icon"} 
+                        anchorLink={true}
+                        icon={true}
+                        imagePosition="before" 
+                        onClick={(e) => e.preventDefault()}
+                        showBuffer={false}
+                        placeholder={false}
+                    />
+                }
+                {/* <nav className="tocNavLinks" ref={targetRef}>
                     {[firstEntry, ...middleEntries].map(([section, items]) => {
                         return (
                             <LinkComponent 
@@ -202,39 +214,48 @@ export default function ListOfContents({ caseStudy } : caseStudyType) : React.Re
                                 imagePosition="before" 
                                 onClick={(e) => e.preventDefault()}
                                 showBuffer={false}
+                                placeholder={false}
                             />
                         );
                     })}
-                </nav>
-                <LinkComponent 
-                    group="link-global"
-                    alias={"placeholder_button_icon"} 
-                    anchorLink={true}
-                    icon={true}
-                    imagePosition="before" 
-                    onClick={(e) => e.preventDefault()}
-                    showBuffer={false}
-                />
+                </nav> */}
+                {
+                    !screenSize && 
+                    <LinkComponent 
+                        group="link-global"
+                        alias={"placeholder_button_icon"} 
+                        anchorLink={true}
+                        icon={true}
+                        imagePosition="before" 
+                        onClick={(e) => e.preventDefault()}
+                        showBuffer={false}
+                        placeholder={false}
+                    />
+                }
             </aside>
         );
     } else {
-        console.log('tocObject["otherCaseStudies"].href: ' + tocObject["otherCaseStudies"].href);
+        // console.log('tocObject["otherCaseStudies"].href: ' + tocObject["otherCaseStudies"].href);
         return (
-            <aside role="navigation">
+            <aside className="list-of-contents" role="navigation">
                 {screenSize && toc}
-                <LinkComponent 
-                    group="loc"
-                    subgroup={caseStudy}
-                    alias="topOfPage"
-                    getHref={tocObject["topOfPage"].href}
-                    aria-label={tocObject["topOfPage"].ariaLabel}
-                    id={tocObject["topOfPage"].id}
-                    anchorLink={true}
-                    icon={true}
-                    imagePosition="before"
-                    role={tocObject["topOfPage"].role}
-                    showBuffer={false}
-                />
+                {
+                    !screenSize && 
+                    <LinkComponent 
+                        group="loc"
+                        subgroup={caseStudy}
+                        alias="topOfPage"
+                        getHref={tocObject["topOfPage"].href}
+                        aria-label={tocObject["topOfPage"].ariaLabel}
+                        id={tocObject["topOfPage"].id}
+                        anchorLink={true}
+                        icon={true}
+                        imagePosition="before"
+                        role={tocObject["topOfPage"].role}
+                        onClick={handleClick}
+                        showBuffer={false}
+                    />
+                }
                     {/* <span className={noto_sans.className}>
                         {topOfPageDesktopID.text}
                     </span> */}
@@ -242,10 +263,10 @@ export default function ListOfContents({ caseStudy } : caseStudyType) : React.Re
                 {/* {middleEntries.slice(0, -1).map(([section, items]) => { */}
                 <nav className="tocNavLinks" ref={targetRef}>
                     {[firstEntry, ...middleEntries].map(([section, items]) => {
-                        console.log('section: ' + section);
-                        console.log('items: ' + items);
-                        console.log('items.href: ' + items.href);
-                        console.log('items.ariaLabel: ' + items.ariaLabel);
+                        // console.log('section: ' + section);
+                        // console.log('items: ' + items);
+                        // console.log('items.href: ' + items.href);
+                        // console.log('items.ariaLabel: ' + items.ariaLabel);
                         return (
                             <LinkComponent 
                                 key={section}
@@ -296,19 +317,23 @@ export default function ListOfContents({ caseStudy } : caseStudyType) : React.Re
                     id={tocObject["otherCaseStudies"].id}
                     role={tocObject["otherCaseStudies"].role}
                 /> */}
-                <LinkComponent 
-                    group="loc"
-                    subgroup={caseStudy}
-                    alias="otherCaseStudies"
-                    getHref={tocObject["otherCaseStudies"].href}
-                    aria-label={tocObject["otherCaseStudies"].ariaLabel}
-                    id={tocObject["otherCaseStudies"].id}
-                    anchorLink={true}
-                    icon={true}
-                    imagePosition="before" 
-                    role={tocObject["otherCaseStudies"].role}
-                    showBuffer={false}
-                />
+                {
+                    !screenSize && 
+                    <LinkComponent 
+                        group="loc"
+                        subgroup={caseStudy}
+                        alias="otherCaseStudies"
+                        getHref={tocObject["otherCaseStudies"].href}
+                        aria-label={tocObject["otherCaseStudies"].ariaLabel}
+                        id={tocObject["otherCaseStudies"].id}
+                        anchorLink={true}
+                        icon={true}
+                        imagePosition="before" 
+                        role={tocObject["otherCaseStudies"].role}
+                        onClick={handleClick}
+                        showBuffer={false}
+                    />
+                }
             </aside>
         );
     }

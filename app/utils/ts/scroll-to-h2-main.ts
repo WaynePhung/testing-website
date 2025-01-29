@@ -71,12 +71,12 @@ export const handleStickyHeaders = (contentRef: React.RefObject<HTMLElement>, pa
             let h2WrapperParent = h2Wrapper.parentElement;
             if (h2Parent && h2Parent.getAttribute('id')) {
               const getSectionName = h2Parent.id.split('#')[0];
-              console.log('Section name: ' + getSectionName);
+              // console.log('Section name: ' + getSectionName);
               // setActiveLink(getSectionName, pathname);
             }
             if (h2WrapperParent && h2WrapperParent.getAttribute('id')) {
               const getSectionName = h2WrapperParent.id.split('#')[0];
-              console.log('Section name: ' + getSectionName);
+              // console.log('Section name: ' + getSectionName);
               // setActiveLink(getSectionName, pathname);
             }
             if (window.innerWidth <= 1024) {

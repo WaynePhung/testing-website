@@ -76,7 +76,7 @@ $button-type-styles: (
     filter: invert(95%) sepia(10%) saturate(1177%) hue-rotate(170deg) brightness(103%) contrast(99%), //changing icon image of black fill to light blue fill (p-100)
   ),
   secondary: (
-    background-color: transparent,
+    background-color: colors.color('n', 90),
     border-width: map-get(n-s-s.$size-space, "xxxs"),
     border-style: solid,
     border-color: colors.color('p', 30),
@@ -245,7 +245,7 @@ $button-placeholder-styles: (
 
 @include generate-button-classes();
 
-header > nav.navigationBar {
+header > nav {
     & > button {
         &#contactButton {
             // @include s-h-t.sHT-mQ-dsdh(350);

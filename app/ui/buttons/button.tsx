@@ -21,8 +21,9 @@ type ButtonComponentProps = LinkComponentProps & {
 };
 
 export default function ButtonComponent({group, subgroup, alias, anchorLink, imagePosition, onClick, showBuffer, buttonType, icon, children} : ButtonComponentProps): React.ReactElement | null {
-    const { isLoaded, hasLoaded, handleLoad } = useDelayedLoad();
-    
+    const { isLoaded, hasLoaded } = useDelayedLoad({ delay: 0 });
+    // const { isLoaded, hasLoaded, handleLoad } = useDelayedLoad();
+    let timesLoaded = 0;
     const 
         buttonPropsObject = getButtonProps(),
         getPropsHref = buttonPropsObject[alias],
@@ -54,7 +55,7 @@ export default function ButtonComponent({group, subgroup, alias, anchorLink, ima
               className={classNamesString}
               role={buttonPropsObject.placeholder_button_icon.role}
               aria-label={buttonPropsObject.placeholder_button_icon.ariaLabel}
-              onLoad={handleLoad}
+              // onLoad={handleLoad}
           >
           <LinkComponent 
               group={"link-global"} 
@@ -85,7 +86,7 @@ export default function ButtonComponent({group, subgroup, alias, anchorLink, ima
               role={getPropsHref.role}
               aria-label={getPropsHref.ariaLabel}
               onClick={onClick}
-              onLoad={handleLoad}
+              // onLoad={handleLoad}
           >
             <LinkComponent 
                 // group={group} 

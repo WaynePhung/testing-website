@@ -12,6 +12,32 @@ export type SeeCaseStudyProps = DynamicMedia & {
 
 export function iconMediaProps() : DynamicMedia | SeeCaseStudyProps {
     return {
+        menu: {
+            mediaType: "image",
+            get className(): string {
+                return `ratio-${(this as { imageRatio: string }).imageRatio}`;
+            },
+            width: size_space_num["l-num"],
+            height: size_space_num["l-num"],
+            imageRatio: "1-1",
+            src: "icons/menu-hamburger.svg",
+            shadow: false,
+            alt: "global navigation menu icon",
+            loading: "eager",
+        },
+        closeMenu: {
+            mediaType: "image",
+            get className(): string {
+                return `ratio-${(this as { imageRatio: string }).imageRatio}`;
+            },
+            width: size_space_num["l-num"],
+            height: size_space_num["l-num"],
+            imageRatio: "1-1",
+            src: "icons/close.svg",
+            shadow: false,
+            alt: "global navigation icon to close menu",
+            loading: "eager",
+        },
         email: {
             mediaType: "image",
             get className(): string {

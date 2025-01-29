@@ -16,7 +16,7 @@
 //     }
 // }
 
-aside {
+aside.list-of-contents {
     &.sticky-active {
         // max-height: 85vh;
         // overflow-x: hidden;
@@ -33,8 +33,12 @@ aside {
         }
     }
     @include s-w.mediaQuery-maxOnly(v-g.$bp-dt) {
+        // max-width: 500px;
+        // width: 100%;
         & > nav.tocNavLinks {
             display: none;
+            // max-width: 500px;
+            width: 100%;
             margin-bottom: map-get(n-s-s.$size-space, "m");
             padding: map-get(n-s-s.$size-space, "sm");
             border: map-get(n-s-s.$size-space, "xxxs") solid colors.color('p', 30);

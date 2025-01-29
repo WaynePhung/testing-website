@@ -87,8 +87,8 @@ export default function ContactForm({ onSubmitAction }: { onSubmitAction: (formD
                     showBuffer={false}
                     buttonType="primary" 
                 />
-              <PTag className="width100">All fields below this contact form are required to be filled in.</PTag>
             </article>
+          <PTag className="width100">All fields below this contact form are required to be filled in.</PTag>
           <form>
             <TextField
               label="First Name"

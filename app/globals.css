@@ -61,7 +61,7 @@ figure {
         - row flex direction, wrapping, top-left starting point 
           and alignment of children elements and text
 */
-section.form-container, section.form-container > article, section.form-container > form > article.text-field, section.form-container > form > article.expandable-text-field, main section, main section#design-work > article, main section#media-work > article, main section#about-me > article, main section#design-work > article[class*=grid-default] > article, main section#media-work > article[class*=grid-default] > article, main section#about-me > article[class*=grid-default] > article, main section#design-work > article > article.grid-case-study-preview > article, main section#media-work > article > article.grid-case-study-preview > article, main section#about-me > article > article.grid-case-study-preview > article, article#other-case-studies > article.grid-case-study-preview > article, main > section.bodyContent, main > section.bodyContent > section[class*=content], main > section.bodyContent > section[class*=content].content-loc, main > section.bodyContent > section[class*=content].content-loc > article, main > section.bodyContent > aside > nav.tocNavLinks, main > section.bodyContent article#other-case-studies, footer, header, footer article#endNavLinks > nav > a {
+section.form-container, section.form-container > article, section.form-container > form > article.text-field, section.form-container > form > article.expandable-text-field, main section, main section#design-work > article, main section#media-work > article, main section#about-me > article, main section#design-work > article[class*=grid-default] > article, main section#media-work > article[class*=grid-default] > article, main section#about-me > article[class*=grid-default] > article, main section#design-work > article > article.grid-case-study-preview > article, main section#media-work > article > article.grid-case-study-preview > article, main section#about-me > article > article.grid-case-study-preview > article, article#other-case-studies > article.grid-case-study-preview > article, main > section.bodyContent, main > section.bodyContent > section[class*=content], main > section.bodyContent > section[class*=content].content-loc, main > section.bodyContent > section[class*=content].content-loc > article, main > section.bodyContent article#other-case-studies, header {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -88,7 +88,7 @@ section.form-container > form {
         - row flex direction, wrapping, center starting point
           and alignment of children elements and text
 */
-.placeholder.span, .placeholder.span > .placeholder-line-span, .placeholder.figcaption, .placeholder.figcaption .placeholder-line-figcaption, main > section#contact .contactButtons, .buffer-visual, figure picture, figure picture > img, footer > nav.navigationBar, footer > nav.navigationBar > nav, footer > nav.navigationBar > .contactButtons, footer article#endMessage > .contactButtons, header > nav.navigationBar, header > nav.navigationBar > nav, header > nav.navigationBar > .contactButtons, button.button-primary-loaded, button.button-primary-placeholder, button.button-secondary-loaded, button.button-secondary-placeholder, header > nav.navigationBar > a, header > nav.navigationBar > nav > a, footer > nav.navigationBar > a, footer > nav.navigationBar > nav > a, header > nav.navigationBar > .contactButtons > button > a, footer > nav.navigationBar > .contactButtons > button > a, main button > a, main aside > a, main aside > nav.tocNavLinks > a, footer article#endMessage > .contactButtons > button > a, button.button-primary-loaded a picture, button.button-primary-placeholder a picture, button.button-secondary-loaded a picture, button.button-secondary-placeholder a picture {
+.placeholder.span, .placeholder.span > .placeholder-line-span, .placeholder.figcaption, .placeholder.figcaption .placeholder-line-figcaption, main > section#contact .contactButtons, .buffer-visual, figure picture, figure picture > img, footer > nav, footer > nav > nav, footer > nav > .contactButtons, footer article#endMessage > .contactButtons, header > nav, header > nav > nav.open-mobile-nav, header > nav > nav.anchorLinks, header > nav > .contactButtons, button.button-primary-loaded, button.button-primary-placeholder, button.button-secondary-loaded, button.button-secondary-placeholder, header > nav > nav.open-mobile-nav > a, footer > nav > nav.open-mobile-nav > a, header > nav > nav.open-mobile-nav > a > a, footer > nav > nav.open-mobile-nav > a > a, header > nav > a, header > nav > nav > a, footer > nav > a, footer > nav > nav > a, header > nav > a > a, header > nav > nav > a > a, footer > nav > a > a, footer > nav > nav > a > a, header > nav > nav.anchorLinks > a, footer > nav > nav.anchorLinks > a, header > nav > .contactButtons > button > a, footer > nav > .contactButtons > button > a, main button > a, main aside > a, main aside > nav.tocNavLinks > a, footer article#endNavLinks > nav > a, figure figcaption > a, footer article#endMessage > .contactButtons > button > a, button.button-primary-loaded a, button.button-primary-placeholder a, button.button-secondary-loaded a, button.button-secondary-placeholder a, button.button-primary-loaded a picture, button.button-primary-placeholder a picture, button.button-secondary-loaded a picture, button.button-secondary-placeholder a picture {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -96,6 +96,16 @@ section.form-container > form {
   align-items: center;
   align-content: center;
   justify-content: center;
+}
+
+main > section.bodyContent > aside.list-of-contents > nav.tocNavLinks {
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: flex-end;
+  align-content: flex-end;
+  justify-content: flex-end;
 }
 
 /*
@@ -306,13 +316,13 @@ button.button-primary-loaded:hover span:after, button.button-primary-placeholder
         }
     }
 */
-footer article#endMessage > .contactButtons > button > a, button.button-primary-loaded a, button.button-primary-placeholder a, button.button-secondary-loaded a, button.button-secondary-placeholder a, figure figcaption > a, footer article#endNavLinks > nav > a, main aside > a, main aside > nav.tocNavLinks > a, header > nav.navigationBar > a > a, header > nav.navigationBar > nav > a > a, footer > nav.navigationBar > a > a, footer > nav.navigationBar > nav > a > a, header > nav.navigationBar > a, header > nav.navigationBar > nav > a, footer > nav.navigationBar > a, footer > nav.navigationBar > nav > a {
+footer article#endMessage > .contactButtons > button > a, button.button-primary-loaded a, button.button-primary-placeholder a, button.button-secondary-loaded a, button.button-secondary-placeholder a, figure figcaption > a, footer article#endNavLinks > nav > a, main aside > a, main aside > nav.tocNavLinks > a, header > nav > nav.anchorLinks > a, footer > nav > nav.anchorLinks > a, header > nav > a > a, header > nav > nav > a > a, footer > nav > a > a, footer > nav > nav > a > a, header > nav > a, header > nav > nav > a, footer > nav > a, footer > nav > nav > a, header > nav > nav.open-mobile-nav > a > a, footer > nav > nav.open-mobile-nav > a > a, header > nav > nav.open-mobile-nav > a, footer > nav > nav.open-mobile-nav > a {
   gap: 16px 16px;
   position: relative;
   cursor: default;
   text-decoration: none;
 }
-footer article#endMessage > .contactButtons > button > a span:after, button.button-primary-loaded a span:after, button.button-primary-placeholder a span:after, button.button-secondary-loaded a span:after, button.button-secondary-placeholder a span:after, figure figcaption > a span:after, footer article#endNavLinks > nav > a span:after, main aside > a span:after, main aside > nav.tocNavLinks > a span:after, header > nav.navigationBar > a span:after, header > nav.navigationBar > nav > a span:after, footer > nav.navigationBar > a span:after, footer > nav.navigationBar > nav > a span:after {
+footer article#endMessage > .contactButtons > button > a span:after, button.button-primary-loaded a span:after, button.button-primary-placeholder a span:after, button.button-secondary-loaded a span:after, button.button-secondary-placeholder a span:after, figure figcaption > a span:after, footer article#endNavLinks > nav > a span:after, main aside > a span:after, main aside > nav.tocNavLinks > a span:after, header > nav > nav.anchorLinks > a span:after, footer > nav > nav.anchorLinks > a span:after, header > nav > a > a span:after, header > nav > nav > a > a span:after, footer > nav > a > a span:after, footer > nav > nav > a > a span:after, header > nav > a span:after, header > nav > nav > a span:after, footer > nav > a span:after, footer > nav > nav > a span:after, header > nav > nav.open-mobile-nav > a span:after, footer > nav > nav.open-mobile-nav > a span:after {
   display: block;
   position: relative;
   left: 50%;
@@ -324,15 +334,15 @@ footer article#endMessage > .contactButtons > button > a span:after, button.butt
   width: 0%;
   height: 2px;
 }
-footer article#endMessage > .contactButtons > button > a:hover, button.button-primary-loaded a:hover, button.button-primary-placeholder a:hover, button.button-secondary-loaded a:hover, button.button-secondary-placeholder a:hover, figure figcaption > a:hover, footer article#endNavLinks > nav > a:hover, main aside > a:hover, main aside > nav.tocNavLinks > a:hover, header > nav.navigationBar > a > a:hover, header > nav.navigationBar > nav > a > a:hover, footer > nav.navigationBar > a > a:hover, footer > nav.navigationBar > nav > a > a:hover, header > nav.navigationBar > a:hover, header > nav.navigationBar > nav > a:hover, footer > nav.navigationBar > a:hover, footer > nav.navigationBar > nav > a:hover, footer article#endMessage > .contactButtons > button > a.active, button.button-primary-loaded a.active, button.button-primary-placeholder a.active, button.button-secondary-loaded a.active, button.button-secondary-placeholder a.active, figure figcaption > a.active, footer article#endNavLinks > nav > a.active, main aside > a.active, main aside > nav.tocNavLinks > a.active, header > nav.navigationBar > a > a.active, header > nav.navigationBar > nav > a > a.active, footer > nav.navigationBar > a > a.active, footer > nav.navigationBar > nav > a > a.active, header > nav.navigationBar > a.active, header > nav.navigationBar > nav > a.active, footer > nav.navigationBar > a.active, footer > nav.navigationBar > nav > a.active {
+footer article#endMessage > .contactButtons > button > a:hover, button.button-primary-loaded a:hover, button.button-primary-placeholder a:hover, button.button-secondary-loaded a:hover, button.button-secondary-placeholder a:hover, figure figcaption > a:hover, footer article#endNavLinks > nav > a:hover, main aside > a:hover, main aside > nav.tocNavLinks > a:hover, header > nav > a > a:hover, header > nav > nav > a > a:hover, footer > nav > a > a:hover, footer > nav > nav > a > a:hover, header > nav > a:hover, header > nav > nav > a:hover, footer > nav > a:hover, footer > nav > nav > a:hover, footer article#endMessage > .contactButtons > button > a.active, button.button-primary-loaded a.active, button.button-primary-placeholder a.active, button.button-secondary-loaded a.active, button.button-secondary-placeholder a.active, figure figcaption > a.active, footer article#endNavLinks > nav > a.active, main aside > a.active, main aside > nav.tocNavLinks > a.active, header > nav > a > a.active, header > nav > nav > a > a.active, footer > nav > a > a.active, footer > nav > nav > a > a.active, header > nav > a.active, header > nav > nav > a.active, footer > nav > a.active, footer > nav > nav > a.active {
   cursor: pointer;
 }
-footer article#endMessage > .contactButtons > button > a:hover span:after, button.button-primary-loaded a:hover span:after, button.button-primary-placeholder a:hover span:after, button.button-secondary-loaded a:hover span:after, button.button-secondary-placeholder a:hover span:after, figure figcaption > a:hover span:after, footer article#endNavLinks > nav > a:hover span:after, main aside > a:hover span:after, main aside > nav.tocNavLinks > a:hover span:after, header > nav.navigationBar > a > a:hover span:after, header > nav.navigationBar > nav > a > a:hover span:after, footer > nav.navigationBar > a > a:hover span:after, footer > nav.navigationBar > nav > a > a:hover span:after, header > nav.navigationBar > a:hover span:after, header > nav.navigationBar > nav > a:hover span:after, footer > nav.navigationBar > a:hover span:after, footer > nav.navigationBar > nav > a:hover span:after, footer article#endMessage > .contactButtons > button > a.active span:after, button.button-primary-loaded a.active span:after, button.button-primary-placeholder a.active span:after, button.button-secondary-loaded a.active span:after, button.button-secondary-placeholder a.active span:after, figure figcaption > a.active span:after, footer article#endNavLinks > nav > a.active span:after, main aside > a.active span:after, main aside > nav.tocNavLinks > a.active span:after, header > nav.navigationBar > a > a.active span:after, header > nav.navigationBar > nav > a > a.active span:after, footer > nav.navigationBar > a > a.active span:after, footer > nav.navigationBar > nav > a > a.active span:after, header > nav.navigationBar > a.active span:after, header > nav.navigationBar > nav > a.active span:after, footer > nav.navigationBar > a.active span:after, footer > nav.navigationBar > nav > a.active span:after {
+footer article#endMessage > .contactButtons > button > a:hover span:after, button.button-primary-loaded a:hover span:after, button.button-primary-placeholder a:hover span:after, button.button-secondary-loaded a:hover span:after, button.button-secondary-placeholder a:hover span:after, figure figcaption > a:hover span:after, footer article#endNavLinks > nav > a:hover span:after, main aside > a:hover span:after, main aside > nav.tocNavLinks > a:hover span:after, header > nav > a > a:hover span:after, header > nav > nav > a > a:hover span:after, footer > nav > a > a:hover span:after, footer > nav > nav > a > a:hover span:after, header > nav > a:hover span:after, header > nav > nav > a:hover span:after, footer > nav > a:hover span:after, footer > nav > nav > a:hover span:after, footer article#endMessage > .contactButtons > button > a.active span:after, button.button-primary-loaded a.active span:after, button.button-primary-placeholder a.active span:after, button.button-secondary-loaded a.active span:after, button.button-secondary-placeholder a.active span:after, figure figcaption > a.active span:after, footer article#endNavLinks > nav > a.active span:after, main aside > a.active span:after, main aside > nav.tocNavLinks > a.active span:after, header > nav > a > a.active span:after, header > nav > nav > a > a.active span:after, footer > nav > a > a.active span:after, footer > nav > nav > a > a.active span:after, header > nav > a.active span:after, header > nav > nav > a.active span:after, footer > nav > a.active span:after, footer > nav > nav > a.active span:after {
   left: 0;
   width: 100%;
 }
 
-footer article#endNavLinks > nav > a, main aside > a span, main aside > nav.tocNavLinks > a span, header > nav.navigationBar > a span, header > nav.navigationBar > nav > a span, footer > nav.navigationBar > a span, footer > nav.navigationBar > nav > a span {
+footer article#endNavLinks > nav > a, main aside > a span, main aside > nav.tocNavLinks > a span, header > nav > a span, header > nav > nav > a span, footer > nav > a span, footer > nav > nav > a span, header > nav > nav.open-mobile-nav > a span, footer > nav > nav.open-mobile-nav > a span {
   background-image: radial-gradient(transparent);
   animation-name: noBackground;
 }
@@ -345,7 +355,7 @@ footer article#endNavLinks > nav > a, main aside > a span, main aside > nav.tocN
   }
 }
 
-footer article#endNavLinks > nav > a:hover, main aside > a:hover span, main aside > a.active span, main aside > nav.tocNavLinks > a:hover span, main aside > nav.tocNavLinks > a.active span, header > nav.navigationBar > a:hover span, header > nav.navigationBar > a.active span, header > nav.navigationBar > nav > a:hover span, header > nav.navigationBar > nav > a.active span, footer > nav.navigationBar > a:hover span, footer > nav.navigationBar > a.active span, footer > nav.navigationBar > nav > a:hover span, footer > nav.navigationBar > nav > a.active span {
+footer article#endNavLinks > nav > a:hover, main aside > a:hover span, main aside > a.active span, main aside > nav.tocNavLinks > a:hover span, main aside > nav.tocNavLinks > a.active span, header > nav > a:hover span, header > nav > a.active span, header > nav > nav > a:hover span, header > nav > nav > a.active span, footer > nav > a:hover span, footer > nav > a.active span, footer > nav > nav > a:hover span, footer > nav > nav > a.active span, header > nav > nav.open-mobile-nav > a:hover span, header > nav > nav.open-mobile-nav > a.active span, footer > nav > nav.open-mobile-nav > a:hover span, footer > nav > nav.open-mobile-nav > a.active span {
   background-image: radial-gradient(hsl(185, 90%, 86%) 0%, transparent 75%);
   animation-name: activeBackground;
 }
@@ -358,89 +368,98 @@ footer article#endNavLinks > nav > a:hover, main aside > a:hover span, main asid
   }
 }
 
-footer article#endNavLinks > nav > a:hover, footer article#endNavLinks > nav > a, main aside > a:hover span, main aside > a.active span, main aside > nav.tocNavLinks > a:hover span, main aside > nav.tocNavLinks > a.active span, main aside > a span, main aside > nav.tocNavLinks > a span, header > nav.navigationBar > a:hover span, header > nav.navigationBar > a.active span, header > nav.navigationBar > nav > a:hover span, header > nav.navigationBar > nav > a.active span, footer > nav.navigationBar > a:hover span, footer > nav.navigationBar > a.active span, footer > nav.navigationBar > nav > a:hover span, footer > nav.navigationBar > nav > a.active span, header > nav.navigationBar > a span, header > nav.navigationBar > nav > a span, footer > nav.navigationBar > a span, footer > nav.navigationBar > nav > a span {
+footer article#endNavLinks > nav > a:hover, footer article#endNavLinks > nav > a, main aside > a:hover span, main aside > a.active span, main aside > nav.tocNavLinks > a:hover span, main aside > nav.tocNavLinks > a.active span, main aside > a span, main aside > nav.tocNavLinks > a span, header > nav > a:hover span, header > nav > a.active span, header > nav > nav > a:hover span, header > nav > nav > a.active span, footer > nav > a:hover span, footer > nav > a.active span, footer > nav > nav > a:hover span, footer > nav > nav > a.active span, header > nav > a span, header > nav > nav > a span, footer > nav > a span, footer > nav > nav > a span, header > nav > nav.open-mobile-nav > a:hover span, header > nav > nav.open-mobile-nav > a.active span, footer > nav > nav.open-mobile-nav > a:hover span, footer > nav > nav.open-mobile-nav > a.active span, header > nav > nav.open-mobile-nav > a span, footer > nav > nav.open-mobile-nav > a span {
   animation-duration: 300ms;
   animation-timing-function: ease-in-out;
 }
 
-header > nav.navigationBar > nav, footer > nav.navigationBar > nav {
-  justify-content: space-between;
-  max-width: 568px;
+header > nav > nav.open-mobile-nav > a, footer > nav > nav.open-mobile-nav > a {
   width: 100%;
 }
-header > nav.navigationBar > a span:after, header > nav.navigationBar > nav > a span:after, footer > nav.navigationBar > a span:after, footer > nav.navigationBar > nav > a span:after {
+header > nav > nav.open-mobile-nav > a span, footer > nav > nav.open-mobile-nav > a span {
+  text-align: center;
+  width: 100%;
+}
+header > nav > nav.open-mobile-nav > a span:after, footer > nav > nav.open-mobile-nav > a span:after {
+  background-color: hsl(0, 0%, 50%);
+}
+header > nav > nav.anchorLinks, footer > nav > nav.anchorLinks {
+  gap: 24px 0;
+  justify-content: space-between;
+}
+header > nav > a span:after, header > nav > nav > a span:after, footer > nav > a span:after, footer > nav > nav > a span:after {
   background-color: hsl(0, 0%, 50%);
 }
 @media only screen and (min-width: 1024px) {
-  header > nav.navigationBar > a, header > nav.navigationBar > nav > a, footer > nav.navigationBar > a, footer > nav.navigationBar > nav > a {
+  header > nav > a, header > nav > nav > a, footer > nav > a, footer > nav > nav > a {
     padding: 0 16px 0 16px;
   }
 }
-header > nav.navigationBar > a > a, header > nav.navigationBar > nav > a > a, footer > nav.navigationBar > a > a, footer > nav.navigationBar > nav > a > a {
+header > nav > a > a, header > nav > nav > a > a, footer > nav > a > a, footer > nav > nav > a > a {
   color: hsl(0, 0%, 30%);
   max-width: 142px;
   width: 100%;
   max-height: 42px;
 }
 @media only screen and (max-width: 1024px) {
-  header > nav.navigationBar > a > a, header > nav.navigationBar > nav > a > a, footer > nav.navigationBar > a > a, footer > nav.navigationBar > nav > a > a {
+  header > nav > a > a, header > nav > nav > a > a, footer > nav > a > a, footer > nav > nav > a > a {
     display: none !important;
   }
 }
 @media only screen and (min-width: 1024px) {
-  header > nav.navigationBar > a > a, header > nav.navigationBar > nav > a > a, footer > nav.navigationBar > a > a, footer > nav.navigationBar > nav > a > a {
+  header > nav > a > a, header > nav > nav > a > a, footer > nav > a > a, footer > nav > nav > a > a {
     display: inherit;
   }
 }
-header > nav.navigationBar > a > a#waynephung, header > nav.navigationBar > nav > a > a#waynephung, footer > nav.navigationBar > a > a#waynephung, footer > nav.navigationBar > nav > a > a#waynephung {
+header > nav > a > a#waynephung, header > nav > nav > a > a#waynephung, footer > nav > a > a#waynephung, footer > nav > nav > a > a#waynephung {
   max-width: 142px;
   width: 100%;
   max-height: 42px;
 }
-header > nav.navigationBar > nav > a, footer > nav.navigationBar > nav > a {
+header > nav > nav.anchorLinks > a, footer > nav > nav.anchorLinks > a {
   max-height: 42px;
   color: hsl(0, 0%, 30%);
 }
 @media only screen and (max-width: 200px) {
-  header > nav.navigationBar > nav > a, footer > nav.navigationBar > nav > a {
+  header > nav > nav.anchorLinks > a, footer > nav > nav.anchorLinks > a {
     padding: 8px 8px 8px 8px;
   }
 }
 @media only screen and (min-width: 200px) {
-  header > nav.navigationBar > nav > a, footer > nav.navigationBar > nav > a {
+  header > nav > nav.anchorLinks > a, footer > nav > nav.anchorLinks > a {
     padding: 8px 16px 8px 16px;
   }
 }
 @media only screen and (max-width: 275px) {
-  header > nav.navigationBar > nav > a, footer > nav.navigationBar > nav > a {
+  header > nav > nav.anchorLinks > a, footer > nav > nav.anchorLinks > a {
     width: calc(100% - 16px);
   }
 }
 @media only screen and (min-width: 275px) and (max-width: 375px) {
-  header > nav.navigationBar > nav > a, footer > nav.navigationBar > nav > a {
+  header > nav > nav.anchorLinks > a, footer > nav > nav.anchorLinks > a {
     width: 50%;
   }
 }
 @media only screen and (max-width: 375px) {
-  header > nav.navigationBar > nav > a, footer > nav.navigationBar > nav > a {
+  header > nav > nav.anchorLinks > a, footer > nav > nav.anchorLinks > a {
     min-height: 44px;
     padding: 0;
   }
 }
 @media only screen and (min-width: 750px) and (max-width: 1024px) {
-  header > nav.navigationBar > nav > a:first-of-type, footer > nav.navigationBar > nav > a:first-of-type {
+  header > nav > nav.anchorLinks > a:first-of-type, footer > nav > nav.anchorLinks > a:first-of-type {
     padding-left: 0;
   }
 }
-header > nav.navigationBar > nav > a > span, footer > nav.navigationBar > nav > a > span {
+header > nav > nav.anchorLinks > a > span, footer > nav > nav.anchorLinks > a > span {
   width: 100%;
   max-height: 42px;
 }
-header > nav.navigationBar > .contactButtons > button > a, footer > nav.navigationBar > .contactButtons > button > a {
+header > nav > .contactButtons > button > a, footer > nav > .contactButtons > button > a {
   width: 100%;
   max-height: 32px;
 }
-header > nav.navigationBar > .contactButtons > button > a > span, footer > nav.navigationBar > .contactButtons > button > a > span {
+header > nav > .contactButtons > button > a > span, footer > nav > .contactButtons > button > a > span {
   max-height: 42px;
 }
 
@@ -552,7 +571,7 @@ button.button-primary-placeholder picture > img, button.button-primary-loaded pi
 }
 
 button.button-secondary-placeholder, button.button-secondary-loaded {
-  background-color: transparent;
+  background-color: hsl(0, 0%, 90%);
   border-style: solid;
   border-color: hsl(215, 60%, 44%);
 }
@@ -648,12 +667,12 @@ button.button-secondary-placeholder {
 }
 
 @media only screen and (max-width: 1024px) {
-  header > nav.navigationBar > button#contactButton {
+  header > nav > button#contactButton {
     display: inherit;
   }
 }
 @media only screen and (min-width: 1024px) {
-  header > nav.navigationBar > button#contactButton {
+  header > nav > button#contactButton {
     display: none !important;
   }
 }
@@ -697,30 +716,11 @@ header {
   background-color: hsla(0, 0%, 90%, 0.9);
   backdrop-filter: blur(8px);
 }
-@media only screen and (max-width: 320px) {
-  header {
-    position: relative;
-  }
-}
-@media only screen and (min-width: 320px) {
-  header {
-    position: sticky;
-  }
-}
-@media only screen and (min-width: 320px) and (max-width: 510px) {
-  header {
-    min-height: 128px;
-  }
-}
-@media only screen and (min-width: 320px) and (max-width: 1024px) {
+@media only screen and (max-width: 1024px) {
   header {
     position: fixed;
     bottom: 0;
     left: 0;
-  }
-}
-@media only screen and (max-width: 1024px) {
-  header {
     width: 100%;
   }
 }
@@ -733,88 +733,89 @@ header {
     min-height: 64px;
   }
 }
-header > nav.navigationBar {
+header > nav {
   position: relative;
+  gap: 16px 16px;
   justify-content: space-between;
   order: 0;
   height: 100%;
 }
 @media only screen and (min-width: 250px) {
-  header > nav.navigationBar {
+  header > nav {
     width: 100%;
   }
 }
 @media only screen and (max-width: 725px) {
-  header > nav.navigationBar {
-    justify-content: center;
+  header > nav {
+    justify-content: space-between;
   }
 }
 @media only screen and (min-width: 725px) and (max-width: 1024px) {
-  header > nav.navigationBar {
+  header > nav {
     justify-content: space-between;
   }
 }
 @media only screen and (max-width: 1024px) {
-  header > nav.navigationBar {
+  header > nav {
     order: 2;
   }
 }
 @media only screen and (min-width: 1024px) {
-  header > nav.navigationBar > a:first-of-type {
+  header > nav > a:first-of-type {
     padding-left: 0;
   }
 }
+header > nav > nav.open-mobile-nav {
+  gap: 16px 16px;
+  width: 100%;
+  height: auto;
+}
 @media only screen and (max-width: 375px) {
-  header > nav.navigationBar > nav {
+  header > nav > nav.anchorLinks {
     width: 100%;
   }
 }
 @media only screen and (min-width: 375px) and (max-width: 715px) {
-  header > nav.navigationBar > nav {
+  header > nav > nav.anchorLinks {
     justify-content: space-between;
     min-width: 350px;
   }
-  header > nav.navigationBar > nav > a:first-of-type {
+  header > nav > nav.anchorLinks > a:first-of-type {
     padding-left: 0;
   }
-  header > nav.navigationBar > nav > a:last-of-type {
+  header > nav > nav.anchorLinks > a:last-of-type {
     padding-right: 0;
   }
 }
 @media only screen and (max-width: 715px) {
-  header > nav.navigationBar > nav {
+  header > nav > nav.anchorLinks {
     padding: 0 0 8px 0;
   }
 }
-@media only screen and (min-width: 715px) and (max-width: 1024px) {
-  header > nav.navigationBar > nav {
-    padding: 0 16px 0 0;
-  }
-}
 @media only screen and (min-width: 1024px) {
-  header > nav.navigationBar > nav {
+  header > nav > nav.anchorLinks {
     padding: 0;
   }
 }
-header > nav.navigationBar > .contactButtons {
+header > nav > .contactButtons {
   justify-content: flex-start;
   gap: 8px 16px;
 }
 @media only screen and (max-width: 350px) {
-  header > nav.navigationBar > .contactButtons {
+  header > nav > .contactButtons {
     display: none !important;
   }
 }
 @media only screen and (min-width: 350px) {
-  header > nav.navigationBar > .contactButtons {
+  header > nav > .contactButtons {
     display: inherit;
   }
 }
 @media only screen and (max-width: 715px) {
-  header > nav.navigationBar > .contactButtons {
+  header > nav > .contactButtons {
     justify-content: space-between;
   }
-  header > nav.navigationBar > .contactButtons > button {
+  header > nav > .contactButtons > button {
     width: calc(50% - 12px);
   }
 }
@@ -1124,91 +1125,111 @@ input[type=text], textarea[id=message] {
   border-radius: 8px;
 }
 
-footer {
-  background-color: hsl(185, 90%, 86%);
+@media only screen and (max-width: 1024px) {
+  footer {
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    background-color: transparent;
+  }
+  footer > p {
+    text-align: center;
+  }
 }
-footer > nav.navigationBar {
+@media only screen and (min-width: 1024px) {
+  footer {
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: flex-start;
+    background-color: hsl(185, 90%, 86%);
+  }
+}
+footer > nav {
   position: relative;
+  gap: 16px 16px;
   justify-content: space-between;
   order: 0;
   height: 100%;
 }
 @media only screen and (min-width: 250px) {
-  footer > nav.navigationBar {
+  footer > nav {
     width: 100%;
   }
 }
 @media only screen and (max-width: 725px) {
-  footer > nav.navigationBar {
+  footer > nav {
     justify-content: center;
   }
 }
 @media only screen and (min-width: 725px) and (max-width: 1024px) {
-  footer > nav.navigationBar {
+  footer > nav {
     justify-content: space-between;
   }
 }
 @media only screen and (max-width: 1024px) {
-  footer > nav.navigationBar {
+  footer > nav {
     order: 2;
   }
 }
 @media only screen and (min-width: 1024px) {
-  footer > nav.navigationBar > a:first-of-type {
+  footer > nav > a:first-of-type {
     padding-left: 0;
   }
 }
 @media only screen and (max-width: 375px) {
-  footer > nav.navigationBar > nav {
+  footer > nav > nav {
     width: 100%;
   }
 }
 @media only screen and (min-width: 375px) and (max-width: 715px) {
-  footer > nav.navigationBar > nav {
+  footer > nav > nav {
     justify-content: space-between;
     min-width: 350px;
   }
-  footer > nav.navigationBar > nav > a:first-of-type {
+  footer > nav > nav > a:first-of-type {
     padding-left: 0;
   }
-  footer > nav.navigationBar > nav > a:last-of-type {
+  footer > nav > nav > a:last-of-type {
     padding-right: 0;
   }
 }
 @media only screen and (max-width: 715px) {
-  footer > nav.navigationBar > nav {
+  footer > nav > nav {
     padding: 0 0 8px 0;
   }
 }
-@media only screen and (min-width: 715px) and (max-width: 1024px) {
-  footer > nav.navigationBar > nav {
-    padding: 0 16px 0 0;
-  }
-}
 @media only screen and (min-width: 1024px) {
-  footer > nav.navigationBar > nav {
+  footer > nav > nav {
     padding: 0;
   }
 }
-footer > nav.navigationBar > .contactButtons {
+footer > nav > .contactButtons {
   justify-content: flex-start;
   gap: 8px 16px;
 }
 @media only screen and (max-width: 350px) {
-  footer > nav.navigationBar > .contactButtons {
+  footer > nav > .contactButtons {
     display: none !important;
   }
 }
 @media only screen and (min-width: 350px) {
-  footer > nav.navigationBar > .contactButtons {
+  footer > nav > .contactButtons {
     display: inherit;
   }
 }
 @media only screen and (max-width: 715px) {
-  footer > nav.navigationBar > .contactButtons {
+  footer > nav > .contactButtons {
     justify-content: space-between;
   }
-  footer > nav.navigationBar > .contactButtons > button {
+  footer > nav > .contactButtons > button {
     width: calc(50% - 12px);
   }
 }
@@ -1359,11 +1380,6 @@ a#e-stride, figure#e-stride {
   object-fit: cover;
 }
 
-@media only screen and (max-width: 1024px) {
-  h2 {
-    height: 64px;
-  }
-}
 @media only screen and (min-width: 1024px) {
   h2 {
     height: 80px;
@@ -1585,36 +1601,55 @@ h2.h2-sticky, h2.sticky {
 }
 
 @media only screen and (max-width: 750px) {
-  nav.navigationBar,
+  header > nav, footer > nav,
   main > section,
-  main > section > h2.sticky {
+  main > section > h2.sticky, aside.loading-page {
     padding-left: 16px;
     padding-right: 16px;
   }
 }
 @media only screen and (min-width: 750px) {
-  nav.navigationBar,
+  header > nav, footer > nav,
   main > section,
-  main > section > h2.sticky {
+  main > section > h2.sticky, aside.loading-page {
     padding-left: 32px;
     padding-right: 32px;
   }
 }
 
 @media only screen and (max-width: 750px) {
-  nav.navigationBar {
+  header > nav, footer > nav {
     max-width: calc(100% - 32px);
   }
 }
 @media only screen and (min-width: 750px) {
-  nav.navigationBar {
+  header > nav, footer > nav {
     max-width: calc(100% - 64px);
   }
 }
 
 @media only screen and (max-width: 750px) {
+  footer {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+@media only screen and (min-width: 750px) and (max-width: 1024px) {
+  footer {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  footer {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}
+
+@media only screen and (max-width: 750px) {
   h2.h2-sticky, h2.sticky {
-    padding: 16px 12px;
+    padding: 16px 16px;
     width: calc(100% - 32px);
   }
 }
@@ -1624,17 +1659,22 @@ h2.h2-sticky, h2.sticky {
   }
 }
 
-nav.navigationBar {
+nav {
   padding-top: 8px;
   padding-bottom: 8px;
 }
 
 main {
-  padding-top: 16px;
   padding-bottom: 128px;
 }
 main > *:not(:last-child) {
   padding-bottom: 128px;
+}
+main > section.title {
+  padding-top: 16px;
+}
+main > section#home-title {
+  padding-top: 16px;
 }
 @media only screen and (max-width: 320px) {
   main > section.bodyContent > section[class*=content] > article:not(:last-child) {
@@ -1770,24 +1810,25 @@ main > section.bodyContent article#other-case-studies > article[class*=grid], ma
   width: 100%;
 }
 
-aside.sticky-active {
+aside.list-of-contents.sticky-active {
   overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-aside.sticky-active:-webkit-scrollbar {
+aside.list-of-contents.sticky-active:-webkit-scrollbar {
   display: none;
 }
 @media only screen and (min-width: 1024px) {
-  aside.sticky-active {
+  aside.list-of-contents.sticky-active {
     position: sticky;
     top: 86px;
     order: 1;
   }
 }
 @media only screen and (max-width: 1024px) {
-  aside > nav.tocNavLinks {
+  aside.list-of-contents > nav.tocNavLinks {
     display: none;
+    width: 100%;
     margin-bottom: 16px;
     padding: 12px;
     border: solid hsl(215, 60%, 44%);
@@ -1796,7 +1837,7 @@ aside.sticky-active:-webkit-scrollbar {
   }
 }
 @media only screen and (min-width: 1024px) {
-  aside {
+  aside.list-of-contents {
     gap: 16px 0;
     width: 318px;
   }
@@ -1857,17 +1898,17 @@ main > section.bodyContent > section[class*=content] > article > h2 {
   width: 100%;
 }
 @media only screen and (max-width: 750px) {
-  main > section.bodyContent > aside {
+  main > section.bodyContent > aside.list-of-contents {
     width: calc(100% - 32px);
   }
 }
 @media only screen and (min-width: 750px) and (max-width: 1024px) {
-  main > section.bodyContent > aside {
+  main > section.bodyContent > aside.list-of-contents {
     width: calc(100% - 64px);
   }
 }
 @media only screen and (max-width: 1024px) {
-  main > section.bodyContent > aside {
+  main > section.bodyContent > aside.list-of-contents {
     display: flex;
     -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
@@ -1876,11 +1917,12 @@ main > section.bodyContent > section[class*=content] > article > h2 {
     align-content: center;
     justify-content: flex-end;
     position: fixed;
+    bottom: 82px;
     margin: 0 auto;
   }
 }
 @media only screen and (min-width: 1024px) and (max-width: 1920px) {
-  main > section.bodyContent > aside {
+  main > section.bodyContent > aside.list-of-contents {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
@@ -1892,25 +1934,28 @@ main > section.bodyContent > section[class*=content] > article > h2 {
   }
 }
 @media only screen and (min-width: 1920px) {
-  main > section.bodyContent > aside {
+  main > section.bodyContent > aside.list-of-contents {
     max-width: 350px;
   }
 }
 @media only screen and (max-width: 1024px) {
-  main > section.bodyContent > aside > a#toTop-desktop, main > section.bodyContent > aside > a#other-case-studies-desktop {
+  main > section.bodyContent > aside.list-of-contents > a#toTop-desktop, main > section.bodyContent > aside.list-of-contents > a#other-case-studies-desktop {
     display: none !important;
   }
 }
 @media only screen and (min-width: 1024px) {
-  main > section.bodyContent > aside > a#toTop-desktop, main > section.bodyContent > aside > a#other-case-studies-desktop {
+  main > section.bodyContent > aside.list-of-contents > a#toTop-desktop, main > section.bodyContent > aside.list-of-contents > a#other-case-studies-desktop {
     display: inherit;
   }
 }
-main > section.bodyContent > aside > nav.tocNavLinks > * {
+main > section.bodyContent > aside.list-of-contents > nav.tocNavLinks {
+  width: 100%;
+}
+main > section.bodyContent > aside.list-of-contents > nav.tocNavLinks > * {
   width: 100%;
 }
 @media only screen and (max-width: 1024px) {
-  main > section.bodyContent > aside > nav.tocNavLinks {
+  main > section.bodyContent > aside.list-of-contents > nav.tocNavLinks {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
@@ -1921,12 +1966,12 @@ main > section.bodyContent > aside > nav.tocNavLinks > * {
   }
 }
 @media only screen and (max-width: 1024px) {
-  main > section.bodyContent > aside > nav.tocNavLinks > a#toTop-mobile, main > section.bodyContent > aside > nav.tocNavLinks > a#other-case-studies-mobile {
+  main > section.bodyContent > aside.list-of-contents > nav.tocNavLinks > a#toTop-mobile, main > section.bodyContent > aside.list-of-contents > nav.tocNavLinks > a#other-case-studies-mobile {
     display: inherit;
   }
 }
 @media only screen and (min-width: 1024px) {
-  main > section.bodyContent > aside > nav.tocNavLinks > a#toTop-mobile, main > section.bodyContent > aside > nav.tocNavLinks > a#other-case-studies-mobile {
+  main > section.bodyContent > aside.list-of-contents > nav.tocNavLinks > a#toTop-mobile, main > section.bodyContent > aside.list-of-contents > nav.tocNavLinks > a#other-case-studies-mobile {
     display: none !important;
   }
 }
@@ -1948,7 +1993,7 @@ main > section#contact .contactButtons {
   }
 }
 .fade-in {
-  animation: fadeIn 0.5s;
+  animation: fadeIn 0s;
 }
 
 @keyframes fadeIn {

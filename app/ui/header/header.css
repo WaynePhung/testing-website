@@ -41,7 +41,7 @@
         - row flex direction, wrapping, top-left starting point 
           and alignment of children elements and text
 */
-header, footer article#endNavLinks > nav > a {
+header {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -58,7 +58,7 @@ header, footer article#endNavLinks > nav > a {
         - row flex direction, wrapping, center starting point
           and alignment of children elements and text
 */
-header > nav.navigationBar, header > nav.navigationBar > nav, header > nav.navigationBar > .contactButtons, button .button-primary-loaded, button .button-primary-placeholder, button .button-secondary-loaded, button .button-secondary-placeholder, header > nav.navigationBar > a, header > nav.navigationBar > nav > a, header > nav.navigationBar > .contactButtons > button > a, main button > a, main aside > a, main aside > nav.tocNavLinks > a, footer article#endMessage > .contactButtons > button > a, button .button-primary-loaded a picture, button .button-primary-placeholder a picture, button .button-secondary-loaded a picture, button .button-secondary-placeholder a picture {
+header > nav, header > nav > nav.open-mobile-nav, header > nav > nav.anchorLinks, header > nav > .contactButtons, button.button-primary-loaded, button.button-primary-placeholder, button.button-secondary-loaded, button.button-secondary-placeholder, header > nav.navigationBar > nav.open-mobile-nav > a, footer > nav.navigationBar > nav.open-mobile-nav > a, header > nav.navigationBar > nav.open-mobile-nav > a > a, footer > nav.navigationBar > nav.open-mobile-nav > a > a, header > nav.navigationBar > a, header > nav.navigationBar > nav > a, footer > nav.navigationBar > a, footer > nav.navigationBar > nav > a, header > nav.navigationBar > a > a, header > nav.navigationBar > nav > a > a, footer > nav.navigationBar > a > a, footer > nav.navigationBar > nav > a > a, header > nav.navigationBar > nav.anchorLinks > a, footer > nav.navigationBar > nav.anchorLinks > a, header > nav.navigationBar > .contactButtons > button > a, footer > nav.navigationBar > .contactButtons > button > a, main button > a, main aside > a, main aside > nav.tocNavLinks > a, footer article#endNavLinks > nav > a, figure figcaption > a, button.button-primary-loaded a, button.button-primary-placeholder a, button.button-secondary-loaded a, button.button-secondary-placeholder a, button.button-primary-loaded a picture, button.button-primary-placeholder a picture, button.button-secondary-loaded a picture, button.button-secondary-placeholder a picture {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -109,25 +109,25 @@ header > nav.navigationBar, header > nav.navigationBar > nav, header > nav.navig
     No right border is to prevent a miscellaneous line 
     to the right of the image from appearing.
 */
-button .button-primary-loaded a picture, button .button-primary-placeholder a picture, button .button-secondary-loaded a picture, button .button-secondary-placeholder a picture {
+button.button-primary-loaded a picture, button.button-primary-placeholder a picture, button.button-secondary-loaded a picture, button.button-secondary-placeholder a picture {
   position: relative;
   object-fit: contain;
   line-height: 0;
   border-right: none !important;
 }
 @media only screen and (max-width: 1920px) {
-  button .button-primary-loaded a picture, button .button-primary-placeholder a picture, button .button-secondary-loaded a picture, button .button-secondary-placeholder a picture {
+  button.button-primary-loaded a picture, button.button-primary-placeholder a picture, button.button-secondary-loaded a picture, button.button-secondary-placeholder a picture {
     width: 24px;
     height: 24px;
   }
 }
 @media only screen and (min-width: 1920px) {
-  button .button-primary-loaded a picture, button .button-primary-placeholder a picture, button .button-secondary-loaded a picture, button .button-secondary-placeholder a picture {
-    width: 32px;
-    height: 32px;
+  button.button-primary-loaded a picture, button.button-primary-placeholder a picture, button.button-secondary-loaded a picture, button.button-secondary-placeholder a picture {
+    width: 24px;
+    height: 24px;
   }
 }
-button .button-primary-loaded a picture img, button .button-primary-placeholder a picture img, button .button-secondary-loaded a picture img, button .button-secondary-placeholder a picture img {
+button.button-primary-loaded a picture img, button.button-primary-placeholder a picture img, button.button-secondary-loaded a picture img, button.button-secondary-placeholder a picture img {
   width: 100%;
   height: 100%;
 }
@@ -176,19 +176,19 @@ button .button-primary-loaded a picture img, button .button-primary-placeholder 
     Placeholder selector to set the default background color of the entire page (html element) and 
     the navigation header to light blue using the color function.
 */
-button .button-primary-loaded:before, button .button-primary-placeholder:before, button .button-secondary-loaded:before, button .button-secondary-placeholder:before {
+button.button-primary-loaded:before, button.button-primary-placeholder:before, button.button-secondary-loaded:before, button.button-secondary-placeholder:before {
   z-index: 0;
 }
-button .button-primary-loaded:after, button .button-primary-placeholder:after, button .button-secondary-loaded:after, button .button-secondary-placeholder:after {
+button.button-primary-loaded:after, button.button-primary-placeholder:after, button.button-secondary-loaded:after, button.button-secondary-placeholder:after {
   z-index: 1;
 }
-button .button-primary-loaded a, button .button-primary-placeholder a, button .button-secondary-loaded a, button .button-secondary-placeholder a {
+button.button-primary-loaded a, button.button-primary-placeholder a, button.button-secondary-loaded a, button.button-secondary-placeholder a {
   z-index: 2;
 }
-button .button-primary-loaded a p, button .button-primary-placeholder a p, button .button-secondary-loaded a p, button .button-secondary-placeholder a p, button .button-primary-loaded a picture.icon, button .button-primary-placeholder a picture.icon, button .button-secondary-loaded a picture.icon, button .button-secondary-placeholder a picture.icon {
+button.button-primary-loaded a p, button.button-primary-placeholder a p, button.button-secondary-loaded a p, button.button-secondary-placeholder a p, button.button-primary-loaded a picture.icon, button.button-primary-placeholder a picture.icon, button.button-secondary-loaded a picture.icon, button.button-secondary-placeholder a picture.icon {
   z-index: 2;
 }
-button .button-primary-loaded p, button .button-primary-placeholder p, button .button-secondary-loaded p, button .button-secondary-placeholder p, button .button-primary-loaded picture.icon, button .button-primary-placeholder picture.icon, button .button-secondary-loaded picture.icon, button .button-secondary-placeholder picture.icon {
+button.button-primary-loaded p, button.button-primary-placeholder p, button.button-secondary-loaded p, button.button-secondary-placeholder p, button.button-primary-loaded picture.icon, button.button-primary-placeholder picture.icon, button.button-secondary-loaded picture.icon, button.button-secondary-placeholder picture.icon {
   z-index: 2;
 }
 
@@ -201,7 +201,7 @@ aside[role=navigation], aside[role=navigation] > button, .h2-wrapper, h2.sticky 
 }
 
 header, header * {
-  z-index: 5;
+  z-index: 5 !important;
 }
 
 .buffer-page, .loading-page {
@@ -243,10 +243,10 @@ header, header * {
           even if the argument is empty. However, the value of either or both 
           arguments can be non-zero if specified.
 */
-button .button-primary-loaded:hover, button .button-primary-placeholder:hover, button .button-secondary-loaded:hover, button .button-secondary-placeholder:hover {
+button.button-primary-loaded:hover, button.button-primary-placeholder:hover, button.button-secondary-loaded:hover, button.button-secondary-placeholder:hover {
   cursor: pointer;
 }
-button .button-primary-loaded:hover span:after, button .button-primary-placeholder:hover span:after, button .button-secondary-loaded:hover span:after, button .button-secondary-placeholder:hover span:after {
+button.button-primary-loaded:hover span:after, button.button-primary-placeholder:hover span:after, button.button-secondary-loaded:hover span:after, button.button-secondary-placeholder:hover span:after {
   left: 0;
   width: 100%;
 }
@@ -276,13 +276,13 @@ button .button-primary-loaded:hover span:after, button .button-primary-placehold
         }
     }
 */
-button .button-primary-loaded a, button .button-primary-placeholder a, button .button-secondary-loaded a, button .button-secondary-placeholder a, figure figcaption > a, footer article#endNavLinks > nav > a, main aside > a, main aside > nav.tocNavLinks > a, header > nav.navigationBar > a > a, header > nav.navigationBar > nav > a > a, header > nav.navigationBar > a, header > nav.navigationBar > nav > a {
+button.button-primary-loaded a, button.button-primary-placeholder a, button.button-secondary-loaded a, button.button-secondary-placeholder a, figure figcaption > a, footer article#endNavLinks > nav > a, main aside > a, main aside > nav.tocNavLinks > a, header > nav.navigationBar > nav.anchorLinks > a, footer > nav.navigationBar > nav.anchorLinks > a, header > nav.navigationBar > a > a, header > nav.navigationBar > nav > a > a, footer > nav.navigationBar > a > a, footer > nav.navigationBar > nav > a > a, header > nav.navigationBar > a, header > nav.navigationBar > nav > a, footer > nav.navigationBar > a, footer > nav.navigationBar > nav > a, header > nav.navigationBar > nav.open-mobile-nav > a > a, footer > nav.navigationBar > nav.open-mobile-nav > a > a, header > nav.navigationBar > nav.open-mobile-nav > a, footer > nav.navigationBar > nav.open-mobile-nav > a {
   gap: 16px 16px;
   position: relative;
   cursor: default;
   text-decoration: none;
 }
-button .button-primary-loaded a span:after, button .button-primary-placeholder a span:after, button .button-secondary-loaded a span:after, button .button-secondary-placeholder a span:after, figure figcaption > a span:after, footer article#endNavLinks > nav > a span:after, main aside > a span:after, main aside > nav.tocNavLinks > a span:after, header > nav.navigationBar > a span:after, header > nav.navigationBar > nav > a span:after {
+button.button-primary-loaded a span:after, button.button-primary-placeholder a span:after, button.button-secondary-loaded a span:after, button.button-secondary-placeholder a span:after, figure figcaption > a span:after, footer article#endNavLinks > nav > a span:after, main aside > a span:after, main aside > nav.tocNavLinks > a span:after, header > nav.navigationBar > nav.anchorLinks > a span:after, footer > nav.navigationBar > nav.anchorLinks > a span:after, header > nav.navigationBar > a > a span:after, header > nav.navigationBar > nav > a > a span:after, footer > nav.navigationBar > a > a span:after, footer > nav.navigationBar > nav > a > a span:after, header > nav.navigationBar > a span:after, header > nav.navigationBar > nav > a span:after, footer > nav.navigationBar > a span:after, footer > nav.navigationBar > nav > a span:after, header > nav.navigationBar > nav.open-mobile-nav > a span:after, footer > nav.navigationBar > nav.open-mobile-nav > a span:after {
   display: block;
   position: relative;
   left: 50%;
@@ -294,15 +294,15 @@ button .button-primary-loaded a span:after, button .button-primary-placeholder a
   width: 0%;
   height: 2px;
 }
-button .button-primary-loaded a:hover, button .button-primary-placeholder a:hover, button .button-secondary-loaded a:hover, button .button-secondary-placeholder a:hover, figure figcaption > a:hover, footer article#endNavLinks > nav > a:hover, main aside > a:hover, main aside > nav.tocNavLinks > a:hover, header > nav.navigationBar > a > a:hover, header > nav.navigationBar > nav > a > a:hover, header > nav.navigationBar > a:hover, header > nav.navigationBar > nav > a:hover, button .button-primary-loaded a.active, button .button-primary-placeholder a.active, button .button-secondary-loaded a.active, button .button-secondary-placeholder a.active, figure figcaption > a.active, footer article#endNavLinks > nav > a.active, main aside > a.active, main aside > nav.tocNavLinks > a.active, header > nav.navigationBar > a > a.active, header > nav.navigationBar > nav > a > a.active, header > nav.navigationBar > a.active, header > nav.navigationBar > nav > a.active {
+button.button-primary-loaded a:hover, button.button-primary-placeholder a:hover, button.button-secondary-loaded a:hover, button.button-secondary-placeholder a:hover, figure figcaption > a:hover, footer article#endNavLinks > nav > a:hover, main aside > a:hover, main aside > nav.tocNavLinks > a:hover, header > nav.navigationBar > a > a:hover, header > nav.navigationBar > nav > a > a:hover, footer > nav.navigationBar > a > a:hover, footer > nav.navigationBar > nav > a > a:hover, header > nav.navigationBar > a:hover, header > nav.navigationBar > nav > a:hover, footer > nav.navigationBar > a:hover, footer > nav.navigationBar > nav > a:hover, button.button-primary-loaded a.active, button.button-primary-placeholder a.active, button.button-secondary-loaded a.active, button.button-secondary-placeholder a.active, figure figcaption > a.active, footer article#endNavLinks > nav > a.active, main aside > a.active, main aside > nav.tocNavLinks > a.active, header > nav.navigationBar > a > a.active, header > nav.navigationBar > nav > a > a.active, footer > nav.navigationBar > a > a.active, footer > nav.navigationBar > nav > a > a.active, header > nav.navigationBar > a.active, header > nav.navigationBar > nav > a.active, footer > nav.navigationBar > a.active, footer > nav.navigationBar > nav > a.active {
   cursor: pointer;
 }
-button .button-primary-loaded a:hover span:after, button .button-primary-placeholder a:hover span:after, button .button-secondary-loaded a:hover span:after, button .button-secondary-placeholder a:hover span:after, figure figcaption > a:hover span:after, footer article#endNavLinks > nav > a:hover span:after, main aside > a:hover span:after, main aside > nav.tocNavLinks > a:hover span:after, header > nav.navigationBar > a > a:hover span:after, header > nav.navigationBar > nav > a > a:hover span:after, header > nav.navigationBar > a:hover span:after, header > nav.navigationBar > nav > a:hover span:after, button .button-primary-loaded a.active span:after, button .button-primary-placeholder a.active span:after, button .button-secondary-loaded a.active span:after, button .button-secondary-placeholder a.active span:after, figure figcaption > a.active span:after, footer article#endNavLinks > nav > a.active span:after, main aside > a.active span:after, main aside > nav.tocNavLinks > a.active span:after, header > nav.navigationBar > a > a.active span:after, header > nav.navigationBar > nav > a > a.active span:after, header > nav.navigationBar > a.active span:after, header > nav.navigationBar > nav > a.active span:after {
+button.button-primary-loaded a:hover span:after, button.button-primary-placeholder a:hover span:after, button.button-secondary-loaded a:hover span:after, button.button-secondary-placeholder a:hover span:after, figure figcaption > a:hover span:after, footer article#endNavLinks > nav > a:hover span:after, main aside > a:hover span:after, main aside > nav.tocNavLinks > a:hover span:after, header > nav.navigationBar > a > a:hover span:after, header > nav.navigationBar > nav > a > a:hover span:after, footer > nav.navigationBar > a > a:hover span:after, footer > nav.navigationBar > nav > a > a:hover span:after, header > nav.navigationBar > a:hover span:after, header > nav.navigationBar > nav > a:hover span:after, footer > nav.navigationBar > a:hover span:after, footer > nav.navigationBar > nav > a:hover span:after, button.button-primary-loaded a.active span:after, button.button-primary-placeholder a.active span:after, button.button-secondary-loaded a.active span:after, button.button-secondary-placeholder a.active span:after, figure figcaption > a.active span:after, footer article#endNavLinks > nav > a.active span:after, main aside > a.active span:after, main aside > nav.tocNavLinks > a.active span:after, header > nav.navigationBar > a > a.active span:after, header > nav.navigationBar > nav > a > a.active span:after, footer > nav.navigationBar > a > a.active span:after, footer > nav.navigationBar > nav > a > a.active span:after, header > nav.navigationBar > a.active span:after, header > nav.navigationBar > nav > a.active span:after, footer > nav.navigationBar > a.active span:after, footer > nav.navigationBar > nav > a.active span:after {
   left: 0;
   width: 100%;
 }
 
-footer article#endNavLinks > nav > a, main aside > a span, main aside > nav.tocNavLinks > a span, header > nav.navigationBar > a span, header > nav.navigationBar > nav > a span {
+footer article#endNavLinks > nav > a, main aside > a span, main aside > nav.tocNavLinks > a span, header > nav.navigationBar > a span, header > nav.navigationBar > nav > a span, footer > nav.navigationBar > a span, footer > nav.navigationBar > nav > a span, header > nav.navigationBar > nav.open-mobile-nav > a span, footer > nav.navigationBar > nav.open-mobile-nav > a span {
   background-image: radial-gradient(transparent);
   animation-name: noBackground;
 }
@@ -315,7 +315,7 @@ footer article#endNavLinks > nav > a, main aside > a span, main aside > nav.tocN
   }
 }
 
-footer article#endNavLinks > nav > a:hover, main aside > a:hover span, main aside > a.active span, main aside > nav.tocNavLinks > a:hover span, main aside > nav.tocNavLinks > a.active span, header > nav.navigationBar > a:hover span, header > nav.navigationBar > a.active span, header > nav.navigationBar > nav > a:hover span, header > nav.navigationBar > nav > a.active span {
+footer article#endNavLinks > nav > a:hover, main aside > a:hover span, main aside > a.active span, main aside > nav.tocNavLinks > a:hover span, main aside > nav.tocNavLinks > a.active span, header > nav.navigationBar > a:hover span, header > nav.navigationBar > a.active span, header > nav.navigationBar > nav > a:hover span, header > nav.navigationBar > nav > a.active span, footer > nav.navigationBar > a:hover span, footer > nav.navigationBar > a.active span, footer > nav.navigationBar > nav > a:hover span, footer > nav.navigationBar > nav > a.active span, header > nav.navigationBar > nav.open-mobile-nav > a:hover span, header > nav.navigationBar > nav.open-mobile-nav > a.active span, footer > nav.navigationBar > nav.open-mobile-nav > a:hover span, footer > nav.navigationBar > nav.open-mobile-nav > a.active span {
   background-image: radial-gradient(hsl(185, 90%, 86%) 0%, transparent 75%);
   animation-name: activeBackground;
 }
@@ -328,94 +328,99 @@ footer article#endNavLinks > nav > a:hover, main aside > a:hover span, main asid
   }
 }
 
-footer article#endNavLinks > nav > a:hover, footer article#endNavLinks > nav > a, main aside > a:hover span, main aside > a.active span, main aside > nav.tocNavLinks > a:hover span, main aside > nav.tocNavLinks > a.active span, main aside > a span, main aside > nav.tocNavLinks > a span, header > nav.navigationBar > a:hover span, header > nav.navigationBar > a.active span, header > nav.navigationBar > nav > a:hover span, header > nav.navigationBar > nav > a.active span, header > nav.navigationBar > a span, header > nav.navigationBar > nav > a span {
+footer article#endNavLinks > nav > a:hover, footer article#endNavLinks > nav > a, main aside > a:hover span, main aside > a.active span, main aside > nav.tocNavLinks > a:hover span, main aside > nav.tocNavLinks > a.active span, main aside > a span, main aside > nav.tocNavLinks > a span, header > nav.navigationBar > a:hover span, header > nav.navigationBar > a.active span, header > nav.navigationBar > nav > a:hover span, header > nav.navigationBar > nav > a.active span, footer > nav.navigationBar > a:hover span, footer > nav.navigationBar > a.active span, footer > nav.navigationBar > nav > a:hover span, footer > nav.navigationBar > nav > a.active span, header > nav.navigationBar > a span, header > nav.navigationBar > nav > a span, footer > nav.navigationBar > a span, footer > nav.navigationBar > nav > a span, header > nav.navigationBar > nav.open-mobile-nav > a:hover span, header > nav.navigationBar > nav.open-mobile-nav > a.active span, footer > nav.navigationBar > nav.open-mobile-nav > a:hover span, footer > nav.navigationBar > nav.open-mobile-nav > a.active span, header > nav.navigationBar > nav.open-mobile-nav > a span, footer > nav.navigationBar > nav.open-mobile-nav > a span {
   animation-duration: 300ms;
   animation-timing-function: ease-in-out;
 }
 
-header > nav.navigationBar > nav {
-  justify-content: space-between;
-  max-width: 568px;
+header > nav.navigationBar > nav.open-mobile-nav > a, footer > nav.navigationBar > nav.open-mobile-nav > a {
   width: 100%;
 }
-header > nav.navigationBar > a span:after, header > nav.navigationBar > nav > a span:after {
+header > nav.navigationBar > nav.open-mobile-nav > a span, footer > nav.navigationBar > nav.open-mobile-nav > a span {
+  text-align: center;
+  width: 100%;
+}
+header > nav.navigationBar > nav.open-mobile-nav > a span:after, footer > nav.navigationBar > nav.open-mobile-nav > a span:after {
+  background-color: hsl(0, 0%, 50%);
+}
+header > nav.navigationBar > nav.anchorLinks, footer > nav.navigationBar > nav.anchorLinks {
+  gap: 24px 0;
+  justify-content: space-between;
+}
+header > nav.navigationBar > a span:after, header > nav.navigationBar > nav > a span:after, footer > nav.navigationBar > a span:after, footer > nav.navigationBar > nav > a span:after {
   background-color: hsl(0, 0%, 50%);
 }
 @media only screen and (min-width: 1024px) {
-  header > nav.navigationBar > a, header > nav.navigationBar > nav > a {
+  header > nav.navigationBar > a, header > nav.navigationBar > nav > a, footer > nav.navigationBar > a, footer > nav.navigationBar > nav > a {
     padding: 0 16px 0 16px;
   }
 }
-header > nav.navigationBar > a > a, header > nav.navigationBar > nav > a > a {
+header > nav.navigationBar > a > a, header > nav.navigationBar > nav > a > a, footer > nav.navigationBar > a > a, footer > nav.navigationBar > nav > a > a {
   color: hsl(0, 0%, 30%);
   max-width: 142px;
   width: 100%;
   max-height: 42px;
 }
 @media only screen and (max-width: 1024px) {
-  header > nav.navigationBar > a > a, header > nav.navigationBar > nav > a > a {
+  header > nav.navigationBar > a > a, header > nav.navigationBar > nav > a > a, footer > nav.navigationBar > a > a, footer > nav.navigationBar > nav > a > a {
     display: none !important;
   }
 }
 @media only screen and (min-width: 1024px) {
-  header > nav.navigationBar > a > a, header > nav.navigationBar > nav > a > a {
+  header > nav.navigationBar > a > a, header > nav.navigationBar > nav > a > a, footer > nav.navigationBar > a > a, footer > nav.navigationBar > nav > a > a {
     display: inherit;
   }
 }
-header > nav.navigationBar > a > a#waynephung, header > nav.navigationBar > nav > a > a#waynephung {
+header > nav.navigationBar > a > a#waynephung, header > nav.navigationBar > nav > a > a#waynephung, footer > nav.navigationBar > a > a#waynephung, footer > nav.navigationBar > nav > a > a#waynephung {
   max-width: 142px;
   width: 100%;
   max-height: 42px;
 }
-header > nav.navigationBar > nav > a {
+header > nav.navigationBar > nav.anchorLinks > a, footer > nav.navigationBar > nav.anchorLinks > a {
   max-height: 42px;
   color: hsl(0, 0%, 30%);
 }
 @media only screen and (max-width: 200px) {
-  header > nav.navigationBar > nav > a {
+  header > nav.navigationBar > nav.anchorLinks > a, footer > nav.navigationBar > nav.anchorLinks > a {
     padding: 8px 8px 8px 8px;
   }
 }
 @media only screen and (min-width: 200px) {
-  header > nav.navigationBar > nav > a {
+  header > nav.navigationBar > nav.anchorLinks > a, footer > nav.navigationBar > nav.anchorLinks > a {
     padding: 8px 16px 8px 16px;
   }
 }
 @media only screen and (max-width: 275px) {
-  header > nav.navigationBar > nav > a {
+  header > nav.navigationBar > nav.anchorLinks > a, footer > nav.navigationBar > nav.anchorLinks > a {
     width: calc(100% - 16px);
   }
 }
 @media only screen and (min-width: 275px) and (max-width: 375px) {
-  header > nav.navigationBar > nav > a {
+  header > nav.navigationBar > nav.anchorLinks > a, footer > nav.navigationBar > nav.anchorLinks > a {
     width: 50%;
   }
 }
 @media only screen and (max-width: 375px) {
-  header > nav.navigationBar > nav > a {
+  header > nav.navigationBar > nav.anchorLinks > a, footer > nav.navigationBar > nav.anchorLinks > a {
     min-height: 44px;
     padding: 0;
   }
 }
 @media only screen and (min-width: 750px) and (max-width: 1024px) {
-  header > nav.navigationBar > nav > a:first-of-type {
+  header > nav.navigationBar > nav.anchorLinks > a:first-of-type, footer > nav.navigationBar > nav.anchorLinks > a:first-of-type {
     padding-left: 0;
   }
 }
-header > nav.navigationBar > nav > a > span {
-  max-width: 100px;
+header > nav.navigationBar > nav.anchorLinks > a > span, footer > nav.navigationBar > nav.anchorLinks > a > span {
   width: 100%;
   max-height: 42px;
 }
-header > nav.navigationBar > .contactButtons > button > a {
+header > nav.navigationBar > .contactButtons > button > a, footer > nav.navigationBar > .contactButtons > button > a {
   width: 100%;
   max-height: 32px;
 }
-header > nav.navigationBar > .contactButtons > button#linkedInButton > a {
-  max-width: 162px;
-}
-header > nav.navigationBar > .contactButtons > button#linkedInButton > a {
-  max-width: 138px;
+header > nav.navigationBar > .contactButtons > button > a > span, footer > nav.navigationBar > .contactButtons > button > a > span {
+  max-height: 42px;
 }
 
 main aside > a, main aside > nav.tocNavLinks > a {
@@ -450,14 +455,12 @@ figure > a {
   width: 100%;
   height: auto;
 }
-/*
-    Placeholder selector to set default text properties, 
-    rounded corners, and underlined text styling upon 
-    cursor hovering on any button. Mainly used for other 
-    placeholder selectors for primary and secondary button 
-    styling.
-*/
-button .button-secondary-placeholder, button .button-primary-placeholder, button .button-secondary-loaded, button .button-primary-loaded {
+aside a > figure {
+  width: 32px;
+  height: 32px;
+}
+
+button.button-secondary-placeholder, button.button-primary-placeholder, button.button-secondary-loaded, button.button-primary-loaded {
   gap: 16px 16px;
   position: relative;
   overflow: hidden;
@@ -468,7 +471,7 @@ button .button-secondary-placeholder, button .button-primary-placeholder, button
   padding: 0;
   width: auto;
 }
-button .button-secondary-placeholder:before, button .button-primary-placeholder:before, button .button-secondary-loaded:before, button .button-primary-loaded:before {
+button.button-secondary-placeholder:before, button.button-primary-placeholder:before, button.button-secondary-loaded:before, button.button-primary-loaded:before {
   content: "";
   display: inline-block;
   position: absolute;
@@ -489,72 +492,72 @@ button .button-secondary-placeholder:before, button .button-primary-placeholder:
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
-button .button-secondary-placeholder:after, button .button-primary-placeholder:after, button .button-secondary-loaded:after, button .button-primary-loaded:after {
+button.button-secondary-placeholder:after, button.button-primary-placeholder:after, button.button-secondary-loaded:after, button.button-primary-loaded:after {
   content: "";
   position: absolute;
   inset: 2px;
   border-radius: 8px;
 }
-button .button-secondary-placeholder:hover:before, button .button-primary-placeholder:hover:before, button .button-secondary-loaded:hover:before, button .button-primary-loaded:hover:before {
+button.button-secondary-placeholder:hover:before, button.button-primary-placeholder:hover:before, button.button-secondary-loaded:hover:before, button.button-primary-loaded:hover:before {
   opacity: 1;
   animation-play-state: running;
 }
 
-button .button-primary-placeholder, button .button-primary-loaded {
+button.button-primary-placeholder, button.button-primary-loaded {
   background-color: hsl(215, 60%, 44%);
   border-style: solid;
   border-color: transparent;
 }
-button .button-primary-placeholder a, button .button-primary-loaded a {
+button.button-primary-placeholder a, button.button-primary-loaded a {
   padding: 12px 24px 12px 24px;
   width: 100%;
 }
 @media only screen and (max-width: 375px) {
-  button .button-primary-placeholder a, button .button-primary-loaded a {
+  button.button-primary-placeholder a, button.button-primary-loaded a {
     padding: 12px 16px 12px 16px;
   }
 }
-button .button-primary-placeholder a span, button .button-primary-loaded a span {
+button.button-primary-placeholder a span, button.button-primary-loaded a span {
   color: hsl(190, 95%, 93%);
 }
-button .button-primary-placeholder a span:after, button .button-primary-loaded a span:after {
+button.button-primary-placeholder a span:after, button.button-primary-loaded a span:after {
   background-color: hsl(190, 95%, 93%);
 }
-button .button-primary-placeholder a picture > img, button .button-primary-loaded a picture > img {
+button.button-primary-placeholder a picture > img, button.button-primary-loaded a picture > img {
   filter: invert(95%) sepia(10%) saturate(1177%) hue-rotate(170deg) brightness(103%) contrast(99%);
 }
-button .button-primary-placeholder picture > img, button .button-primary-loaded picture > img {
+button.button-primary-placeholder picture > img, button.button-primary-loaded picture > img {
   filter: invert(95%) sepia(10%) saturate(1177%) hue-rotate(170deg) brightness(103%) contrast(99%);
 }
 
-button .button-secondary-placeholder, button .button-secondary-loaded {
+button.button-secondary-placeholder, button.button-secondary-loaded {
   background-color: transparent;
   border-style: solid;
   border-color: hsl(215, 60%, 44%);
 }
-button .button-secondary-placeholder a, button .button-secondary-loaded a {
+button.button-secondary-placeholder a, button.button-secondary-loaded a {
   padding: 12px 24px 12px 24px;
   width: 100%;
 }
 @media only screen and (max-width: 375px) {
-  button .button-secondary-placeholder a, button .button-secondary-loaded a {
+  button.button-secondary-placeholder a, button.button-secondary-loaded a {
     padding: 12px 16px 12px 16px;
   }
 }
-button .button-secondary-placeholder a span, button .button-secondary-loaded a span {
+button.button-secondary-placeholder a span, button.button-secondary-loaded a span {
   color: hsl(215, 60%, 44%);
 }
-button .button-secondary-placeholder a span:after, button .button-secondary-loaded a span:after {
+button.button-secondary-placeholder a span:after, button.button-secondary-loaded a span:after {
   background-color: hsl(215, 60%, 44%);
 }
-button .button-secondary-placeholder a picture > img, button .button-secondary-loaded a picture > img {
+button.button-secondary-placeholder a picture > img, button.button-secondary-loaded a picture > img {
   filter: invert(32%) sepia(87%) saturate(828%) hue-rotate(186deg) brightness(75%) contrast(88%);
 }
-button .button-secondary-placeholder picture > img, button .button-secondary-loaded picture > img {
+button.button-secondary-placeholder picture > img, button.button-secondary-loaded picture > img {
   filter: invert(32%) sepia(87%) saturate(828%) hue-rotate(186deg) brightness(75%) contrast(88%);
 }
 
-button .button-secondary-loaded:before, button .button-primary-loaded:before {
+button.button-secondary-loaded:before, button.button-primary-loaded:before {
   content: "";
   display: inline-block;
   position: absolute;
@@ -575,85 +578,62 @@ button .button-secondary-loaded:before, button .button-primary-loaded:before {
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
-button .button-secondary-loaded:after, button .button-primary-loaded:after {
+button.button-secondary-loaded:after, button.button-primary-loaded:after {
   content: "";
   position: absolute;
   inset: 2px;
   border-radius: 8px;
 }
-button .button-secondary-loaded:hover:before, button .button-primary-loaded:hover:before {
+button.button-secondary-loaded:hover:before, button.button-primary-loaded:hover:before {
   opacity: 1;
   animation-play-state: running;
 }
 
-button .button-secondary-placeholder a, button .button-primary-placeholder a {
+button.button-secondary-placeholder a, button.button-primary-placeholder a {
   cursor: default !important;
 }
-button .button-primary-loaded:before, button .button-primary-loaded:after {
+button.button-primary-loaded:before, button.button-primary-loaded:after {
   background-color: hsl(215, 60%, 44%);
 }
-button .button-primary-loaded:after {
-  border-radius: 4px;
+button.button-primary-loaded:after {
+  border-radius: 8px;
 }
-button .button-primary-loaded:hover {
+button.button-primary-loaded:hover {
   background-image: linear-gradient(to right bottom, hsla(215, 60%, 44%, 0.65), hsl(215, 60%, 44%));
 }
-button .button-primary-loaded:hover:before {
+button.button-primary-loaded:hover:before {
   background: conic-gradient(hsl(215, 60%, 44%), hsl(190, 95%, 93%));
 }
-button .button-primary-loaded:before, button .button-primary-loaded:after {
+
+button.button-primary-placeholder {
+  border-color: transparent;
+}
+
+button.button-secondary-loaded:before, button.button-secondary-loaded:after {
   background-color: hsl(0, 0%, 90%);
 }
-button .button-primary-loaded:after {
-  border-radius: 4px;
+button.button-secondary-loaded:after {
+  border-radius: 8px;
 }
-button .button-primary-loaded:hover {
+button.button-secondary-loaded:hover {
   background-image: transparent;
 }
-button .button-primary-loaded:hover:before {
+button.button-secondary-loaded:hover:before {
   background: conic-gradient(hsl(215, 60%, 44%) 0deg, hsl(0, 0%, 90%) 25deg);
 }
 
-button .button-secondary-loaded:before, button .button-secondary-loaded:after {
-  background-color: hsl(215, 60%, 44%);
-}
-button .button-secondary-loaded:after {
-  border-radius: 4px;
-}
-button .button-secondary-loaded:hover {
-  background-image: linear-gradient(to right bottom, hsla(215, 60%, 44%, 0.65), hsl(215, 60%, 44%));
-}
-button .button-secondary-loaded:hover:before {
-  background: conic-gradient(hsl(215, 60%, 44%), hsl(190, 95%, 93%));
-}
-button .button-secondary-loaded:before, button .button-secondary-loaded:after {
-  background-color: hsl(0, 0%, 90%);
-}
-button .button-secondary-loaded:after {
-  border-radius: 4px;
-}
-button .button-secondary-loaded:hover {
-  background-image: transparent;
-}
-button .button-secondary-loaded:hover:before {
-  background: conic-gradient(hsl(215, 60%, 44%) 0deg, hsl(0, 0%, 90%) 25deg);
+button.button-secondary-placeholder {
+  border-color: hsl(0, 0%, 70%);
 }
 
-/*
-    Applies a dark blue background color and light blue text color 
-    to a primary button (any button that emphasizes a key action, 
-    such as reading more about a case study or finding methods to 
-    contact).
-*/
-/*
-    Applies a transparent background color and dark blue text color 
-    to a second button (any button that provides an action that 
-    doesn't need to be emphasized as much, such as visiting 
-    an external website related to a case study).
-*/
+@media only screen and (max-width: 1024px) {
+  header > nav > button#contactButton {
+    display: inherit;
+  }
+}
 @media only screen and (min-width: 1024px) {
-  header > nav.navigationBar > button {
-    display: none;
+  header > nav > button#contactButton {
+    display: none !important;
   }
 }
 
@@ -679,35 +659,28 @@ button .button-secondary-loaded:hover:before {
   }
 }
 
+button a > figure {
+  width: 24px;
+  height: 24px;
+}
+
+button.linkedIn {
+  width: 160px;
+}
+button.email {
+  width: 135px;
+}
+
 header {
   align-items: center;
   background-color: hsla(0, 0%, 90%, 0.9);
   backdrop-filter: blur(8px);
 }
-@media only screen and (max-width: 320px) {
-  header {
-    position: relative;
-  }
-}
-@media only screen and (min-width: 320px) {
-  header {
-    position: sticky;
-  }
-}
-@media only screen and (min-width: 320px) and (max-width: 510px) {
-  header {
-    min-height: 128px;
-  }
-}
-@media only screen and (min-width: 320px) and (max-width: 1024px) {
+@media only screen and (max-width: 1024px) {
   header {
     position: fixed;
     bottom: 0;
     left: 0;
-  }
-}
-@media only screen and (max-width: 1024px) {
-  header {
     width: 100%;
   }
 }
@@ -720,88 +693,89 @@ header {
     min-height: 64px;
   }
 }
-header > nav.navigationBar {
+header > nav {
   position: relative;
+  gap: 16px 16px;
   justify-content: space-between;
   order: 0;
   height: 100%;
 }
 @media only screen and (min-width: 250px) {
-  header > nav.navigationBar {
+  header > nav {
     width: 100%;
   }
 }
 @media only screen and (max-width: 725px) {
-  header > nav.navigationBar {
-    justify-content: center;
+  header > nav {
+    justify-content: space-between;
   }
 }
 @media only screen and (min-width: 725px) and (max-width: 1024px) {
-  header > nav.navigationBar {
+  header > nav {
     justify-content: space-between;
   }
 }
 @media only screen and (max-width: 1024px) {
-  header > nav.navigationBar {
+  header > nav {
     order: 2;
   }
 }
 @media only screen and (min-width: 1024px) {
-  header > nav.navigationBar > a:first-of-type {
+  header > nav > a:first-of-type {
     padding-left: 0;
   }
 }
+header > nav > nav.open-mobile-nav {
+  gap: 16px 16px;
+  width: 100%;
+  height: auto;
+}
 @media only screen and (max-width: 375px) {
-  header > nav.navigationBar > nav {
+  header > nav > nav.anchorLinks {
     width: 100%;
   }
 }
 @media only screen and (min-width: 375px) and (max-width: 715px) {
-  header > nav.navigationBar > nav {
+  header > nav > nav.anchorLinks {
     justify-content: space-between;
     min-width: 350px;
   }
-  header > nav.navigationBar > nav > a:first-of-type {
+  header > nav > nav.anchorLinks > a:first-of-type {
     padding-left: 0;
   }
-  header > nav.navigationBar > nav > a:last-of-type {
+  header > nav > nav.anchorLinks > a:last-of-type {
     padding-right: 0;
   }
 }
 @media only screen and (max-width: 715px) {
-  header > nav.navigationBar > nav {
+  header > nav > nav.anchorLinks {
     padding: 0 0 8px 0;
   }
 }
-@media only screen and (min-width: 715px) and (max-width: 1024px) {
-  header > nav.navigationBar > nav {
-    padding: 0 16px 0 0;
-  }
-}
 @media only screen and (min-width: 1024px) {
-  header > nav.navigationBar > nav {
+  header > nav > nav.anchorLinks {
     padding: 0;
   }
 }
-header > nav.navigationBar > .contactButtons {
+header > nav > .contactButtons {
   justify-content: flex-start;
   gap: 8px 16px;
 }
 @media only screen and (max-width: 350px) {
-  header > nav.navigationBar > .contactButtons {
+  header > nav > .contactButtons {
     display: none !important;
   }
 }
 @media only screen and (min-width: 350px) {
-  header > nav.navigationBar > .contactButtons {
+  header > nav > .contactButtons {
     display: inherit;
   }
 }
 @media only screen and (max-width: 715px) {
-  header > nav.navigationBar > .contactButtons {
+  header > nav > .contactButtons {
     justify-content: space-between;
   }
-  header > nav.navigationBar > .contactButtons > button {
+  header > nav > .contactButtons > button {
     width: calc(50% - 12px);
   }
 }

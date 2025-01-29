@@ -22,7 +22,7 @@ export default function TitleSection({pageType, children} : Page) : React.ReactE
   // if (getFunction) {
   getCSProps = getFunction[pageType];
   // }
-  console.log('title-container-default.tsx - getFunction: ' + getFunction + ' getCSProps: ' + getCSProps);
+  // console.log('title-container-default.tsx - getFunction: ' + getFunction + ' getCSProps: ' + getCSProps);
   let getMediaAlias, getMediaType;
     // console.log('getESProps: ' + JSON.stringify(getCSProps));
   switch (pageType) {

@@ -65,7 +65,7 @@ export function setupAutoplayVideoHandler(rootRef: RefObject<HTMLElement>) {
           clickedElements.add(mediaElement);
 
           const tagName = mediaElement.tagName.toLowerCase();
-          console.log(`Clicked element tag: ${tagName}`);
+          // console.log(`Clicked element tag: ${tagName}`);
 
           if (mediaElement instanceof HTMLVideoElement) {
             mediaElement.removeAttribute('autoplay');

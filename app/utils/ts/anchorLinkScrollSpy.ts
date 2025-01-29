@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState, useCallback } from 'react';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 
@@ -30,12 +32,13 @@ export function useScrollToSection() {
   }, [pathname, searchParamsState]);
 
   const scrollToElement = (id: string) => {
+    console.log('scroll to element: ' + id);
     const element = document.getElementById(id);
     if (element) {
       const header = document.querySelector('header') as HTMLElement;
       const headerHeight = header.offsetHeight;
       const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-      const top = (window.innerWidth <= 1024) ? elementPosition + 15 : elementPosition - headerHeight + 10;
+      const top = (window.innerWidth < 1024) ? elementPosition + 10 : elementPosition - headerHeight + 10;
       window.scrollTo({
         top: top,
         behavior: 'smooth'

@@ -127,39 +127,39 @@ export function calculateLineCount(
 ): { lineCount: number; getString: string; containerWidth: number } {
   // Get the container width
   const containerWidth = document.querySelector(containerSelector)?.clientWidth || 0;
-  console.log('calculateLineCount - containerWidth: ' + containerWidth);
+  // console.log('calculateLineCount - containerWidth: ' + containerWidth);
   
   // Calculate the number of characters that can fit in one line
   const charsPerLine = Math.floor(containerWidth / (config.fontSize * config.charWidthCoefficient));
-  console.log('calculateLineCount - config.fontSize: ' + config.fontSize);
-  console.log('calculateLineCount - config.charWidthCoefficient: ' + config.charWidthCoefficient);
-  console.log('calculateLineCount - charsPerLine: ' + charsPerLine);
+  // console.log('calculateLineCount - config.fontSize: ' + config.fontSize);
+  // console.log('calculateLineCount - config.charWidthCoefficient: ' + config.charWidthCoefficient);
+  // console.log('calculateLineCount - charsPerLine: ' + charsPerLine);
 
   // Check if children is a SafeHTML component or extract text content
   let getString: string = '';
   if (React.isValidElement(children)) {
     const element = children as ReactElement;
-    console.log('calculateLineCount - element.type: ' + element.type);
+    // console.log('calculateLineCount - element.type: ' + element.type);
     if (element.type === SafeHTML) {
       const safeHTMLProps = element.props as { html?: string };
       getString = safeHTMLProps.html || '';
-      console.log('calculateLineCount - children: ' + children);
+      // console.log('calculateLineCount - children: ' + children);
     } else {
       // getString = element.props as string || '';
       getString = extractTextContent(children);
-      console.log('calculateLineCount - getString: ' + getString);
+      // console.log('calculateLineCount - getString: ' + getString);
     }
   } else {
-    console.log('calculateLineCount - children: ' + children);
+    // console.log('calculateLineCount - children: ' + children);
     getString = extractTextContent(children);
   }
 
   // Ensure getString is not empty
   if (getString.trim() === '') {
-    console.log('calculateLineCount - getString is empty.');
+    // console.log('calculateLineCount - getString is empty.');
     getString = ' '; // Use a space to ensure at least one line
   }
-  console.log('calculateLineCount - getString from loading-content: ' + getString);
+  // console.log('calculateLineCount - getString from loading-content: ' + getString);
   
   // Split the string by line breaks
   const lines = getString.split(/<br><br>|<br>|"noWidow"/);
@@ -168,17 +168,17 @@ export function calculateLineCount(
   const lineCount = lines.reduce((count, line, index) => {
     const linesInSegment = Math.ceil(line.length / charsPerLine);
     // console.log(`Placeholder line ${index + 1}: ${line.substring(0, 20)}${line.length > 20 ? '...' : ''}`);
-    console.log(`Placeholder line ${index + 1}: ${line}`);
+    // console.log(`Placeholder line ${index + 1}: ${line}`);
     return count + linesInSegment;
   }, 0);
-  console.log('Total line count: ' + lineCount);
-  console.log('calculateLineCount - total line count: ' + lineCount);
+  // console.log('Total line count: ' + lineCount);
+  // console.log('calculateLineCount - total line count: ' + lineCount);
 
   
   
   // Clamp the line count between 1 and 20
   const clampedLineCount = Math.min(Math.max(lineCount, 1), 20);
-  console.log('calculateLineCount - clampedLineCount: ' + clampedLineCount);
+  // console.log('calculateLineCount - clampedLineCount: ' + clampedLineCount);
   // // Calculate the number of lines based on text length
   // const textLines = Math.ceil(getString.length / charsPerLine);
   // console.log('getString.length: ' + getString.length);
@@ -233,8 +233,8 @@ export function useSharedTextLogic(children: React.ReactNode, componentType: str
     const updateDimensions = () => {
       const screenWidth = window.innerWidth;
       const config = getConfig(componentType, screenWidth);
-      console.log('children: ' + children);
-      console.log('config: ' + config);
+      // console.log('children: ' + children);
+      // console.log('config: ' + config);
       const { lineCount, getString, containerWidth } = calculateLineCount(children, config);
       setState(prevState => ({ ...prevState, screenWidth, lineCount, getString, containerWidth }));
     };

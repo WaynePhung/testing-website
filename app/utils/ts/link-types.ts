@@ -51,6 +51,16 @@ export function getLinkProps(navBarType?: string) : { [key: string]: LinkProps |
             role: "link",
             ariaLabel: "back to home"
         },
+        menu: {
+            text: "Menu",
+            role: "link",
+            ariaLabel: "menu to view list of website navigation options"
+        },
+        closeMenu: {
+            text: "Close",
+            role: "link",
+            ariaLabel: "collapse and close list of website navigation options"
+        },
         design: {
             text: "Design",
             href: (navBarType == "home" ? designHref : slash + designHref),
@@ -77,7 +87,7 @@ export function getLinkProps(navBarType?: string) : { [key: string]: LinkProps |
         },
         contact: {
             text: "Contact Me",
-            href: "#conversation",
+            href: "#contact",
             role: "link",
             ariaLabel: "anchor link to contact Wayne Phung via email or LinkedIn"
         },

@@ -17,7 +17,7 @@ interface TextFieldProps {
 
 export default function TextField({ className, label, name, register, error, placeholder, description }: TextFieldProps) {
 // export default function TextField({ label, name, register, error, placeholder, description }: TextFieldProps) {
-  const { isLoaded, hasLoaded, handleLoad } = useDelayedLoad();
+  const { isLoaded, hasLoaded } = useDelayedLoad({ delay: 0 });
   let combinedClassName = "text-field";
   if (className) {
     combinedClassName += " " + className;

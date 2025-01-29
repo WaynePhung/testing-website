@@ -4,8 +4,8 @@
 // window.addEventListener ('load', adjustFooterBottomPadding);
 // window.addEventListener ('resize', adjustFooterBottomPadding);
 
-import exp from "constants";
-import React from "react";
+// import exp from "constants";
+// import React from "react";
 
 // export var 
 //     footer = document.querySelector('footer'), 
@@ -33,33 +33,39 @@ import React from "react";
 //     }
 // });
 
-export function adjustFooterBottomPadding() {
-    let footer = document.querySelector('footer'), 
-        header = document.querySelector('header');
-    if (footer && header) {
-        if (window.innerWidth >= 320 && window.innerWidth <= 1024) {
-    
-            // Get the footer and header.
-            
-            // Reset footer margin and header height
-            footer.style.paddingBottom = '';
-            header.style.height = 'auto';
-    
-            // Then get the computed bottom padding of the footer and header height.
-            let getFooterBottomPadding = parseFloat(window.getComputedStyle(footer).getPropertyValue('padding-bottom')),
-            headerHeight = document.querySelector('header').offsetHeight;
-            // console.log('Footer initial bottom padding: ' + getFooterBottomPadding);
-    
-            // Add header height value to computed footer padding.
-            footer.style.paddingBottom = headerHeight + getFooterBottomPadding + "px";
-        } else {
-            // Reset footer padding. This is to prevent excess padding bottom space occurring when the window inner width is below 320px or above 1024px.
-            footer.style.paddingBottom = '';
-        }
-    } else {
-        
-    }
-    return null;
-}
+import { useEffect, useRef } from 'react';
 
-export default adjustFooterBottomPadding;
+export default function adjustFooterBottomPadding() {
+    const footerRef = useRef(null);
+    const headerRef = useRef(null);
+
+    useEffect(() => {
+        const footer = footerRef.current;
+        const header = headerRef.current;
+    
+        if (footer && header) {
+          const adjustPadding = () => {
+            if (window.innerWidth <= 1024) {
+              footer.style.paddingBottom = '';
+              header.style.height = 'auto';
+    
+              const getFooterBottomPadding = parseFloat(window.getComputedStyle(footer).getPropertyValue('padding-bottom'));
+              const headerHeight = header.offsetHeight;
+    
+              footer.style.paddingBottom = headerHeight + getFooterBottomPadding + "px";
+            } else {
+              footer.style.paddingBottom = '';
+            }
+          };
+    
+          adjustPadding();
+          window.addEventListener('resize', adjustPadding);
+    
+          return () => window.removeEventListener('resize', adjustPadding);
+        }
+    
+    }, []);
+    
+    return { footerRef, headerRef };
+}
+    

@@ -2,7 +2,7 @@
 @use "./../buttons/buttons";
 @use "./../../utils/colors/colors";
 @use "./../../utils/grids/grid-variables" as g-v;
-@use "./../../utils/mixins-other/display-flex";
+@use "./../../utils/mixins-other/display-flex" as d-f;
 @use "./../../utils/mixins-other/screen-widths" as s-w;
 @use "./../../utils/mixins-other/show-hide-toggle" as s-h-t;
 @use "./../../utils/size-spacing/nums-size-space" as n-s-s;
@@ -12,11 +12,21 @@
 @use "./../../utils/variables/variables-global" as v-g;
 
 footer {
-    @extend %flex-row-wrap-default;
-    background-color: colors.color('p', 90);
-    & > nav.navigationBar {
+    @include s-w.mediaQuery-maxOnly(v-g.$bp-dt) {
+        @include d-f.displayFlex(row, wrap, center, center, center);
+        background-color: transparent;
+        & > p {
+            text-align: center;
+        }
+    }
+    @include s-w.mediaQuery-minOnly(v-g.$bp-dt) {
+        @include d-f.displayFlex(row, wrap, flex-start, flex-start, flex-start);
+        background-color: colors.color('p', 90);
+    }
+    & > nav {
         position: relative;
         @extend %flex-row-wrap-center;
+        @include r-c-g.rowColumnGaps("m", "m");
         justify-content: space-between;
         order: 0;
         height: 100%;
@@ -62,9 +72,9 @@ footer {
                 // padding: map-get(n-s-s.$size-space-stack, "m");
                 padding: map-get(n-s-s.$size-space-stack, "s");
             }
-            @include s-w.mediaQuery-minMax(715, v-g.$bp-dt) {
-                padding: map-get(n-s-s.$size-space-inline, "m");
-            }
+            // @include s-w.mediaQuery-minMax(715, v-g.$bp-dt) {
+            //     padding: map-get(n-s-s.$size-space-inline, "m");
+            // }
             @include s-w.mediaQuery-minOnly(v-g.$bp-dt) {
                 padding: 0;
             }

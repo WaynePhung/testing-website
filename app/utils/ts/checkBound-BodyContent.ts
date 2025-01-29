@@ -27,7 +27,7 @@ export function isWithinBodyContentBounds(pathname: string) {
     }
 
     if (boundaryElements.length === 0) {
-        console.log('No boundary elements found. Function isWithinBodyContentBound does nothing.');
+        // console.log('No boundary elements found. Function isWithinBodyContentBound does nothing.');
         return false;
     } else {
         const scrollPosition = window.scrollY;

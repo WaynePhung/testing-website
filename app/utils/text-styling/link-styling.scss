@@ -49,6 +49,7 @@
 */
 
 %link {
+    @extend %flex-row-wrap-center;
     @include r-c-g.rowColumnGaps("m", "m");
     position: relative;
     cursor: default;
@@ -106,11 +107,37 @@
     animation-timing-function: ease-in-out;
 }
 
-header > nav.navigationBar, footer > nav.navigationBar {
-    & > nav {
+header > nav, footer > nav {
+    & > nav.open-mobile-nav {
+        & > a {
+            @extend %link;
+            @extend %flex-row-wrap-center;
+            width: 100%;
+            span {
+                @extend %bg-default;
+                @extend %bg-default-props;
+                text-align: center;
+                width: 100%;
+                &:after {
+                    background-color: colors.color('n', 50);
+                }
+            }
+            &:hover, &.active {
+                span {
+                    @extend %bg-active;
+                    @extend %bg-default-props;
+                }
+            }
+            & > a {
+                @extend %link;
+            }
+        }
+    }
+    & > nav.anchorLinks {
+        @include r-c-g.rowColumnGaps("l", 0);
         justify-content: space-between;
-        max-width: 568px;
-        width: 100%;
+        // max-width: 568px;
+        // width: 100%;
     }
     & > a, & > nav > a {
         @extend %link;
@@ -145,7 +172,7 @@ header > nav.navigationBar, footer > nav.navigationBar {
             }
         }
     }
-    & > nav > a {
+    & > nav.anchorLinks > a {
         @extend %link;
         @extend %flex-row-wrap-center;
         // max-width: 110px;
@@ -238,12 +265,12 @@ main {
 
 footer {
     article {
-        &#endMessage > .contactButtons > button > a {
-            @extend %flex-row-wrap-center;
-        }
+        // &#endMessage > .contactButtons > button > a {
+        //     @extend %flex-row-wrap-center;
+        // }
         &#endNavLinks > nav > a {
             @extend %link;
-            @extend %flex-row-wrap-default;
+            @extend %flex-row-wrap-center;
             @extend %bg-default;
             @extend %bg-default-props;
             span {

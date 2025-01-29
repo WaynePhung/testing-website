@@ -4,6 +4,7 @@ import React, { useEffect, useState, useRef, ReactElement, ReactNode } from 'rea
 import { noto_sans } from "@/app/utils/text-styling/fonts";
 import { SafeHTML } from "../text/safe-html";
 import { indefinite } from "@/app/utils/ts/exported-constants";
+import { useDelayedLoad } from "@/app/hooks/use-delay-load";
 
 // Define the tag properties interface
 interface TagProperties {
@@ -164,17 +165,18 @@ export default function Placeholder({ tag, children, delayTimer = indefinite }: 
   const [maxWidth, setMaxWidth] = useState<number>(100); // State to hold max width
   const containerRef = useRef<HTMLDivElement>(null);
   const [breakpoint, setBreakpoint] = useState<'default' | 1024>('default');
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
+  const { isLoaded, hasLoaded } = useDelayedLoad({ delay: 0 });
 
-  useEffect(() => {
-    // console.log('delay timer: ' + delayTimer);
-    // Simulate loading delay
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, delayTimer * 1000);
+  // useEffect(() => {
+  //   // console.log('delay timer: ' + delayTimer);
+  //   // Simulate loading delay
+  //   const timer = setTimeout(() => {
+  //     setIsLoading(false);
+  //   }, delayTimer * 1000);
 
-    return () => clearTimeout(timer);
-  }, [delayTimer]);
+  //   return () => clearTimeout(timer);
+  // }, [delayTimer]);
 
   // useEffect(() => {
   //   const handleResize = () => {
@@ -189,19 +191,19 @@ export default function Placeholder({ tag, children, delayTimer = indefinite }: 
   useEffect(() => {
     // Get container width
     if (!containerRef.current) {
-      console.log('No container.');
+      // console.log('No container.');
       return;
     };
 
     const containerWidth = containerRef.current.offsetWidth;
-    console.log('tag: ' + tag + ' containerWidth : ' + containerWidth);
+    // console.log('tag: ' + tag + ' containerWidth : ' + containerWidth);
 
     const properties = tagProperties[tag][breakpoint];
 
     // Extract raw text from children
     const rawText = extractTextFromChildren(children);
 
-    console.log('tag: ' + tag + ' rawText: ' + rawText);
+    // console.log('tag: ' + tag + ' rawText: ' + rawText);
 
     // const maxCharsPerLine = Math.floor(containerWidth / properties.charWidth);
 
@@ -241,15 +243,22 @@ export default function Placeholder({ tag, children, delayTimer = indefinite }: 
       return '';
     }
 
-    console.log('rawText: ' + rawText);
+    // console.log('rawText: ' + rawText);
 
-    console.log('tag: ' + tag + ' rawText: ' + rawText);
+    // console.log('tag: ' + tag + ' rawText: ' + rawText);
 
     // const properties = tagProperties[tag];
-    console.log('tag props: ' + JSON.stringify(tagProperties[tag]));
+    // console.log('tag props: ' + JSON.stringify(tagProperties[tag]));
     const maxCharsPerLine = Math.floor(containerWidth / properties.charWidth);
     if (containerWidth == 0) {
       console.error('This tag does not have a container width: ' + tag + ' class name: ' + tag + ' maxCharsPerLine: ' + maxCharsPerLine);
+      React.Children.forEach(children, (child) => {
+        if (React.isValidElement(child)) {
+          console.log(child.props);
+          console.log(child.type);
+          console.log(child.key);
+        }
+      });
     }
 
 
@@ -319,26 +328,26 @@ export default function Placeholder({ tag, children, delayTimer = indefinite }: 
   // Then in the component:
   const lineHeight = calculateLineHeight(properties);
 
-  if (!isLoading) {
+  if (isLoaded || hasLoaded) {
     return <>{children}</>;
+  } else {
+    return (
+      <div ref={containerRef} className={`placeholder ${tag}`}>
+        {placeholderLines.map((width, index) => (
+          <div
+            key={index}
+            className={`placeholder-line placeholder-line-${tag} ${tag === 'span' && noto_sans.className}`}
+            style={{
+              height: `${lineHeight}em`,
+              width: (tag === 'span') ? '100%' : width ? `${width}px` : '100%',
+              marginBottom: `${properties.paddingBottom}px`,
+            }}
+          >
+            {tag === 'span' ? `${children}` : ''}
+            {/* {tag === 'figcaption' ? 'Figcaption Text' : ''} */}
+          </div>
+        ))}
+      </div>
+    );
   }
-
-  return (
-    <div ref={containerRef} className={`placeholder ${tag}`}>
-      {placeholderLines.map((width, index) => (
-        <div
-          key={index}
-          className={`placeholder-line placeholder-line-${tag} ${tag === 'span' && noto_sans.className}`}
-          style={{
-            height: `${lineHeight}em`,
-            width: (tag === 'span') ? '100%' : width ? `${width}px` : '100%',
-            marginBottom: `${properties.paddingBottom}px`,
-          }}
-        >
-          {tag === 'span' ? `${children}` : ''}
-          {/* {tag === 'figcaption' ? 'Figcaption Text' : ''} */}
-        </div>
-      ))}
-    </div>
-  );
 }

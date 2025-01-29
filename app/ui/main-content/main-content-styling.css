@@ -41,7 +41,7 @@
         - row flex direction, wrapping, top-left starting point 
           and alignment of children elements and text
 */
-main > section.bodyContent, main > section.bodyContent > section[class*=content], main > section.bodyContent > section[class*=content].content-loc, main > section.bodyContent > section[class*=content].content-loc > article, main > section.bodyContent > aside > nav.tocNavLinks {
+main > section.bodyContent, main > section.bodyContent > section[class*=content], main > section.bodyContent > section[class*=content].content-loc, main > section.bodyContent > section[class*=content].content-loc > article {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -66,6 +66,16 @@ main > section#contact .contactButtons {
   align-items: center;
   align-content: center;
   justify-content: center;
+}
+
+main > section.bodyContent > aside.list-of-contents > nav.tocNavLinks {
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: flex-end;
+  align-content: flex-end;
+  justify-content: flex-end;
 }
 
 /*
@@ -251,17 +261,17 @@ main > section.bodyContent > section[class*=content] > article > h2 {
   width: 100%;
 }
 @media only screen and (max-width: 750px) {
-  main > section.bodyContent > aside {
+  main > section.bodyContent > aside.list-of-contents {
     width: calc(100% - 32px);
   }
 }
 @media only screen and (min-width: 750px) and (max-width: 1024px) {
-  main > section.bodyContent > aside {
+  main > section.bodyContent > aside.list-of-contents {
     width: calc(100% - 64px);
   }
 }
 @media only screen and (max-width: 1024px) {
-  main > section.bodyContent > aside {
+  main > section.bodyContent > aside.list-of-contents {
     display: flex;
     -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
@@ -270,11 +280,12 @@ main > section.bodyContent > section[class*=content] > article > h2 {
     align-content: center;
     justify-content: flex-end;
     position: fixed;
+    bottom: 82px;
     margin: 0 auto;
   }
 }
 @media only screen and (min-width: 1024px) and (max-width: 1920px) {
-  main > section.bodyContent > aside {
+  main > section.bodyContent > aside.list-of-contents {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
@@ -286,25 +297,28 @@ main > section.bodyContent > section[class*=content] > article > h2 {
   }
 }
 @media only screen and (min-width: 1920px) {
-  main > section.bodyContent > aside {
+  main > section.bodyContent > aside.list-of-contents {
     max-width: 350px;
   }
 }
 @media only screen and (max-width: 1024px) {
-  main > section.bodyContent > aside > a#toTop-desktop, main > section.bodyContent > aside > a#other-case-studies-desktop {
+  main > section.bodyContent > aside.list-of-contents > a#toTop-desktop, main > section.bodyContent > aside.list-of-contents > a#other-case-studies-desktop {
     display: none !important;
   }
 }
 @media only screen and (min-width: 1024px) {
-  main > section.bodyContent > aside > a#toTop-desktop, main > section.bodyContent > aside > a#other-case-studies-desktop {
+  main > section.bodyContent > aside.list-of-contents > a#toTop-desktop, main > section.bodyContent > aside.list-of-contents > a#other-case-studies-desktop {
     display: inherit;
   }
 }
-main > section.bodyContent > aside > nav.tocNavLinks > * {
+main > section.bodyContent > aside.list-of-contents > nav.tocNavLinks {
+  width: 100%;
+}
+main > section.bodyContent > aside.list-of-contents > nav.tocNavLinks > * {
   width: 100%;
 }
 @media only screen and (max-width: 1024px) {
-  main > section.bodyContent > aside > nav.tocNavLinks {
+  main > section.bodyContent > aside.list-of-contents > nav.tocNavLinks {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
@@ -315,12 +329,12 @@ main > section.bodyContent > aside > nav.tocNavLinks > * {
   }
 }
 @media only screen and (max-width: 1024px) {
-  main > section.bodyContent > aside > nav.tocNavLinks > a#toTop-mobile, main > section.bodyContent > aside > nav.tocNavLinks > a#other-case-studies-mobile {
+  main > section.bodyContent > aside.list-of-contents > nav.tocNavLinks > a#toTop-mobile, main > section.bodyContent > aside.list-of-contents > nav.tocNavLinks > a#other-case-studies-mobile {
     display: inherit;
   }
 }
 @media only screen and (min-width: 1024px) {
-  main > section.bodyContent > aside > nav.tocNavLinks > a#toTop-mobile, main > section.bodyContent > aside > nav.tocNavLinks > a#other-case-studies-mobile {
+  main > section.bodyContent > aside.list-of-contents > nav.tocNavLinks > a#toTop-mobile, main > section.bodyContent > aside.list-of-contents > nav.tocNavLinks > a#other-case-studies-mobile {
     display: none !important;
   }
 }

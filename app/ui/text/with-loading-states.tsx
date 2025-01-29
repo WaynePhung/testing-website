@@ -25,10 +25,10 @@ export function withSharedTextLogic<P extends WrappedComponentProps>(
 ) {
   return function WithSharedTextLogic(props: P) {
     const { children, html, ...rest } = props;
-    console.log('children to props: ' + children);
-    console.log('html to props: ' + html);
+    // console.log('children to props: ' + children);
+    // console.log('html to props: ' + html);
     const { state, handleRouteChange, handleRefresh } = useSharedTextLogic(children, componentType);
-    console.log('state to useSharedTextLogic: ' + state);
+    // console.log('state to useSharedTextLogic: ' + state);
     // const { ref, isVisible, isLoaded } = useVisibilityLoader();
 
     const { isLoaded, hasLoaded } = useDelayedLoad();
@@ -50,11 +50,11 @@ export function withSharedTextLogic<P extends WrappedComponentProps>(
 
     const renderPlaceholder = () => {
       const safeLineCount = Math.max(1, Math.floor(state.lineCount) || 0);
-      console.log("state: " + state);
-      console.log("state.containerWidth: " + state.containerWidth);
+      // console.log("state: " + state);
+      // console.log("state.containerWidth: " + state.containerWidth);
       const charsPerLine = Math.floor(state.containerWidth / (config.fontSize * config.charWidthCoefficient));
-      console.log("charsPerLine: " + charsPerLine);
-      console.log("state.getString: " + (state.getString ? state.getString : "empty"));
+      // console.log("charsPerLine: " + charsPerLine);
+      // console.log("state.getString: " + (state.getString ? state.getString : "empty"));
       
       // Ensure we always have at least one line
       const lines = state.getString.split(/<br><br>|<br>|"noWidow"/).filter(line => line.trim() !== '');
@@ -63,10 +63,10 @@ export function withSharedTextLogic<P extends WrappedComponentProps>(
       return (
         <div className={`placeholder lines-${safeLineCount}`}>
           {lines.flatMap((line, lineIndex) => {
-            console.log("line.length: " + line.length);
-            console.log("line.length: " + line.length);
+            // console.log("line.length: " + line.length);
+            // console.log("line.length: " + line.length);
             const lineChunks = Math.max(1, Math.ceil(line.length / charsPerLine));
-            console.log("lineChunks: " + lineChunks);
+            // console.log("lineChunks: " + lineChunks);
             return Array.from({ length: lineChunks }, (_, chunkIndex) => {
               const chunkText = line.slice(chunkIndex * charsPerLine, (chunkIndex + 1) * charsPerLine);
               const lineWidth = Math.min(state.containerWidth, Math.max(1, chunkText.length) * config.fontSize * config.charWidthCoefficient);

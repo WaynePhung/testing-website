@@ -33,7 +33,7 @@ export function initializeH2SectionBounds(pathname: string): void {
   let main = document.querySelector('main');
 
   if (!main) {
-    console.log('Main container does not exist. Function initializeH2SectionBounds does nothing.');
+    // console.log('Main container does not exist. Function initializeH2SectionBounds does nothing.');
     return;
   }
 
@@ -41,13 +41,13 @@ export function initializeH2SectionBounds(pathname: string): void {
   // console.log('initializeH2SectionBounds - pathname: ' + pathname);
   if (pathname === '/') {
     sections = main.querySelectorAll('section:not(section.title)');
-    console.log('Getting sections from main page.');
+    // console.log('Getting sections from main page.');
   } else if (caseStudyPaths.includes(pathname)) {
     sections = main.querySelectorAll('section.content-loc > article');
-    console.log('Getting sections from case study page.');
+    // console.log('Getting sections from case study page.');
   } else {
     sections = main.querySelectorAll('section.bodyContent > article');
-    console.log('Section container does not exist. Default is error page.');
+    // console.log('Section container does not exist. Default is error page.');
     // return;
   }
 
@@ -86,11 +86,11 @@ export function initializeH2SectionBounds(pathname: string): void {
   // console.log('Initialized sectionInfoArray: ', sectionInfoArray);
 
   sectionInfoArray.forEach((item, index) => {
-    console.log(`Item ${index}:`);
-    console.log('  isWithinBounds:', item.isWithinBounds);
-    console.log('  section:', item.section);
-    console.log('  h2:', item.h2);
-    console.log('  h2Wrapper:', item.h2Wrapper);
+    // console.log(`Item ${index}:`);
+    // console.log('  isWithinBounds:', item.isWithinBounds);
+    // console.log('  section:', item.section);
+    // console.log('  h2:', item.h2);
+    // console.log('  h2Wrapper:', item.h2Wrapper);
   });
 }
   
@@ -107,8 +107,8 @@ export function updateH2SectionBounds(pathname: string): SectionInfo[] {
     const h2SectionRect = sectionInfo.section.getBoundingClientRect();
     const bcRectTopBound = window.innerWidth < 1024 ? (h2SectionRect.top + window.scrollY - 10) : (h2SectionRect.top + window.scrollY - (1*headerHeight) - 10);
     const bcRectBottomBound = window.innerWidth < 1024 ? (h2SectionRect.bottom + window.scrollY - 10) : (h2SectionRect.bottom + window.scrollY - (1*headerHeight) - 200);
-    console.log('bcRectTopBound: ' + bcRectTopBound);
-    console.log('bcRectBottomBound: ' + bcRectBottomBound);
+    // console.log('bcRectTopBound: ' + bcRectTopBound);
+    // console.log('bcRectBottomBound: ' + bcRectBottomBound);
     return {
       ...sectionInfo,
       isWithinBounds: (scrollPosition >= bcRectTopBound) && (scrollPosition <= bcRectBottomBound)
@@ -131,11 +131,11 @@ export function handleScrollAndResize(pathname: string): void {
       //   setActiveLink(sectionName, pathname, false);
       // } else {
         if (info.isWithinBounds) {
-          console.log('H2 ' + info.h2 + ' is within its parent section bounds.');
+          // console.log('H2 ' + info.h2 + ' is within its parent section bounds.');
           applyStickyStyling(info.h2, info.h2Wrapper);
           setActiveLink(sectionName, pathname, true);
         } else {
-          console.log('H2 ' + info.h2 + ' is not within its parent section bounds.');
+          // console.log('H2 ' + info.h2 + ' is not within its parent section bounds.');
           removeStickyStyling(info.h2, info.h2Wrapper);
           setActiveLink(sectionName, pathname, false);
         }

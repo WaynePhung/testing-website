@@ -93,31 +93,32 @@ aside[role=navigation], aside[role=navigation] > button, .h2-wrapper, h2.sticky 
 }
 
 header, header * {
-  z-index: 5;
+  z-index: 5 !important;
 }
 
 .buffer-page, .loading-page {
   z-index: 999;
 }
 
-aside.sticky-active {
+aside.list-of-contents.sticky-active {
   overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-aside.sticky-active:-webkit-scrollbar {
+aside.list-of-contents.sticky-active:-webkit-scrollbar {
   display: none;
 }
 @media only screen and (min-width: 1024px) {
-  aside.sticky-active {
+  aside.list-of-contents.sticky-active {
     position: sticky;
     top: 86px;
     order: 1;
   }
 }
 @media only screen and (max-width: 1024px) {
-  aside > nav.tocNavLinks {
+  aside.list-of-contents > nav.tocNavLinks {
     display: none;
+    width: 100%;
     margin-bottom: 16px;
     padding: 12px;
     border: solid hsl(215, 60%, 44%);
@@ -126,7 +127,7 @@ aside.sticky-active:-webkit-scrollbar {
   }
 }
 @media only screen and (min-width: 1024px) {
-  aside {
+  aside.list-of-contents {
     gap: 16px 0;
     width: 318px;
   }

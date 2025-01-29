@@ -7,7 +7,7 @@ export default function bpTransitionEffect(route: string) {
         const getH1 = getBuffer.querySelector("h1");
         if (getH1) {
             getH1.textContent = changeBPText(route);
-            console.log('Changed text: ' + changeBPText(route));
+            // console.log('Changed text: ' + changeBPText(route));
         }
         getBuffer.classList.add("visible");
 

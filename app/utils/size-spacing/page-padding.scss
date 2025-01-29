@@ -2,11 +2,11 @@
 @use "./../../utils/size-spacing/nums-size-space" as n-s-s;
 @use "./../../utils/variables/variables-global" as v-g;
 
-// nav.navigationBar, section.title, main > section > article:not(.h2-wrapper), main > section > h2:not(.sticky), main > section.bodyContent, footer {
-nav.navigationBar, 
+// nav, section.title, main > section > article:not(.h2-wrapper), main > section > h2:not(.sticky), main > section.bodyContent, footer {
+header > nav, footer > nav,  
 main > section, 
 // main > section:not(.title, .title-error, .work-previews) > article:not(.h2-wrapper, section.bodyContent > article#other-case-studies), 
-main > section > h2.sticky {
+main > section > h2.sticky, aside.loading-page {
     @include s-w.mediaQuery-maxOnly(750) {
         padding-left: map-get(n-s-s.$size-space, "m");
         padding-right: map-get(n-s-s.$size-space, "m");
@@ -17,7 +17,7 @@ main > section > h2.sticky {
     }
 }
 
-nav.navigationBar {
+header > nav, footer > nav {
     @include s-w.mediaQuery-maxOnly(750) {
         max-width: calc(100% - map-get(n-s-s.$size-space, "xl"));
     }
@@ -26,10 +26,25 @@ nav.navigationBar {
     }
 }
 
+footer {
+    @include s-w.mediaQuery-maxOnly(750) {
+        padding-left: map-get(n-s-s.$size-space, "m");
+        padding-right: map-get(n-s-s.$size-space, "m");
+    }
+    @include s-w.mediaQuery-minMax(750, v-g.$bp-dt) {
+        padding-left: map-get(n-s-s.$size-space, "xl");
+        padding-right: map-get(n-s-s.$size-space, "xl");
+    }
+    @include s-w.mediaQuery-maxOnly(v-g.$bp-dt) {
+        padding-top: map-get(n-s-s.$size-space, "m");
+        padding-bottom: map-get(n-s-s.$size-space, "m");
+    }
+}
+
 h2.h2-sticky, h2.sticky {
     @include s-w.mediaQuery-maxOnly(750) {
         // padding: 0 map-get(n-s-s.$size-space, "m") map-get(n-s-s.$size-space, "m") map-get(n-s-s.$size-space, "m");
-        padding: map-get(n-s-s.$size-space, "m") map-get(n-s-s.$size-space, "sm");
+        padding: map-get(n-s-s.$size-space, "m") map-get(n-s-s.$size-space, "m");
         width: calc(100% - map-get(n-s-s.$size-space, "xl"));
     }
     @include s-w.mediaQuery-minOnly(750) {
@@ -39,20 +54,24 @@ h2.h2-sticky, h2.sticky {
     }
 }
 
-nav.navigationBar {
+nav {
     padding-top: map-get(n-s-s.$size-space, "s");
     padding-bottom: map-get(n-s-s.$size-space, "s");
 }
 
 main {
-    padding-top: map-get(n-s-s.$size-space, "m");
     padding-bottom: map-get(n-s-s.$size-space, "5xl");
-
     & > *:not(:last-child) {
         padding-bottom: map-get(n-s-s.$size-space, "5xl");
         // & > article:not(:last-child) {
         //     padding-bottom: map-get(n-s-s.$size-space, "xl");
         // }
+    }
+    & > section.title {
+        padding-top: map-get(n-s-s.$size-space, "m");
+    }
+    & > section#home-title {
+        padding-top: map-get(n-s-s.$size-space, "m");
     }
     & > section.bodyContent > section {
         &[class*="content"] { 

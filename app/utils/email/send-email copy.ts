@@ -31,8 +31,8 @@ export default async function sendMail(formData: FormData) {
       html: `<p>${formData.message}</p>`,
     });
 
-    console.log('Message Sent', info.messageId);
-    console.log('Mail sent to', SITE_MAIL_RECEIVER);
+    // console.log('Message Sent', info.messageId);
+    // console.log('Mail sent to', SITE_MAIL_RECEIVER);
     return { success: true };
   } catch (error) {
     if (error instanceof Error) {

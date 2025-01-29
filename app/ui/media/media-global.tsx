@@ -31,11 +31,12 @@ type MediaArgs =
     | (MediaArgsSubgroup & {wrappingLink: false; href?: string});
 
 export default function FigureImageVideo ({group, mediaAlias, subgroup, wrappingLink=false, href} : MediaArgs) : React.ReactElement | null | undefined {
-    const { isLoaded, hasLoaded, handleLoad } = useDelayedLoad();
+    const { isLoaded, hasLoaded } = useDelayedLoad({ delay: 0 });
+    // const { isLoaded, hasLoaded, handleLoad } = useDelayedLoad();
     type MediaGroupObjectType = ReturnType<typeof getMediaGroupObject>;
     let mediaGroupObject: MediaGroupObjectType;
     switch(group) {
-        case "icon":
+        case ("icon"):
             mediaGroupObject = getMediaGroupObject("icon") as DynamicMedia | SeeCaseStudyProps;
             if (mediaGroupObject) {
                     const imageProps = mediaGroupObject[mediaAlias] as ImageMedia;
@@ -53,7 +54,7 @@ export default function FigureImageVideo ({group, mediaAlias, subgroup, wrapping
                                         height={imageProps.height} 
                                         alt={imageProps.alt} 
                                         loading={imageProps.loading}
-                                        onLoad={handleLoad}
+                                        // onLoad={handleLoad}
                                         className={isLoaded ? 'fade-in' : 'hidden'}
                                     />
                                 </picture>
@@ -79,7 +80,7 @@ export default function FigureImageVideo ({group, mediaAlias, subgroup, wrapping
                                 height={getProps.icon.height} 
                                 alt={getProps.icon.alt} 
                                 loading={getProps.icon.loading}
-                                onLoad={handleLoad}
+                                // onLoad={handleLoad}
                                 className={isLoaded ? 'fade-in' : 'hidden'}
                             />
                         </picture>
@@ -149,7 +150,7 @@ export default function FigureImageVideo ({group, mediaAlias, subgroup, wrapping
                                     case "image":
                                         const imageProps = getMediaGroupProps as ImageMedia;
                                         if (!isLoaded && !hasLoaded) {
-                                            console.log('imageProps.className: ' + imageProps.className);
+                                            // console.log('imageProps.className: ' + imageProps.className);
                                             return (
                                                 <FigurePlaceholder id={`${imageProps.id}`} className={`${imageProps.className}`} figcaption={renderFigcaption ? true : false} figcaptionPosition={(imageProps.figcaption && imageProps.figcaption.position) ? imageProps.figcaption.position : ""}>
                                                     {renderFigcaption && renderFigcaption}
@@ -164,7 +165,7 @@ export default function FigureImageVideo ({group, mediaAlias, subgroup, wrapping
                                                         height={imageProps.height} 
                                                         alt={imageProps.alt} 
                                                         loading={imageProps.loading}
-                                                        onLoad={handleLoad}
+                                                        // onLoad={handleLoad}
                                                         className={isLoaded ? 'fade-in' : 'hidden'}
                                                     />
                                                 </picture>
@@ -191,7 +192,7 @@ export default function FigureImageVideo ({group, mediaAlias, subgroup, wrapping
                                         };
                                         const getVideoBooleanAttributes = videoBooleanAttributes();
                                         if (!isLoaded && !hasLoaded) {
-                                            console.log('videoProps.className: ' + videoProps.className);
+                                            // console.log('videoProps.className: ' + videoProps.className);
                                             return (
                                                 <FigurePlaceholder id={`${videoProps.id}`} className={`${videoProps.className}`} figcaption={renderFigcaption ? true : false} figcaptionPosition={(videoProps.figcaption && videoProps.figcaption.position) ? videoProps.figcaption.position : ""}>
                                                     {renderFigcaption && renderFigcaption}
@@ -205,7 +206,7 @@ export default function FigureImageVideo ({group, mediaAlias, subgroup, wrapping
                                                     controlsList={videoProps.controlsList}
                                                     preload={videoProps.preload}
                                                     {...getVideoBooleanAttributes}
-                                                    onLoadedData={handleLoad}
+                                                    // onLoadedData={handleLoad}
                                                 >
                                                     <source src={videoProps.src} />
                                                 </video>
@@ -214,7 +215,7 @@ export default function FigureImageVideo ({group, mediaAlias, subgroup, wrapping
                                     case "iframe":
                                         const iframeProps = getMediaGroupProps as IframeMedia;
                                         if (!isLoaded && !hasLoaded) {
-                                            console.log('iframeProps.className: ' + iframeProps.className);
+                                            // console.log('iframeProps.className: ' + iframeProps.className);
                                             return (
                                                 <FigurePlaceholder id={`${iframeProps.id}`} className={`${iframeProps.className}`} figcaption={renderFigcaption ? true : false} figcaptionPosition={(iframeProps.figcaption && iframeProps.figcaption.position) ? iframeProps.figcaption.position : ""}>
                                                     {renderFigcaption && renderFigcaption}
@@ -227,7 +228,7 @@ export default function FigureImageVideo ({group, mediaAlias, subgroup, wrapping
                                                     src={iframeProps.src} 
                                                     allow={iframeProps.allow} 
                                                     allowFullScreen
-                                                    onLoad={handleLoad}
+                                                    // onLoad={handleLoad}
                                                 />
                                             )
                                         }
@@ -253,7 +254,7 @@ export default function FigureImageVideo ({group, mediaAlias, subgroup, wrapping
                                 );
                                 if (wrappingLink == true && href) {
                                     return (
-                                        <Link id={getMediaType.id} href={href} className={`${getMediaType.className && getMediaType.className} ${getMediaGroupProps.shadow == true && "shadow"}`}>
+                                        <Link id={getMediaType.id} href={href} className={`${getMediaType.className && getMediaType.className} ${getMediaGroupProps.shadow == true && "shadow"}`} data-showbuffer="true">
                                             {renderFigure()}
                                         </Link>
                                     );

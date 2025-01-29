@@ -36,7 +36,7 @@ export function scrollProgressBar(caseStudyPaths: string[]) {
         currentProgress = (scrollPosition / totalHeight) * 100;
       }
       if (!currentProgress) {
-        console.log('currentProgress number is undefined and will default to zero as the width value. Progress bar will not show any width.')
+        // console.log('currentProgress number is undefined and will default to zero as the width value. Progress bar will not show any width.');
         currentProgress = 0;
       } else {
         // Do nothing.

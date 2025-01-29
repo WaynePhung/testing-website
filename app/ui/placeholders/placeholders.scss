@@ -36,7 +36,8 @@ $textType: "default";
 }
 
 .fade-in {
-  animation: fadeIn 0.5s;
+  // animation: fadeIn 0.5s;
+  animation: fadeIn 0s;
 }
 
 @keyframes fadeIn {

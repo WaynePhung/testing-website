@@ -1,4 +1,4 @@
-import { sendEmail } from "./email-api";
+// import { sendEmail } from "./email-api";
 
 export interface ButtonProps {
     class?: string;
@@ -12,6 +12,14 @@ export function getButtonProps() : { [key: string]: ButtonProps } {
         homepage: {
             role: "button",
             ariaLabel: "back to home page"
+        },
+        menu: {
+            role: "button",
+            ariaLabel: "menu to view list of website navigation options"
+        },
+        closeMenu: {
+            role: "button",
+            ariaLabel: "collapse and close list of website navigation options"
         },
         contact: {
             id: "contactButton",
